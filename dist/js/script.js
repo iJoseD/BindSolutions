@@ -261,7 +261,7 @@ $('#btn-editarProducto').click(function() {
         success: function(response) {
             console.log( response );
 
-            if ( response == 'product_not_created' ) {
+            if ( response == 'product_not_edit' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {

@@ -28,12 +28,12 @@ if ( $caso == 'crearProductos' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarProducto' ) {
-    $sql = "UPDATE productos SET nombre = '$nombre', costo = '$costo', precioPublico = '$precioPublico' WHERE id = '$id'";
+    $sql = "UPDATE productos SET nombre = '$nombre', costo = '$costo', precioPublico = '$precioPublico' WHERE id = $id";
     
     if ($conn->query($sql) === TRUE) {
-        echo 'product_created';
+        echo 'product_edit';
     } else {
-        echo 'product_not_created';
+        echo 'product_not_edit';
     }
 
     $conn->close();
