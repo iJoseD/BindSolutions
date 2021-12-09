@@ -20,7 +20,7 @@
         <table id="tableProductos" class="display">
             <thead>
                 <tr>
-                    <th>Imagen</th>
+                    <!-- <th>Imagen</th> -->
                     <th>Nombre</th>
                     <th>Costo</th>
                     <th>Precio al público</th>
@@ -35,7 +35,7 @@
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $html = '<tr>';
-                                $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'"></th>';
+                                // $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>'. $row['costo'] .'</th>';
                                 $html .= '<th>'. $row['precioPublico'] .'</th>';
