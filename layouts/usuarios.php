@@ -35,11 +35,11 @@
                     if ($result->num_rows > 0) {
                         $html = '<tr>';
                             while($row = $result->fetch_assoc()) {
-                                $html .= '<td '. $row['fullName'] .'</td>';
-                                $html .= '<td '. $row['user'] .'</td>';
-                                $html .= '<td '. $row['rol'] .'</td>';
-                                $html .= '<td '. $row['lastLogin'] .'</td>';
-                                $html .= '<button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button>';
+                                $html .= '<td>'. $row['fullName'] .'</td>';
+                                $html .= '<td>'. $row['user'] .'</td>';
+                                $html .= '<td>'. $row['rol'] .'</td>';
+                                $html .= '<td>'. $row['lastLogin'] .'</td>';
+                                $html .= '<td><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></td>';
                             }
                         $html .= '</tr>';
 
