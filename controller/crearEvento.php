@@ -13,13 +13,13 @@ if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 $caso       = $_POST['caso'];
 $id         = $_POST['id'];
 $nombre     = $_POST['nombre'];
-$fecha      = $_POST['fecha'];
+$fecha      = date_create( $_POST['fecha'] ); $fechaFormato = date_format($fecha, "l, d M Y");
 $lugar      = $_POST['lugar'];
 $linkSocio  = $_POST['linkSocio'];
 $date       = date('Y-m-d H:m:s');
 
 if ( $caso == 'crearEvento' ) {
-    $sql = "INSERT INTO eventos (nombre, fecha, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fecha', '$lugar', '$linkSocio', '1', '$date')";
+    $sql = "INSERT INTO eventos (nombre, fecha, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_created';
