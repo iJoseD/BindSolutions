@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 
 include "../library/mcript.php";
 
@@ -28,6 +28,7 @@ if ( $caso == 'iniciarSesion' ) {
                     $sql = "UPDATE usuarios SET lastLogin = '$date' WHERE user = '$user'";
 
                     if ($conn->query($sql) === TRUE) {
+                        session_start();
                         $_SESSION['fullName'] = $row['fullName'];
                         $_SESSION['user'] = $row['user'];
                         $_SESSION['rol'] = $row['rol'];
