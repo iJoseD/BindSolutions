@@ -81,9 +81,7 @@
                 <div class="formulario">
                     <div class="row">
                         <div class="col-6">
-                            <div class="input-append datepicker" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class="datepicker" size="16" type="text" value="12-02-2012" />
-                            </div>
+                            <input type="text" id="datepicker">
                         </div>
                     </div>
                     <div class="row mt-3">
