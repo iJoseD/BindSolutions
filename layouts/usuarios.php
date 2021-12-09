@@ -1,3 +1,14 @@
+<?php
+    // MySQLi
+    $servername = "localhost";
+    $username   = "app_bind";
+    $password   = "h_Af867w";
+    $dbname     = "app_bind";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+?>
+
 <section class="container">
     <div class="row mt-5">
         <div class="col-3">
@@ -32,13 +43,44 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label">Nombre completo</label>
+                        <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Joan Alonso Rivero">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-6">Rol</label>
+                        <select name="rol" id="rol" class="form-select">
+                            <option selected>---</option>
+                            <?php
+                                $sql = "SELECT * FROM rol";
+                                $result = $conn->query($sql);
+                                
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Usuario</label>
+                        <input type="text" name="user" id="user" class="form-control" placeholder="JoanAlonso">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                    </div>
+                </div>
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Crear usuario</button>
             </div>
         </div>
     </div>
