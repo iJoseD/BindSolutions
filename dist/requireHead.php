@@ -1,17 +1,17 @@
 <?php
-    // if ( strpos( $_SERVER['REQUEST_URI'], '/payments/' ) !== false ) { } else {
-    //     session_start();
+    if ( strpos( $_SERVER['REQUEST_URI'], '/payments/' ) !== false ) { } else {
+        session_start();
 
-    //     if ( empty( $_SESSION['phone'] ) ) {
-    //         if ( $_SERVER['REQUEST_URI'] != '/login/' ) {
-    //             header( 'location: ../login/' );
-    //         }
-    //     } else {
-    //         if ( $_SERVER['REQUEST_URI'] == '/login/' ) {
-    //             header( 'location: /' );
-    //         }
-    //     }
-    // }
+        if ( empty( $_SESSION['user'] ) ) {
+            if ( $_SERVER['REQUEST_URI'] != '/login/' ) {
+                header( 'location: ../login/' );
+            }
+        } else {
+            if ( $_SERVER['REQUEST_URI'] == '/login/' ) {
+                header( 'location: /' );
+            }
+        }
+    }
 ?>
 
 <head>

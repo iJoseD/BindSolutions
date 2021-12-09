@@ -78,6 +78,78 @@ $('#btn-crearUsuario').click(function() {
     });
 });
 
+// Crear usuario
+$('#btn-crearUsuario').click(function() {
+    var fullName    = $('#fullName').val();
+    var user        = $('#user').val();
+    var password    = $('#password').val();
+    var rol         = $('#rol').val();
+
+    $.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso     : 'crearUsuario',
+            fullName : fullName,
+            user     : user,
+            password : password,
+            rol      : rol
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'user_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearUsuario_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
+// Eliminar usuario
+$('#btn-eliminarUsuario').click(function() {
+    var user        = $('#user').val();
+
+    $.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso     : 'eliminarUsuario',
+            user     : user
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'user_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearUsuario_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Agregar imagen a los productos
 $(".upload").on('click', function() {
     var formData = new FormData();

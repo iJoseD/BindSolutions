@@ -23,19 +23,24 @@ if ( $caso == 'iniciarSesion' ) {
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            if ( $row['password'] == $password ) {
-                $sql = "UPDATE usuarios SET lastLogin = '$date' WHERE user = '$user'";
+            if ( $row['status'] == '1' ) {
+                if ( $row['password'] == $password ) {
+                    $sql = "UPDATE usuarios SET lastLogin = '$date' WHERE user = '$user'";
 
-                if ($conn->query($sql) === TRUE) {
-                    $_SESSION['fullName'] = $row['fullName'];
-                    $_SESSION['rol'] = $row['rol'];
+                    if ($conn->query($sql) === TRUE) {
+                        $_SESSION['fullName'] = $row['fullName'];
+                        $_SESSION['user'] = $row['user'];
+                        $_SESSION['rol'] = $row['rol'];
 
-                    echo 'successful_login';
+                        echo 'successful_login';
+                    } else {
+                        echo 'login_failed';
+                    }
                 } else {
-                    echo 'login_failed';
+                    echo 'password_incorrect';
                 }
             } else {
-                echo 'password_incorrect';
+                echo 'user_not_exist';
             }
         }
     } else {

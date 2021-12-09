@@ -20,12 +20,34 @@ $rol        = $_POST['rol'];
 $date       = date('Y-m-d H:m:s');
 
 if ( $caso == 'crearUsuario' ) {
-    $sql = "INSERT INTO usuarios (fullName, user, password, rol, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '$date')";
+    $sql = "INSERT INTO usuarios (fullName, user, password, rol, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '1', '$date')";
     
     if ($conn->query($sql) === TRUE) {
         echo 'user_created';
     } else {
         echo 'user_not_created';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'crearUsuario' ) {
+    $sql = "INSERT INTO usuarios (fullName, user, password, rol, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '1', '$date')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo 'user_created';
+    } else {
+        echo 'user_not_created';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'eliminarUsuario' ) {
+    $sql = "UPDATE usuarios SET status = '0' WHERE user = '$user'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'successful_login';
+    } else {
+        echo 'login_failed';
     }
 
     $conn->close();
