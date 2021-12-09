@@ -3,12 +3,12 @@
     <!-- Head -->
     <?php require_once('../dist/requireHead.php'); ?>
 
-    <body id="profile-edit">
+    <body>
         <!-- Navbar -->
-        <?php require_once('../layouts/navbar-w.php'); ?>
+        <?php require_once('../layouts/navbar.php'); ?>
 
         <!-- Profile -->
-        <?php require_once('../layouts/profile.php'); ?>
+        <?php require_once('../layouts/usuarios.php'); ?>
         
         <!-- Bootstrap Bundle with Popper -->
         <?php require_once('../dist/requireFooter.php'); ?>
