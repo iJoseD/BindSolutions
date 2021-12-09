@@ -8,7 +8,7 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
-    $code = 'BSE' . rand(9999, 99999999);
+    $code = 'BSE' . rand(1000, 9999);
     $linkSocio = 'https://' . $_SERVER[HTTP_HOST] . '/ver-evento/?evento=' . $code;
 ?>
 
@@ -27,8 +27,7 @@
                     <th>Fecha</th>
                     <th>Lugar</th>
                     <th>Link Socios</th>
-                    <th>Puntos de venta</th>
-                    <th>Unidades en stock</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,9 +42,19 @@
                                 $html .= '<th>'. $row['fecha'] .'</th>';
                                 $html .= '<th>'. $row['lugar'] .'</th>';
                                 $html .= '<th>'. $row['linkSocio'] .'</th>';
-                                $html .= '<th>5</th>';
-                                $html .= '<th>120</th>';
                                 $html .= '<th>
+                                    <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#editarEvento" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-success agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#editarEvento" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                        </svg>
+                                    </button>
                                     <button type="button" class="btn btn-warning editarEvento" data-bs-toggle="modal" data-bs-target="#editarEvento" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'" data-fecha="'. $row['fecha'] .'" data-lugar="'. $row['lugar'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -116,7 +125,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-crearProducto" class="btn btn-primary">Crear producto</button>
+                <button type="button" id="btn-crearEvento" class="btn btn-primary">Crear producto</button>
             </div>
         </div>
     </div>

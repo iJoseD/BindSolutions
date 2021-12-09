@@ -329,6 +329,138 @@ $('#btn-eliminarProducto').click(function() {
     });
 });
 
+// |==============================|
+// |========== EVENTOS ===========|
+// |==============================|
+// Crear eventos
+$('#btn-crearEvento').click(function() {
+    var nombre      = $('#nombre').val();
+    var fecha       = $('#fecha').val();
+    var lugar       = $('#lugar').val();
+    var linkSocio   = $('#linkSocio').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso      : 'crearEvento',
+            nombre    : nombre,
+            fecha     : fecha,
+            lugar     : lugar,
+            linkSocio : linkSocio
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'event_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
+// Editar producto
+$('.editarProducto').click(function() {
+    var id              = $(this).attr('data-id');
+    var imagen          = $(this).attr('data-imagen');
+    var nombre          = $(this).attr('data-nombre');
+    var costo           = $(this).attr('data-costo');
+    var precioPublico   = $(this).attr('data-precioPublico');
+
+    $('#edit-id').val(id);
+    $('.edit-card-img-top').attr('src', imagen);
+    $('#edit-nombre').val(nombre);
+    $('#edit-costo').val(costo);
+    $('#edit-precioPublico').val(precioPublico);
+});
+$('#btn-editarProducto').click(function() {
+    var id            = $('#edit-id').val();
+    var nombre        = $('#edit-nombre').val();
+    var nombre        = $('#edit-nombre').val();
+    var costo         = $('#edit-costo').val();
+    var precioPublico = $('#edit-precioPublico').val();
+
+    $.ajax({
+        url: '/controller/crearProductos.php',
+        type: 'POST',
+        data: {
+            caso          : 'editarProducto',
+            id            : id,
+            nombre        : nombre,
+            costo         : costo,
+            precioPublico : precioPublico
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'product_not_edit' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
+// Eliminar producto
+$('.eliminarProducto').click(function() {
+    var id      = $(this).attr('data-id');
+    var nombre  = $(this).attr('data-nombre');
+    
+    $('#eliminarProducto .product').html(nombre);
+    $('#delete-id').val(id);
+});
+$('#btn-eliminarProducto').click(function() {
+    var id = $('#delete-id').val();
+
+    $.ajax({
+        url: '/controller/crearProductos.php',
+        type: 'POST',
+        data: {
+            caso : 'eliminarProducto',
+            id   : id
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'product_not_deleted' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_eliminarProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/
