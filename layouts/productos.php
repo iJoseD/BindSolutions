@@ -95,11 +95,11 @@
                     <div class="row mt-3">
                         <div class="col-6">
                             <label class="form-label">Costo</label>
-                            <input type="text" name="costo" id="costo" class="form-control" placeholder="90.000">
+                            <input type="text" name="costo" id="costo" class="form-control" placeholder="90.000" onkeyup="separadorMiles(this,this.value.charAt(this.value.length-1))">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Precio al público</label>
-                            <input type="text" name="precioPublico" id="precioPublico" class="form-control" placeholder="120.000">
+                            <input type="text" name="precioPublico" id="precioPublico" class="form-control" placeholder="120.000" onkeyup="separadorMiles(this,this.value.charAt(this.value.length-1))">
                         </div>
                     </div>
                 </div>
