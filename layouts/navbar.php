@@ -9,6 +9,7 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"><img src="/dist/img/logoBind.png" width="40%" alt="Logotipo"></a></li>
                 <li><a href="/" class="nav-link px-2 text-white">Dashboard</a></li>
                 <li><a href="/productos" class="nav-link px-2 text-white">Productos</a></li>
                 <li><a href="/eventos" class="nav-link px-2 text-white">Eventos</a></li>
