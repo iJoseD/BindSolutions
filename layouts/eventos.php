@@ -100,7 +100,7 @@
                     <div class="row mt-3">
                         <div class="col-6">
                             <label class="form-label">Fecha</label>
-                            <input type="text" name="fecha" id="fecha" class="form-control datepicker">
+                            <input type="text" name="fecha" id="fecha" class="form-control datepicker" placeholder="<?php echo date("n/d/Y"); ?>">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Lugar</label>
