@@ -64,9 +64,9 @@
                                     </button>
                                 </th>';
                             $html .= '</tr>';
-                        }
 
-                        echo $html;
+                            echo $html;
+                        }
                     }
                 ?>
             </tbody>
