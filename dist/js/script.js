@@ -37,6 +37,7 @@ $('#btn-iniciarSesion').click(function() {
 // Cargar tablas
 $(document).ready(function () {
     $('#tableusuarios').DataTable();
+    $('#tableProductos').DataTable();
 });
 
 // Crear usuario
