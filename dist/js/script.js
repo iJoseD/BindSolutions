@@ -38,8 +38,14 @@ $('#btn-iniciarSesion').click(function() {
 $(document).ready(function () {
     $('#tableusuarios').DataTable();
     $('#tableProductos').DataTable();
+    $('#tableEventos').DataTable();
+
+    $('.datepicker').datepicker();
 });
 
+// |==============================|
+// |========== USUARIOS ==========|
+// |==============================|
 // Crear usuario
 $('#btn-crearUsuario').click(function() {
     var fullName    = $('#fullName').val();
@@ -167,6 +173,9 @@ $('#btn-eliminarUsuario').click(function() {
     });
 });
 
+// |==============================|
+// |========== PRODUCTOS =========|
+// |==============================|
 // Crear productos
 $('#btn-crearProducto').click(function() {
     var nombre        = $('#nombre').val();
