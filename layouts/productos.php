@@ -12,7 +12,7 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">añadir nuevo producto</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Añadir nuevo producto</button>
         </div>
     </div>
 
