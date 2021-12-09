@@ -30,8 +30,8 @@ if ( $caso == 'crearUsuario' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'crearUsuario' ) {
-    $sql = "INSERT INTO usuarios (fullName, user, password, rol, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '1', '$date')";
+} elseif ( $caso == 'editarUsuario' ) {
+    $sql = "UPDATE usuarios SET fullName = '$fullName', password = '$password', rol = '$rol' WHERE user = '$user'";
     
     if ($conn->query($sql) === TRUE) {
         echo 'user_created';

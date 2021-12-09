@@ -188,7 +188,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-crearUsuario" class="btn btn-warning">Editar usuario</button>
+                <button type="button" id="btn-editarUsuario" class="btn btn-warning">Editar usuario</button>
             </div>
         </div>
     </div>
