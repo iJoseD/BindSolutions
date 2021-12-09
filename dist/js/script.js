@@ -280,6 +280,46 @@ $('#btn-editarProducto').click(function() {
     });
 });
 
+// Eliminar producto
+$('.eliminarProducto').click(function() {
+    var id              = $(this).attr('data-id');
+    var nombre          = $(this).attr('data-nombre');
+    
+    $('#eliminarProducto .product').html(nombre);
+    $('#delete-id').val(id);
+});
+$('#btn-eliminarProducto').click(function() {
+    var id = $('#edit-id').val();
+
+    $.ajax({
+        url: '/controller/crearProductos.php',
+        type: 'POST',
+        data: {
+            caso : 'eliminarProducto',
+            id   : id
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'product_not_deleted' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_eliminarProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/

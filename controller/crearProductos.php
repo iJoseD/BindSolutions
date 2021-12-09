@@ -38,13 +38,13 @@ if ( $caso == 'crearProductos' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'eliminarUsuario' ) {
-    $sql = "UPDATE usuarios SET status = '0' WHERE user = '$user'";
+} elseif ( $caso == 'eliminarProducto' ) {
+    $sql = "UPDATE productos SET status = '0' WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'successful_login';
+        echo 'product_deleted';
     } else {
-        echo 'login_failed';
+        echo 'product_not_deleted';
     }
 
     $conn->close();

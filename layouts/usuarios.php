@@ -31,7 +31,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM usuarios";
+                    $sql = "SELECT * FROM usuarios WHERE status = '1'";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
