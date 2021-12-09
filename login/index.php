@@ -1,14 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
     <!-- Head -->
     <?php require_once('../dist/requireHead.php'); ?>
 
-    <body class="bgAzul" id="my-qr">
-        <!-- Navbar -->
-        <?php require_once('../layouts/navbar-w.php'); ?>
-        
-        <!-- My QR -->
-        <?php require_once('../layouts/my-qr.php'); ?>
+    <body id="login" class="h-100 text-white">
+        <!-- Dashboard -->
+        <?php require_once('../layouts/login.php'); ?>
         
         <!-- Bootstrap Bundle with Popper -->
         <?php require_once('../dist/requireFooter.php'); ?>
