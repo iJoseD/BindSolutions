@@ -229,17 +229,21 @@ $('#btn-crearProducto').click(function() {
 
 // Editar producto
 $('.editarProducto').click(function() {
+    var id              = $(this).attr('data-id');
     var imagen          = $(this).attr('data-imagen');
     var nombre          = $(this).attr('data-nombre');
     var costo           = $(this).attr('data-costo');
     var precioPublico   = $(this).attr('data-precioPublico');
 
+    $('#edit-id').val(id);
     $('.edit-card-img-top').attr('src', imagen);
     $('#edit-nombre').val(nombre);
     $('#edit-costo').val(costo);
     $('#edit-precioPublico').val(precioPublico);
 });
 $('#btn-editarProducto').click(function() {
+    var id            = $('#edit-id').val();
+    var nombre        = $('#edit-nombre').val();
     var nombre        = $('#edit-nombre').val();
     var costo         = $('#edit-costo').val();
     var precioPublico = $('#edit-precioPublico').val();
@@ -249,6 +253,7 @@ $('#btn-editarProducto').click(function() {
         type: 'POST',
         data: {
             caso          : 'editarProducto',
+            id            : id,
             nombre        : nombre,
             costo         : costo,
             precioPublico : precioPublico

@@ -11,6 +11,7 @@ if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
 // Var
 $caso          = $_POST['caso'];
+$id            = $_POST['id'];
 $nombre        = $_POST['nombre'];
 $costo         = $_POST['costo'];
 $precioPublico = $_POST['precioPublico'];
@@ -26,13 +27,13 @@ if ( $caso == 'crearProductos' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'editarUsuario' ) {
-    $sql = "UPDATE usuarios SET fullName = '$fullName', password = '$password', rol = '$rol' WHERE user = '$user'";
+} elseif ( $caso == 'editarProducto' ) {
+    $sql = "UPDATE productos SET nombre = '$nombre', costo = '$costo', precioPublico = '$precioPublico' WHERE id = '$id'";
     
     if ($conn->query($sql) === TRUE) {
-        echo 'user_created';
+        echo 'product_created';
     } else {
-        echo 'user_not_created';
+        echo 'product_not_created';
     }
 
     $conn->close();
