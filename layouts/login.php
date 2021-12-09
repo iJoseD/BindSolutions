@@ -1,10 +1,10 @@
-<section class="container">
+<section class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <div class="row">
         <div class="col-12">
             <div class="row">
                 <div class="col-12">
                     <figure class="iconotipo text-center">
-                        <img src="https://thankyoutipper.com/wp-content/uploads/2021/08/newIsotipo.svg" alt="Logo ThankYou Tipper">
+                        <img src="/dist/img/logoBind.png" alt="Logotipo">
                     </figure>
                 </div>
             </div>
