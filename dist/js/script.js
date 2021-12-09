@@ -65,6 +65,10 @@ $('#btn-crearUsuario').click(function() {
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
             }
         },
         error: function() {

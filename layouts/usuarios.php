@@ -97,8 +97,8 @@
                 <div class="successful-message hide">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <img src="/dist/img/tick.png" alt="Tick">
-                            <h2>Usuario creado correctamente</h2>
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Usuario creado correctamente</h4>
                         </div>
                     </div>
                 </div>
