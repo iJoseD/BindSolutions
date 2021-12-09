@@ -1,13 +1,3 @@
-if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    if ( window.location.pathname == '/device-info/' ) {
-        window.location.replace('https://myapp.thankyoutipper.com/');
-    }
-} else {
-    if ( window.location.pathname == '/device-info/' ) { } else {
-        window.location.replace('https://thankyoutipper.com/device-info/');
-    }
-}
-
 // Menu
 $('#icoMenu').click(function() {
     $('#menu').addClass('active');

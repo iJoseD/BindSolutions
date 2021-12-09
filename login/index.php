@@ -3,7 +3,7 @@
     <!-- Head -->
     <?php require_once('../dist/requireHead.php'); ?>
     
-    <body>
+    <body id="login">
         <!-- Login -->
         <?php require_once('../layouts/login.php'); ?>
         

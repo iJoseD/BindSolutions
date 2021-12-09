@@ -29,5 +29,5 @@
     <link rel="stylesheet" href="/dist/css/style.css">
     <link rel="stylesheet" href="/dist/css/menu.css">
     
-    <title>ThankYou Tipper</title>
+    <title>Bind Solutions</title>
 </head>
