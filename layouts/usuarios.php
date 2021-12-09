@@ -20,19 +20,32 @@
         <table id="tableusuarios" class="display">
             <thead>
                 <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Último acceso</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                </tr>
+                <?php
+                    $sql = "SELECT * FROM rol";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        $html = '<tr>';
+                            while($row = $result->fetch_assoc()) {
+                                $html .= '<td '. $row['fullName'] .'</td>';
+                                $html .= '<td '. $row['user'] .'</td>';
+                                $html .= '<td '. $row['rol'] .'</td>';
+                                $html .= '<td '. $row['lastLogin'] .'</td>';
+                                $html .= '<button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button>';
+                            }
+                        $html .= '</tr>';
+
+                        echo $html;
+                    }
+                ?>
             </tbody>
         </table>
     </div>
@@ -47,42 +60,52 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label class="form-label">Nombre completo</label>
-                        <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Joan Alonso Rivero">
-                    </div>
-                    <div class="col-6">
-                        <label class="form-label">Rol</label>
-                        <select name="rol" id="rol" class="form-select">
-                            <option selected>---</option>
-                            <?php
-                                $sql = "SELECT * FROM rol";
-                                $result = $conn->query($sql);
-                                
-                                if ($result->num_rows > 0) {
-                                    while($row = $result->fetch_assoc()) {
-                                        echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
+                <div class="formulario">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Nombre completo</label>
+                            <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Joan Alonso Rivero">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Rol</label>
+                            <select name="rol" id="rol" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM rol";
+                                    $result = $conn->query($sql);
+                                    
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
+                                        }
                                     }
-                                }
-                            ?>
-                        </select>
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" name="user" id="user" class="form-control" placeholder="JoanAlonso">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-6">
-                        <label class="form-label">Usuario</label>
-                        <input type="text" name="user" id="user" class="form-control" placeholder="JoanAlonso">
-                    </div>
-                    <div class="col-6">
-                        <label class="form-label">Contraseña</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" alt="Tick">
+                            <h2>Usuario creado correctamente</h2>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Crear usuario</button>
+                <button type="button" id="btn-crearUsuario" class="btn btn-primary">Crear usuario</button>
             </div>
         </div>
     </div>

@@ -1,3 +1,5 @@
+.hide { display: none !important; }
+
 #login {
   background-image: url(/dist/img/bgLogin.jpg);
   background-position: center center;
