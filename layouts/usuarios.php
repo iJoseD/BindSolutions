@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM rol";
+                    $sql = "SELECT * FROM usuarios";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
