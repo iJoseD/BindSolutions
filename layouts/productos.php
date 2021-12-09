@@ -214,7 +214,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-eliminarProducto" class="btn btn-danger">Eliminar usuario</button>
+                <button type="button" id="btn-eliminarProducto" class="btn btn-danger">Eliminar producto</button>
             </div>
         </div>
     </div>
