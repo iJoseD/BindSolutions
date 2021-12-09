@@ -19,7 +19,7 @@ $password   = $encriptar( $_POST['password'] );
 $rol        = $_POST['rol'];
 $date       = date('Y-m-d H:m:s');
 
-if ( $caso == 'iniciarSesion' ) {
+if ( $caso == 'crearUsuario' ) {
     $sql = "INSERT INTO usuarios (fullName, user, password, rol, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '$date')";
     
     if ($conn->query($sql) === TRUE) {
