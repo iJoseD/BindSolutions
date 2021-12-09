@@ -78,43 +78,17 @@ $('#btn-crearUsuario').click(function() {
     });
 });
 
-// Crear usuario
-$('#btn-crearUsuario').click(function() {
-    var fullName    = $('#fullName').val();
-    var user        = $('#user').val();
-    var password    = $('#password').val();
-    var rol         = $('#rol').val();
+// Editar usuario
+$('.editarUsuario').click(function() {
+    var fullName    = $(this).attr('data-fullName');
+    var user        = $(this).attr('data-user');
+    var password    = $(this).attr('data-password');
+    var rol         = $(this).attr('data-rol');
 
-    $.ajax({
-        url: '/controller/crearUsuario.php',
-        type: 'POST',
-        data: {
-            caso     : 'crearUsuario',
-            fullName : fullName,
-            user     : user,
-            password : password,
-            rol      : rol
-        },
-        success: function(response) {
-            console.log( response );
-
-            if ( response == 'user_not_created' ) {
-                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
-            }
-        },
-        error: function() {
-            console.log( 'ajax_crearUsuario_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-        }
-    });
+    $('#edit-fullName').val(fullName);
+    $('#edit-user').val(user);
+    $('#edit-password').val(password);
+    $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
 });
 
 // Eliminar usuario
