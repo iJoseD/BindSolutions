@@ -194,9 +194,9 @@ $(".upload").on('click', function() {
 
 // Crear productos
 $('#btn-crearProducto').click(function() {
-    var nombre        = $('#fullName').val();
-    var costo         = $('#user').val();
-    var precioPublico = $('#password').val();
+    var nombre        = $('#nombre').val();
+    var costo         = $('#costo').val();
+    var precioPublico = $('#precioPublico').val();
 
     $.ajax({
         url: '/controller/crearProductos.php',
@@ -234,9 +234,9 @@ $('#btn-crearProducto').click(function() {
                             $('.formulario').addClass('hide');
                             $('.successful-message').removeClass('hide');
 
-                            window.setTimeout(function() {
-                                location.reload();
-                            }, 2000);
+                            // window.setTimeout(function() {
+                            //     location.reload();
+                            // }, 2000);
                         }
                     }
                 });
