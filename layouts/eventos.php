@@ -80,24 +80,25 @@
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row">
+                        <div class="col-12">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Silvestre en Trucupey">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
                         <div class="col-6">
-                            <input type="text" id="datepicker">
+                            <label class="form-label">Fecha</label>
+                            <input type="text" name="fecha" id="fecha" class="form-control datepicker">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Lugar</label>
+                            <input type="text" name="lugar" id="lugar" class="form-control" placeholder="Trucupey">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12">
-                            <label class="form-label">Nombre producto</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Old Parr 750ml">
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <label class="form-label">Costo</label>
-                            <input type="text" name="costo" id="costo" class="form-control" placeholder="90.000" onkeyup="separadorMiles(this,this.value.charAt(this.value.length-1))">
-                        </div>
-                        <div class="col-6">
-                            <label class="form-label">Precio al público</label>
-                            <input type="text" name="precioPublico" id="precioPublico" class="form-control" placeholder="120.000" onkeyup="separadorMiles(this,this.value.charAt(this.value.length-1))">
+                            <label class="form-label">Link para socios</label>
+                            <input type="text" name="linkSocio" id="linkSocio" class="form-control" value="<?php echo $linkSocio; ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -105,7 +106,7 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Producto creado correctamente</h4>
+                            <h4 class="mt-4">Evento creado correctamente</h4>
                         </div>
                     </div>
                 </div>
