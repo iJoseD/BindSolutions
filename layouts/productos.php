@@ -80,7 +80,7 @@
                                     <img class="card-img-top" src="/dist/img/empty.jpg">
                                     <div class="card-body d-grid">
                                         <input type="file" class="form-control" name="img--profile" id="img--profile">
-                                        <input type="button" class="btn btn-primary upload mt-3" value="Subir imagen">
+                                        <!-- <input type="button" class="btn btn-primary upload mt-3" value="Subir imagen"> -->
                                     </div>
                                 </div>
                             </form>
@@ -114,7 +114,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-crearUsuario" class="btn btn-primary">Crear producto</button>
+                <button type="button" id="btn-crearProducto" class="btn btn-primary">Crear producto</button>
             </div>
         </div>
     </div>

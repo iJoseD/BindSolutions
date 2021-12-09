@@ -9,9 +9,6 @@ $dbname     = "app_bind";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
-$phone  = $_SESSION['phone'];
-$code   = rand(1000, 9999);
-
 if (is_array($_FILES) && count($_FILES) > 0) {
     if (($_FILES["file"]["type"] == "image/pjpeg")
         || ($_FILES["file"]["type"] == "image/jpeg")
@@ -19,9 +16,18 @@ if (is_array($_FILES) && count($_FILES) > 0) {
         || ($_FILES["file"]["type"] == "image/gif")) {
         if ( move_uploaded_file( $_FILES["file"]["tmp_name"], "../dist/img-profile/".$code."-".$_FILES['file']['name'] ) ) {
             $avatar = "/dist/img-profile/".$code."-".$_FILES['file']['name'];
-            $sql = "UPDATE userProfile SET avatar = '$avatar' WHERE phone = '$phone'";
+
+            $sql = "SELECT MAX(id) AS id FROM productos";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $idProducto = $row['id'];
+                }
+            }
+
+            $sql = "UPDATE productos SET imagen = '$avatar' WHERE phone = '$idProducto'";
             if ($conn->query($sql) === TRUE) {
-                $_SESSION['avatar'] = $avatar;
                 echo $avatar;
             } else {
                 echo 'error_update_db';

@@ -1,7 +1,5 @@
 <?php
 
-include "../library/mcript.php";
-
 // MySQLi
 $servername = "localhost";
 $username   = "app_bind";
@@ -12,20 +10,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
 // Var
-$caso       = $_POST['caso'];
-$fullName   = $_POST['fullName'];
-$user       = $_POST['user'];
-$password   = $encriptar( $_POST['password'] );
-$rol        = $_POST['rol'];
-$date       = date('Y-m-d H:m:s');
+$caso          = $_POST['caso'];
+$nombre        = $_POST['nombre'];
+$costo         = $_POST['costo'];
+$precioPublico = $_POST['precioPublico'];
 
-if ( $caso == 'crearUsuario' ) {
-    $sql = "INSERT INTO usuarios (fullName, user, password, rol, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '1', '$date')";
+if ( $caso == 'crearProductos' ) {
+    $sql = "INSERT INTO productos (imagen, nombre, costo, precioPublico, status) VALUES ('', '$nombre', '$costo', '$precioPublico', '1')";
     
     if ($conn->query($sql) === TRUE) {
-        echo 'user_created';
+        echo 'product_created';
     } else {
-        echo 'user_not_created';
+        echo 'product_not_created';
     }
 
     $conn->close();

@@ -192,6 +192,64 @@ $(".upload").on('click', function() {
     return false;
 });
 
+// Crear productos
+$('#btn-crearProducto').click(function() {
+    var nombre        = $('#fullName').val();
+    var costo         = $('#user').val();
+    var precioPublico = $('#password').val();
+
+    $.ajax({
+        url: '/controller/crearProductos.php',
+        type: 'POST',
+        data: {
+            caso          : 'crearProductos',
+            nombre        : nombre,
+            costo         : costo,
+            precioPublico : precioPublico
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'product_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                var formData = new FormData();
+                var files = $('#img--profile')[0].files[0];
+                formData.append('file', files);
+                $.ajax({
+                    url: '/controller/uploadImgProfile.php',
+                    type: 'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        if ( response == 'error_al_mover_archivo' ) {
+                            console.log( response );
+                        } else if ( response == 'error_formato_imagen' ) {
+                            console.log( response );
+                        } else if ( response == 'error_array_files' ) {
+                            console.log( response );
+                        } else {
+                            $('.formulario').addClass('hide');
+                            $('.successful-message').removeClass('hide');
+
+                            window.setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        }
+                    }
+                });
+                return false;
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/
