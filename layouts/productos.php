@@ -17,13 +17,13 @@
     </div>
 
     <div class="row mt-5">
-        <table id="tableProductos" class="display">
+    <table id="tableusuarios" class="display">
             <thead>
                 <tr>
-                    <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Costo</th>
-                    <th>Precio al público</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Último acceso</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
