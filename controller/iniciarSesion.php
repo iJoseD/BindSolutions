@@ -27,8 +27,8 @@ if ( $caso == 'iniciarSesion' ) {
                 $sql = "UPDATE usuarios SET lastLogin = '$date' WHERE user = '$user'";
 
                 if ($conn->query($sql) === TRUE) {
-                    $_SESSION['fullName'] = $fullName;
-                    $_SESSION['rol'] = $rol;
+                    $_SESSION['fullName'] = $row['fullName'];
+                    $_SESSION['rol'] = $row['rol'];
 
                     echo 'successful_login';
                 } else {

@@ -33,6 +33,11 @@ $('#btn-iniciarSesion').click(function() {
     });
 });
 
+// Cargar tablas
+$(document).ready(function () {
+    $('#tableusuarios').DataTable();
+});
+
 // Agregar imagen a los productos
 $(".upload").on('click', function() {
     var formData = new FormData();
