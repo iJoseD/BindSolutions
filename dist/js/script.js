@@ -91,10 +91,10 @@ $('.editarUsuario').click(function() {
     $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
 });
 $('#btn-editarUsuario').click(function() {
-    var fullName    = $('#fullName').val();
-    var user        = $('#user').val();
-    var password    = $('#password').val();
-    var rol         = $('#rol').val();
+    var fullName    = $('#edit-fullName').val();
+    var user        = $('#edit-user').val();
+    var password    = $('#edit-password').val();
+    var rol         = $('#edit-rol').val();
 
     $.ajax({
         url: '/controller/crearUsuario.php',
@@ -129,8 +129,13 @@ $('#btn-editarUsuario').click(function() {
 });
 
 // Eliminar usuario
+$('.eliminarUsuario').click(function() {
+    var user = $(this).attr('data-user');
+    
+    $('#eliminarUsuario .user').val(user);
+});
 $('#btn-eliminarUsuario').click(function() {
-    var user        = $('#user').val();
+    var user = $('#eliminarUsuario .user').val();
 
     $.ajax({
         url: '/controller/crearUsuario.php',
