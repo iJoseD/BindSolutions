@@ -5,7 +5,7 @@
 
     <body>
         <!-- Navbar -->
-        <?php require_once('../layouts/navbar-w.php'); ?>
+        <?php require_once('../layouts/navbar.php'); ?>
 
         <!-- Profile -->
         <?php require_once('../layouts/usuarios.php'); ?>
