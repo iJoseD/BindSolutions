@@ -132,10 +132,10 @@ $('#btn-editarUsuario').click(function() {
 $('.eliminarUsuario').click(function() {
     var user = $(this).attr('data-user');
     
-    $('#eliminarUsuario .user').val(user);
+    $('#eliminarUsuario .user').html(user);
 });
 $('#btn-eliminarUsuario').click(function() {
-    var user = $('#eliminarUsuario .user').val();
+    var user = $('#eliminarUsuario .user').html();
 
     $.ajax({
         url: '/controller/crearUsuario.php',
