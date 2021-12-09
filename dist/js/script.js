@@ -167,32 +167,6 @@ $('#btn-eliminarUsuario').click(function() {
     });
 });
 
-// Agregar imagen a los productos
-$(".upload").on('click', function() {
-    var formData = new FormData();
-    var files = $('#img--profile')[0].files[0];
-    formData.append('file', files);
-    $.ajax({
-        url: '/controller/uploadImgProfile.php',
-        type: 'post',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-            if ( response == 'error_al_mover_archivo' ) {
-                console.log( response );
-            } else if ( response == 'error_formato_imagen' ) {
-                console.log( response );
-            } else if ( response == 'error_array_files' ) {
-                console.log( response );
-            } else {
-                $(".card-img-top").attr("src", response);
-            }
-        }
-    });
-    return false;
-});
-
 // Crear productos
 $('#btn-crearProducto').click(function() {
     var nombre        = $('#nombre').val();
@@ -215,6 +189,8 @@ $('#btn-crearProducto').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
+                // Agregar imagen a los productos
+
                 var formData = new FormData();
                 var files = $('#img--profile')[0].files[0];
                 formData.append('file', files);
@@ -242,6 +218,54 @@ $('#btn-crearProducto').click(function() {
                     }
                 });
                 return false;
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
+// Editar producto
+$('.editarProducto').click(function() {
+    var imagen          = $(this).attr('data-imagen');
+    var nombre          = $(this).attr('data-nombre');
+    var costo           = $(this).attr('data-costo');
+    var precioPublico   = $(this).attr('data-precioPublico');
+
+    $('.edit-card-img-top').attr('src', imagen);
+    $('#edit-nombre').val(nombre);
+    $('#edit-costo').val(costo);
+    $('#edit-precioPublico').val(precioPublico);
+});
+$('#btn-editarProducto').click(function() {
+    var nombre        = $('#edit-nombre').val();
+    var costo         = $('#edit-costo').val();
+    var precioPublico = $('#edit-precioPublico').val();
+
+    $.ajax({
+        url: '/controller/crearProductos.php',
+        type: 'POST',
+        data: {
+            caso          : 'editarProducto',
+            nombre        : nombre,
+            costo         : costo,
+            precioPublico : precioPublico
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'product_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
             }
         },
         error: function() {
