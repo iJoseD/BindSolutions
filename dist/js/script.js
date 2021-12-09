@@ -356,6 +356,9 @@ $('#btn-crearEvento').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+                
                 window.setTimeout(function() {
                     location.reload();
                 }, 2000);

@@ -13,7 +13,29 @@ if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 $caso       = $_POST['caso'];
 $id         = $_POST['id'];
 $nombre     = $_POST['nombre'];
-$fecha      = date_create( $_POST['fecha'] ); $fechaFormato = date_format($fecha, "l, d M Y");
+
+$fecha        = date_create( $_POST['fecha'] );
+$diaTexto     = date_format($fecha, "l");
+$diaNumero    = date_format($fecha, "d");
+$mesTexto     = date_format($fecha, "M");
+$anio         = date_format($fecha, "Y");
+switch ( $diaTexto ) {
+    case 'Monday'    : $diaTexto = "Lunes";     break;
+    case 'Tuesday'   : $diaTexto = "Martes";    break;
+    case 'Wednesday' : $diaTexto = "Miércoles"; break;
+    case 'Thursday'  : $diaTexto = "Jueves";    break;
+    case 'Friday'    : $diaTexto = "Viernes";   break;
+    case 'Saturday'  : $diaTexto = "Sábado";    break;
+    case 'Sunday'    : $diaTexto = "Domingo";   break;
+}
+switch ( $mesTexto ) {
+    case 'Jan': $mesTexto = "Ene"; break;
+    case 'Apr': $mesTexto = "Abr"; break;
+    case 'Aug': $mesTexto = "Ago"; break;
+    case 'Dec': $mesTexto = "Dic"; break;
+}
+$fechaFormato = $diaTexto . ', ' . $diaNumero . ' ' . $mesTexto . ' ' . $anio;
+
 $lugar      = $_POST['lugar'];
 $linkSocio  = $_POST['linkSocio'];
 $date       = date('Y-m-d H:m:s');
