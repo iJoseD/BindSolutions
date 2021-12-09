@@ -79,12 +79,8 @@
                     <div class="row">
                         <div class="col-12">
                             <form method="post" action="#" enctype="multipart/form-data">
-                                <div class="card">
-                                    <img class="card-img-top" src="/dist/img/empty.jpg">
-                                    <div class="card-body d-grid">
-                                        <input type="file" class="form-control" name="img--profile" id="img--profile">
-                                        <!-- <input type="button" class="btn btn-primary upload mt-3" value="Subir imagen"> -->
-                                    </div>
+                                <div class="d-grid">
+                                    <input type="file" class="form-control" name="img--profile" id="img--profile">
                                 </div>
                             </form>
                         </div>
