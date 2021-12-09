@@ -68,6 +68,8 @@
                             echo $html;
                         }
                     }
+
+                    $conn->close();
                 ?>
             </tbody>
         </table>
@@ -102,6 +104,8 @@
                                             echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
                                         }
                                     }
+
+                                    $conn->close();
                                 ?>
                             </select>
                         </div>
@@ -162,6 +166,8 @@
                                             echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
                                         }
                                     }
+
+                                    $conn->close();
                                 ?>
                             </select>
                         </div>

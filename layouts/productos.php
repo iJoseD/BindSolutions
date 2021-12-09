@@ -17,36 +17,28 @@
     </div>
 
     <div class="row mt-5">
-    <table id="tableusuarios" class="display">
+        <table id="tableProductos" class="display">
             <thead>
                 <tr>
+                    <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Usuario</th>
-                    <th>Rol</th>
-                    <th>Último acceso</th>
+                    <th>Costo</th>
+                    <th>Precio al público</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM usuarios";
+                    $sql = "SELECT * FROM productos";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            switch ( $row['rol'] ) {
-                                case '1':
-                                    $rol = 'Administrador';
-                                break;
-                                case '2':
-                                    $rol = 'Vendedor';
-                                break;
-                            }
                             $html = '<tr>';
-                                $html .= '<th>'. $row['fullName'] .'</th>';
-                                $html .= '<th>'. $row['user'] .'</th>';
-                                $html .= '<th>'. $rol .'</th>';
-                                $html .= '<th>'. $row['lastLogin'] .'</th>';
+                                $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'"></th>';
+                                $html .= '<th>'. $row['nombre'] .'</th>';
+                                $html .= '<th>'. $row['costo'] .'</th>';
+                                $html .= '<th>'. $row['precioPublico'] .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-fullName="'. $row['fullName'] .'" data-user="'. $row['user'] .'" data-rol="'. $row['rol'] .'" data-password="'. $desencriptar( $row['password'] ) .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -54,7 +46,7 @@
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                         </svg>
                                     </button>
-                                    <button type="button" class="btn btn-danger eliminarUsuario" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-user="'. $row['user'] .'">
+                                    <button type="button" class="btn btn-danger eliminarUsuario" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-id="'. $row['id'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -66,6 +58,8 @@
                             echo $html;
                         }
                     }
+
+                    $conn->close();
                 ?>
             </tbody>
         </table>
@@ -148,16 +142,6 @@
                             <label class="form-label">Rol</label>
                             <select name="edit-rol" id="edit-rol" class="form-select">
                                 <option selected>---</option>
-                                <?php
-                                    $sql = "SELECT * FROM rol";
-                                    $result = $conn->query($sql);
-                                    
-                                    if ($result->num_rows > 0) {
-                                        while($row = $result->fetch_assoc()) {
-                                            echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
-                                        }
-                                    }
-                                ?>
                             </select>
                         </div>
                     </div>
