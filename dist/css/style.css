@@ -12,3 +12,9 @@
   padding: 4em 2em;
   border-radius: 2em;
 }
+
+.imgProducto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
