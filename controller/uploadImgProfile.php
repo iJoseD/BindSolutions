@@ -9,6 +9,8 @@ $dbname     = "app_bind";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
+$code   = rand(1000, 9999);
+
 if (is_array($_FILES) && count($_FILES) > 0) {
     if (($_FILES["file"]["type"] == "image/pjpeg")
         || ($_FILES["file"]["type"] == "image/jpeg")
@@ -26,7 +28,7 @@ if (is_array($_FILES) && count($_FILES) > 0) {
                 }
             }
 
-            $sql = "UPDATE productos SET imagen = '$avatar' WHERE phone = '$idProducto'";
+            $sql = "UPDATE productos SET imagen = '$avatar' WHERE id = '$idProducto'";
             if ($conn->query($sql) === TRUE) {
                 echo $avatar;
             } else {
