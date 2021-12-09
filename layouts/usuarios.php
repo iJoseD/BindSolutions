@@ -53,7 +53,7 @@
                         <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Joan Alonso Rivero">
                     </div>
                     <div class="col-6">
-                        <label class="form-6">Rol</label>
+                        <label class="form-label">Rol</label>
                         <select name="rol" id="rol" class="form-select">
                             <option selected>---</option>
                             <?php
@@ -68,6 +68,8 @@
                             ?>
                         </select>
                     </div>
+                </div>
+                <div class="row mt-3">
                     <div class="col-6">
                         <label class="form-label">Usuario</label>
                         <input type="text" name="user" id="user" class="form-control" placeholder="JoanAlonso">
