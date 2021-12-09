@@ -282,14 +282,14 @@ $('#btn-editarProducto').click(function() {
 
 // Eliminar producto
 $('.eliminarProducto').click(function() {
-    var id              = $(this).attr('data-id');
-    var nombre          = $(this).attr('data-nombre');
+    var id      = $(this).attr('data-id');
+    var nombre  = $(this).attr('data-nombre');
     
     $('#eliminarProducto .product').html(nombre);
     $('#delete-id').val(id);
 });
 $('#btn-eliminarProducto').click(function() {
-    var id = $('#edit-id').val();
+    var id = $('#delete-id').val();
 
     $.ajax({
         url: '/controller/crearProductos.php',
