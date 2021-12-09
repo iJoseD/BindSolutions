@@ -7,6 +7,9 @@
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+
+    $code = rand(1000, 9999);
+    $linkSocio = $_SERVER[HTTP_HOST] . 'ver-evento/?idEvento=BSE' . $code
 ?>
 
 <section class="container">
