@@ -334,20 +334,20 @@ $('#btn-eliminarProducto').click(function() {
 // |==============================|
 // Crear eventos
 $('#btn-crearEvento').click(function() {
-    var nombre      = $('#nombre').val();
-    var fecha       = $('#fecha').val();
-    var lugar       = $('#lugar').val();
-    var linkSocio   = $('#linkSocio').val();
+    var nombre       = $('#nombre').val();
+    var fecha        = $('#fecha').val();
+    var lugar        = $('#lugar').val();
+    var codigoEvento = $('#codigoEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso      : 'crearEvento',
-            nombre    : nombre,
-            fecha     : fecha,
-            lugar     : lugar,
-            linkSocio : linkSocio
+            caso         : 'crearEvento',
+            nombre       : nombre,
+            fecha        : fecha,
+            lugar        : lugar,
+            codigoEvento : codigoEvento
         },
         success: function(response) {
             console.log( response );
@@ -373,35 +373,35 @@ $('#btn-crearEvento').click(function() {
 
 // Editar evento
 $('.editarEvento').click(function() {
-    var id          = $(this).attr('data-id');
-    var nombre      = $(this).attr('data-nombre');
-    var fecha       = $(this).attr('data-fecha');
-    var lugar       = $(this).attr('data-lugar');
-    var linkSocio   = $(this).attr('data-linkSocio');
+    var id           = $(this).attr('data-id');
+    var nombre       = $(this).attr('data-nombre');
+    var fecha        = $(this).attr('data-fecha');
+    var lugar        = $(this).attr('data-lugar');
+    var codigoEvento = $(this).attr('data-codigoEvento');
 
     $('#edit-id').val(id);
     $('#edit-nombre').val(nombre);
     $('#edit-fecha').val(fecha);
     $('#edit-lugar').val(lugar);
-    $('#edit-linkSocio').val(linkSocio);
+    $('#edit-codigoEvento').val(codigoEvento);
 });
 $('#btn-editarEvento').click(function() {
-    var id          = $('#edit-id').val();
-    var nombre      = $('#edit-nombre').val();
-    var fecha       = $('#edit-fecha').val();
-    var lugar       = $('#edit-lugar').val();
-    var linkSocio   = $('#edit-linkSocio').val();
+    var id           = $('#edit-id').val();
+    var nombre       = $('#edit-nombre').val();
+    var fecha        = $('#edit-fecha').val();
+    var lugar        = $('#edit-lugar').val();
+    var codigoEvento = $('#edit-codigoEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso      : 'editarEvento',
-            id        : id,
-            nombre    : nombre,
-            fecha     : fecha,
-            lugar     : lugar,
-            linkSocio : linkSocio
+            caso         : 'editarEvento',
+            id           : id,
+            nombre       : nombre,
+            fecha        : fecha,
+            lugar        : lugar,
+            codigoEvento : codigoEvento
         },
         success: function(response) {
             console.log( response );

@@ -37,9 +37,9 @@ switch ( $mesTexto ) {
 }
 $fechaFormato = $diaTexto . ', ' . $diaNumero . ' ' . $mesTexto . ' ' . $anio;
 
-$lugar      = $_POST['lugar'];
-$linkSocio  = $_POST['linkSocio'];
-$date       = date('Y-m-d H:m:s');
+$lugar        = $_POST['lugar'];
+$codigoEvento = $_POST['codigoEvento'];
+$date         = date('Y-m-d H:m:s');
 
 // Variables inventario
 $idEvento   = $_POST['idEvento'];
@@ -49,7 +49,7 @@ $cantidad   = $_POST['cantidad'];
 $nombrePV   = $_POST['nombrePV'];
 
 if ( $caso == 'crearEvento' ) {
-    $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
+    $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$date')";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_created';
@@ -60,7 +60,7 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarEvento' ) {
-    $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
+    $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', codigoEvento = '$codigoEvento' WHERE id = $id";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_edit';
