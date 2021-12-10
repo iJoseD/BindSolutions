@@ -40,6 +40,7 @@ $(document).ready(function () {
     $('#tableProductos').DataTable();
     $('#tableEventos').DataTable();
     $('#tablePuntosVenta').DataTable();
+    $('#tableSubInventario').DataTable();
 
     $( ".datepicker" ).datepicker();
 });
