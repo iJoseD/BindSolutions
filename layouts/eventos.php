@@ -288,7 +288,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="agregarPuntoVentaLabel">Agregar inventario</h5>
+                <h5 class="modal-title" id="agregarPuntoVentaLabel">Agregar punto de venta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -307,6 +307,21 @@
                         <div class="col-12">
                             <label class="form-label">Nombre punto de venta</label>
                             <input type="text" name="nombrePV" id="nombrePV" class="form-control" placeholder="Barra 1">
+                        </div>
+                    </div>
+                </div>
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Punto de venta agregado correctamente</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-inventario hide">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="fs-4">Asignar inventario</p>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -340,13 +355,13 @@
                             </button>
                         </div>
                     </div>
-                    <div class="row hide">
+                    <div class="row mt-5 hide">
                         <div class="col-12">
-                            <p class="text-muted">Unidades disponibles de <span class="product"></span>: <span class="cantidad bd-highlight"></span></p>
+                            <p class="text-muted">Unidades disponibles de <span class="product fw-bolder"></span>: <span class="cantidad badge bg-primary text-wrap"></span></p>
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-success successful-message hide mt-5" role="alert">
+                <div class="alert alert-success successful-alert hide mt-5" role="alert">
                     <div class="row">
                         <div class="col-12 text-center">
                             <p class="fw-normal">Item agregado correctamente</p>
