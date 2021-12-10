@@ -466,6 +466,9 @@ $('#btn-eliminarEvento').click(function() {
     });
 });
 
+// |==============================|
+// |========== EVENTO ============|
+// |==============================|
 // Agregar inventario
 $('.agregarInventario').click(function() {
     var id     = $(this).attr('data-id');

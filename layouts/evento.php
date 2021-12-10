@@ -39,13 +39,14 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-3 d-grid">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar inventario</button>
+            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar inventario</button>
         </div>
         <div class="col-3 d-grid">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar punto de venta</button>
+            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar punto de venta</button>
         </div>
     </div>
 
+    <!-- Inventario disponible -->
     <div class="row mt-5">
         <h3 class="mb-5">Inventario disponible</h3>
         <table id="tableProductos" class="display">
@@ -98,6 +99,7 @@
         </table>
     </div>
 
+    <!-- Puntos de venta -->
     <div class="row mt-5">
         <h3 class="mb-5">Puntos de venta</h3>
         <table id="tablePuntosVenta" class="display">
