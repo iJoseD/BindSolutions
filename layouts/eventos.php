@@ -192,20 +192,20 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eliminarEventoLabel">Eliminar producto</h5>
+                <h5 class="modal-title" id="eliminarEventoLabel">Eliminar evento</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row mt-3 hide">
                         <div class="col-12">
-                            <label class="form-label">Id producto</label>
+                            <label class="form-label">Id evento</label>
                             <input type="text" name="delete-id" id="delete-id" class="form-control" readonly>
                         </div>
                     </div>    
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h4>¿Esta seguro que desea eliminar el producto <span class="product"></span>?</h4>
+                            <h4>¿Esta seguro que desea eliminar el evento <span class="event"></span>?</h4>
                         </div>
                     </div>
                 </div>
@@ -213,14 +213,14 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Producto eliminado correctamente</h4>
+                            <h4 class="mt-4">Evento eliminado correctamente</h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-eliminarEvento" class="btn btn-danger">Eliminar producto</button>
+                <button type="button" id="btn-eliminarEvento" class="btn btn-danger">Eliminar evento</button>
             </div>
         </div>
     </div>

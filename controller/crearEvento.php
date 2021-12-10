@@ -63,13 +63,13 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'eliminarProducto' ) {
-    $sql = "UPDATE productos SET status = '0' WHERE id = $id";
+} elseif ( $caso == 'eliminarEvento' ) {
+    $sql = "UPDATE eventos SET status = '0' WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'product_deleted';
+        echo 'event_deleted';
     } else {
-        echo 'product_not_deleted';
+        echo 'event_not_deleted';
     }
 
     $conn->close();

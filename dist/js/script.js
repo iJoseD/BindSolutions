@@ -427,26 +427,26 @@ $('#btn-editarEvento').click(function() {
 
 // Eliminar producto
 $('.eliminarProducto').click(function() {
-    var id      = $(this).attr('data-id');
-    var nombre  = $(this).attr('data-nombre');
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
     
-    $('#eliminarProducto .product').html(nombre);
+    $('#eliminarEvento .event').html(nombre);
     $('#delete-id').val(id);
 });
-$('#btn-eliminarProducto').click(function() {
+$('#btn-eliminarEvento').click(function() {
     var id = $('#delete-id').val();
 
     $.ajax({
-        url: '/controller/crearProductos.php',
+        url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso : 'eliminarProducto',
+            caso : 'eliminarEvento',
             id   : id
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'product_not_deleted' ) {
+            if ( response == 'event_not_deleted' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
