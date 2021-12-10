@@ -747,12 +747,33 @@ $('#btn-eliminarPuntoV').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
+                $.ajax({
+                    url: '/controller/crearEvento.php',
+                    type: 'POST',
+                    data: {
+                        caso         : 'eliminarPuntoV2',
+                        idPuntoVenta : idPuntoVenta
+                    },
+                    success: function(response) {
+                        console.log( response );
+            
+                        if ( response == 'eliminarPuntoV_not_UPDATE' ) {
+                            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                        
+                        } else {
+                            $('.formulario').addClass('hide');
+                            $('.successful-message').removeClass('hide');
+            
+                            window.setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        }
+                    },
+                    error: function() {
+                        console.log( 'ajax_crearProducto_error' );
+                        alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                    }
+                });
             }
         },
         error: function() {
