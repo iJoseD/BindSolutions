@@ -385,27 +385,28 @@ $('.editarEvento').click(function() {
     $('#edit-lugar').val(lugar);
     $('#edit-linkSocio').val(linkSocio);
 });
-$('#btn-editarProducto').click(function() {
-    var id            = $('#edit-id').val();
-    var nombre        = $('#edit-nombre').val();
-    var nombre        = $('#edit-nombre').val();
-    var costo         = $('#edit-costo').val();
-    var precioPublico = $('#edit-precioPublico').val();
+$('#btn-editarEvento').click(function() {
+    var id          = $('#edit-id').val();
+    var nombre      = $('#edit-nombre').val();
+    var fecha       = $('#edit-fecha').val();
+    var lugar       = $('#edit-lugar').val();
+    var linkSocio   = $('#edit-linkSocio').val();
 
     $.ajax({
-        url: '/controller/crearProductos.php',
+        url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso          : 'editarProducto',
-            id            : id,
-            nombre        : nombre,
-            costo         : costo,
-            precioPublico : precioPublico
+            caso      : 'editarEvento',
+            id        : id,
+            nombre    : nombre,
+            fecha     : fecha,
+            lugar     : lugar,
+            linkSocio : linkSocio
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'product_not_edit' ) {
+            if ( response == 'event_not_edit' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {

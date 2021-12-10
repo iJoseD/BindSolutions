@@ -51,13 +51,13 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'editarProducto' ) {
-    $sql = "UPDATE productos SET nombre = '$nombre', costo = '$costo', precioPublico = '$precioPublico' WHERE id = $id";
+} elseif ( $caso == 'editarEvento' ) {
+    $sql = "UPDATE productos SET nombre = '$nombre', fecha = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
     
     if ($conn->query($sql) === TRUE) {
-        echo 'product_edit';
+        echo 'event_edit';
     } else {
-        echo 'product_not_edit';
+        echo 'event_not_edit';
     }
 
     $conn->close();
