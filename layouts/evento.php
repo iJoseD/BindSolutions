@@ -37,16 +37,16 @@
 
 <section class="container">
     <div class="row mt-5">
-        <div class="col-3">
+        <div class="col-3 d-grid">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarInventario">Agregar inventario</button>
         </div>
-        <div class="col-3">
+        <div class="col-3 d-grid">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar punto de venta</button>
         </div>
     </div>
 
     <div class="row mt-5">
-        <h3>Inventario disponible</h3>
+        <h3 class="mb-3">Inventario disponible</h3>
         <table id="tableProductos" class="display">
             <thead>
                 <tr>
