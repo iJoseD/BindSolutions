@@ -470,7 +470,7 @@ $('.agregarInventario').click(function() {
     var id     = $(this).attr('data-id');
     var nombre = $(this).attr('data-nombre');
     
-    $('#nombreEvento').html(nombre);
+    $('#nombreEvento').val(nombre);
     $('#idEvento').val(id);
 });
 $('#btn-agregarInventario').click(function() {

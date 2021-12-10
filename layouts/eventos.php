@@ -235,16 +235,16 @@
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-2">
                             <label class="form-label">ID</label>
                             <input type="text" name="idEvento" id="idEvento" class="form-control" readonly>
                         </div>
-                        <div class="col-9">
+                        <div class="col-10">
                             <label class="form-label">Evento</label>
                             <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" readonly>
                         </div>
                     </div>  
-                    <div class="row mt-3">
+                    <div class="row mt-5">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
                             <select name="idProducto" id="idProducto" class="form-select">
