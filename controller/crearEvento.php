@@ -41,6 +41,11 @@ $lugar      = $_POST['lugar'];
 $linkSocio  = $_POST['linkSocio'];
 $date       = date('Y-m-d H:m:s');
 
+// Variables inventario
+$idEvento   = $_POST['idEvento'];
+$idProducto = $_POST['idProducto'];
+$cantidad   = $_POST['cantidad'];
+
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
     
@@ -70,6 +75,17 @@ if ( $caso == 'crearEvento' ) {
         echo 'event_deleted';
     } else {
         echo 'event_not_deleted';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'agregarInventario' ) {
+    $sql = "INSERT INTO inventario (idEvento, idProducto, cantidad) VALUES ('$idEvento', '$idProducto', '$cantidad')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo 'inventario_created';
+    } else {
+        echo 'inventario_not_created';
     }
 
     $conn->close();

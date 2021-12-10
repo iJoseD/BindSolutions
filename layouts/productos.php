@@ -58,8 +58,6 @@
                             echo $html;
                         }
                     }
-
-                    $conn->close();
                 ?>
             </tbody>
         </table>

@@ -43,13 +43,13 @@
                                 $html .= '<th>'. $row['lugar'] .'</th>';
                                 $html .= '<th>'. $row['linkSocio'] .'</th>';
                                 $html .= '<th>
-                                    <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#editarEvento" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
+                                    <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                         </svg>
                                     </button>
-                                    <button type="button" class="btn btn-success agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#editarEvento" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
+                                    <button type="button" class="btn btn-success agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -73,8 +73,6 @@
                             echo $html;
                         }
                     }
-
-                    $conn->close();
                 ?>
             </tbody>
         </table>
@@ -221,6 +219,61 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" id="btn-eliminarEvento" class="btn btn-danger">Eliminar evento</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Agregar inventario -->
+<div class="modal fade" id="agregarInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarInventarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarInventarioLabel">Agregar inventario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="row hide">
+                        <div class="col-12">
+                            <label class="form-label">Id evento</label>
+                            <input type="text" name="idEvento" id="idEvento" class="form-control" readonly>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-8">
+                            <label class="form-label">Producto</label>
+                            <select name="idProducto" id="idProducto" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM productos WHERE status = '1' ORDER BY nombre ASC";
+                                    $result = $conn->query($sql);
+                                    
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Cantidad</label>
+                            <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="50">
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-success successful-message hide" role="alert">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <p class="fw-normal">Item agregado correctamente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Crear evento</button>
             </div>
         </div>
     </div>
