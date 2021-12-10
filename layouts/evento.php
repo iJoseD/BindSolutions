@@ -22,7 +22,7 @@
     }
 ?>
 
-<section class="container-fluid bgHeaderEvento">
+<section class="container-fluid text-white bgHeaderEvento">
     <div class="row">
         <div class="col-12">
             <h1 class="text-uppercase nombreEvento"><?php echo $nombre; ?></h1>
@@ -30,10 +30,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <p class="fw-bolder"><?php echo $fechaFormato; ?></p>
-        </div>
-        <div class="col-6">
-            <p class="fw-bolder"><?php echo $lugar; ?></p>
+            <p class="fw-bolder"><?php echo $fechaFormato; ?> • <?php echo $lugar; ?></p>
         </div>
     </div>
 </section>
