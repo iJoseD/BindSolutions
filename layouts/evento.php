@@ -1,4 +1,6 @@
 <?php
+    $codigoEvento = $_GET['codigoEvento'];
+    
     // MySQLi
     $servername = "localhost";
     $username   = "app_bind";
@@ -8,8 +10,33 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
-    $codigoEvento = $_GET['id'];
+    $sql = "SELECT * FROM eventos WHERE codigoEvento = '$codigoEvento'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $nombre       = $row['nombre'];
+            $fechaFormato = $row['fechaFormato'];
+            $lugar        = $row['lugar'];
+        }
+    }
 ?>
+
+<section class="container-fluid bgHeaderEvento">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fs-1"><?php echo $nombre; ?></h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <p class="fw-bolder"><?php echo $fechaFormato; ?></p>
+        </div>
+        <div class="col-6">
+            <p class="fw-bolder"><?php echo $lugar; ?></p>
+        </div>
+    </div>
+</section>
 
 <section class="container">
     <div class="row mt-5">
