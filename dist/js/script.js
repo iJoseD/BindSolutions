@@ -536,10 +536,12 @@ $('#btn-agregarInventario').click(function() {
 });
 // Editar inventario
 $('.editarInventario').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
+    var id       = $(this).attr('data-id');
+    var nombre   = $(this).attr('data-nombre');
+    var cantidad = $(this).attr('data-cantidad');
     
     $('#ei-nombre').val(nombre);
+    $('#ei-cantidad').val(cantidad);
     $('#idInventario').val(id);
 });
 $('#btn-editarInventario').click(function() {
