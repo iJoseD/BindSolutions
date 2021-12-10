@@ -69,7 +69,8 @@
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             
-                            $ganancia = str_replace( '.', '', $row['precioPublico'] ) - str_replace( '.', '', $row['costo'] ) * $row['cantidad'];
+                            $ganancia = str_replace( '.', '', $row['precioPublico'] ) - str_replace( '.', '', $row['costo'] );
+                            $ganancia = $ganancia * $row['cantidad'];
                             
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
