@@ -142,7 +142,7 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 } elseif ( $caso == 'infoCantidades' ) {
-    $sql = "SELECT * FROM inventario WHERE id = '$idProducto' AND idEvento = '$idEvento'";
+    $sql = "SELECT * FROM inventario WHERE idProducto = '$idProducto' AND idEvento = '$idEvento'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
