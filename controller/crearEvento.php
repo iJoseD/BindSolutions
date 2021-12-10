@@ -53,7 +53,7 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarEvento' ) {
-    $sql = "UPDATE productos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
+    $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_edit';
