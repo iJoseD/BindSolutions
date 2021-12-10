@@ -305,11 +305,11 @@
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row hide">
-                        <div class="col-2">
+                        <div class="col-6">
                             <label class="form-label">ID</label>
                             <input type="text" name="pv-idEvento" id="pv-idEvento" class="form-control" readonly>
                         </div>
-                        <div class="col-10">
+                        <div class="col-6">
                             <label class="form-label">Evento</label>
                             <input type="text" name="pv-nombreEvento" id="pv-nombreEvento" class="form-control" readonly>
                         </div>
@@ -348,11 +348,11 @@
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row hide">
-                        <div class="col-2">
+                        <div class="col-6">
                             <label class="form-label">ID Punto Venta</label>
                             <input type="text" name="pv-IDPV" id="pv-IDPV" class="form-control" readonly>
                         </div>
-                        <div class="col-10">
+                        <div class="col-6">
                             <label class="form-label">ID Evento</label>
                             <input type="text" name="pv-IDEvento-Sub" id="pv-IDEvento-Sub" class="form-control" readonly>
                         </div>

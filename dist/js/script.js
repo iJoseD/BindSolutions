@@ -618,7 +618,7 @@ $('#btn-eliminarInventario').click(function() {
 
 // Mostrar cantidades disponibles
 $('#SubInventario-idProducto').change(function() {
-	var idEvento = $('#pv-idEvento').val();
+	var idEvento = $('#pv-IDEvento-Sub').val(idEvento);
     var idProducto = $(this).val();
 
 	$.ajax({
