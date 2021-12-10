@@ -520,12 +520,53 @@ $('#btn-agregarInventario').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
+                $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
-                $('#cantidad').val('');
 
                 window.setTimeout(function() {
-                    $('.successful-message').addClass('hide');
-                }, 5000);
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Editar inventario
+$('.editarInventario').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#ei-nombre').val(nombre);
+    $('#idInventario').val(id);
+});
+$('#btn-editarInventario').click(function() {
+    var idInventario = $('#idInventario').val();
+    var cantidad     = $('#ei-cantidad').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'editarInventario',
+            idInventario : idInventario,
+            cantidad     : cantidad
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'editarInventario_not_UPDATE' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
             }
         },
         error: function() {

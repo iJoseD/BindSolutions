@@ -42,9 +42,10 @@ $codigoEvento = $_POST['codigoEvento'];
 $date         = date('Y-m-d H:m:s');
 
 // Variables inventario
-$idEvento   = $_POST['idEvento'];
-$idProducto = $_POST['idProducto'];
-$cantidad   = $_POST['cantidad'];
+$idInventario = $_POST['idInventario'];
+$idEvento     = $_POST['idEvento'];
+$idProducto   = $_POST['idProducto'];
+$cantidad     = $_POST['cantidad'];
 
 $nombrePV   = $_POST['nombrePV'];
 
@@ -92,6 +93,17 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'editarInventario' ) {
+    $sql = "UPDATE inventario SET cantidad = '$cantidad' WHERE id = $idInventario";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'editarInventario_UPDATE';
+    } else {
+        echo 'editarInventario_not_UPDATE';
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'agregarPuntoVenta' ) {
     $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
     
@@ -110,8 +122,7 @@ if ( $caso == 'crearEvento' ) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $html = '<div class="col-12">
-                <p>Precio costo: <span class="badge bg-primary text-wrap">$ '. $row['costo'] .'</span></p>
-                <p>Precio público: <span class="badge bg-primary text-wrap">$ '. $row['precioPublico'] .'</span></p>
+                <p>Precio costo: <span class="badge bg-primary text-wrap">$ '. $row['costo'] .'</span> - Precio público: <span class="badge bg-primary text-wrap">$ '. $row['precioPublico'] .'</span></p>
             </div>';
 
             echo $html;

@@ -80,7 +80,7 @@
                                 $html .= '<th>'. $row['cantidad'] .'</th>';
                                 $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>
-                                    <button type="button" class="btn btn-warning editarProducto" data-bs-toggle="modal" data-bs-target="#editarProducto" data-id="'. $row['id'] .'" data-imagen="'. $row['imagen'] .'" data-nombre="'. $row['nombre'] .'" data-costo="'. $row['costo'] .'" data-precioPublico="'. $row['precioPublico'] .'">
+                                    <button type="button" class="btn btn-warning editarInventario" data-bs-toggle="modal" data-bs-target="#editarInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -201,10 +201,11 @@
                     </div>
                     <div class="row mt-3 tablePrecios"></div>
                 </div>
-                <div class="alert alert-success successful-message hide mt-5" role="alert">
+                <div class="successful-message hide">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <p class="fw-normal">Item agregado correctamente</p>
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Item agregado correctamente</h4>
                         </div>
                     </div>
                 </div>
@@ -212,6 +213,49 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" id="btn-agregarInventario" class="btn btn-primary">Agregar al inventario</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Editar inventario -->
+<div class="modal fade" id="editarInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarInventarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarInventarioLabel">Editar item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="row hide">
+                        <div class="col-12">
+                            <label class="form-label">ID</label>
+                            <input type="text" name="idInventario" id="idInventario" class="form-control" readonly>
+                        </div>
+                    </div>  
+                    <div class="row mt-3">
+                        <div class="col-8">
+                            <label class="form-label">Producto</label>
+                            <input type="text" name="ei-nombre" id="ei-nombre" class="form-control" readonly>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Cantidad</label>
+                            <input type="text" name="ei-cantidad" id="ei-cantidad" class="form-control" placeholder="50">
+                        </div>
+                    </div>
+                </div>
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Item editado correctamente</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-editarInventario" class="btn btn-primary">Editar item</button>
             </div>
         </div>
     </div>
