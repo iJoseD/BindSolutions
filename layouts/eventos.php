@@ -244,7 +244,7 @@
                             <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" readonly>
                         </div>
                     </div>  
-                    <div class="row mt-5">
+                    <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
                             <select name="idProducto" id="idProducto" class="form-select">
@@ -303,11 +303,13 @@
                             <input type="text" name="pv-nombreEvento" id="pv-nombreEvento" class="form-control" readonly>
                         </div>
                     </div>  
-                    <div class="row mt-5">
+                    <div class="row mt-3">
                         <div class="col-12">
                             <label class="form-label">Nombre punto de venta</label>
                             <input type="text" name="nombrePV" id="nombrePV" class="form-control" placeholder="Barra 1">
                         </div>
+                    </div>
+                    <div class="row mt-3">
                         <div class="col-6">
                             <label class="form-label">Producto</label>
                             <select name="idProducto" id="idProducto" class="form-select">
@@ -329,7 +331,8 @@
                             <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="50">
                         </div>
                         <div class="col-3 d-grid">
-                            <button type="button" id="btn-agregarSubInventario" class="btn btn-info">
+                            <label class="form-label text-white">Button</label>
+                            <button type="button" id="btn-agregarSubInventario" class="btn btn-success">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                     <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
