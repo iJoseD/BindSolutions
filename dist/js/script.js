@@ -689,8 +689,7 @@ $('.agregarSubInventario').click(function() {
     $('#pv-IDPV').val(idPV);
 });
 $('#btn-agregarSubInventario').click(function() {
-    var nombrePV = $('#nombrePV').val();
-    var idEvento = $('#pv-idEvento').val();
+    var idEvento = $('#pv-IDEvento-Sub').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
