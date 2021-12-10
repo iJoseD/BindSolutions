@@ -495,7 +495,7 @@ $('#btn-agregarInventario').click(function() {
             
             } else {
                 $('.successful-message').removeClass('hide');
-                $('#cantidad').val();
+                $('#cantidad').val('');
 
                 window.setTimeout(function() {
                     $('.successful-message').addClass('hide');
