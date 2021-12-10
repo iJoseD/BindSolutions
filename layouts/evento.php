@@ -99,7 +99,7 @@
 
     <div class="row mt-5">
         <h3 class="mb-5">Puntos de venta</h3>
-        <table id="tableProductos" class="display">
+        <table id="tablePuntosVenta" class="display">
             <thead>
                 <tr>
                     <th>Imagen</th>

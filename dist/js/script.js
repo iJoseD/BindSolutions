@@ -39,6 +39,7 @@ $(document).ready(function () {
     $('#tableusuarios').DataTable();
     $('#tableProductos').DataTable();
     $('#tableEventos').DataTable();
+    $('#tablePuntosVenta').DataTable();
 
     $( ".datepicker" ).datepicker();
 });
