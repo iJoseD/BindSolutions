@@ -518,32 +518,31 @@ $('.agregarPuntoVenta').click(function() {
     $('#pv-idEvento').val(id);
 });
 $('#btn-agregarPuntoVenta').click(function() {
-    var idEvento   = $('#idEvento').val();
-    var idProducto = $('#idProducto').val();
-    var cantidad   = $('#cantidad').val();
+    var nombrePV = $('#nombrePV').val();
+    var idEvento = $('#idEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso       : 'agregarPuntoVenta',
-            idEvento   : idEvento,
-            idProducto : idProducto,
-            cantidad   : cantidad,
+            caso     : 'agregarPuntoVenta',
+            nombrePV : nombrePV,
+            idEvento : idEvento
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'inventario_not_created' ) {
+            if ( response == 'puntoVenta_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
+                $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
-                $('#cantidad').val('');
 
                 window.setTimeout(function() {
                     $('.successful-message').addClass('hide');
-                }, 5000);
+                    $('.sub-inventario').removeClass('hide');
+                }, 3000);
             }
         },
         error: function() {

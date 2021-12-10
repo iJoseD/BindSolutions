@@ -46,6 +46,8 @@ $idEvento   = $_POST['idEvento'];
 $idProducto = $_POST['idProducto'];
 $cantidad   = $_POST['cantidad'];
 
+$nombrePV   = $_POST['nombrePV'];
+
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
     
@@ -86,6 +88,17 @@ if ( $caso == 'crearEvento' ) {
         echo 'inventario_created';
     } else {
         echo 'inventario_not_created';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'agregarPuntoVenta' ) {
+    $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo 'puntoVenta_created';
+    } else {
+        echo 'puntoVenta_not_created';
     }
 
     $conn->close();
