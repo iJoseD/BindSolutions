@@ -376,7 +376,7 @@
                         </div>
                         <div class="col-4">
                             <label class="form-label">Cantidad</label>
-                            <input type="number" name="SubInventario-Cantidad" id="SubInventario-Cantidad" class="form-control" placeholder="50" max="150">
+                            <input type="number" name="SubInventario-Cantidad" id="SubInventario-Cantidad" class="form-control" placeholder="50">
                         </div>
                     </div>
                     <div class="row mt-3 infoCantidades"></div>
