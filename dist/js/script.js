@@ -627,7 +627,7 @@ $('.agregarPuntoVenta').click(function() {
 });
 $('#btn-agregarPuntoVenta').click(function() {
     var nombrePV = $('#nombrePV').val();
-    var idEvento = $('#idEvento').val();
+    var idEvento = $('#pv-idEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
