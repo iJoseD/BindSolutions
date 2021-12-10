@@ -41,7 +41,7 @@ $linkSocio  = $_POST['linkSocio'];
 $date       = date('Y-m-d H:m:s');
 
 if ( $caso == 'crearEvento' ) {
-    $sql = "INSERT INTO eventos (nombre, fecha, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
+    $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, linkSocio, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$linkSocio', '1', '$date')";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_created';
@@ -52,7 +52,7 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarEvento' ) {
-    $sql = "UPDATE productos SET nombre = '$nombre', fecha = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
+    $sql = "UPDATE productos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', linkSocio = '$linkSocio' WHERE id = $id";
     
     if ($conn->query($sql) === TRUE) {
         echo 'event_edit';

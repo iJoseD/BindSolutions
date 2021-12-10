@@ -39,7 +39,7 @@
                         while($row = $result->fetch_assoc()) {
                             $html = '<tr>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>'. $row['fecha'] .'</th>';
+                                $html .= '<th>'. $row['fechaFormato'] .'</th>';
                                 $html .= '<th>'. $row['lugar'] .'</th>';
                                 $html .= '<th>'. $row['linkSocio'] .'</th>';
                                 $html .= '<th>
