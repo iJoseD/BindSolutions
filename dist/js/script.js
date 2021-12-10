@@ -773,7 +773,7 @@ $('.eliminarPuntoV').click(function() {
     var nombre = $(this).attr('data-nombre');
     
     $('#eliminarPuntoV-IDPuntoV').val(id);
-    $('#eliminarPuntoV .name').val(nombre);
+    $('#eliminarPuntoV .name').html(nombre);
 });
 $('#btn-eliminarPuntoV').click(function() {
     var idPuntoVenta = $('#eliminarPuntoV-IDPuntoV').val();
