@@ -47,7 +47,8 @@ $idEvento     = $_POST['idEvento'];
 $idProducto   = $_POST['idProducto'];
 $cantidad     = $_POST['cantidad'];
 
-$nombrePV   = $_POST['nombrePV'];
+$nombrePV     = $_POST['nombrePV'];
+$idPuntoVenta = $_POST['idPuntoVenta'];
 
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$date')";
@@ -157,4 +158,14 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'agregarSubInventario' ) {
+    $sql = "INSERT INTO inventarioPuntoVenta (idPuntoVenta, idEvento, idProducto, cantidad) VALUES ('$idPuntoVenta', '$idEvento', '$idProducto', '$cantidad')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo 'SubInventario_created';
+    } else {
+        echo 'SubInventario_not_created';
+    }
+
+    $conn->close();
 }

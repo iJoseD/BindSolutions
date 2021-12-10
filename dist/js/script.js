@@ -689,20 +689,25 @@ $('.agregarSubInventario').click(function() {
     $('#pv-IDPV').val(idPV);
 });
 $('#btn-agregarSubInventario').click(function() {
+    var idPuntoVenta = $('#pv-IDPV').val();
     var idEvento = $('#pv-IDEvento-Sub').val();
+    var idProducto = $('#SubInventario-idProducto').val();
+    var cantidad = $('#SubInventario-Cantidad').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso     : 'agregarSubInventario',
-            nombrePV : nombrePV,
-            idEvento : idEvento
+            caso         : 'agregarSubInventario',
+            idPuntoVenta : idPuntoVenta,
+            idEvento     : idEvento,
+            idProducto   : idProducto,
+            cantidad     : cantidad
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'puntoVenta_not_created' ) {
+            if ( response == 'SubInventario_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
