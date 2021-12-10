@@ -57,8 +57,6 @@ if ( $caso == 'crearEvento' ) {
         echo 'event_not_created';
     }
 
-    $conn->close();
-
 } elseif ( $caso == 'editarEvento' ) {
     $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', codigoEvento = '$codigoEvento' WHERE id = $id";
     
@@ -67,8 +65,6 @@ if ( $caso == 'crearEvento' ) {
     } else {
         echo 'event_not_edit';
     }
-
-    $conn->close();
 
 } elseif ( $caso == 'eliminarEvento' ) {
     $sql = "UPDATE eventos SET status = '0' WHERE id = $id";
@@ -79,8 +75,6 @@ if ( $caso == 'crearEvento' ) {
         echo 'event_not_deleted';
     }
 
-    $conn->close();
-
 } elseif ( $caso == 'agregarInventario' ) {
     $sql = "INSERT INTO inventario (idEvento, idProducto, cantidad) VALUES ('$idEvento', '$idProducto', '$cantidad')";
     
@@ -90,8 +84,6 @@ if ( $caso == 'crearEvento' ) {
         echo 'inventario_not_created';
     }
 
-    $conn->close();
-
 } elseif ( $caso == 'agregarPuntoVenta' ) {
     $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
     
@@ -100,8 +92,6 @@ if ( $caso == 'crearEvento' ) {
     } else {
         echo 'puntoVenta_not_created';
     }
-
-    $conn->close();
 
 } elseif ( $caso == 'mostrarPrecios' ) {
     $sql = "SELECT * FROM productos WHERE id = '$idProducto";
@@ -127,6 +117,4 @@ if ( $caso == 'crearEvento' ) {
             echo $html;
         }
     }
-
-    $conn->close();
 }

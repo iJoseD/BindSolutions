@@ -478,7 +478,7 @@ $('#idProducto').change(function() {
         type: 'POST',
         data: {
             caso       : 'mostrarPrecios',
-            idProducto : idProducto,
+            idProducto : idProducto
         },
         success: function(response) {
             $('.tablePrecios').html( response );
