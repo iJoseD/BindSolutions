@@ -15,6 +15,7 @@
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+            $id           = $row['id'];
             $nombre       = $row['nombre'];
             $fechaFormato = $row['fechaFormato'];
             $lugar        = $row['lugar'];
@@ -38,7 +39,7 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-3 d-grid">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarInventario">Agregar inventario</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar inventario</button>
         </div>
         <div class="col-3 d-grid">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar punto de venta</button>
