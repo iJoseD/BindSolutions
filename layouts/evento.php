@@ -28,9 +28,9 @@
             <h1 class="text-uppercase nombreEvento"><?php echo $nombre; ?></h1>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-2">
         <div class="col-12">
-            <p class="fw-bolder"><?php echo $fechaFormato; ?> • <?php echo $lugar; ?></p>
+            <p class="fw-bolder text-uppercase"><?php echo $fechaFormato; ?> • <?php echo $lugar; ?></p>
         </div>
     </div>
 </section>
