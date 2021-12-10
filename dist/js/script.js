@@ -777,15 +777,13 @@ $('.eliminarPuntoV').click(function() {
 });
 $('#btn-eliminarPuntoV').click(function() {
     var idPuntoVenta = $('#eliminarPuntoV-IDPuntoV').val();
-    var nombrePV     = $('#eliminarPuntoV-nombrePV').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
             caso         : 'eliminarPuntoV',
-            idPuntoVenta : idPuntoVenta,
-            nombrePV     : nombrePV
+            idPuntoVenta : idPuntoVenta
         },
         success: function(response) {
             console.log( response );

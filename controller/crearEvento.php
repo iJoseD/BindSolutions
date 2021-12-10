@@ -180,4 +180,16 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'eliminarPuntoV' ) {
+    $sql = "DELETE FROM puntoVenta WHERE id = '$idPuntoVenta'";
+    $sql2 = "DELETE FROM inventarioPuntoVenta WHERE idPuntoVenta = '$idPuntoVenta'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'eliminarInventario_DELETE';
+    } else {
+        echo 'eliminarInventario_not_DELETE';
+    }
+
+    $conn->close();
+
 }
