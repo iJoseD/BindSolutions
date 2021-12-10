@@ -104,6 +104,17 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'eliminarInventario' ) {
+    $sql = "DELETE FROM inventario WHERE id = '$idInventario'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'eliminarInventario_DELETE';
+    } else {
+        echo 'eliminarInventario_not_DELETE';
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'agregarPuntoVenta' ) {
     $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
     

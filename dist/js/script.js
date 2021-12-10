@@ -577,6 +577,45 @@ $('#btn-editarInventario').click(function() {
         }
     });
 });
+// Eliminar inventario
+$('.eliminarInventario').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#eliminarInventario .product').html(nombre);
+    $('#delete-idInventario').val(id);
+});
+$('#btn-eliminarInventario').click(function() {
+    var idInventario = $('#delete-idInventario').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'eliminarInventario',
+            idInventario : idInventario
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'eliminarInventario_not_DELETE' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_eliminarProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
 
 // Agregar Punto de Venta
 $('.agregarPuntoVenta').click(function() {
