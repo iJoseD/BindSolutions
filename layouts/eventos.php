@@ -30,7 +30,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM eventos WHERE status = '1'";
+                    $sql = "SELECT * FROM eventos WHERE status = '1' ORDER BY fecha ASC";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
