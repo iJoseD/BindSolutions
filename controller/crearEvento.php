@@ -14,11 +14,12 @@ $caso       = $_POST['caso'];
 $id         = $_POST['id'];
 $nombre     = $_POST['nombre'];
 
-$fecha        = date_create( $_POST['fecha'] );
-$diaTexto     = date_format($fecha, "l");
-$diaNumero    = date_format($fecha, "d");
-$mesTexto     = date_format($fecha, "M");
-$anio         = date_format($fecha, "Y");
+$fecha        = $_POST['fecha'];
+$date         = date_create( $_POST['fecha'] );
+$diaTexto     = date_format($date, "l");
+$diaNumero    = date_format($date, "d");
+$mesTexto     = date_format($date, "M");
+$anio         = date_format($date, "Y");
 switch ( $diaTexto ) {
     case 'Monday'    : $diaTexto = "Lunes";     break;
     case 'Tuesday'   : $diaTexto = "Martes";    break;
