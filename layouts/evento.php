@@ -163,7 +163,7 @@
             </div>
             <div class="modal-body">
                 <div class="formulario">
-                    <div class="row">
+                    <div class="row hide">
                         <div class="col-2">
                             <label class="form-label">ID</label>
                             <input type="text" name="idEvento" id="idEvento" class="form-control" readonly>
@@ -195,6 +195,7 @@
                             <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="50">
                         </div>
                     </div>
+                    <div class="row mt-3 tablePrecios"></div>
                 </div>
                 <div class="alert alert-success successful-message hide mt-5" role="alert">
                     <div class="row">

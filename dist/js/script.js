@@ -469,6 +469,28 @@ $('#btn-eliminarEvento').click(function() {
 // |==============================|
 // |========== EVENTO ============|
 // |==============================|
+// Mostrar precios
+$('#idProducto').change(function() {
+	var idProducto = $(this).val();
+
+	$.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso       : 'mostrarPrecios',
+            idProducto : idProducto,
+        },
+        success: function(response) {
+            $('.tablePrecios').html( response );
+            $('.tablePrecios').removeClass('hide');
+        },
+        error: function() {
+            console.log( 'ajax_idProducto.change_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Agregar inventario
 $('.agregarInventario').click(function() {
     var id     = $(this).attr('data-id');

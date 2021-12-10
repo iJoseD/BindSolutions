@@ -102,4 +102,31 @@ if ( $caso == 'crearEvento' ) {
     }
 
     $conn->close();
+
+} elseif ( $caso == 'mostrarPrecios' ) {
+    $sql = "SELECT * FROM productos WHERE id = '$idProducto";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $html = '<table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">P. Costo</th>
+                        <th scope="col">P. Público</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$ '. $row['costo'] .'</td>
+                        <td>$ '. $row['precioPublico'] .'</td>
+                    </tr>
+                </tbody>
+            </table>';
+
+            echo $html;
+        }
+    }
+
+    $conn->close();
 }
