@@ -63,7 +63,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM productos WHERE status = '1'";
+                    $sql = "SELECT i.id, p.imagen, p.nombre, p.costo, p.precioPublico, i.cantidad FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id'";
                     $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
