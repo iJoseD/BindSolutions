@@ -681,51 +681,6 @@ $('#btn-agregarPuntoVenta').click(function() {
         }
     });
 });
-// Agregar Sub-inventario punto de venta
-$('.agregarSubInventario').click(function() {
-    var idEvento = $(this).attr('data-idEvento');
-    var idPV     = $(this).attr('data-idPV');
-    
-    $('#pv-IDEvento-Sub').val(idEvento);
-    $('#pv-IDPV').val(idPV);
-});
-$('#btn-agregarSubInventario').click(function() {
-    var idPuntoVenta = $('#pv-IDPV').val();
-    var idEvento = $('#pv-IDEvento-Sub').val();
-    var idProducto = $('#SubInventario-idProducto').val();
-    var cantidad = $('#SubInventario-Cantidad').val();
-
-    $.ajax({
-        url: '/controller/crearEvento.php',
-        type: 'POST',
-        data: {
-            caso         : 'agregarSubInventario',
-            idPuntoVenta : idPuntoVenta,
-            idEvento     : idEvento,
-            idProducto   : idProducto,
-            cantidad     : cantidad
-        },
-        success: function(response) {
-            console.log( response );
-
-            if ( response == 'SubInventario_not_created' ) {
-                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
-            }
-        },
-        error: function() {
-            console.log( 'ajax_crearProducto_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-        }
-    });
-});
 // Editar punto de venta
 $('.editarPuntoV').click(function() {
     var id     = $(this).attr('data-id');
@@ -802,6 +757,134 @@ $('#btn-eliminarPuntoV').click(function() {
         },
         error: function() {
             console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
+// Agregar Sub-inventario punto de venta
+$('.agregarSubInventario').click(function() {
+    var idEvento = $(this).attr('data-idEvento');
+    var idPV     = $(this).attr('data-idPV');
+    
+    $('#pv-IDEvento-Sub').val(idEvento);
+    $('#pv-IDPV').val(idPV);
+});
+$('#btn-agregarSubInventario').click(function() {
+    var idPuntoVenta = $('#pv-IDPV').val();
+    var idEvento = $('#pv-IDEvento-Sub').val();
+    var idProducto = $('#SubInventario-idProducto').val();
+    var cantidad = $('#SubInventario-Cantidad').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'agregarSubInventario',
+            idPuntoVenta : idPuntoVenta,
+            idEvento     : idEvento,
+            idProducto   : idProducto,
+            cantidad     : cantidad
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'SubInventario_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Editar inventario
+$('.editarSubInventario').click(function() {
+    var id       = $(this).attr('data-id');
+    var nombre   = $(this).attr('data-nombre');
+    var cantidad = $(this).attr('data-cantidad');
+    
+    $('#editarSubInventario-IDItem').val(id);
+    $('#editarSubInventario-Nombre').val(nombre);
+    $('#editarSubInventario-Cantidad').val(cantidad);
+});
+$('#btn-editarSubInventario').click(function() {
+    var id = $('#editarSubInventario-IDItem').val();
+    var cantidad = $('#editarSubInventario-Cantidad').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'editarSubInventario',
+            idInventario : id,
+            cantidad     : cantidad
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'editarSubInventario_not_UPDATE' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Eliminar inventario
+$('.eliminarInventario').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#eliminarInventario .product').html(nombre);
+    $('#delete-idInventario').val(id);
+});
+$('#btn-eliminarInventario').click(function() {
+    var idInventario = $('#delete-idInventario').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'eliminarInventario',
+            idInventario : idInventario
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'eliminarInventario_not_DELETE' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_eliminarProducto_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });

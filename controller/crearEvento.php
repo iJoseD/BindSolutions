@@ -192,4 +192,15 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'editarSubInventario' ) {
+    $sql = "UPDATE inventarioPuntoVenta SET cantidad = '$cantidad' WHERE id = $idInventario";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'editarSubInventario_UPDATE';
+    } else {
+        echo 'editarSubInventario_not_UPDATE';
+    }
+
+    $conn->close();
+
 }
