@@ -648,9 +648,8 @@ $('#btn-agregarPuntoVenta').click(function() {
                 $('.successful-message').removeClass('hide');
 
                 window.setTimeout(function() {
-                    $('.successful-message').addClass('hide');
-                    $('.sub-inventario').removeClass('hide');
-                }, 3000);
+                    location.reload();
+                }, 2000);
             }
         },
         error: function() {
