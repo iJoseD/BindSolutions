@@ -358,7 +358,7 @@ $('#btn-crearEvento').click(function() {
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
-                
+
                 window.setTimeout(function() {
                     location.reload();
                 }, 2000);
@@ -371,19 +371,19 @@ $('#btn-crearEvento').click(function() {
     });
 });
 
-// Editar producto
-$('.editarProducto').click(function() {
-    var id              = $(this).attr('data-id');
-    var imagen          = $(this).attr('data-imagen');
-    var nombre          = $(this).attr('data-nombre');
-    var costo           = $(this).attr('data-costo');
-    var precioPublico   = $(this).attr('data-precioPublico');
+// Editar evento
+$('.editarEvento').click(function() {
+    var id          = $(this).attr('data-id');
+    var nombre      = $(this).attr('data-nombre');
+    var fecha       = $(this).attr('data-fecha');
+    var lugar       = $(this).attr('data-lugar');
+    var linkSocio   = $(this).attr('data-linkSocio');
 
     $('#edit-id').val(id);
-    $('.edit-card-img-top').attr('src', imagen);
     $('#edit-nombre').val(nombre);
-    $('#edit-costo').val(costo);
-    $('#edit-precioPublico').val(precioPublico);
+    $('#edit-fecha').val(fecha);
+    $('#edit-lugar').val(lugar);
+    $('#edit-linkSocio').val(linkSocio);
 });
 $('#btn-editarProducto').click(function() {
     var id            = $('#edit-id').val();
