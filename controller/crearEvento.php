@@ -109,20 +109,10 @@ if ( $caso == 'crearEvento' ) {
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $html = '<table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">P. Costo</th>
-                        <th scope="col">P. Público</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>$ '. $row['costo'] .'</td>
-                        <td>$ '. $row['precioPublico'] .'</td>
-                    </tr>
-                </tbody>
-            </table>';
+            $html = '$ '. $row['precioPublico'] .'<div class="col-12">
+                <p>Precio costo: <span class="badge bg-primary text-wrap">$ '. $row['costo'] .'</span></p>
+                <p>Precio público: <span class="badge bg-primary text-wrap">$ '. $row['precioPublico'] .'</span></p>
+            </div>';
 
             echo $html;
         }
