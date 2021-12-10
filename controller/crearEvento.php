@@ -203,4 +203,14 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'eliminarSubInventario' ) {
+    $sql = "DELETE FROM inventarioPuntoVenta WHERE id = '$idPuntoVenta'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'eliminarSubInventario_DELETE';
+    } else {
+        echo 'eliminarSubInventario_not_DELETE';
+    }
+
+    $conn->close();
 }

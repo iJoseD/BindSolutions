@@ -851,27 +851,27 @@ $('#btn-editarSubInventario').click(function() {
     });
 });
 // Eliminar inventario
-$('.eliminarInventario').click(function() {
+$('.eliminarSubInventario').click(function() {
     var id     = $(this).attr('data-id');
     var nombre = $(this).attr('data-nombre');
     
-    $('#eliminarInventario .product').html(nombre);
-    $('#delete-idInventario').val(id);
+    $('#eliminarSubInventario .product').html(nombre);
+    $('#eliminarSubInventario-IDItem').val(id);
 });
-$('#btn-eliminarInventario').click(function() {
-    var idInventario = $('#delete-idInventario').val();
+$('#btn-eliminarSubInventario').click(function() {
+    var idInventario = $('#eliminarSubInventario-IDItem').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso         : 'eliminarInventario',
+            caso         : 'eliminarSubInventario',
             idInventario : idInventario
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'eliminarInventario_not_DELETE' ) {
+            if ( response == 'eliminarSubInventario_not_DELETE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
