@@ -168,7 +168,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT pv.nombre AS nombrePV, p.imagen, p.nombre, ipv.cantidad FROM inventarioPuntoVenta ipv JOIN productos p ON ipv.idProducto = p.id JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id WHERE ipv.idEvento = '$id'";
+                    $sql = "SELECT ipv.id, pv.nombre AS nombrePV, p.imagen, p.nombre, ipv.cantidad FROM inventarioPuntoVenta ipv JOIN productos p ON ipv.idProducto = p.id JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id WHERE ipv.idEvento = '$id'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
