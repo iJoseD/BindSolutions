@@ -148,7 +148,7 @@ if ( $caso == 'crearEvento' ) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $html = '<div class="col-12">
-                <p>Precio costo: <span class="badge bg-primary text-wrap">$ '. $row['costo'] .'</span> Precio público: <span class="badge bg-primary text-wrap">$ '. $row['precioPublico'] .'</span></p>
+                <p>este producto cuenta con <span class="badge bg-primary text-wrap">'. $row['cantidad'] .'</span> unidades disponibles.</p>
             </div>';
 
             echo $html;
