@@ -509,6 +509,50 @@ $('#btn-agregarInventario').click(function() {
     });
 });
 
+// Agregar Punto de Venta
+$('.agregarPuntoVenta').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#pv-nombreEvento').val(nombre);
+    $('#pv-idEvento').val(id);
+});
+$('#btn-agregarPuntoVenta').click(function() {
+    var idEvento   = $('#idEvento').val();
+    var idProducto = $('#idProducto').val();
+    var cantidad   = $('#cantidad').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso       : 'agregarPuntoVenta',
+            idEvento   : idEvento,
+            idProducto : idProducto,
+            cantidad   : cantidad,
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'inventario_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.successful-message').removeClass('hide');
+                $('#cantidad').val('');
+
+                window.setTimeout(function() {
+                    $('.successful-message').addClass('hide');
+                }, 5000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/
