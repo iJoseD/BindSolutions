@@ -426,7 +426,7 @@ $('#btn-editarEvento').click(function() {
 });
 
 // Eliminar producto
-$('.eliminarProducto').click(function() {
+$('.eliminarEvento').click(function() {
     var id     = $(this).attr('data-id');
     var nombre = $(this).attr('data-nombre');
     
