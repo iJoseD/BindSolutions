@@ -74,9 +74,9 @@
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>'. $row['costo'] .'</th>';
-                                $html .= '<th>'. $row['precioPublico'] .'</th>';
-                                $html .= '<th>'. $ganancia .'</th>';
+                                $html .= '<th>$ '. $row['costo'] .'</th>';
+                                $html .= '<th>$ '. $row['precioPublico'] .'</th>';
+                                $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>'. $row['cantidad'] .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-warning editarProducto" data-bs-toggle="modal" data-bs-target="#editarProducto" data-id="'. $row['id'] .'" data-imagen="'. $row['imagen'] .'" data-nombre="'. $row['nombre'] .'" data-costo="'. $row['costo'] .'" data-precioPublico="'. $row['precioPublico'] .'">
