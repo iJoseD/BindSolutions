@@ -25,7 +25,7 @@
 <section class="container-fluid bgHeaderEvento">
     <div class="row">
         <div class="col-12">
-            <h1 class="fs-1"><?php echo $nombre; ?></h1>
+            <h1 class="text-uppercase nombreEvento"><?php echo $nombre; ?></h1>
         </div>
     </div>
     <div class="row mt-3">

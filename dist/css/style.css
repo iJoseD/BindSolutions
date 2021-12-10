@@ -18,3 +18,16 @@
   height: 100px;
   object-fit: cover;
 }
+
+.bgHeaderEvento {
+  background-image: url(/dist/img/bgHeaderEvento.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10em;
+}
+
+.nombreEvento {
+  font-weight: 900;
+  font-size: 5em !important;
+}
