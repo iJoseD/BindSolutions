@@ -726,6 +726,47 @@ $('#btn-agregarSubInventario').click(function() {
         }
     });
 });
+// Editar punto de venta
+$('.editarPuntoV').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#editarPuntoV-IDPuntoV').val(id);
+    $('#editarPuntoV-nombrePV').val(nombre);
+});
+$('#btn-editarPuntoV').click(function() {
+    var idPuntoVenta = $('#editarPuntoV-IDPuntoV').val();
+    var nombrePV     = $('#editarPuntoV-nombrePV').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso         : 'editarPuntoV',
+            idPuntoVenta : idPuntoVenta,
+            nombrePV     : nombrePV
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'editarPuntoV_not_UPDATE' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
 
 // Separador de miles
 function separadorMiles(donde, caracter) {

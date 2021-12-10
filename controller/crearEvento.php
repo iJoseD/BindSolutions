@@ -168,4 +168,16 @@ if ( $caso == 'crearEvento' ) {
     }
 
     $conn->close();
+
+} elseif ( $caso == 'editarPuntoV' ) {
+    $sql = "UPDATE puntoVenta SET nombre = '$nombrePV' WHERE id = $idPuntoVenta";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'editarPuntoV_UPDATE';
+    } else {
+        echo 'editarPuntoV_not_UPDATE';
+    }
+
+    $conn->close();
+
 }
