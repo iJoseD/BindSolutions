@@ -166,13 +166,16 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM puntoVenta WHERE idEvento = '$id'";
+                    $sql = "SELECT pv.nombre AS nombrePV, p.imagen, p.nombre, ipv.cantidad FROM inventarioPuntoVenta ipv JOIN productos p ON ipv.idProducto = p.id JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id WHERE ipv.idEvento = '$id'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $html = '<tr>';
+                                $html .= '<th>'. $row['nombrePV'] .'</th>';
+                                $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
+                                $html .= '<th>'. $row['cantidad'] .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-idEvento="'. $id .'" data-idPV="'. $row['id'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
