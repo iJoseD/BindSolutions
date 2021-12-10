@@ -123,7 +123,7 @@
                             $html = '<tr>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>
-                                    <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'">
+                                    <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-idEvento="'. $id .'" data-idPV="'. $row['id'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                                         </svg>
@@ -337,3 +337,63 @@
         </div>
     </div>
 </div>
+<!-- Agregar Sub-inventario punto de venta -->
+<div class="modal fade" id="agregarSubInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarSubInventarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarSubInventarioLabel">Asignar item al PV</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="row hide">
+                        <div class="col-2">
+                            <label class="form-label">ID Punto Venta</label>
+                            <input type="text" name="pv-IDPV" id="pv-IDPV" class="form-control" readonly>
+                        </div>
+                        <div class="col-10">
+                            <label class="form-label">ID Evento</label>
+                            <input type="text" name="pv-IDEvento-Sub" id="pv-IDEvento-Sub" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-8">
+                            <label class="form-label">Producto</label>
+                            <select name="SubInventario-idProducto" id="SubInventario-idProducto" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT p.id, p.nombre FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id' ORDER BY p.nombre ASC";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Cantidad</label>
+                            <input type="number" name="SubInventario-Cantidad" id="SubInventario-Cantidad" class="form-control" placeholder="50" max="150">
+                        </div>
+                    </div>
+                    <div class="row mt-3 infoCantidades"></div>
+                </div>
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Item asignado correctamente</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-agregarSubInventario" class="btn btn-primary">Asignar item al PV</button>
+            </div>
+        </div>
+    </div>
+</div>vv

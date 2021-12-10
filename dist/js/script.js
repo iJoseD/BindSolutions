@@ -486,7 +486,6 @@ $('#idProducto').change(function() {
         },
         error: function() {
             console.log( 'ajax_idProducto.change_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
 });
@@ -617,6 +616,29 @@ $('#btn-eliminarInventario').click(function() {
     });
 });
 
+// Mostrar cantidades disponibles
+$('#SubInventario-idProducto').change(function() {
+	var idEvento = $('#pv-idEvento').val();
+    var idProducto = $(this).val();
+
+	$.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso       : 'infoCantidades',
+            idProducto : idProducto,
+            idEvento   : idEvento
+        },
+        success: function(response) {
+            $('.infoCantidades').html( response );
+            $('.infoCantidades').removeClass('hide');
+        },
+        error: function() {
+            console.log( 'ajax_SubInventario-idProducto.change_error' );
+        }
+    });
+});
+
 // Agregar Punto de Venta
 $('.agregarPuntoVenta').click(function() {
     var id     = $(this).attr('data-id');
@@ -634,6 +656,47 @@ $('#btn-agregarPuntoVenta').click(function() {
         type: 'POST',
         data: {
             caso     : 'agregarPuntoVenta',
+            nombrePV : nombrePV,
+            idEvento : idEvento
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'puntoVenta_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Agregar Sub-inventario punto de venta
+$('.agregarSubInventario').click(function() {
+    var idEvento = $(this).attr('data-idEvento');
+    var idPV     = $(this).attr('data-idPV');
+    
+    $('#pv-IDEvento-Sub').val(idEvento);
+    $('#pv-IDPV').val(idPV);
+});
+$('#btn-agregarSubInventario').click(function() {
+    var nombrePV = $('#nombrePV').val();
+    var idEvento = $('#pv-idEvento').val();
+
+    $.ajax({
+        url: '/controller/crearEvento.php',
+        type: 'POST',
+        data: {
+            caso     : 'agregarSubInventario',
             nombrePV : nombrePV,
             idEvento : idEvento
         },
