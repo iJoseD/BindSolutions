@@ -12,6 +12,7 @@
                 <li><a href="/" class="nav-link px-2 text-white">Dashboard</a></li>
                 <li><a href="/productos" class="nav-link px-2 text-white">Productos</a></li>
                 <li><a href="/eventos" class="nav-link px-2 text-white">Eventos</a></li>
+                <li><a href="/puntos-de-venta" class="nav-link px-2 text-white">Puntos de Venta</a></li>
                 <li><a href="/usuarios" class="nav-link px-2 text-white">Usuarios</a></li>
             </ul>
 
