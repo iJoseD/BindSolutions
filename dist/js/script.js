@@ -466,6 +466,13 @@ $('#btn-eliminarEvento').click(function() {
 });
 
 // Agregar inventario
+$('.agregarInventario').click(function() {
+    var id     = $(this).attr('data-id');
+    var nombre = $(this).attr('data-nombre');
+    
+    $('#nombreEvento').html(nombre);
+    $('#idEvento').val(id);
+});
 $('#btn-agregarInventario').click(function() {
     var idEvento   = $('#idEvento').val();
     var idProducto = $('#idProducto').val();
@@ -491,7 +498,7 @@ $('#btn-agregarInventario').click(function() {
 
                 window.setTimeout(function() {
                     $('.successful-message').addClass('hide');
-                }, 2000);
+                }, 5000);
             }
         },
         error: function() {

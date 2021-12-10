@@ -234,13 +234,17 @@
             </div>
             <div class="modal-body">
                 <div class="formulario">
-                    <div class="row hide">
-                        <div class="col-12">
-                            <label class="form-label">Id evento</label>
+                    <div class="row">
+                        <div class="col-3">
+                            <label class="form-label">ID</label>
                             <input type="text" name="idEvento" id="idEvento" class="form-control" readonly>
                         </div>
+                        <div class="col-9">
+                            <label class="form-label">Evento</label>
+                            <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" readonly>
+                        </div>
                     </div>  
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
                             <select name="idProducto" id="idProducto" class="form-select">
@@ -263,7 +267,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-success successful-message hide" role="alert">
+                <div class="alert alert-success successful-message hide mt-5" role="alert">
                     <div class="row">
                         <div class="col-12 text-center">
                             <p class="fw-normal">Item agregado correctamente</p>
@@ -273,7 +277,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Crear evento</button>
+                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Agregar al inventario</button>
             </div>
         </div>
     </div>
