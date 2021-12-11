@@ -121,31 +121,39 @@ $('#crearUsuario-SelectEvento').change(function() {
 
 // Editar usuario
 $('.editarUsuario').click(function() {
-    var fullName    = $(this).attr('data-fullName');
-    var user        = $(this).attr('data-user');
-    var password    = $(this).attr('data-password');
-    var rol         = $(this).attr('data-rol');
+    var fullName     = $(this).attr('data-fullName');
+    var user         = $(this).attr('data-user');
+    var password     = $(this).attr('data-password');
+    var rol          = $(this).attr('data-rol');
+    var idEvento     = $(this).attr('data-idEvento');
+    var idPuntoVenta = $(this).attr('data-idPuntoVenta');
 
     $('#edit-fullName').val(fullName);
     $('#edit-user').val(user);
     $('#edit-password').val(password);
     $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
+    $('#editarUsuario-SelectEvento option[value="' + idEvento + '"]').attr("selected", "selected");
+    $('#editarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
 });
 $('#btn-editarUsuario').click(function() {
-    var fullName    = $('#edit-fullName').val();
-    var user        = $('#edit-user').val();
-    var password    = $('#edit-password').val();
-    var rol         = $('#edit-rol').val();
+    var fullName     = $('#edit-fullName').val();
+    var user         = $('#edit-user').val();
+    var password     = $('#edit-password').val();
+    var rol          = $('#edit-rol').val();
+    var idEvento     = $('#editarUsuario-SelectEvento').val();
+    var idPuntoVenta = $('#editarUsuario-SelectPV').val();
 
     $.ajax({
         url: '/controller/crearUsuario.php',
         type: 'POST',
         data: {
-            caso     : 'editarUsuario',
-            fullName : fullName,
-            user     : user,
-            password : password,
-            rol      : rol
+            caso         : 'editarUsuario',
+            fullName     : fullName,
+            user         : user,
+            password     : password,
+            rol          : rol,
+            idEvento     : idEvento,
+            idPuntoVenta : idPuntoVenta
         },
         success: function(response) {
             console.log( response );
@@ -165,6 +173,35 @@ $('#btn-editarUsuario').click(function() {
         error: function() {
             console.log( 'ajax_crearUsuario_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Mostrar eventos
+$('#edit-rol').change(function() {
+	var rol = $(this).val();
+
+	if ( rol == 2 ) {
+        $('#editarUsuario .asignarEvento').removeClass('hide');
+    } else {
+        $('#editarUsuario .asignarEvento').addClass('hide');
+    }
+});
+// Mostrar puntos de venta
+$('#editarUsuario-SelectEvento').change(function() {
+	var evento = $(this).val();
+
+	$.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso     : 'SelectPuntoVenta',
+            idEvento : evento
+        },
+        success: function(response) {
+            $('#editarUsuario-SelectPV').html( response );
+        },
+        error: function() {
+            console.log( 'ajax_SelectPuntoVenta.change_error' );
         }
     });
 });
