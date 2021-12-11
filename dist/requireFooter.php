@@ -1,9 +1,9 @@
-<div class="bg-dark container-fluid mt-5" style="padding: 1em 5em;position: absolute; bottom: 0px;">
+<div class="bg-dark container-fluid mt-5" style="padding: 0em 5em;position: absolute; bottom: 0px;">
     <footer class="align-items-center d-flex flex-wrap justify-content-between py-3">
         <p class="col-md-4 mb-0 text-white">© 2021 Bind Solutions. Desarrollado por Jose Correa.</p>
 
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="/dist/img/logoBind.png" width="30%" alt="Logotipo">
+            <img src="/dist/img/logoBind.png" width="15%" alt="Logotipo">
         </a>
 
         <ul class="col-md-4 justify-content-end nav">
