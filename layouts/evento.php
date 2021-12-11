@@ -211,7 +211,7 @@
                                 $html .= '<th>'. $row['nombrePV'] .'</th>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '<th>'. $cantidadTotal .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-warning editarSubInventario" data-bs-toggle="modal" data-bs-target="#editarSubInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'" data-cantidad="'. $row['cantidad'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
