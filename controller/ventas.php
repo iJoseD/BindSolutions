@@ -18,6 +18,7 @@ $codeFac      = $_POST['codeFac'];
 $idProducto   = $_POST['idProducto'];
 $cantidad     = $_POST['cantidad'];
 $status       = $_POST['status'];
+$totalFactura = $_POST['totalFactura'];
 $date         = date('Y-m-d H:m:s');
 
 if ( $caso == 'nuevaVenta' ) {
@@ -47,7 +48,7 @@ if ( $caso == 'nuevaVenta' ) {
                 $html .= '</ul>
                 
                 <ul class="list-group mt-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase">Total a pagar<span class="badge bg-success rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total a pagar<span class="badge bg-success rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
                 </ul>
             </div>';
 
@@ -66,6 +67,17 @@ if ( $caso == 'nuevaVenta' ) {
         echo 'finalizarPedido_Update';
     } else {
         echo 'finalizarPedido_not_Update';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'totalFactura' ) {
+    $sql = "INSERT INTO totalFactura (codeFac, total) VALUES ('$codeFac', '$totalFactura')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'totalFactura_created';
+    } else {
+        echo 'totalFactura_not_created';
     }
 
     $conn->close();

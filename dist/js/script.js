@@ -1066,17 +1066,35 @@ $('#btn-nuevaVenta').click(function() {
         success: function(response) {
             console.log( response );
 
-            if ( response == 'nuevaVenta_not_Update' ) {
-                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
-            }
+            var totalFactura = $('.totalFactura').attr('data-totalFactura');
+            $.ajax({
+                url: '/controller/ventas.php',
+                type: 'POST',
+                data: {
+                    caso         : 'totalFactura',
+                    codeFac      : codeFac,
+                    totalFactura : totalFactura
+                },
+                success: function(response) {
+                    console.log( response );
+        
+                    if ( response == 'totalFactura_not_Update' ) {
+                        alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                    
+                    } else {
+                        $('.formulario').addClass('hide');
+                        $('.successful-message').removeClass('hide');
+        
+                        window.setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                },
+                error: function() {
+                    console.log( 'ajax_crearProducto_error' );
+                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                }
+            });
         },
         error: function() {
             console.log( 'ajax_crearProducto_error' );
