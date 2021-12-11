@@ -49,7 +49,7 @@
     <!-- Inventario disponible -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos asignados</h3>
-        <table id="tableProductos" class="display">
+        <table class="DataTable display">
             <thead>
                 <tr>
                     <th>Imagen</th>
