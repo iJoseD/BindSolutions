@@ -8,9 +8,9 @@
 
         <ul class="col-md-4 justify-content-end nav">
             <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Dashboard</a></li>
-            <li class="nav-item"><a href="/productos" class="nav-link px-2 text-muted">Productos</a></li>
-            <li class="nav-item"><a href="/eventos" class="nav-link px-2 text-muted">Eventos</a></li>
-            <li class="nav-item"><a href="/usuarios" class="nav-link px-2 text-muted">Usuarios</a></li>
+            <li class="nav-item"><a href="/productos" class="nav-link px-2 text-white">Productos</a></li>
+            <li class="nav-item"><a href="/eventos" class="nav-link px-2 text-white">Eventos</a></li>
+            <li class="nav-item"><a href="/usuarios" class="nav-link px-2 text-white">Usuarios</a></li>
         </ul>
     </footer>
 </div>
