@@ -138,7 +138,7 @@
                             <label class="form-label">Cantidad</label>
                             <input type="text" name="nuevaVenta-cantidad" id="nuevaVenta-cantidad" class="form-control" placeholder="50">
                         </div>
-                        <div class="col-12 d-grid">
+                        <div class="col-12 mt-3 d-grid">
                             <button type="button" class="btn btn-success">Agregar al carrito</button>
                         </div>
                     </div>
