@@ -83,6 +83,8 @@
                                 while($row2 = $result2->fetch_assoc()) {
                                     $cantidad = $row2['cantidad'];
                                 }
+                            } else {
+                                $cantidad = 0;
                             }
 
                             $html = '<tr>';
