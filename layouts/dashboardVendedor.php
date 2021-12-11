@@ -76,7 +76,7 @@
                             $idProducto = $row['id'];
                             $cantidadInventario = $row['cantidad'];
 
-                            $sql2 = "SELECT * FROM ventas WHERE idProducto = '$idProducto'";
+                            $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
                             $result2 = $conn->query($sql2);
 
                             if ($result2->num_rows > 0) {
