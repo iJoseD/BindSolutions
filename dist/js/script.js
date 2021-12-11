@@ -1002,24 +1002,6 @@ $('#btn-eliminarSubInventario').click(function() {
     });
 });
 
-// |==============================|
-// |======= CERRAR SESIÓN ========|
-// |==============================|
-$('.logout').click(function() {
-    $.ajax({
-        url: '/controller/logout.php',
-        type: 'POST',
-        data: { caso : 'logout' },
-        success: function() {
-            console.log( 'logout exitoso' );
-        },
-        error: function() {
-            console.log( 'ajax_logout_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-        }
-    });
-});
-
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/
