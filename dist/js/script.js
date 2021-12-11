@@ -53,11 +53,8 @@ $('#btn-crearUsuario').click(function() {
     var user         = $('#user').val();
     var password     = $('#password').val();
     var rol          = $('#rol').val();
-    var idEvento     = $('#rol').val();
-    var idPuntoVenta = $('#rol').val();
-
-    if ( idEvento == '' ) { idEvento = '0'; }
-    if ( idPuntoVenta == '' ) { idPuntoVenta = '0'; }
+    var idEvento     = $('#crearUsuario-SelectEvento').val();
+    var idPuntoVenta = $('#crearUsuario-SelectPV').val();
 
     $.ajax({
         url: '/controller/crearUsuario.php',

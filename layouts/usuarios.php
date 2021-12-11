@@ -124,7 +124,7 @@
                         <div class="col-6">
                             <label class="form-label">Evento</label>
                             <select name="crearUsuario-SelectEvento" id="crearUsuario-SelectEvento" class="form-select">
-                                <option value="0">---</option>
+                                <option selected>---</option>
                                 <?php
                                     $sql = "SELECT * FROM eventos ORDER BY nombre ASC";
                                     $result = $conn->query($sql);
@@ -140,7 +140,7 @@
                         <div class="col-6">
                             <label class="form-label">Punto de venta</label>
                             <select name="crearUsuario-SelectPV" id="crearUsuario-SelectPV" class="form-select">
-                                <option value="0">---</option>
+                                <option selected>---</option>
                             </select>
                         </div>
                     </div>
