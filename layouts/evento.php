@@ -174,7 +174,7 @@
     <!-- Sub-inventario punto de venta -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos por punto de venta</h3>
-        <table class="DataTable display">
+        <table class="DataTable">
             <thead>
                 <tr>
                     <th>Punto de venta</th>
