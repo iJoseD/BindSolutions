@@ -87,7 +87,7 @@
         <div class="col-xl-3 col-12">
             <div class="card mb-3 text-center text-white SinCityRed">
                 <div class="card-body">
-                    <span style="font-size: xxx-large;font-weight: bolder;">10</span>
+                    <span style="font-size: xxx-large;font-weight: bolder;">$ 99.999.999</span>
                 </div>
                 <div class="card-footer">
                     <div>Total en ventas</div>
