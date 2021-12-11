@@ -20,7 +20,7 @@ $cantidad     = $_POST['cantidad'];
 $status       = $_POST['status'];
 $date         = date('Y-m-d H:m:s');
 
-if ( $caso == 'crearEvento' ) {
+if ( $caso == 'nuevaVenta' ) {
     $sql = "INSERT INTO ventas (idUser, idEvento, idPuntoVenta, codeFac, idProducto, cantidad, status, date) VALUES ('$idUser', '$idEvento', '$idPuntoVenta', '$codeFac', '$idProducto', '$cantidad', '$status', '$date')";
 
     if ($conn->query($sql) === TRUE) {
