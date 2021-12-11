@@ -1052,6 +1052,38 @@ $('#addCart').click(function() {
         }
     });
 });
+$('#btn-nuevaVenta').click(function() {
+    var codeFac = $('#nuevaVenta-codeFac').val();
+
+    $.ajax({
+        url: '/controller/ventas.php',
+        type: 'POST',
+        data: {
+            caso    : 'finalizarPedido',
+            codeFac : codeFac,
+            status  : 'approved'
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'nuevaVenta_not_Update' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
 
 // Separador de miles
 function separadorMiles(donde, caracter) {

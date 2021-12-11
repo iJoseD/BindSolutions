@@ -153,14 +153,14 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Item agregado correctamente</h4>
+                            <h4 class="mt-4">Venta realizada correctamente</h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-nuevaVenta" class="btn btn-primary">Agregar al inventario</button>
+                <button type="button" id="btn-nuevaVenta" class="btn btn-primary">Finalizar pedido</button>
             </div>
         </div>
     </div>
