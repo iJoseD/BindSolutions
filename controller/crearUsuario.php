@@ -59,7 +59,7 @@ if ( $caso == 'crearUsuario' ) {
 
     if ($result->num_rows > 0) {
         
-        $html = '<option value="0" selected>---</option>';
+        $html = '<option selected>---</option>';
         
         while($row = $result->fetch_assoc()) {
             $html .= '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';

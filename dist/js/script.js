@@ -56,6 +56,9 @@ $('#btn-crearUsuario').click(function() {
     var idEvento     = $('#rol').val();
     var idPuntoVenta = $('#rol').val();
 
+    if ( idEvento == '' ) { idEvento = '0'; }
+    if ( idPuntoVenta == '' ) { idPuntoVenta = '0'; }
+
     $.ajax({
         url: '/controller/crearUsuario.php',
         type: 'POST',
