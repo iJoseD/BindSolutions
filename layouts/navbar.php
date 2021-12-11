@@ -3,7 +3,7 @@
 <header>
     <div class="bg-dark py-2">
         <div class="container">
-            <div class="d-flex">
+            <div class="align-items-center d-flex">
                 <a href="/" class="text-decoration-none">
                     <img src="/dist/img/logoBind.png" width="20%" alt="Logotipo">
                 </a>
