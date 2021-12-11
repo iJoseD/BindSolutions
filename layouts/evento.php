@@ -23,7 +23,7 @@
     }
 ?>
 
-<section class="container-fluid text-white bgHeaderEvento">
+<section class="container-fluid text-white text-center bgHeaderEvento">
     <div class="row">
         <div class="col-12">
             <h1 class="text-uppercase nombreEvento"><?php echo $nombre; ?></h1>
