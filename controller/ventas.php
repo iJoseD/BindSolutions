@@ -60,12 +60,12 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'finalizarPedido' ) {
-    $sql = "UPDATE ventas SET status = '$status' WHERE codeFac = $codeFac";
+    $sql = "UPDATE ventas SET status = '$status' WHERE codeFac = '$codeFac'";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'nuevaVenta_Update';
+        echo 'finalizarPedido_Update';
     } else {
-        echo 'nuevaVenta_not_Update';
+        echo 'finalizarPedido_not_Update';
     }
 
     $conn->close();
