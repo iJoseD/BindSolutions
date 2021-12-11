@@ -6,11 +6,11 @@
     <body id="dashboard">
         <!-- Navbar -->
         <?php require_once('layouts/navbar.php'); ?>
-        
-        <!-- Bootstrap Bundle with Popper -->
-        <?php require_once('dist/requireFooter.php'); ?>
 
         <!-- Dashboard -->
         <?php require_once('layouts/dashboard.php'); ?>
+        
+        <!-- Bootstrap Bundle with Popper -->
+        <?php require_once('dist/requireFooter.php'); ?>
     </body>
 </html>
