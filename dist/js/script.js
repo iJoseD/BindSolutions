@@ -1043,6 +1043,7 @@ $('#addCart').click(function() {
             
             } else {
                 $('.preOrden').html( response );
+                $('#nuevaVenta-cantidad').val('');
             }
         },
         error: function() {
