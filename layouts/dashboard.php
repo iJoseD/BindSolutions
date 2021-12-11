@@ -69,7 +69,7 @@
                     
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( $row['fecha'] );
+                                $fechaEvento = strtotime( "$row['fecha']" );
                                 
                                 if ( $fechaActual > $fechaEvento ) { } else {
                                     $cont++;
