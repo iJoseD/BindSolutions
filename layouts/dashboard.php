@@ -5,7 +5,7 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-12">
-            <h4>Bienbenido de nuevo, <?php echo $fullName; ?></h4>
+            <h4>Bienvenido de nuevo, <?php echo $fullName; ?></h4>
         </div>
     </div>
 </section>
