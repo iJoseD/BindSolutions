@@ -206,7 +206,7 @@
                 <div class="formulario">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h4>¿Esta seguro que desea eliminar el usuario <span class="user"></span>?</h4>
+                            <h4>¿Esta seguro que desea eliminar el usuario <span class="user badge bg-primary"></span>?</h4>
                         </div>
                     </div>
                 </div>

@@ -197,7 +197,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h4>¿Esta seguro que desea eliminar el producto <span class="product"></span>?</h4>
+                            <h4>¿Esta seguro que desea eliminar el producto <span class="product badge bg-primary"></span>?</h4>
                         </div>
                     </div>
                 </div>
