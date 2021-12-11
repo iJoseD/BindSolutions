@@ -32,4 +32,7 @@
   font-size: 5em !important;
 }
 
-th { text-align: center; }
+th {
+  text-align: center;
+  font-weight: normal;
+}
