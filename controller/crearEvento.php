@@ -148,8 +148,21 @@ if ( $caso == 'crearEvento' ) {
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+            $cantidadInventario = $row['cantidad'];
+            
+            $sql2 = "SELECT * FROM inventarioPuntoVenta WHERE idEvento = '$idEvento' AND idProducto = '$idProducto'";
+            $result2 = $conn->query($sql2);
+
+            if ($result2->num_rows > 0) {
+                while($row2 = $result2->fetch_assoc()) {
+                    $cantidad = $row2['cantidad'];
+                }
+            } else { $cantidad = 0; }
+
+            $cantidadTotal = $cantidadInventario - $cantidad;
+
             $html = '<div class="col-12">
-                <p>Este producto cuenta con <span class="badge bg-primary text-wrap">'. $row['cantidad'] .'</span> unidades disponibles.</p>
+                <p>Este producto cuenta con <span class="badge bg-primary text-wrap">'. $cantidadTotal .'</span> unidades disponibles.</p>
             </div>';
 
             echo $html;
