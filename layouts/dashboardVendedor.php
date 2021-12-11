@@ -34,103 +34,48 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-12">
-            <h2>Bienvenido de nuevo <?php echo $fullName; ?></h2>
+            <h2>Hola, <?php echo $fullName; ?></h2>
         </div>
         <div class="col-12 mt-3">
-            <h4>Tu evento asignado es <span class="badge bg-primary"><?php echo $nombreEvento; ?></span> en el punto de venta <span class="badge bg-primary"><?php echo $nombrePuntoVenta; ?></span></h4>
+            <h4>Se te asigno el evento <span class="badge bg-primary"><?php echo $nombreEvento; ?></span> y estaras en el punto de venta <span class="badge bg-primary"><?php echo $nombrePuntoVenta; ?></span></h4>
         </div>
     </div>
 
     <div class="row mt-5">
-        <div class="col-xl-3 col-12">
-            <div class="card mb-3 text-center text-white MoonlitAsteroid">
-                <div class="card-body">
-                    <?php
-                        $sql = "SELECT COUNT(id) AS 'total' FROM productos";
-                        $result = $conn->query($sql);
+        <h3 class="mb-5">Stock disponible en tu punto de venta</h3>
+        <table class="DataTable display">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Unidades</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sql = "SELECT p.imagen, p.nombre, p.precioPublico, ipv.cantidad
+                    FROM inventarioPuntoVenta ipv
+                    JOIN productos p ON ipv.idProducto = p.id
+                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
+                    WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
                     
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
-                            <?php }
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $html = '<tr>';
+                                $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
+                                $html .= '<th>'. $row['nombre'] .'</th>';
+                                $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '<th>$ '. $row['precioPublico'] .'</th>';
+                            $html .= '</tr>';
+
+                            echo $html;
                         }
-                    ?>
-                </div>
-                <div class="card-footer">
-                    <div>Productos registrados</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-12">
-            <div class="card mb-3 text-center text-white DarkOcean">
-                <div class="card-body">
-                    <?php
-                        $sql = "SELECT COUNT(id) AS 'total' FROM eventos";
-                        $result = $conn->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
-                            <?php }
-                        }
-                    ?>
-                </div>
-                <div class="card-footer">
-                    <div>Eventos registrados</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-12">
-            <div class="card mb-3 text-center text-white Amin">
-                <div class="card-body">
-                    <?php
-                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
-                        $cont = 0;
-                        
-                        $sql = "SELECT * FROM eventos";
-                        $result = $conn->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( $row['fecha'] );
-                                
-                                if ( $fechaActual > $fechaEvento ) { } else {
-                                    $cont++;
-                                }
-                            }
-                        }
-                    ?>
-                    <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $cont; ?></span>
-                </div>
-                <div class="card-footer">
-                    <div>Próximos eventos</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-12">
-            <div class="card mb-3 text-center text-white SinCityRed">
-                <div class="card-body">
-                    <?php
-                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
-                        $cont = 0;
-                        
-                        $sql = "SELECT * FROM eventos";
-                        $result = $conn->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( $row['fecha'] );
-                                
-                                if ( $fechaActual > $fechaEvento ) { $cont++; }
-                            }
-                        }
-                    ?>
-                    <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $cont; ?></span>
-                </div>
-                <div class="card-footer">
-                    <div>Eventos finalizados</div>
-                </div>
-            </div>
-        </div>
+                    }
+                ?>
+            </tbody>
+        </table>
     </div>
 </section>
