@@ -87,10 +87,25 @@
         <div class="col-xl-3 col-12">
             <div class="card mb-3 text-center text-white SinCityRed">
                 <div class="card-body">
-                    <span style="font-size: xxx-large;font-weight: bolder;">$ 99.999.999</span>
+                    <?php
+                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
+                        $cont = 0;
+                        
+                        $sql = "SELECT * FROM eventos";
+                        $result = $conn->query($sql);
+                    
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $fechaEvento = strtotime( $row['fecha'] );
+                                
+                                if ( $fechaActual > $fechaEvento ) { $cont++; }
+                            }
+                        }
+                    ?>
+                    <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
-                    <div>Total en ventas</div>
+                    <div>Eventos finalizados</div>
                 </div>
             </div>
         </div>
