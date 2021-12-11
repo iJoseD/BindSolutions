@@ -54,9 +54,11 @@
                 <tr>
                     <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Costo</th>
-                    <th>Precio al público</th>
-                    <th>Unidades disponibles</th>
+                    <th>P. Costo</th>
+                    <th>P. Público</th>
+                    <th>Und. Asignadas</th>
+                    <th>Und. Usadas</th>
+                    <th>Und. Disponibles</th>
                     <th>Ganancia estimada</th>
                     <th>Opciones</th>
                 </tr>
@@ -91,6 +93,8 @@
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>$ '. $row['costo'] .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
+                                $html .= '<th>'. $cantidadInventario .'</th>';
+                                $html .= '<th>'. $cantidad .'</th>';
                                 $html .= '<th>'. $cantidadTotal .'</th>';
                                 $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>
