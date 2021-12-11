@@ -33,7 +33,7 @@ if ( $caso == 'crearUsuario' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarUsuario' ) {
-    $sql = "UPDATE usuarios SET fullName = '$fullName', password = '$password', rol = '$rol' WHERE user = '$user'";
+    $sql = "UPDATE usuarios SET fullName = '$fullName', password = '$password', rol = '$rol', idEvento = '$idEvento', idPuntoVenta = '$idPuntoVenta' WHERE user = '$user'";
 
     if ($conn->query($sql) === TRUE) {
         echo 'user_created';
