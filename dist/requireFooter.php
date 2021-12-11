@@ -1,13 +1,13 @@
-<div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">© <?php echo date('Y'); ?> Bind Solutions. Desarrollado por Jose Correa.</p>
+<div class="bg-dark container-fluid mt-5" style="padding: 1em 5em;">
+    <footer class="align-items-center d-flex flex-wrap justify-content-between py-3">
+        <p class="col-md-4 mb-0 text-white">© 2021 Bind Solutions. Desarrollado por Jose Correa.</p>
 
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="/dist/img/logoBind.png" width="20%" alt="Logotipo">
+            <img src="/dist/img/logoBind.png" width="30%" alt="Logotipo">
         </a>
 
-        <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Dashboard</a></li>
+        <ul class="col-md-4 justify-content-end nav">
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Dashboard</a></li>
             <li class="nav-item"><a href="/productos" class="nav-link px-2 text-muted">Productos</a></li>
             <li class="nav-item"><a href="/eventos" class="nav-link px-2 text-muted">Eventos</a></li>
             <li class="nav-item"><a href="/usuarios" class="nav-link px-2 text-muted">Usuarios</a></li>
