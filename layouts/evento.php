@@ -54,8 +54,8 @@
                 <tr>
                     <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>P. Costo</th>
-                    <th>P. Público</th>
+                    <th>Precio Costo</th>
+                    <th>Precio Público</th>
                     <th>Und. Asignadas</th>
                     <th>Und. Usadas</th>
                     <th>Und. Disponibles</th>

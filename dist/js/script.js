@@ -37,7 +37,10 @@ $('#btn-iniciarSesion').click(function() {
 // Cargar tablas
 $(document).ready(function () {
     $('#tableusuarios').DataTable();
-    $('#tableProductos').DataTable();
+    $('#tableProductos').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true,
+    });
     $('#tableEventos').DataTable();
     $('#tablePuntosVenta').DataTable();
     $('#tableSubInventario').DataTable();
