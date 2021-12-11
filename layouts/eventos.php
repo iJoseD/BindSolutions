@@ -32,7 +32,7 @@
                 <?php
                     $sql = "SELECT * FROM eventos WHERE status = '1' ORDER BY fecha ASC";
                     $result = $conn->query($sql);
-                    
+
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $html = '<tr>';
@@ -135,7 +135,7 @@
                             <label class="form-label">Id evento</label>
                             <input type="text" name="edit-id" id="edit-id" class="form-control" readonly>
                         </div>
-                    </div>  
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label">Nombre</label>
@@ -191,7 +191,7 @@
                             <label class="form-label">Id evento</label>
                             <input type="text" name="delete-id" id="delete-id" class="form-control" readonly>
                         </div>
-                    </div>    
+                    </div>
                     <div class="row">
                         <div class="col-12 text-center">
                             <h4>¿Esta seguro que desea eliminar el evento <span class="event"></span>?</h4>
@@ -234,7 +234,7 @@
                             <label class="form-label">Evento</label>
                             <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" readonly>
                         </div>
-                    </div>  
+                    </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
@@ -243,7 +243,7 @@
                                 <?php
                                     $sql = "SELECT * FROM productos WHERE status = '1' ORDER BY nombre ASC";
                                     $result = $conn->query($sql);
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
                                             echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
@@ -293,7 +293,7 @@
                             <label class="form-label">Evento</label>
                             <input type="text" name="pv-nombreEvento" id="pv-nombreEvento" class="form-control" readonly>
                         </div>
-                    </div>  
+                    </div>
                     <div class="row mt-3">
                         <div class="col-12">
                             <label class="form-label">Nombre punto de venta</label>
@@ -323,7 +323,7 @@
                                 <?php
                                     $sql = "SELECT * FROM productos WHERE status = '1' ORDER BY nombre ASC";
                                     $result = $conn->query($sql);
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
                                             echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';

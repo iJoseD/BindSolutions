@@ -1,6 +1,6 @@
 <?php
     include "../library/mcript.php";
-    
+
     // MySQLi
     $servername = "localhost";
     $username   = "app_bind";
@@ -33,7 +33,7 @@
                 <?php
                     $sql = "SELECT * FROM usuarios WHERE status = '1'";
                     $result = $conn->query($sql);
-                    
+
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             switch ( $row['rol'] ) {
@@ -96,7 +96,7 @@
                                 <?php
                                     $sql = "SELECT * FROM rol";
                                     $result = $conn->query($sql);
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
                                             echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
@@ -156,7 +156,7 @@
                                 <?php
                                     $sql = "SELECT * FROM rol";
                                     $result = $conn->query($sql);
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
                                             echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';

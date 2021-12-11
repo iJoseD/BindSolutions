@@ -31,7 +31,7 @@
                 <?php
                     $sql = "SELECT * FROM productos WHERE status = '1'";
                     $result = $conn->query($sql);
-                    
+
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             $html = '<tr>';
@@ -194,7 +194,7 @@
                             <label class="form-label">Id producto</label>
                             <input type="text" name="delete-id" id="delete-id" class="form-control" readonly>
                         </div>
-                    </div>    
+                    </div>
                     <div class="row">
                         <div class="col-12 text-center">
                             <h4>¿Esta seguro que desea eliminar el producto <span class="product"></span>?</h4>

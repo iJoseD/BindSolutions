@@ -63,21 +63,33 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT i.id, p.imagen, p.nombre, p.costo, p.precioPublico, i.cantidad FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id'";
+                    $sql = "SELECT i.id, p.id AS idProducto, p.imagen, p.nombre, p.costo, p.precioPublico, i.cantidad FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
 
+                            $idProducto = $row['idProducto'];
+                            $cantidadInventario = $row['cantidad'];
+                            
                             $ganancia = str_replace( '.', '', $row['precioPublico'] ) - str_replace( '.', '', $row['costo'] );
                             $ganancia = $ganancia * $row['cantidad'];
+
+                            $sql2 = "SELECT * FROM inventarioPuntoVenta WHERE idEvento = '$id' AND idProducto = '$idProducto'";
+                            $result2 = $conn->query($sql2);
+
+                            if ($result2->num_rows > 0) {
+                                while($row2 = $result2->fetch_assoc()) {
+                                    $cantidad = $cantidadInventario - $row2['cantidad'];
+                                }
+                            }
 
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>$ '. $row['costo'] .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
-                                $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '<th>'. $cantidad .'</th>';
                                 $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-warning editarInventario" data-bs-toggle="modal" data-bs-target="#editarInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'" data-cantidad="'. $row['cantidad'] .'">

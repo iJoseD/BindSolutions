@@ -18,7 +18,7 @@ $precioPublico = $_POST['precioPublico'];
 
 if ( $caso == 'crearProductos' ) {
     $sql = "INSERT INTO productos (imagen, nombre, costo, precioPublico, status) VALUES ('', '$nombre', '$costo', '$precioPublico', '1')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'product_created';
     } else {
@@ -29,7 +29,7 @@ if ( $caso == 'crearProductos' ) {
 
 } elseif ( $caso == 'editarProducto' ) {
     $sql = "UPDATE productos SET nombre = '$nombre', costo = '$costo', precioPublico = '$precioPublico' WHERE id = $id";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'product_edit';
     } else {

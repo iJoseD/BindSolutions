@@ -52,7 +52,7 @@ $idPuntoVenta = $_POST['idPuntoVenta'];
 
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$date')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'event_created';
     } else {
@@ -63,7 +63,7 @@ if ( $caso == 'crearEvento' ) {
 
 } elseif ( $caso == 'editarEvento' ) {
     $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', fechaFormato = '$fechaFormato', lugar = '$lugar', codigoEvento = '$codigoEvento' WHERE id = $id";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'event_edit';
     } else {
@@ -101,7 +101,7 @@ if ( $caso == 'crearEvento' ) {
 
 } elseif ( $caso == 'agregarInventario' ) {
     $sql = "INSERT INTO inventario (idEvento, idProducto, cantidad) VALUES ('$idEvento', '$idProducto', '$cantidad')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'inventario_created';
     } else {
@@ -134,7 +134,7 @@ if ( $caso == 'crearEvento' ) {
 
 } elseif ( $caso == 'agregarPuntoVenta' ) {
     $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'puntoVenta_created';
     } else {
@@ -160,7 +160,7 @@ if ( $caso == 'crearEvento' ) {
 
 } elseif ( $caso == 'agregarSubInventario' ) {
     $sql = "INSERT INTO inventarioPuntoVenta (idPuntoVenta, idEvento, idProducto, cantidad) VALUES ('$idPuntoVenta', '$idEvento', '$idProducto', '$cantidad')";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo 'SubInventario_created';
     } else {

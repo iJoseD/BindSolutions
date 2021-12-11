@@ -21,7 +21,7 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 
             $sql = "SELECT MAX(id) AS id FROM productos";
             $result = $conn->query($sql);
-            
+
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     $idProducto = $row['id'];
