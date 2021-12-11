@@ -95,6 +95,25 @@ $('#rol').change(function() {
         $('.asignarEvento').addClass('hide');
     }
 });
+// Mostrar puntos de venta
+$('#crearUsuario-SelectEvento').change(function() {
+	var evento = $(this).val();
+
+	$.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso   : 'SelectPuntoVenta',
+            evento : evento
+        },
+        success: function(response) {
+            $('#crearUsuario-SelectPV').html( response );
+        },
+        error: function() {
+            console.log( 'ajax_SelectPuntoVenta.change_error' );
+        }
+    });
+});
 
 // Editar usuario
 $('.editarUsuario').click(function() {

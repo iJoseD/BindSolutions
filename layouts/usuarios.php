@@ -139,7 +139,9 @@
                         </div>
                         <div class="col-6">
                             <label class="form-label">Punto de venta</label>
-                            <select name="crearUsuario-SelectPV" id="crearUsuario-SelectPV" class="form-select"></select>
+                            <select name="crearUsuario-SelectPV" id="crearUsuario-SelectPV" class="form-select">
+                                <option selected>---</option>
+                            </select>
                         </div>
                     </div>
                 </div>

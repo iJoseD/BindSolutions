@@ -19,6 +19,8 @@ $password   = $encriptar( $_POST['password'] );
 $rol        = $_POST['rol'];
 $date       = date('Y-m-d H:m:s');
 
+$idEvento   = $_POST['evento'];
+
 if ( $caso == 'crearUsuario' ) {
     $sql = "INSERT INTO usuarios (fullName, user, password, rol, idEvento, idPuntoVenta, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '0', '0', '1', '$date')";
 
@@ -51,4 +53,21 @@ if ( $caso == 'crearUsuario' ) {
     }
 
     $conn->close();
+} elseif ( $caso == 'SelectPuntoVenta' ) {
+    $sql = "SELECT * FROM puntoVenta WHERE idEvento = '$idEvento'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        
+        $html = '<option selected>---</option>';
+        
+        while($row = $result->fetch_assoc()) {
+            $html .= '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+        }
+
+        echo $html;
+    }
+
+    $conn->close();
+
 }
