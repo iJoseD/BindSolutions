@@ -63,7 +63,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT p.imagen, p.nombre, p.precioPublico, ipv.cantidad
+                    $sql = "SELECT p.id, p.imagen, p.nombre, p.precioPublico, ipv.cantidad
                     FROM inventarioPuntoVenta ipv
                     JOIN productos p ON ipv.idProducto = p.id
                     JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
@@ -73,10 +73,24 @@
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
+                            $idProducto = $row['id'];
+                            $cantidadInventario = $row['cantidad'];
+
+                            $sql2 = "SELECT * FROM ventas WHERE idProducto = '$idProducto'";
+                            $result2 = $conn->query($sql2);
+
+                            if ($result2->num_rows > 0) {
+                                while($row2 = $result2->fetch_assoc()) {
+                                    $cantidad = $row2['cantidad'];
+                                }
+                            } else { $cantidad = 0; }
+
+                            $cantidadTotal = $cantidadInventario - $cantidad;
+
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '<th>'. $cantidadTotal .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
                             $html .= '</tr>';
 
