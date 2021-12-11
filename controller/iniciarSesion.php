@@ -29,9 +29,12 @@ if ( $caso == 'iniciarSesion' ) {
 
                     if ($conn->query($sql) === TRUE) {
                         session_start();
-                        $_SESSION['fullName'] = $row['fullName'];
-                        $_SESSION['user'] = $row['user'];
-                        $_SESSION['rol'] = $row['rol'];
+                        $_SESSION['id']           = $row['id'];
+                        $_SESSION['fullName']     = $row['fullName'];
+                        $_SESSION['user']         = $row['user'];
+                        $_SESSION['rol']          = $row['rol'];
+                        $_SESSION['idEvento']     = $row['idEvento'];
+                        $_SESSION['idPuntoVenta'] = $row['idPuntoVenta'];
 
                         echo 'successful_login';
                     } else {
