@@ -134,6 +134,12 @@ $('.editarUsuario').click(function() {
     $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
     $('#editarUsuario-SelectEvento option[value="' + idEvento + '"]').attr("selected", "selected");
     $('#editarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
+
+    if ( rol == 2 ) {
+        $('#editarUsuario .asignarEvento').removeClass('hide');
+    } else {
+        $('#editarUsuario .asignarEvento').addClass('hide');
+    }
 });
 $('#btn-editarUsuario').click(function() {
     var fullName     = $('#edit-fullName').val();
