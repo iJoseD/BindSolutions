@@ -29,8 +29,8 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
                                 <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
-                            }
-                        <?php }
+                            <?php }
+                        }
                     ?>
                 </div>
                 <div class="card-footer">
