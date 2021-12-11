@@ -62,14 +62,14 @@
                 <div class="card-body">
                     <?php
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
-                        $cont = 0:
+                        $cont = 0;
                         
                         $sql = "SELECT * FROM eventos";
                         $result = $conn->query($sql);
                     
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( "$row['fecha']" );
+                                $fechaEvento = strtotime( $row['fecha'] );
                                 
                                 if ( $fechaActual > $fechaEvento ) { } else {
                                     $cont++;
