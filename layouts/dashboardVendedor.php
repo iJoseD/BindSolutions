@@ -144,7 +144,7 @@
                             <input type="text" name="nuevaVenta-cantidad" id="nuevaVenta-cantidad" class="form-control" placeholder="50">
                         </div>
                         <div class="col-12 mt-3 d-grid">
-                            <button type="button" id="addCart" class="btn btn-success">Agregar al carrito</button>
+                            <button type="button" id="addCart" class="btn btn-warning fw-bold text-uppercase">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="row mt-3 preOrden"></div>

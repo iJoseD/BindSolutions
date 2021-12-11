@@ -42,12 +42,12 @@ if ( $caso == 'nuevaVenta' ) {
                         $totalVenta = $precioPublico * $cantidad;
                         $totalFactura = $totalFactura + $totalVenta;
 
-                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-primary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
+                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
                     }
                 $html .= '</ul>
                 
                 <ul class="list-group mt-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Total a pagar<span class="badge bg-primary rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase">Total a pagar<span class="badge bg-success rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
                 </ul>
             </div>';
 
