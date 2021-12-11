@@ -133,7 +133,6 @@ $('.editarUsuario').click(function() {
     $('#edit-password').val(password);
     $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
     $('#editarUsuario-SelectEvento option[value="' + idEvento + '"]').attr("selected", "selected");
-    $('#editarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
 
     if ( rol == 2 ) {
         var evento = $('#editarUsuario-SelectEvento').val();
@@ -147,6 +146,7 @@ $('.editarUsuario').click(function() {
             },
             success: function(response) {
                 $('#editarUsuario-SelectPV').html( response );
+                $('#editarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
                 $('#editarUsuario .asignarEvento').removeClass('hide');
             },
             error: function() {
