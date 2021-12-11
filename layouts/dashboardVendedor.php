@@ -101,7 +101,12 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT v.codeFac, SUM(v.cantidad) AS 'cantidad' FROM ventas v JOIN productos p ON v.idProducto = p.id WHERE v.idEvento = '$idEvento' GROUP BY v.codeFac";
+                    $sql = "SELECT v.codeFac, SUM(v.cantidad) AS 'cantidad', tf.total
+                    FROM ventas v
+                    JOIN productos p ON v.idProducto = p.id
+                    JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                    WHERE v.idEvento = '$idEvento'
+                    GROUP BY v.codeFac";
                     
                     $result = $conn->query($sql);
 
