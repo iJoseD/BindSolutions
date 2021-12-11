@@ -52,7 +52,7 @@
 
     <div class="row mt-5">
         <h3 class="mb-5">Stock disponible en tu punto de venta</h3>
-        <table class="DataTable">
+        <table class="DataTable display">
             <thead>
                 <tr>
                     <th>Imagen</th>
