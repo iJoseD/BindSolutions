@@ -34,17 +34,26 @@
                     ?>
                 </div>
                 <div class="card-footer">
-                    <div>Productos en sistema</div>
+                    <div>Productos registrados</div>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-12">
             <div class="card mb-3 text-center text-white DarkOcean">
                 <div class="card-body">
-                    <span style="font-size: xxx-large;font-weight: bolder;">10</span>
+                    <?php
+                        $sql = "SELECT COUNT(id) AS 'total' FROM eventos";
+                        $result = $conn->query($sql);
+                    
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
+                            <?php }
+                        }
+                    ?>
                 </div>
                 <div class="card-footer">
-                    <div>Todas las reservas</div>
+                    <div>Eventos registrados</div>
                 </div>
             </div>
         </div>
