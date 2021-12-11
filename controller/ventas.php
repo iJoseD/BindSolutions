@@ -31,19 +31,22 @@ if ( $caso == 'nuevaVenta' ) {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+            $totalFactura = 0;
+            
             $html = '<div class="col-12">
-                <ul class="list-group">';
+                <h4>Productos agregados</h4>
+                <ul class="list-group mt-3">';
                     while($row = $result->fetch_assoc()) {
                         $precioPublico = str_replace( '.', '', $row['precioPublico'] );
                         $cantidad = $row["cantidad"];
                         $totalVenta = $precioPublico * $cantidad;
-                        $totalFactura = $totalVenta + $totalVenta;
+                        $totalFactura = $totalFactura + $totalVenta;
 
                         $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-primary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
                     }
                 $html .= '</ul>
                 
-                <ul class="list-group mt3-3">
+                <ul class="list-group mt-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center">Total a pagar<span class="badge bg-primary rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
                 </ul>
             </div>';
