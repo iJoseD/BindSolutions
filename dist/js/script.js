@@ -85,6 +85,16 @@ $('#btn-crearUsuario').click(function() {
         }
     });
 });
+// Mostrar eventos
+$('#rol').change(function() {
+	var rol = $(this).val();
+
+	if ( rol == 2 ) {
+        $('.asignarEvento').removeClass('hide');
+    } else {
+        $('.asignarEvento').addClass('hide');
+    }
+});
 
 // Editar usuario
 $('.editarUsuario').click(function() {

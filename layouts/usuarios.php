@@ -116,6 +116,32 @@
                             <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
                         </div>
                     </div>
+                    <div class="row mt-3 asignarEvento hide">
+                        <div class="col-12 mb-3">
+                            <h4>Asignar evento</h4>
+                        </div>
+                        
+                        <div class="col-6">
+                            <label class="form-label">Evento</label>
+                            <select name="crearUsuario-SelectEvento" id="crearUsuario-SelectEvento" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM eventos ORDER BY nombre ASC";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Punto de venta</label>
+                            <select name="crearUsuario-SelectPV" id="crearUsuario-SelectPV" class="form-select"></select>
+                        </div>
+                    </div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">

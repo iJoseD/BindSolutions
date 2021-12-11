@@ -20,7 +20,7 @@ $rol        = $_POST['rol'];
 $date       = date('Y-m-d H:m:s');
 
 if ( $caso == 'crearUsuario' ) {
-    $sql = "INSERT INTO usuarios (fullName, user, password, rol, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '1', '$date')";
+    $sql = "INSERT INTO usuarios (fullName, user, password, rol, idEvento, idPuntoVenta, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '0', '0', '1', '$date')";
 
     if ($conn->query($sql) === TRUE) {
         echo 'user_created';
