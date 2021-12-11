@@ -57,7 +57,6 @@
                     <th>Costo</th>
                     <th>Precio al público</th>
                     <th>Unidades disponibles</th>
-                    <th>Cantidad</th>
                     <th>Ganancia estimada</th>
                     <th>Opciones</th>
                 </tr>
@@ -83,17 +82,16 @@
                                 while($row2 = $result2->fetch_assoc()) {
                                     $cantidad = $row2['cantidad'];
                                 }
-                            } else {
-                                $cantidad = 0;
-                            }
+                            } else { $cantidad = 0; }
+
+                            $cantidadTotal = $cantidadInventario - $cantidad;
 
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>$ '. $row['costo'] .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
-                                $html .= '<th>$ '. $row['cantidad'] .'</th>';
-                                $html .= '<th>'. $cantidad .'</th>';
+                                $html .= '<th>'. $cantidadTotal .'</th>';
                                 $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>
                                     <button type="button" class="btn btn-warning editarInventario" data-bs-toggle="modal" data-bs-target="#editarInventario" data-id="'. $row['id'] .'" data-nombre="'. $row['nombre'] .'" data-cantidad="'. $row['cantidad'] .'">
