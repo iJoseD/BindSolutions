@@ -19,7 +19,7 @@
     </div>
 
     <div class="row mt-5">
-        <table id="tableusuarios" class="display">
+        <table class="DataTable display">
             <thead>
                 <tr>
                     <th>Nombre</th>

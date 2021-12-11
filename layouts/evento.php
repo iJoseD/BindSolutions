@@ -125,7 +125,7 @@
     <div class="row mt-5">
         <h3 class="mb-5">Puntos de venta</h3>
         <div class="col-6">
-            <table id="tablePuntosVenta" class="display">
+            <table class="DataTable display">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -174,7 +174,7 @@
     <!-- Sub-inventario punto de venta -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos por punto de venta</h3>
-        <table id="tableSubInventario" class="display">
+        <table class="DataTable display">
             <thead>
                 <tr>
                     <th>Punto de venta</th>

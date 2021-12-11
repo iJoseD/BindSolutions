@@ -17,7 +17,7 @@
     </div>
 
     <div class="row mt-5">
-        <table id="tableProductos" class="display">
+        <table class="DataTable display">
             <thead>
                 <tr>
                     <th>Imagen</th>
