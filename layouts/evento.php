@@ -86,9 +86,20 @@
                                 }
                             } else { $cantidad = 0; }
 
-                            $cantidadTotal = $cantidadInventario - $cantidad;
+                            $sql3 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
+                            $result3 = $conn->query($sql3);
 
-                            $html = '<tr>';
+                            if ($result3->num_rows > 0) {
+                                while($row3 = $result3->fetch_assoc()) {
+                                    $cantidad2 = $row3['cantidad'];
+                                }
+                            } else { $cantidad2 = 0; }
+
+                            $cantidadTotal = $cantidadInventario - $cantidad - $cantidad2;
+
+                            if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
+
+                            $html = '<tr class="'. $class .'">';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>$ '. $row['costo'] .'</th>';
