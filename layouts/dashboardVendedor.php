@@ -52,7 +52,7 @@
 
     <div class="row mt-5">
         <h3 class="mb-5">Stock disponible en tu punto de venta</h3>
-        <table class="DataTable display">
+        <table class="DataTable">
             <thead>
                 <tr>
                     <th>Imagen</th>
@@ -87,7 +87,9 @@
 
                             $cantidadTotal = $cantidadInventario - $cantidad;
 
-                            $html = '<tr>';
+                            if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
+
+                            $html = '<tr class="'. $class .'">';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>'. $cantidadTotal .'</th>';
