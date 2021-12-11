@@ -1,4 +1,5 @@
 <?php session_start();
+    $idUser       = $_SESSION['id'];
     $fullName     = $_SESSION['fullName'];
     $idEvento     = $_SESSION['idEvento'];
     $idPuntoVenta = $_SESSION['idPuntoVenta'];
@@ -45,7 +46,7 @@
 
     <div class="row mt-5">
         <div class="col-3 d-grid">
-            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-idEvento="<?php echo $idEvento; ?>" data-idPuntoVenta="<?php echo $idPuntoVenta; ?>">Generar nueva venta</button>
+            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-idEvento="<?php echo $idEvento; ?>" data-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
         </div>
     </div>
 
@@ -99,15 +100,19 @@
             <div class="modal-body">
                 <div class="formulario">
                     <div class="row hide">
-                        <div class="col-4">
+                        <div class="col-3">
+                            <label class="form-label">idUser</label>
+                            <input type="text" name="nuevaVenta-idUser" id="nuevaVenta-idUser" class="form-control" readonly>
+                        </div>
+                        <div class="col-3">
                             <label class="form-label">idEvento</label>
                             <input type="text" name="nuevaVenta-idEvento" id="nuevaVenta-idEvento" class="form-control" readonly>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <label class="form-label">idPuntoVenta</label>
                             <input type="text" name="nuevaVenta-idPuntoVenta" id="nuevaVenta-idPuntoVenta" class="form-control" readonly>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <label class="form-label">codeFac</label>
                             <input type="text" name="nuevaVenta-codeFac" id="nuevaVenta-codeFac" class="form-control" value="<?php echo $codeFac; ?>" readonly>
                         </div>
@@ -139,7 +144,7 @@
                             <input type="text" name="nuevaVenta-cantidad" id="nuevaVenta-cantidad" class="form-control" placeholder="50">
                         </div>
                         <div class="col-12 mt-3 d-grid">
-                            <button type="button" class="btn btn-success">Agregar al carrito</button>
+                            <button type="button" id="addCart" class="btn btn-success">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="row mt-3 preOrden"></div>

@@ -1006,11 +1006,51 @@ $('#btn-eliminarSubInventario').click(function() {
 // |========== VENTAS ============|
 // |==============================|
 $('.nuevaVenta').click(function() {
+    var idUser       = $(this).attr('data-idUser');
     var idEvento     = $(this).attr('data-idEvento');
     var idPuntoVenta = $(this).attr('data-idPuntoVenta');
     
+    $('#nuevaVenta-idUser').val(idUser);
     $('#nuevaVenta-idEvento').val(idEvento);
     $('#nuevaVenta-idPuntoVenta').val(idPuntoVenta);
+});
+$('#addCart').click(function() {
+    var idUser       = $('#nuevaVenta-idUser').val();
+    var idEvento     = $('#nuevaVenta-idEvento').val();
+    var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
+    var codeFac      = $('#nuevaVenta-codeFac').val();
+    var idProducto   = $('#nuevaVenta-idProducto').val();
+    var cantidad     = $('#nuevaVenta-cantidad').val();
+
+    $.ajax({
+        url: '/controller/ventas.php',
+        type: 'POST',
+        data: {
+            caso         : 'nuevaVenta',
+            idUser       : idUser,
+            idEvento     : idEvento,
+            idPuntoVenta : idPuntoVenta,
+            codeFac      : codeFac,
+            idProducto   : idProducto,
+            cantidad     : cantidad,
+            status       : 'pending'
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'nuevaVenta_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.infoCantidades').html( response );
+                $('.infoCantidades').removeClass('hide');
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
 });
 
 // Separador de miles
