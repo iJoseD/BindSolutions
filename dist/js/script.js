@@ -1002,6 +1002,17 @@ $('#btn-eliminarSubInventario').click(function() {
     });
 });
 
+// |==============================|
+// |========== VENTAS ============|
+// |==============================|
+$('.nuevaVenta').click(function() {
+    var idEvento     = $(this).attr('data-idEvento');
+    var idPuntoVenta = $(this).attr('data-idPuntoVenta');
+    
+    $('#nuevaVenta-idEvento').val(idEvento);
+    $('#nuevaVenta-idPuntoVenta').val(idPuntoVenta);
+});
+
 // Separador de miles
 function separadorMiles(donde, caracter) {
     pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/

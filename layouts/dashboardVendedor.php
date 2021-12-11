@@ -88,7 +88,7 @@
     </div>
 </section>
 
-<!-- Agregar inventario -->
+<!-- Nueva venta -->
 <div class="modal fade" id="nuevaVenta" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="nuevaVentaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
