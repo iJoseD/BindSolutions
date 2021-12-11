@@ -136,7 +136,23 @@ $('.editarUsuario').click(function() {
     $('#editarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
 
     if ( rol == 2 ) {
-        $('#editarUsuario .asignarEvento').removeClass('hide');
+        var evento = $('#editarUsuario-SelectEvento').val();
+
+        $.ajax({
+            url: '/controller/crearUsuario.php',
+            type: 'POST',
+            data: {
+                caso     : 'SelectPuntoVenta',
+                idEvento : evento
+            },
+            success: function(response) {
+                $('#editarUsuario-SelectPV').html( response );
+                $('#editarUsuario .asignarEvento').removeClass('hide');
+            },
+            error: function() {
+                console.log( 'ajax_SelectPuntoVenta.change_error' );
+            }
+        });
     } else {
         $('#editarUsuario .asignarEvento').addClass('hide');
     }
