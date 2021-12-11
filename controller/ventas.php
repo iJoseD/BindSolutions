@@ -24,7 +24,25 @@ if ( $caso == 'nuevaVenta' ) {
     $sql = "INSERT INTO ventas (idUser, idEvento, idPuntoVenta, codeFac, idProducto, cantidad, status, date) VALUES ('$idUser', '$idEvento', '$idPuntoVenta', '$codeFac', '$idProducto', '$cantidad', '$status', '$date')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'nuevaVenta_created';
+        $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
+        FROM ventas v
+        JOIN productos p ON v.idProducto = p.id
+        WHERE codeFac = '$codeFac'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $html = '<ul class="list-group">';
+                while($row = $result->fetch_assoc()) {
+                    $precioPublico = str_replace( '.', '', $row['precioPublico'] );
+                    $cantidad = $row["cantidad"];
+                    $totalVenta = $precioPublico * $cantidad;
+
+                    $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-primary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
+                }
+            $html .= '</ul>';
+
+            echo $html;
+        }
     } else {
         echo 'nuevaVenta_not_created';
     }

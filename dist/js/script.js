@@ -1042,8 +1042,7 @@ $('#addCart').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
-                $('.infoCantidades').html( response );
-                $('.infoCantidades').removeClass('hide');
+                $('.preOrden').html( response );
             }
         },
         error: function() {
