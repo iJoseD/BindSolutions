@@ -33,11 +33,17 @@
 
 <section class="container">
     <div class="row mt-5">
-        <div class="col-12">
-            <h2>Hola, <?php echo $fullName; ?></h2>
+        <div class="col-xl-12 col-12">
+            <h2>Hola, <?php echo $fullName; ?>!</h2>
         </div>
         <div class="col-12 mt-3">
             <h4>Se te asigno el evento <span class="badge bg-primary"><?php echo $nombreEvento; ?></span> y estaras en el punto de venta <span class="badge bg-primary"><?php echo $nombrePuntoVenta; ?></span></h4>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-3 d-grid">
+            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-idEvento="<?php echo $idEvento; ?>" data-idPuntoVenta="<?php echo $idPuntoVenta; ?>">Generar nueva venta</button>
         </div>
     </div>
 
