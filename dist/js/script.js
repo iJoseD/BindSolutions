@@ -49,20 +49,24 @@ $(document).ready(function () {
 // |==============================|
 // Crear usuario
 $('#btn-crearUsuario').click(function() {
-    var fullName    = $('#fullName').val();
-    var user        = $('#user').val();
-    var password    = $('#password').val();
-    var rol         = $('#rol').val();
+    var fullName     = $('#fullName').val();
+    var user         = $('#user').val();
+    var password     = $('#password').val();
+    var rol          = $('#rol').val();
+    var idEvento     = $('#rol').val();
+    var idPuntoVenta = $('#rol').val();
 
     $.ajax({
         url: '/controller/crearUsuario.php',
         type: 'POST',
         data: {
-            caso     : 'crearUsuario',
-            fullName : fullName,
-            user     : user,
-            password : password,
-            rol      : rol
+            caso         : 'crearUsuario',
+            fullName     : fullName,
+            user         : user,
+            password     : password,
+            rol          : rol,
+            idEvento     : idEvento,
+            idPuntoVenta : idPuntoVenta
         },
         success: function(response) {
             console.log( response );
@@ -103,8 +107,8 @@ $('#crearUsuario-SelectEvento').change(function() {
         url: '/controller/crearUsuario.php',
         type: 'POST',
         data: {
-            caso   : 'SelectPuntoVenta',
-            evento : evento
+            caso     : 'SelectPuntoVenta',
+            idEvento : evento
         },
         success: function(response) {
             $('#crearUsuario-SelectPV').html( response );

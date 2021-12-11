@@ -12,17 +12,17 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
 // Var
-$caso       = $_POST['caso'];
-$fullName   = $_POST['fullName'];
-$user       = $_POST['user'];
-$password   = $encriptar( $_POST['password'] );
-$rol        = $_POST['rol'];
-$date       = date('Y-m-d H:m:s');
-
-$idEvento   = $_POST['evento'];
+$caso         = $_POST['caso'];
+$fullName     = $_POST['fullName'];
+$user         = $_POST['user'];
+$password     = $encriptar( $_POST['password'] );
+$rol          = $_POST['rol'];
+$date         = date('Y-m-d H:m:s');
+$idEvento     = $_POST['idEvento'];
+$idPuntoVenta = $_POST['idPuntoVenta'];
 
 if ( $caso == 'crearUsuario' ) {
-    $sql = "INSERT INTO usuarios (fullName, user, password, rol, idEvento, idPuntoVenta, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '0', '0', '1', '$date')";
+    $sql = "INSERT INTO usuarios (fullName, user, password, rol, idEvento, idPuntoVenta, status, lastLogin) VALUES ('$fullName', '$user', '$password', '$rol', '$idEvento', '$idPuntoVenta', '1', '$date')";
 
     if ($conn->query($sql) === TRUE) {
         echo 'user_created';
@@ -59,7 +59,7 @@ if ( $caso == 'crearUsuario' ) {
 
     if ($result->num_rows > 0) {
         
-        $html = '<option selected>---</option>';
+        $html = '<option value="0" selected>---</option>';
         
         while($row = $result->fetch_assoc()) {
             $html .= '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
