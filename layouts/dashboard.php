@@ -12,13 +12,13 @@
 ?>
 
 <section class="container">
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
         <div class="col-12">
-            <h4>Bienvenido de nuevo <?php echo $fullName; ?></h4>
+            <h2>Bienvenido de nuevo <?php echo $fullName; ?></h2>
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-5">
         <div class="col-xl-3 col-12">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
                 <div class="card-body">
