@@ -87,6 +87,38 @@
             </tbody>
         </table>
     </div>
+
+    <div class="row mt-5">
+        <h3 class="mb-5">Ventas realizadas</h3>
+        <table class="DataTable display">
+            <thead>
+                <tr>
+                    <th>Factura</th>
+                    <th>Unidades vendidas</th>
+                    <th>Total factura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sql = "SELECT v.codeFac, SUM(v.cantidad) FROM ventas v JOIN productos p ON v.idProducto = p.id WHERE v.idEvento = '$idEvento' GROUP BY v.codeFac";
+                    
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $html = '<tr>';
+                                $html .= '<th>'. $row['codeFac'] .'</th>';
+                                $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '<th>$ 9.000</th>';
+                            $html .= '</tr>';
+
+                            echo $html;
+                        }
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </section>
 
 <!-- Nueva venta -->
