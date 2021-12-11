@@ -3,6 +3,8 @@
     $idEvento     = $_SESSION['idEvento'];
     $idPuntoVenta = $_SESSION['idPuntoVenta'];
 
+    $codeFac = 'E' . $idEvento. 'PV' . $idPuntoVenta . 'FAC' . rand(1000, 9999);
+
     // MySQLi
     $servername = "localhost";
     $username   = "app_bind";
@@ -85,3 +87,76 @@
         </table>
     </div>
 </section>
+
+<!-- Agregar inventario -->
+<div class="modal fade" id="nuevaVenta" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="nuevaVentaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nuevaVentaLabel">Agregar inventario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="row hide">
+                        <div class="col-4">
+                            <label class="form-label">idEvento</label>
+                            <input type="text" name="nuevaVenta-idEvento" id="nuevaVenta-idEvento" class="form-control" readonly>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">idPuntoVenta</label>
+                            <input type="text" name="nuevaVenta-idPuntoVenta" id="nuevaVenta-idPuntoVenta" class="form-control" readonly>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">codeFac</label>
+                            <input type="text" name="nuevaVenta-codeFac" id="nuevaVenta-codeFac" class="form-control" value="<?php echo $codeFac; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-8">
+                            <label class="form-label">Producto</label>
+                            <select name="nuevaVenta-idProducto" id="nuevaVenta-idProducto" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT p.id, p.nombre
+                                    FROM inventarioPuntoVenta ipv
+                                    JOIN productos p ON ipv.idProducto = p.id
+                                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
+                                    WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'
+                                    ORDER BY p.nombre ASC";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Cantidad</label>
+                            <input type="text" name="nuevaVenta-cantidad" id="nuevaVenta-cantidad" class="form-control" placeholder="50">
+                        </div>
+                        <div class="col-12 d-grid">
+                            <button type="button" class="btn btn-success">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3 preOrden"></div>
+                </div>
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Item agregado correctamente</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-nuevaVenta" class="btn btn-primary">Agregar al inventario</button>
+            </div>
+        </div>
+    </div>
+</div>
