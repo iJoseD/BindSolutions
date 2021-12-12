@@ -66,7 +66,6 @@
                     $sql = "SELECT p.id, p.imagen, p.nombre, p.precioPublico, ipv.cantidad
                     FROM inventarioPuntoVenta ipv
                     JOIN productos p ON ipv.idProducto = p.id
-                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
                     WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
                     
                     $result = $conn->query($sql);
@@ -188,22 +187,6 @@
                                     $sql = "SELECT p.id, p.nombre, ipv.cantidad
                                     FROM inventarioPuntoVenta ipv
                                     JOIN productos p ON ipv.idProducto = p.id
-                                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
-                                    WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'
-                                    ORDER BY p.nombre ASC";
-                                    $result = $conn->query($sql);
-
-                                    if ($result->num_rows > 0) {
-                                        while($row = $result->fetch_assoc()) {
-                                            echo '<option value="'. $row['id'] .'" data-cantidad="'. $row['cantidad'] .'">'. $row['nombre'] .'</option>';
-                                        }
-                                    }
-                                ?>
-                                <?php
-                                    $sql = "SELECT p.id, p.nombre, ipv.cantidad
-                                    FROM inventarioPuntoVenta ipv
-                                    JOIN productos p ON ipv.idProducto = p.id
-                                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
                                     WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
                                     
                                     $result = $conn->query($sql);
