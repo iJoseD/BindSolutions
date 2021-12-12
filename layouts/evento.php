@@ -124,7 +124,7 @@
     <!-- Puntos de venta -->
     <div class="row mt-5">
         <h3 class="mb-5">Puntos de venta</h3>
-        <div class="col-6">
+        <div class="col-xl-6 col-md-12 col-12">
             <table class="DataTable display">
                 <thead>
                     <tr>
