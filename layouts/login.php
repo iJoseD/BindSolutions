@@ -1,7 +1,7 @@
 <section class="container d-flex flex-column h-100 p-3">
     <div class="row mb-auto mt-auto">
-        <div class="col-3"></div>
-        <div class="col-6 bgLogin">
+        <div class="col-xl-3 col-md-2 col-1"></div>
+        <div class="col-xl-6 col-md-8 col-10 bgLogin">
             <figure class="iconotipo text-center">
                 <img src="/dist/img/logoBind.png" width="40%" alt="Logotipo">
             </figure>
@@ -17,6 +17,6 @@
                 <button type="button" id="btn-iniciarSesion" class="btn btn-primary">Iniciar Sesión</button>
             </div>
         </div>
-        <div class="col-3"></div>
+        <div class="col-xl-3 col-md-2 col-1"></div>
     </div>
 </section>
