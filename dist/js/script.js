@@ -1023,7 +1023,7 @@ $('#addCart').click(function() {
     var cantidad      = $('#nuevaVenta-cantidad').val();
     var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
 
-    if ( cantidadTotal > cantidad ) {
+    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
         $.ajax({
             url: '/controller/ventas.php',
             type: 'POST',
