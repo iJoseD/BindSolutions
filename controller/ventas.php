@@ -93,7 +93,7 @@ if ( $caso == 'nuevaVenta' ) {
         $totalFactura = 0;
         
         $html = '<div class="col-12">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col" colspan="2" class="fw-bold">Item</th>
@@ -117,7 +117,7 @@ if ( $caso == 'nuevaVenta' ) {
                 $html .= '</tbody>
             </table>
             
-            <ul class="list-group mt-3">
+            <ul class="list-group mt-5">
                 <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total a pagar<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
             </ul>
         </div>';
