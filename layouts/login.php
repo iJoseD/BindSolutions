@@ -5,7 +5,7 @@
             <figure class="iconotipo text-center">
                 <img src="/dist/img/logoBind.png" width="40%" alt="Logotipo">
             </figure>
-            <div class="row mt-5 gap-xl-0 gap--md-0 gap-3">
+            <div class="row mt-5 gap-xl-0 gap-md-0 gap-3">
                 <div class="col-xl-6 col-md-6 col-12">
                     <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
                 </div>
