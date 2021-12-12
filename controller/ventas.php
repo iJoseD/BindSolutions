@@ -93,16 +93,29 @@ if ( $caso == 'nuevaVenta' ) {
         $totalFactura = 0;
         
         $html = '<div class="col-12">
-            <ul class="list-group mt-3">';
-                while($row = $result->fetch_assoc()) {
-                    $precioPublico = str_replace( '.', '', $row['precioPublico'] );
-                    $cantidad = $row["cantidad"];
-                    $totalVenta = $precioPublico * $cantidad;
-                    $totalFactura = $totalFactura + $totalVenta;
-
-                    $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">'. $row["cantidad"] .'</span><span class="badge bg-secondary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
-                }
-            $html .= '</ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cant.</th>
+                        <th scope="col">V. Total</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    while($row = $result->fetch_assoc()) {
+                        $precioPublico = str_replace( '.', '', $row['precioPublico'] );
+                        $cantidad = $row["cantidad"];
+                        $totalVenta = $precioPublico * $cantidad;
+                        $totalFactura = $totalFactura + $totalVenta;
+    
+                        $html .= '<tr>';
+                            $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
+                            $html .= '<td colspan="1">'. $row["cantidad"] .'</td>';
+                            $html .= '<td colspan="1">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
+                        $html .= '</tr>';
+                    }
+                $html .= '</tbody>
+            </table>
             
             <ul class="list-group mt-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total a pagar<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
