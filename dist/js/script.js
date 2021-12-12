@@ -1120,6 +1120,29 @@ $('.verFactura').click(function() {
     var codeFac = $(this).attr('data-codeFac');
     
     $('#verFactura .codeFac').html(codeFac);
+
+    $.ajax({
+        url: '/controller/ventas.php',
+        type: 'POST',
+        data: {
+            caso    : 'verFactura',
+            codeFac : codeFac
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'verFactura_not_Select' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.preOrden').html( response );
+            }
+        },
+        error: function() {
+            console.log( 'ajax_verFactura_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
 });
 
 // Separador de miles
