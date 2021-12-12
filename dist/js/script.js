@@ -1021,7 +1021,7 @@ $('#addCart').click(function() {
     var codeFac       = $('#nuevaVenta-codeFac').val();
     var idProducto    = $('#nuevaVenta-idProducto').val();
     var cantidad      = $('#nuevaVenta-cantidad').val();
-    var cantidadTotal = $('#nuevaVenta-idProducto').attr('data-cantidad');
+    var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
 
     if ( cantidadTotal > cantidad ) {
         $.ajax({
