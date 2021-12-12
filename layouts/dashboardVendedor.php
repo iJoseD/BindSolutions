@@ -199,6 +199,37 @@
                                         }
                                     }
                                 ?>
+                                <?php
+                                    $sql = "SELECT p.id, p.nombre, ipv.cantidad
+                                    FROM inventarioPuntoVenta ipv
+                                    JOIN productos p ON ipv.idProducto = p.id
+                                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
+                                    WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
+                                    
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            $idProducto = $row['id'];
+                                            $cantidadInventario = $row['cantidad'];
+
+                                            $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
+                                            $result2 = $conn->query($sql2);
+
+                                            if ($result2->num_rows > 0) {
+                                                while($row2 = $result2->fetch_assoc()) {
+                                                    $cantidad = $row2['cantidad'];
+                                                }
+                                            } else { $cantidad = 0; }
+
+                                            $cantidadTotal = $cantidadInventario - $cantidad;
+
+                                            if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
+
+                                            echo '<option value="'. $row['id'] .'" data-cantidad="'. $cantidadTotal .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
                             </select>
                         </div>
                         <div class="col-4">
