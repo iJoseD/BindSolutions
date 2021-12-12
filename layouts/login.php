@@ -5,11 +5,11 @@
             <figure class="iconotipo text-center">
                 <img src="/dist/img/logoBind.png" width="40%" alt="Logotipo">
             </figure>
-            <div class="row mt-5">
-                <div class="col">
+            <div class="row mt-5 gap-3">
+                <div class="col-xl-6 col-md-6 col-12">
                     <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
                 </div>
-                <div class="col">
+                <div class="col-xl-6 col-md-6 col-12">
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
                 </div>
             </div>
