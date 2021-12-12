@@ -117,8 +117,8 @@ if ( $caso == 'nuevaVenta' ) {
                 $html .= '</tbody>
             </table>
             
-            <ul class="list-group mt-5">
-                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total a pagar<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
+            <ul class="list-group mt-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total pagado<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
             </ul>
         </div>';
 
