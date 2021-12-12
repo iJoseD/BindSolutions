@@ -1027,6 +1027,8 @@ $('#addCart').click(function() {
     var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
 
     if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+        $('.alertaCantidad').addClass('hide');
+        
         $.ajax({
             url: '/controller/ventas.php',
             type: 'POST',
