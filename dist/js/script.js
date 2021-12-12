@@ -1005,6 +1005,9 @@ $('#btn-eliminarSubInventario').click(function() {
 // |==============================|
 // |========== VENTAS ============|
 // |==============================|
+$('#nuevaVenta-idProducto').change(function() {
+	$('.alertaCantidad').addClass('hide');
+});
 $('.nuevaVenta').click(function() {
     var idUser       = $(this).attr('data-idUser');
     var idEvento     = $(this).attr('data-idEvento');
@@ -1054,7 +1057,7 @@ $('#addCart').click(function() {
             }
         });
     } else {
-        alert( 'No tienes tantas unidades disponibles.' );
+        $('.alertaCantidad').removeClass('hide');
     }
 });
 $('#btn-nuevaVenta').click(function() {

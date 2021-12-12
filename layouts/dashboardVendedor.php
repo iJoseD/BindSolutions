@@ -159,6 +159,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="mb-2 mt-2 row alertaCantidad hide">
+                    <div class="col-12 text-center">
+                        <p class="badge bg-danger text-uppercase text-white">¡No tienes tantas unidades disponibles!</p>
+                    </div>
+                </div>
                 <div class="formulario">
                     <div class="row hide">
                         <div class="col-3">
