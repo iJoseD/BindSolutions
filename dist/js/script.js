@@ -1015,42 +1015,47 @@ $('.nuevaVenta').click(function() {
     $('#nuevaVenta-idPuntoVenta').val(idPuntoVenta);
 });
 $('#addCart').click(function() {
-    var idUser       = $('#nuevaVenta-idUser').val();
-    var idEvento     = $('#nuevaVenta-idEvento').val();
-    var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
-    var codeFac      = $('#nuevaVenta-codeFac').val();
-    var idProducto   = $('#nuevaVenta-idProducto').val();
-    var cantidad     = $('#nuevaVenta-cantidad').val();
+    var idUser        = $('#nuevaVenta-idUser').val();
+    var idEvento      = $('#nuevaVenta-idEvento').val();
+    var idPuntoVenta  = $('#nuevaVenta-idPuntoVenta').val();
+    var codeFac       = $('#nuevaVenta-codeFac').val();
+    var idProducto    = $('#nuevaVenta-idProducto').val();
+    var cantidad      = $('#nuevaVenta-cantidad').val();
+    var cantidadTotal = $('#nuevaVenta-idProducto').attr('data-cantidad');
 
-    $.ajax({
-        url: '/controller/ventas.php',
-        type: 'POST',
-        data: {
-            caso         : 'nuevaVenta',
-            idUser       : idUser,
-            idEvento     : idEvento,
-            idPuntoVenta : idPuntoVenta,
-            codeFac      : codeFac,
-            idProducto   : idProducto,
-            cantidad     : cantidad,
-            status       : 'pending'
-        },
-        success: function(response) {
-            console.log( response );
-
-            if ( response == 'nuevaVenta_not_created' ) {
+    if ( cantidadTotal > cantidad ) {
+        $.ajax({
+            url: '/controller/ventas.php',
+            type: 'POST',
+            data: {
+                caso         : 'nuevaVenta',
+                idUser       : idUser,
+                idEvento     : idEvento,
+                idPuntoVenta : idPuntoVenta,
+                codeFac      : codeFac,
+                idProducto   : idProducto,
+                cantidad     : cantidad,
+                status       : 'pending'
+            },
+            success: function(response) {
+                console.log( response );
+    
+                if ( response == 'nuevaVenta_not_created' ) {
+                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                
+                } else {
+                    $('.preOrden').html( response );
+                    $('#nuevaVenta-cantidad').val('');
+                }
+            },
+            error: function() {
+                console.log( 'ajax_crearProducto_error' );
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.preOrden').html( response );
-                $('#nuevaVenta-cantidad').val('');
             }
-        },
-        error: function() {
-            console.log( 'ajax_crearProducto_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-        }
-    });
+        });
+    } else {
+        alert( 'No tienes tantas unidades disponibles.' );
+    }
 });
 $('#btn-nuevaVenta').click(function() {
     var codeFac = $('#nuevaVenta-codeFac').val();
