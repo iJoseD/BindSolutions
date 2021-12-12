@@ -34,7 +34,7 @@
     }
 ?>
 
-<section class="container">
+<section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-12 col-12">
             <h2>Hola, <?php echo $fullName; ?>!</h2>
@@ -185,7 +185,7 @@
                             <select name="nuevaVenta-idProducto" id="nuevaVenta-idProducto" class="form-select">
                                 <option selected>---</option>
                                 <?php
-                                    $sql = "SELECT p.id, p.nombre
+                                    $sql = "SELECT p.id, p.nombre, ipv.cantidad
                                     FROM inventarioPuntoVenta ipv
                                     JOIN productos p ON ipv.idProducto = p.id
                                     JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
@@ -195,7 +195,7 @@
 
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
-                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                            echo '<option value="'. $row['id'] .'" data-cantidad="'. $row['cantidad'] .'">'. $row['nombre'] .'</option>';
                                         }
                                     }
                                 ?>
