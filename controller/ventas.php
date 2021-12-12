@@ -96,9 +96,9 @@ if ( $caso == 'nuevaVenta' ) {
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Item</th>
-                        <th scope="col">Cant.</th>
-                        <th scope="col">V. Total</th>
+                        <th scope="col" colspan="2" class="fw-bold">Item</th>
+                        <th scope="col" colspan="1" class="fw-bold">Cant.</th>
+                        <th scope="col" colspan="1" class="fw-bold">V. Total</th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -110,8 +110,8 @@ if ( $caso == 'nuevaVenta' ) {
     
                         $html .= '<tr>';
                             $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
-                            $html .= '<td colspan="1">'. $row["cantidad"] .'</td>';
-                            $html .= '<td colspan="1">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
+                            $html .= '<td colspan="1" class="text-center">'. $row["cantidad"] .'</td>';
+                            $html .= '<td colspan="1" class="text-center">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
                         $html .= '</tr>';
                     }
                 $html .= '</tbody>
