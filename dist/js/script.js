@@ -1135,7 +1135,7 @@ $('.verFactura').click(function() {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {
-                $('.preOrden').html( response );
+                $('.detalleFactura').html( response );
             }
         },
         error: function() {

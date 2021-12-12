@@ -262,7 +262,7 @@
                     </div>
                 </div>
                 <div class="formulario">
-                    <div class="row mt-3 preOrden"></div>
+                    <div class="row mt-3 detalleFactura"></div>
                 </div>
             </div>
             <div class="modal-footer">
