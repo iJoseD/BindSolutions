@@ -1008,6 +1008,7 @@ $('#btn-eliminarSubInventario').click(function() {
 $('#nuevaVenta-idProducto').change(function() {
 	$('.alertaCantidad').addClass('hide');
 });
+// Crear pre-orden
 $('.nuevaVenta').click(function() {
     var idUser       = $(this).attr('data-idUser');
     var idEvento     = $(this).attr('data-idEvento');
@@ -1062,6 +1063,7 @@ $('#addCart').click(function() {
         $('.alertaCantidad').removeClass('hide');
     }
 });
+// Confirmar la venta
 $('#btn-nuevaVenta').click(function() {
     var codeFac = $('#nuevaVenta-codeFac').val();
 
@@ -1111,6 +1113,13 @@ $('#btn-nuevaVenta').click(function() {
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
+});
+
+// Ver la factura
+$('.verFactura').click(function() {
+    var codeFac = $(this).attr('data-codeFac');
+    
+    $('#verFactura .codeFac').html(codeFac);
 });
 
 // Separador de miles
