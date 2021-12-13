@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-xl-6 col-md-3 col-12">
                 <a href="/" class="text-decoration-none text-center d-xl-none d-md-none d-block"><img src="/dist/img/logoBind.png" width="35%" alt="Logotipo"></a>
-                <a href="/" class="text-decoration-none d-xl-block d-md-block d-none"><img src="/dist/img/logoBind.png" width="20%" alt="Logotipo"></a>
+                <a href="/" class="text-decoration-none d-xl-none d-md-block d-none"><img src="/dist/img/logoBind.png" width="80%" alt="Logotipo"></a>
+                <a href="/" class="text-decoration-none d-xl-block d-md-none d-none"><img src="/dist/img/logoBind.png" width="20%" alt="Logotipo"></a>
             </div>
 
             <!-- Mobile -->
