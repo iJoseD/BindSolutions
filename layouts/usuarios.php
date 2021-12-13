@@ -13,13 +13,13 @@
 
 <section class="container">
     <div class="row mt-5">
-        <div class="col-3">
+        <div class="col-xl-3 col-md-6 col-6">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Crear nuevo usuario</button>
         </div>
     </div>
 
     <div class="row mt-5">
-        <table class="DataTable display">
+        <table class="DataTable display responsive nowrap">
             <thead>
                 <tr>
                     <th>Nombre</th>
