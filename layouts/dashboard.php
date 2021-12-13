@@ -19,7 +19,7 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-xl-3 col-12">
+        <div class="col-xl-3 col-md-6 col-6">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
                 <div class="card-body">
                     <?php
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-12">
+        <div class="col-xl-3 col-md-6 col-6">
             <div class="card mb-3 text-center text-white DarkOcean">
                 <div class="card-body">
                     <?php
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-12">
+        <div class="col-xl-3 col-md-6 col-6">
             <div class="card mb-3 text-center text-white Amin">
                 <div class="card-body">
                     <?php
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-12">
+        <div class="col-xl-3 col-md-6 col-6">
             <div class="card mb-3 text-center text-white SinCityRed">
                 <div class="card-body">
                     <?php
