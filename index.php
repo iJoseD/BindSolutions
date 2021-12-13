@@ -7,7 +7,7 @@
 
     <body id="dashboard">
         <!-- Navbar -->
-        <?php require_once('layouts/navbar.php'); ?>
+        <?php // require_once('layouts/navbar.php'); ?>
 
         <!-- Dashboard -->
         <?php
