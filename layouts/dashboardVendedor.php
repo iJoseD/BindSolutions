@@ -57,7 +57,7 @@
     <div class="row mt-5">
         <div class="col-12 mb-5"><h3>Stock disponible en tu punto de venta</h3></div>
         <div class="col-12">
-            <table id="dashboardVendedor-table1" class="display responsive nowrap">
+            <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Imagen</th>
@@ -112,7 +112,7 @@
     <div class="row mt-5">
         <div class="col-12 mb-5"><h3>Ventas realizadas</h3></div>
         <div class="col-12">
-            <table id="dashboardVendedor-table2" class="display responsive nowrap">
+            <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Factura</th>
