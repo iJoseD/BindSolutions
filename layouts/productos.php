@@ -17,7 +17,7 @@
     </div>
 
     <div class="row mt-5">
-        <table class="DataTable display">
+        <table class="DataTable display responsive nowrap">
             <thead>
                 <tr>
                     <th>Imagen</th>
