@@ -41,7 +41,7 @@ $(document).ready(function () {
         responsive: true
     });
 
-    $('#dashboardVendedor-table1').DataTable({
+    $('#dashboardVendedor-table1, #dashboardVendedor-table2').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true
     });
