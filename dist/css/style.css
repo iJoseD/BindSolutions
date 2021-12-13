@@ -62,8 +62,8 @@ th {
   background: linear-gradient(to right, #93291E, #ED213A);  
 }
 
-/* header .row { align-items: center !important; }
+header .row { align-items: center !important; }
 header a.d-flex {
   flex-direction: column !important;
   align-items: center !important;
-} */
+}

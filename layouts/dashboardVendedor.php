@@ -51,102 +51,106 @@
     </div>
 
     <div class="row mt-5">
-        <h3 class="mb-5">Stock disponible en tu punto de venta</h3>
-        <table class="DataTable display">
-            <thead>
-                <tr>
-                    <th>Imagen</th>
-                    <th>Producto</th>
-                    <th>Unidades</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $sql = "SELECT p.id, p.imagen, p.nombre, p.precioPublico, ipv.cantidad
-                    FROM inventarioPuntoVenta ipv
-                    JOIN productos p ON ipv.idProducto = p.id
-                    WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
-                    
-                    $result = $conn->query($sql);
+        <div class="col-12 mb-5"><h3>Stock disponible en tu punto de venta</h3></div>
+        <div class="col-12">
+            <table class="DataTable display">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Unidades</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT p.id, p.imagen, p.nombre, p.precioPublico, ipv.cantidad
+                        FROM inventarioPuntoVenta ipv
+                        JOIN productos p ON ipv.idProducto = p.id
+                        WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
+                        
+                        $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $idProducto = $row['id'];
-                            $cantidadInventario = $row['cantidad'];
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $idProducto = $row['id'];
+                                $cantidadInventario = $row['cantidad'];
 
-                            $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
-                            $result2 = $conn->query($sql2);
+                                $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
+                                $result2 = $conn->query($sql2);
 
-                            if ($result2->num_rows > 0) {
-                                while($row2 = $result2->fetch_assoc()) {
-                                    $cantidad = $row2['cantidad'];
-                                }
-                            } else { $cantidad = 0; }
+                                if ($result2->num_rows > 0) {
+                                    while($row2 = $result2->fetch_assoc()) {
+                                        $cantidad = $row2['cantidad'];
+                                    }
+                                } else { $cantidad = 0; }
 
-                            $cantidadTotal = $cantidadInventario - $cantidad;
+                                $cantidadTotal = $cantidadInventario - $cantidad;
 
-                            if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
+                                if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
 
-                            $html = '<tr class="'. $class .'">';
-                                $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
-                                $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>'. $cantidadTotal .'</th>';
-                                $html .= '<th>$ '. $row['precioPublico'] .'</th>';
-                            $html .= '</tr>';
+                                $html = '<tr class="'. $class .'">';
+                                    $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
+                                    $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $cantidadTotal .'</th>';
+                                    $html .= '<th>$ '. $row['precioPublico'] .'</th>';
+                                $html .= '</tr>';
 
-                            echo $html;
+                                echo $html;
+                            }
                         }
-                    }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="row mt-5">
-        <h3 class="mb-5">Ventas realizadas</h3>
-        <table class="DataTable display">
-            <thead>
-                <tr>
-                    <th>Factura</th>
-                    <th>Productos vendidos</th>
-                    <th>Total factura</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $sql = "SELECT v.codeFac, SUM(v.cantidad) AS 'cantidad', tf.total
-                    FROM ventas v
-                    JOIN productos p ON v.idProducto = p.id
-                    JOIN totalFactura tf ON v.codeFac = tf.codeFac
-                    WHERE v.idEvento = '$idEvento'
-                    GROUP BY v.codeFac";
-                    
-                    $result = $conn->query($sql);
+        <div class="col-12 mb-5"><h3>Ventas realizadas</h3></div>
+        <div class="col-12">
+            <table class="DataTable display">
+                <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Productos vendidos</th>
+                        <th>Total factura</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT v.codeFac, SUM(v.cantidad) AS 'cantidad', tf.total
+                        FROM ventas v
+                        JOIN productos p ON v.idProducto = p.id
+                        JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                        WHERE v.idEvento = '$idEvento'
+                        GROUP BY v.codeFac";
+                        
+                        $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $html = '<tr>';
-                                $html .= '<th>'. $row['codeFac'] .'</th>';
-                                $html .= '<th>'. $row['cantidad'] .'</th>';
-                                $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
-                                $html .= '<th>
-                                    <button type="button" class="btn btn-warning verFactura" data-bs-toggle="modal" data-bs-target="#verFactura" data-codeFac="'. $row['codeFac'] .'">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                                        </svg>
-                                    </button>
-                                </th>';
-                            $html .= '</tr>';
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $html = '<tr>';
+                                    $html .= '<th>'. $row['codeFac'] .'</th>';
+                                    $html .= '<th>'. $row['cantidad'] .'</th>';
+                                    $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
+                                    $html .= '<th>
+                                        <button type="button" class="btn btn-warning verFactura" data-bs-toggle="modal" data-bs-target="#verFactura" data-codeFac="'. $row['codeFac'] .'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                                            </svg>
+                                        </button>
+                                    </th>';
+                                $html .= '</tr>';
 
-                            echo $html;
+                                echo $html;
+                            }
                         }
-                    }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
