@@ -1,12 +1,14 @@
 <?php session_start(); $rol = $_SESSION['rol']; ?>
 
-<header>
-    <div class="bg-dark py-2">
-        <div class="container">
-            <div class="align-items-center d-flex">
+<header class="container-fluid bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-md-12 col-12">
                 <a href="/" class="text-decoration-none">
                     <img src="/dist/img/logoBind.png" width="20%" alt="Logotipo">
                 </a>
+            </div>
+            <div class="col-xl-6 col-md-12 col-12">
                 <ul class="col-lg-auto nav text-small">
                     <?php
                         if ( $rol == '1' ) { ?>
