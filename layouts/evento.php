@@ -49,7 +49,7 @@
     <!-- Inventario disponible -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos asignados</h3>
-        <table class="DataTable display">
+        <table class="DataTable display responsive nowrap">
             <thead>
                 <tr>
                     <th>Imagen</th>
@@ -125,7 +125,7 @@
     <div class="row mt-5">
         <h3 class="mb-5">Puntos de venta</h3>
         <div class="col-xl-6 col-md-12 col-12">
-            <table class="DataTable display">
+            <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -174,7 +174,7 @@
     <!-- Sub-inventario punto de venta -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos por punto de venta</h3>
-        <table class="DataTable">
+        <table class="DataTable display responsive nowrap">
             <thead>
                 <tr>
                     <th>Punto de venta</th>
