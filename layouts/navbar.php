@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xl-6 col-md-12 col-12">
                 <a href="/" class="text-decoration-none">
-                    <img src="/dist/img/logoBind.png" width="20%" alt="Logotipo">
+                    <img src="/dist/img/logoBind.png" width="25%" alt="Logotipo">
                 </a>
             </div>
             <div class="col-xl-6 col-md-12 col-12">
