@@ -28,7 +28,7 @@
                     
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
+                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
                             <?php }
                         }
                     ?>
@@ -47,7 +47,7 @@
                     
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $row['total']; ?></span>
+                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
                             <?php }
                         }
                     ?>
@@ -77,7 +77,7 @@
                             }
                         }
                     ?>
-                    <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $cont; ?></span>
+                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
                     <div>Próximos eventos</div>
@@ -102,7 +102,7 @@
                             }
                         }
                     ?>
-                    <span style="font-size: xxx-large;font-weight: bolder;"><?php echo $cont; ?></span>
+                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
                     <div>Eventos finalizados</div>
