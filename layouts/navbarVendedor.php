@@ -6,7 +6,7 @@
                     <img src="/dist/img/logoBind.png" width="80%" alt="Logotipo">
                 </a>
             </div>
-            <div class="col-12">
+            <div class="col-6">
                 <ul class="col-lg-auto nav text-small justify-content-end">
                     <li>
                         <a href="/logout" class="nav-link text-white text-center d-flex">
