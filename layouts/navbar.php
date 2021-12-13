@@ -58,7 +58,7 @@
             </div>
 
             <!-- Desktop -->
-            <div class="col-xl-6 col-md-12 col-12 d-xl-none d-md-none d-block">
+            <div class="col-xl-6 col-md-12 col-12 d-xl-block d-md-block d-none">
                 <ul class="col-lg-auto nav text-small justify-content-end">
                     <li>
                         <a href="/" class="nav-link text-white text-center d-flex">
