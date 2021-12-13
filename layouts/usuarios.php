@@ -11,7 +11,7 @@
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 ?>
 
-<section class="container">
+<section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Crear nuevo usuario</button>

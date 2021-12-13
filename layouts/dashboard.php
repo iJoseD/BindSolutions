@@ -11,7 +11,7 @@
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 ?>
 
-<section class="container">
+<section class="container mb-5">
     <div class="row mt-5 mb-5">
         <div class="col-12">
             <h2>Bienvenido de nuevo <?php echo $fullName; ?></h2>
