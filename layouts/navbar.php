@@ -48,7 +48,7 @@
         </div>
 
         <!-- Tablet -->
-        <div class="row d-xl-none d-md-none d-block d-xl-none d-md-block d-none">
+        <div class="row d-xl-none d-md-block d-none">
             <div class="col-auto">
                 <a href="/" class="text-decoration-none"><img src="/dist/img/logoBind.png" width="25%" alt="Logotipo"></a>
             </div>
@@ -104,7 +104,7 @@
         </div>
 
         <!-- Desktop -->
-        <div class="row d-xl-none d-md-none d-block d-xl-block d-md-none d-none">
+        <div class="row d-xl-block d-md-none d-none">
             <div class="col-xl-4">
                 <a href="/" class="text-decoration-none"><img src="/dist/img/logoBind.png" width="25%" alt="Logotipo"></a>
             </div>
