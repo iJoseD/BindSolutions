@@ -38,10 +38,10 @@
 
 <section class="container mb-5">
     <div class="row mt-5">
-        <div class="col-3 d-grid">
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar inventario</button>
         </div>
-        <div class="col-3 d-grid">
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar punto de venta</button>
         </div>
     </div>

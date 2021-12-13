@@ -11,7 +11,7 @@
     $code = 'BSE' . rand(1000, 9999);
 ?>
 
-<section class="container">
+<section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-12">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Crear nuevo evento</button>
