@@ -53,7 +53,7 @@
     <div class="row mt-5">
         <div class="col-12 mb-5"><h3>Stock disponible en tu punto de venta</h3></div>
         <div class="col-12">
-            <table class="DataTable display">
+            <table class="DataTable table-responsive display">
                 <thead>
                     <tr>
                         <th>Imagen</th>
