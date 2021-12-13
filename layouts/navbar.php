@@ -1,6 +1,6 @@
 <?php session_start(); $rol = $_SESSION['rol']; ?>
 
-<header class="container-fluid bg-dark">
+<header class="container-fluid bg-dark p-3">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-md-12 col-12">
