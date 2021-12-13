@@ -34,16 +34,20 @@
     }
 ?>
 
-<section class="container mb-5">
-    <div class="row mt-5">
-        <div class="col-xl-12 col-12">
-            <h2>Hola, <?php echo $fullName; ?>!</h2>
-        </div>
-        <div class="col-12 mt-3">
-            <h4>Se te asigno el evento <span class="badge bg-primary"><?php echo $nombreEvento; ?></span> y estaras en el punto de venta <span class="badge bg-primary"><?php echo $nombrePuntoVenta; ?></span></h4>
+<section class="container-fluid text-white text-center bgHeaderEvento">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-uppercase nombreEvento"><?php echo $nombreEvento; ?></h1>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <p class="fw-bolder text-uppercase"><?php echo $nombrePuntoVenta; ?></p>
+        </div>
+    </div>
+</section>
 
+<section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-idEvento="<?php echo $idEvento; ?>" data-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
