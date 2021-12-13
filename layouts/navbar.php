@@ -1,7 +1,7 @@
 <header class="container-fluid bg-dark p-3">
     <div class="container">
         <div class="row">
-            <div class="col-xl-6 col-md-4 col-12">
+            <div class="col-xl-6 col-md-3 col-12">
                 <a href="/" class="text-decoration-none text-center d-xl-none d-md-none d-block"><img src="/dist/img/logoBind.png" width="35%" alt="Logotipo"></a>
                 <a href="/" class="text-decoration-none d-xl-block d-md-block d-none"><img src="/dist/img/logoBind.png" width="20%" alt="Logotipo"></a>
             </div>
@@ -48,7 +48,7 @@
             </div>
 
             <!-- Tablet -->
-            <div class="col-md-8 d-xl-none d-md-block d-none">
+            <div class="col-md-9 d-xl-none d-md-block d-none">
                 <ul class="col-lg-auto nav text-small justify-content-end">
                     <li>
                         <a href="/" class="nav-link text-white text-center d-flex">
