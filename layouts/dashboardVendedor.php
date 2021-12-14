@@ -127,7 +127,7 @@
                         FROM ventas v
                         JOIN productos p ON v.idProducto = p.id
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
-                        WHERE v.idEvento = '$idEvento'
+                        WHERE v.idEvento = '$idEvento' AND v.idPuntoVenta = '$idPuntoVenta'
                         GROUP BY v.codeFac";
                         
                         $result = $conn->query($sql);
