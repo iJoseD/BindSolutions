@@ -110,4 +110,85 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-3">
+        <div class="col-xl-6 col-md-12 col-12">
+            <canvas id="productosMasVendidos" width="100%"></canvas>
+        </div>
+    </div>
 </section>
+
+<script>
+    $(document).ready(function () {
+        // productosMasVendidos
+        window.setTimeout(function() {
+            var ctx = document.getElementById('productosMasVendidos');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        <?php
+                            $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                            FROM ventas v
+                            JOIN productos p ON v.idProducto = p.id
+                            GROUP BY v.idProducto
+                            ORDER BY cantidad DESC";
+                            $result = $conn->query($sql);
+                        
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "'". $row['nombre'] ."', ";
+                                }
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        label: 'Unidades vendidas',
+                        data: [
+                            <?php
+                                $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                                FROM ventas v
+                                JOIN productos p ON v.idProducto = p.id
+                                GROUP BY v.idProducto
+                                ORDER BY cantidad DESC";
+                                $result = $conn->query($sql);
+                            
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row['cantidad'] . ', ';
+                                    }
+                                }
+                            ?>
+                        ],
+                        backgroundColor: [
+                            'rgba(18, 43, 252, 0.2)',
+                            'rgba(29, 171, 149, 0.2)',
+                            'rgba(247, 211, 79, 0.2)',
+                            'rgba(247, 67, 67, 0.2)',
+                            'rgba(42, 168, 247, 0.2)',
+                            'rgba(176, 224, 29, 0.2)',
+                            'rgba(196, 122, 51, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(18, 43, 252, 1)',
+                            'rgba(29, 171, 149, 1)',
+                            'rgba(247, 211, 79, 1)',
+                            'rgba(247, 67, 67, 1)',
+                            'rgba(42, 168, 247, 1)',
+                            'rgba(176, 224, 29, 1)',
+                            'rgba(196, 122, 51, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }, 1500);
+    });
+</script>
