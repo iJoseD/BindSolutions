@@ -111,19 +111,24 @@
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-5">
         <div class="col-xl-6 col-md-12 col-12">
+            <h4 class="mb-3">Productos más vendidos</h4>
             <canvas id="productosMasVendidos" width="100%"></canvas>
+        </div>
+        <div class="col-xl-6 col-md-12 col-12">
+            <h4 class="mb-3">Productos menos vendidos</h4>
+            <canvas id="productosMenosVendidos" width="100%"></canvas>
         </div>
     </div>
 </section>
 
 <script>
     $(document).ready(function () {
-        // productosMasVendidos
         window.setTimeout(function() {
-            var ctx = document.getElementById('productosMasVendidos');
-            var myChart = new Chart(ctx, {
+            // productosMasVendidos
+            var ctx_productosMasVendidos = document.getElementById('productosMasVendidos');
+            var myChart_productosMasVendidos = new Chart(ctx_productosMasVendidos, {
                 type: 'bar',
                 data: {
                     labels: [
@@ -132,7 +137,8 @@
                             FROM ventas v
                             JOIN productos p ON v.idProducto = p.id
                             GROUP BY v.idProducto
-                            ORDER BY cantidad DESC";
+                            ORDER BY cantidad DESC
+                            LIMIT 5";
                             $result = $conn->query($sql);
                         
                             if ($result->num_rows > 0) {
@@ -150,7 +156,8 @@
                                 FROM ventas v
                                 JOIN productos p ON v.idProducto = p.id
                                 GROUP BY v.idProducto
-                                ORDER BY cantidad DESC";
+                                ORDER BY cantidad DESC
+                                LIMIT 5";
                                 $result = $conn->query($sql);
                             
                                 if ($result->num_rows > 0) {
@@ -177,6 +184,73 @@
                             'rgba(252, 92, 125, 1)',
                             'rgba(75, 19, 79, 1)',
                             'rgba(69, 182, 73, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // productosMenosVendidos
+            var ctx_productosMenosVendidos = document.getElementById('productosMenosVendidos');
+            var myChart_productosMenosVendidos = new Chart(ctx_productosMenosVendidos, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        <?php
+                            $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                            FROM ventas v
+                            JOIN productos p ON v.idProducto = p.id
+                            GROUP BY v.idProducto
+                            ORDER BY cantidad ASC
+                            LIMIT 5";
+                            $result = $conn->query($sql);
+                        
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "'". $row['nombre'] ."', ";
+                                }
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        label: 'Unidades vendidas',
+                        data: [
+                            <?php
+                                $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                                FROM ventas v
+                                JOIN productos p ON v.idProducto = p.id
+                                GROUP BY v.idProducto
+                                ORDER BY cantidad ASC
+                                LIMIT 5";
+                                $result = $conn->query($sql);
+                            
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row['cantidad'] . ', ';
+                                    }
+                                }
+                            ?>
+                        ],
+                        backgroundColor: [
+                            'rgba(88, 24, 69, 0.2)',
+                            'rgba(144, 12, 63, 0.2)',
+                            'rgba(199, 0, 57, 0.2)',
+                            'rgba(255, 87, 51, 0.2)',
+                            'rgba(255, 195, 0, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(88, 24, 69, 1)',
+                            'rgba(144, 12, 63, 1)',
+                            'rgba(199, 0, 57, 1)',
+                            'rgba(255, 87, 51, 1)',
+                            'rgba(255, 195, 0, 1)'
                         ],
                         borderWidth: 1
                     }]
