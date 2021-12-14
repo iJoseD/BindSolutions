@@ -5,9 +5,6 @@
     <!-- Head -->
     <?php require_once('dist/requireHead.php'); ?>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <?php require_once('dist/requireFooter.php'); ?>
-
     <body>
         <!-- Navbar -->
         <?php
@@ -26,5 +23,8 @@
                 require_once('layouts/dashboardVendedor.php');
             }
         ?>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <?php require_once('dist/requireFooter.php'); ?>
     </body>
 </html>
