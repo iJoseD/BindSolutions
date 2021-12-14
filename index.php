@@ -18,13 +18,12 @@
         <!-- Dashboard -->
         <?php
             if ( $rol == '1' ) {
+                require_once('dist/requireFooter.php');
                 require_once('layouts/dashboard.php');
             } elseif ( $rol == '2' ) {
                 require_once('layouts/dashboardVendedor.php');
+                require_once('dist/requireFooter.php');
             }
         ?>
-
-        <!-- Bootstrap Bundle with Popper -->
-        <?php require_once('dist/requireFooter.php'); ?>
     </body>
 </html>
