@@ -40,6 +40,28 @@ $(document).ready(function () {
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true
     });
+    $('#evento-table3').DataTable({
+        searchPanes: {
+            layout: 'columns-4',
+            cascadePanes: true,
+            viewTotal: false
+        },
+        dom: 'PBfrtip',
+        columnDefs: [
+            {
+                searchPanes: {
+                    show: true
+                },
+                targets: [0, 1, 2, 3]
+            },
+            {
+                searchPanes: {
+                    show: false
+                },
+                targets: [4, 5, 6, 7]
+            }
+        ],
+    });
 
     $( ".datepicker" ).datepicker();
 });
