@@ -41,6 +41,8 @@ $(document).ready(function () {
         responsive: true
     });
     $('#evento-table3').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true,
         searchPanes: {
             layout: 'columns-4',
             cascadePanes: true,
