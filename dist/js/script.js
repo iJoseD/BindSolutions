@@ -54,13 +54,13 @@ $(document).ready(function () {
                 searchPanes: {
                     show: true
                 },
-                targets: [0, 1, 2, 3]
+                targets: [0, 2]
             },
             {
                 searchPanes: {
                     show: false
                 },
-                targets: [4, 5, 6, 7]
+                targets: [1, 3, 4]
             }
         ],
     });
