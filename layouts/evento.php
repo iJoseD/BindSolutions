@@ -39,10 +39,10 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar inventario</button>
+            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
         </div>
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Agregar punto de venta</button>
+            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Crear zona</button>
         </div>
     </div>
 
@@ -123,7 +123,7 @@
 
     <!-- Puntos de venta -->
     <div class="row mt-5">
-        <h3 class="mb-5">Puntos de venta</h3>
+        <h3 class="mb-5">Zonas de venta</h3>
         <div class="col-xl-6 col-md-12 col-12">
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -173,11 +173,11 @@
 
     <!-- Sub-inventario punto de venta -->
     <div class="row mt-5">
-        <h3 class="mb-5">Productos por punto de venta</h3>
+        <h3 class="mb-5">Productos por zona</h3>
         <table id="evento-table3" class="display responsive nowrap">
             <thead>
                 <tr>
-                    <th>Punto de venta</th>
+                    <th>Zona</th>
                     <th>Imagen</th>
                     <th>Producto</th>
                     <th>Unidades</th>
@@ -384,7 +384,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="agregarPuntoVentaLabel">Agregar punto de venta</h5>
+                <h5 class="modal-title" id="agregarPuntoVentaLabel">Crear zona de venta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -400,9 +400,13 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-12">
-                            <label class="form-label">Nombre punto de venta</label>
+                        <div class="col-6">
+                            <label class="form-label">Nombre</label>
                             <input type="text" name="nombrePV" id="nombrePV" class="form-control" placeholder="Barra 1">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label"># Mesas</label>
+                            <input type="text" name="agregarPuntoVenta-cantMesas" id="agregarPuntoVenta-cantMesas" class="form-control" placeholder="Barra 1">
                         </div>
                     </div>
                 </div>
@@ -410,14 +414,14 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Punto de venta agregado correctamente</h4>
+                            <h4 class="mt-4">Zona de venta creada correctamente</h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarPuntoVenta" class="btn btn-primary">Agregar punto de venta</button>
+                <button type="button" id="btn-agregarPuntoVenta" class="btn btn-primary">Crear zona de venta</button>
             </div>
         </div>
     </div>
@@ -427,7 +431,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editarPuntoVLabel">Editar punto de venta</h5>
+                <h5 class="modal-title" id="editarPuntoVLabel">Editar zona de venta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -439,9 +443,13 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-12">
-                            <label class="form-label">Nombre punto de venta</label>
+                        <div class="col-6">
+                            <label class="form-label">Nombre</label>
                             <input type="text" name="editarPuntoV-nombrePV" id="editarPuntoV-nombrePV" class="form-control" placeholder="Barra 1">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label"># Mesas</label>
+                            <input type="text" name="editarPuntoV-cantMesas" id="editarPuntoV-cantMesas" class="form-control" placeholder="Barra 1">
                         </div>
                     </div>
                 </div>
@@ -449,14 +457,14 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Punto de venta editado correctamente</h4>
+                            <h4 class="mt-4">Zona de venta editada correctamente</h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-editarPuntoV" class="btn btn-primary">Editar punto de venta</button>
+                <button type="button" id="btn-editarPuntoV" class="btn btn-primary">Editar zona de venta</button>
             </div>
         </div>
     </div>
@@ -466,7 +474,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eliminarPuntoVLabel">Eliminar producto</h5>
+                <h5 class="modal-title" id="eliminarPuntoVLabel">Eliminar zona de venta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -479,7 +487,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h4>¿Esta seguro que desea eliminar el punto de venta <span class="name badge bg-primary"></span> y todo el contenido asociado?</h4>
+                            <h4>¿Esta seguro que desea eliminar la zona de venta <span class="name badge bg-primary"></span> y todo el contenido asociado?</h4>
                         </div>
                     </div>
                 </div>
@@ -487,14 +495,14 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Punto de venta eliminado correctamente</h4>
+                            <h4 class="mt-4">Zona de venta eliminada correctamente</h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-eliminarPuntoV" class="btn btn-danger">Eliminar punto de venta</button>
+                <button type="button" id="btn-eliminarPuntoV" class="btn btn-danger">Eliminar zona de venta</button>
             </div>
         </div>
     </div>
