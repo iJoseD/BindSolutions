@@ -406,7 +406,7 @@
                         </div>
                         <div class="col-4">
                             <label class="form-label"># Mesas</label>
-                            <input type="text" name="agregarPuntoVenta-cantMesas" id="agregarPuntoVenta-cantMesas" class="form-control" placeholder="Barra 1">
+                            <input type="text" name="agregarPuntoVenta-cantMesas" id="agregarPuntoVenta-cantMesas" class="form-control" placeholder="10">
                         </div>
                     </div>
                 </div>
@@ -449,7 +449,7 @@
                         </div>
                         <div class="col-4">
                             <label class="form-label"># Mesas</label>
-                            <input type="text" name="editarPuntoV-cantMesas" id="editarPuntoV-cantMesas" class="form-control" placeholder="Barra 1">
+                            <input type="text" name="editarPuntoV-cantMesas" id="editarPuntoV-cantMesas" class="form-control" placeholder="10">
                         </div>
                     </div>
                 </div>
