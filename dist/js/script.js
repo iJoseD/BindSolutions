@@ -41,7 +41,6 @@ $(document).ready(function () {
         responsive: true
     });
     $('#evento-table3').DataTable({
-        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         searchPanes: {
             layout: 'columns-2',
@@ -63,6 +62,7 @@ $(document).ready(function () {
                 targets: [1, 3, 4]
             }
         ],
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
     });
 
     $( ".datepicker" ).datepicker();
