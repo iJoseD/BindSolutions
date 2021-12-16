@@ -48,6 +48,7 @@ $idProducto   = $_POST['idProducto'];
 $cantidad     = $_POST['cantidad'];
 
 $nombrePV     = $_POST['nombrePV'];
+$cantMesas    = $_POST['cantMesas'];
 $idPuntoVenta = $_POST['idPuntoVenta'];
 
 if ( $caso == 'crearEvento' ) {
@@ -133,7 +134,7 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'agregarPuntoVenta' ) {
-    $sql = "INSERT INTO puntoVenta (nombre, idEvento) VALUES ('$nombrePV', '$idEvento')";
+    $sql = "INSERT INTO puntoVenta (nombre, cantMesas, idEvento) VALUES ('$nombrePV', '$cantMesas', '$idEvento')";
 
     if ($conn->query($sql) === TRUE) {
         echo 'puntoVenta_created';
@@ -183,7 +184,7 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'editarPuntoV' ) {
-    $sql = "UPDATE puntoVenta SET nombre = '$nombrePV' WHERE id = $idPuntoVenta";
+    $sql = "UPDATE puntoVenta SET nombre = '$nombrePV', cantMesas = '$cantMesas' WHERE id = $idPuntoVenta";
 
     if ($conn->query($sql) === TRUE) {
         echo 'editarPuntoV_UPDATE';

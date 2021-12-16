@@ -764,16 +764,18 @@ $('.agregarPuntoVenta').click(function() {
     $('#pv-idEvento').val(id);
 });
 $('#btn-agregarPuntoVenta').click(function() {
-    var nombrePV = $('#nombrePV').val();
-    var idEvento = $('#pv-idEvento').val();
+    var nombrePV  = $('#nombrePV').val();
+    var cantMesas = $('#agregarPuntoVenta-cantMesas').val();
+    var idEvento  = $('#pv-idEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
-            caso     : 'agregarPuntoVenta',
-            nombrePV : nombrePV,
-            idEvento : idEvento
+            caso      : 'agregarPuntoVenta',
+            nombrePV  : nombrePV,
+            cantMesas : cantMesas,
+            idEvento  : idEvento
         },
         success: function(response) {
             console.log( response );
@@ -798,15 +800,18 @@ $('#btn-agregarPuntoVenta').click(function() {
 });
 // Editar punto de venta
 $('.editarPuntoV').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
+    var id        = $(this).attr('data-id');
+    var nombre    = $(this).attr('data-nombre');
+    var cantMesas = $(this).attr('data-cantMesas');
     
     $('#editarPuntoV-IDPuntoV').val(id);
     $('#editarPuntoV-nombrePV').val(nombre);
+    $('#editarPuntoV-cantMesas').val(cantMesas);
 });
 $('#btn-editarPuntoV').click(function() {
-    var idPuntoVenta = $('#editarPuntoV-IDPuntoV').val();
-    var nombrePV     = $('#editarPuntoV-nombrePV').val();
+    var idPuntoVenta  = $('#editarPuntoV-IDPuntoV').val();
+    var nombrePV      = $('#editarPuntoV-nombrePV').val();
+    var cantMesas     = $('#editarPuntoV-cantMesas').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
@@ -814,7 +819,8 @@ $('#btn-editarPuntoV').click(function() {
         data: {
             caso         : 'editarPuntoV',
             idPuntoVenta : idPuntoVenta,
-            nombrePV     : nombrePV
+            nombrePV     : nombrePV,
+            cantMesas    : cantMesas
         },
         success: function(response) {
             console.log( response );
