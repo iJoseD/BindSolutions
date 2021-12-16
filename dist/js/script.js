@@ -44,7 +44,7 @@ $(document).ready(function () {
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         searchPanes: {
-            layout: 'columns-4',
+            layout: 'columns-2',
             cascadePanes: true,
             viewTotal: false
         },
