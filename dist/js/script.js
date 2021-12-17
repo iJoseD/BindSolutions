@@ -155,12 +155,12 @@ editarUsuario.addEventListener('show.bs.modal', function (event) {
     var idEvento     = button.getAttribute('data-bs-idEvento');
     var idPuntoVenta = button.getAttribute('data-bs-idPuntoVenta');
 
-    var inputFullName     = editarInventario.querySelector('#editarUsuario-Nombre')
-    var inputUser         = editarInventario.querySelector('#editarUsuario-Usuario')
-    var inputPassword     = editarInventario.querySelector('#editarUsuario-Contrasena')
-    var inputRol          = editarInventario.querySelector('#editarUsuario-Rol')
-    var inputIDEvento     = editarInventario.querySelector('#editarUsuario-SelectEvento')
-    var inputIDPuntoVenta = editarInventario.querySelector('#editarUsuario-SelectPV')
+    var inputFullName     = editarUsuario.querySelector('#editarUsuario-Nombre')
+    var inputUser         = editarUsuario.querySelector('#editarUsuario-Usuario')
+    var inputPassword     = editarUsuario.querySelector('#editarUsuario-Contrasena')
+    var inputRol          = editarUsuario.querySelector('#editarUsuario-Rol')
+    var inputIDEvento     = editarUsuario.querySelector('#editarUsuario-SelectEvento')
+    var inputIDPuntoVenta = editarUsuario.querySelector('#editarUsuario-SelectPV')
 
     inputFullName.value     = fullName
     inputUser.value         = user
