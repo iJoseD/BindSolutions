@@ -24,3 +24,7 @@
 <?php if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { ?>
     <script type="text/javascript" src="/dist/js/productos.js"></script>
 <?php } ?>
+
+<?php if ( $_SERVER['REQUEST_URI'] == '/eventos/' ) { ?>
+    <script type="text/javascript" src="/dist/js/eventos.js"></script>
+<?php } ?>
