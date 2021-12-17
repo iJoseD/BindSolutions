@@ -127,8 +127,8 @@ eliminarProducto.addEventListener('show.bs.modal', function (event) {
     var id     = button.getAttribute('data-bs-id')
     var nombre = button.getAttribute('data-bs-nombre')
 
-    var inputID     = editarProducto.querySelector('#eliminarProducto-ID')
-    var inputNombre = editarProducto.querySelector('#eliminarProducto .product')
+    var inputID     = eliminarProducto.querySelector('#eliminarProducto-ID')
+    var inputNombre = eliminarProducto.querySelector('#eliminarProducto .product')
 
     inputID.value           = id
     inputNombre.textContent = nombre
