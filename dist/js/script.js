@@ -193,10 +193,10 @@ editarUsuario.addEventListener('show.bs.modal', function (event) {
     }
 })
 $('#btn-editarUsuario').click(function() {
-    var fullName     = $('#edit-fullName').val();
-    var user         = $('#edit-user').val();
-    var password     = $('#edit-password').val();
-    var rol          = $('#edit-rol').val();
+    var fullName     = $('#editarUsuario-Nombre').val();
+    var user         = $('#editarUsuario-Usuario').val();
+    var password     = $('#editarUsuario-Contrasena').val();
+    var rol          = $('#editarUsuario-Rol').val();
     var idEvento     = $('#editarUsuario-SelectEvento').val();
     var idPuntoVenta = $('#editarUsuario-SelectPV').val();
 
@@ -234,10 +234,10 @@ $('#btn-editarUsuario').click(function() {
     });
 });
 // Mostrar eventos
-$('#edit-rol').change(function() {
+$('#editarUsuario-Rol').change(function() {
 	var rol = $(this).val();
 
-	if ( rol == 2 ) {
+	if ( rol == 2 || rol == 4 ) {
         $('#editarUsuario .asignarEvento').removeClass('hide');
     } else {
         $('#editarUsuario .asignarEvento').addClass('hide');
@@ -264,11 +264,14 @@ $('#editarUsuario-SelectEvento').change(function() {
 });
 
 // Eliminar usuario
-$('.eliminarUsuario').click(function() {
-    var user = $(this).attr('data-user');
+var eliminarUsuario = document.getElementById('eliminarUsuario')
+eliminarUsuario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+    var user = button.getAttribute('data-bs-user');
+    var inputUser = eliminarUsuario.querySelector('#eliminarUsuario .user')
     
-    $('#eliminarUsuario .user').html(user);
-});
+    inputUser.textContent = user
+})
 $('#btn-eliminarUsuario').click(function() {
     var user = $('#eliminarUsuario .user').html();
 
@@ -276,8 +279,8 @@ $('#btn-eliminarUsuario').click(function() {
         url: '/controller/crearUsuario.php',
         type: 'POST',
         data: {
-            caso     : 'eliminarUsuario',
-            user     : user
+            caso : 'eliminarUsuario',
+            user : user
         },
         success: function(response) {
             console.log( response );
