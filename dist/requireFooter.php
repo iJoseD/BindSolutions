@@ -16,7 +16,11 @@
 
 <!-- App -->
 <?php if ( $_SERVER['REQUEST_URI'] != '/usuarios/' ) { ?>
-    <script type="text/javascript" src="/dist/js/script.js"></script>
+    <script type="text/javascript" src="/dist/js/usuarios.js"></script>
+<?php } ?>
+
+<?php if ( $_SERVER['REQUEST_URI'] != '/productos/' ) { ?>
+    <script type="text/javascript" src="/dist/js/productos.js"></script>
 <?php } ?>
 
 <script type="text/javascript" src="/dist/js/script.js"></script>
