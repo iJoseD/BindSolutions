@@ -152,7 +152,7 @@
                             <input type="text" name="editarEvento-Lugar" id="editarEvento-Lugar" class="form-control" placeholder="Trucupey">
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-3 hide">
                         <div class="col-12">
                             <label class="form-label">Link para socios</label>
                             <input type="text" name="editarEvento-CodigoEvento" id="editarEvento-CodigoEvento" class="form-control" readonly>
@@ -189,7 +189,7 @@
                     <div class="row mt-3 hide">
                         <div class="col-12">
                             <label class="form-label">Id evento</label>
-                            <input type="text" name="delete-id" id="delete-id" class="form-control" readonly>
+                            <input type="text" name="eliminarEvento-ID" id="eliminarEvento-ID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row">

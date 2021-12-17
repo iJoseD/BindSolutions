@@ -20,7 +20,7 @@ $('#btn-crearEvento').click(function() {
 
             if ( response == 'event_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -60,25 +60,12 @@ editarEvento.addEventListener('show.bs.modal', function (event) {
     inputLugar.value        = lugar
     inputCodigoEvento.value = codigoEvento
 })
-$('.editarEvento').click(function() {
-    var id           = $(this).attr('data-id');
-    var nombre       = $(this).attr('data-nombre');
-    var fecha        = $(this).attr('data-fecha');
-    var lugar        = $(this).attr('data-lugar');
-    var codigoEvento = $(this).attr('data-codigoEvento');
-
-    $('#edit-id').val(id);
-    $('#edit-nombre').val(nombre);
-    $('#edit-fecha').val(fecha);
-    $('#edit-lugar').val(lugar);
-    $('#edit-codigoEvento').val(codigoEvento);
-});
 $('#btn-editarEvento').click(function() {
-    var id           = $('#edit-id').val();
-    var nombre       = $('#edit-nombre').val();
-    var fecha        = $('#edit-fecha').val();
-    var lugar        = $('#edit-lugar').val();
-    var codigoEvento = $('#edit-codigoEvento').val();
+    var id           = $('#editarEvento-ID').val();
+    var nombre       = $('#editarEvento-Nombre').val();
+    var fecha        = $('#editarEvento-Fecha').val();
+    var lugar        = $('#editarEvento-Lugar').val();
+    var codigoEvento = $('#editarEvento-CodigoEvento').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
@@ -96,7 +83,7 @@ $('#btn-editarEvento').click(function() {
 
             if ( response == 'event_not_edit' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -114,15 +101,21 @@ $('#btn-editarEvento').click(function() {
 });
 
 // Eliminar producto
-$('.eliminarEvento').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
-    
-    $('#eliminarEvento .event').html(nombre);
-    $('#delete-id').val(id);
-});
+var eliminarEvento = document.getElementById('eliminarEvento')
+eliminarEvento.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var id     = button.getAttribute('data-bs-id')
+    var nombre = button.getAttribute('data-bs-nombre')
+
+    var inputID     = eliminarEvento.querySelector('#eliminarEvento-ID')
+    var inputNombre = eliminarEvento.querySelector('#eliminarEvento .event')
+
+    inputID.value           = id
+    inputNombre.textContent = nombre
+})
 $('#btn-eliminarEvento').click(function() {
-    var id = $('#delete-id').val();
+    var id = $('#eliminarEvento-ID').val();
 
     $.ajax({
         url: '/controller/crearEvento.php',
@@ -136,7 +129,7 @@ $('#btn-eliminarEvento').click(function() {
 
             if ( response == 'event_not_deleted' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
