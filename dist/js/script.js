@@ -309,9 +309,9 @@ $('#btn-eliminarUsuario').click(function() {
 // |==============================|
 // Crear productos
 $('#btn-crearProducto').click(function() {
-    var nombre        = $('#nombre').val();
-    var costo         = $('#costo').val();
-    var precioPublico = $('#precioPublico').val();
+    var nombre        = $('#crearProducto-Nombre').val();
+    var costo         = $('#crearProducto-Costo').val();
+    var precioPublico = $('#crearProducto-PrecioPublico').val();
 
     $.ajax({
         url: '/controller/crearProductos.php',
@@ -332,7 +332,7 @@ $('#btn-crearProducto').click(function() {
                 // Agregar imagen a los productos
 
                 var formData = new FormData();
-                var files = $('#img--profile')[0].files[0];
+                var files = $('#crearProducto-Imagen')[0].files[0];
                 formData.append('file', files);
                 $.ajax({
                     url: '/controller/uploadImgProfile.php',
@@ -368,25 +368,33 @@ $('#btn-crearProducto').click(function() {
 });
 
 // Editar producto
-$('.editarProducto').click(function() {
-    var id              = $(this).attr('data-id');
-    var imagen          = $(this).attr('data-imagen');
-    var nombre          = $(this).attr('data-nombre');
-    var costo           = $(this).attr('data-costo');
-    var precioPublico   = $(this).attr('data-precioPublico');
+var editarProducto = document.getElementById('editarProducto')
+editarProducto.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
 
-    $('#edit-id').val(id);
-    $('.edit-card-img-top').attr('src', imagen);
-    $('#edit-nombre').val(nombre);
-    $('#edit-costo').val(costo);
-    $('#edit-precioPublico').val(precioPublico);
-});
+    var id              = button.getAttribute('data-bs-id')
+    var imagen          = button.getAttribute('data-bs-imagen')
+    var nombre          = button.getAttribute('data-bs-nombre')
+    var costo           = button.getAttribute('data-bs-costo')
+    var precioPublico   = button.getAttribute('data-bs-precioPublico')
+
+    var inputID              = editarProducto.querySelector('#editarProducto-ID')
+    var inputImagen          = editarProducto.querySelector('#editarProducto-Imagen')
+    var inputNombre          = editarProducto.querySelector('#editarProducto-Nombre')
+    var inputCosto           = editarProducto.querySelector('#editarProducto-Costo')
+    var inputPrecioPublico   = editarProducto.querySelector('#editarProducto-PrecioPublico')
+
+    inputID.value            = id
+    inputImagen.src          = imagen
+    inputNombre.value        = nombre
+    inputCosto.value         = costo
+    inputPrecioPublico.value = precioPublico
+})
 $('#btn-editarProducto').click(function() {
-    var id            = $('#edit-id').val();
-    var nombre        = $('#edit-nombre').val();
-    var nombre        = $('#edit-nombre').val();
-    var costo         = $('#edit-costo').val();
-    var precioPublico = $('#edit-precioPublico').val();
+    var id            = $('#editarProducto-ID').val();
+    var nombre        = $('#editarProducto-Nombre').val();
+    var costo         = $('#editarProducto-Costo').val();
+    var precioPublico = $('#editarProducto-PrecioPublico').val();
 
     $.ajax({
         url: '/controller/crearProductos.php',
