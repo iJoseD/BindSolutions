@@ -73,10 +73,10 @@ $(document).ready(function () {
 // |==============================|
 // Crear usuario
 $('#btn-crearUsuario').click(function() {
-    var fullName     = $('#fullName').val();
-    var user         = $('#user').val();
-    var password     = $('#password').val();
-    var rol          = $('#rol').val();
+    var fullName     = $('#crearUsuario-Nombre').val();
+    var user         = $('#crearUsuario-Usuario').val();
+    var password     = $('#crearUsuario-Contrasena').val();
+    var rol          = $('#crearUsuario-Rol').val();
     var idEvento     = $('#crearUsuario-SelectEvento').val();
     var idPuntoVenta = $('#crearUsuario-SelectPV').val();
 
@@ -114,10 +114,10 @@ $('#btn-crearUsuario').click(function() {
     });
 });
 // Mostrar eventos
-$('#rol').change(function() {
+$('#crearUsuario-Rol').change(function() {
 	var rol = $(this).val();
 
-	if ( rol == 2 ) {
+	if ( rol == 2 || rol == 4 ) {
         $('.asignarEvento').removeClass('hide');
     } else {
         $('.asignarEvento').addClass('hide');
@@ -144,21 +144,32 @@ $('#crearUsuario-SelectEvento').change(function() {
 });
 
 // Editar usuario
-$('.editarUsuario').click(function() {
-    var fullName     = $(this).attr('data-fullName');
-    var user         = $(this).attr('data-user');
-    var password     = $(this).attr('data-password');
-    var rol          = $(this).attr('data-rol');
-    var idEvento     = $(this).attr('data-idEvento');
-    var idPuntoVenta = $(this).attr('data-idPuntoVenta');
+var editarUsuario = document.getElementById('editarUsuario')
+editarUsuario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
 
-    $('#edit-fullName').val(fullName);
-    $('#edit-user').val(user);
-    $('#edit-password').val(password);
-    $('#edit-rol option[value="' + rol + '"]').attr("selected", "selected");
-    $('#editarUsuario-SelectEvento option[value="' + idEvento + '"]').attr("selected", "selected");
+    var fullName     = button.getAttribute('data-bs-fullName');
+    var user         = button.getAttribute('data-bs-user');
+    var password     = button.getAttribute('data-bs-password');
+    var rol          = button.getAttribute('data-bs-rol');
+    var idEvento     = button.getAttribute('data-bs-idEvento');
+    var idPuntoVenta = button.getAttribute('data-bs-idPuntoVenta');
 
-    if ( rol == 2 ) {
+    var inputFullName     = editarInventario.querySelector('#editarUsuario-Nombre')
+    var inputUser         = editarInventario.querySelector('#editarUsuario-Usuario')
+    var inputPassword     = editarInventario.querySelector('#editarUsuario-Contrasena')
+    var inputRol          = editarInventario.querySelector('#editarUsuario-Rol')
+    var inputIDEvento     = editarInventario.querySelector('#editarUsuario-SelectEvento')
+    var inputIDPuntoVenta = editarInventario.querySelector('#editarUsuario-SelectPV')
+
+    inputFullName.value     = fullName
+    inputUser.value         = user
+    inputPassword.value     = password
+    inputRol.value          = rol
+    inputIDEvento.value     = idEvento
+    inputIDPuntoVenta.value = idPuntoVenta
+
+    if ( rol == 2 || rol == 4 ) {
         var evento = $('#editarUsuario-SelectEvento').val();
 
         $.ajax({
@@ -180,7 +191,7 @@ $('.editarUsuario').click(function() {
     } else {
         $('#editarUsuario .asignarEvento').addClass('hide');
     }
-});
+})
 $('#btn-editarUsuario').click(function() {
     var fullName     = $('#edit-fullName').val();
     var user         = $('#edit-user').val();
@@ -652,29 +663,20 @@ $('#btn-agregarInventario').click(function() {
 // Editar inventario
 var editarInventario = document.getElementById('editarInventario')
 editarInventario.addEventListener('show.bs.modal', function (event) {
-  var button = event.relatedTarget
-  
-  var id = button.getAttribute('data-bs-id')
-  var nombre = button.getAttribute('data-bs-nombre')
-  var cantidad = button.getAttribute('data-bs-cantidad')
-  
-  var inputID = editarInventario.querySelector('#idInventario')
-  var inputNombre = editarInventario.querySelector('#ei-nombre')
-  var inputCantidad = editarInventario.querySelector('#ei-cantidad')
+    var button = event.relatedTarget
 
-  inputID.value = id
-  inputNombre.value = nombre
-  inputCantidad.value = cantidad
+    var id = button.getAttribute('data-bs-id')
+    var nombre = button.getAttribute('data-bs-nombre')
+    var cantidad = button.getAttribute('data-bs-cantidad')
+
+    var inputID = editarInventario.querySelector('#idInventario')
+    var inputNombre = editarInventario.querySelector('#ei-nombre')
+    var inputCantidad = editarInventario.querySelector('#ei-cantidad')
+
+    inputID.value = id
+    inputNombre.value = nombre
+    inputCantidad.value = cantidad
 })
-// $('.editarInventario').click(function() {
-//     var id       = $(this).attr('data-id');
-//     var nombre   = $(this).attr('data-nombre');
-//     var cantidad = $(this).attr('data-cantidad');
-    
-//     $('#ei-nombre').val(nombre);
-//     $('#ei-cantidad').val(cantidad);
-//     $('#idInventario').val(id);
-// });
 $('#btn-editarInventario').click(function() {
     var idInventario = $('#idInventario').val();
     var cantidad     = $('#ei-cantidad').val();

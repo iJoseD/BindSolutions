@@ -14,7 +14,7 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Crear nuevo usuario</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearUsuario">Crear nuevo usuario</button>
         </div>
     </div>
 
@@ -50,13 +50,13 @@
                                 $html .= '<th>'. $rol .'</th>';
                                 $html .= '<th>'. $row['lastLogin'] .'</th>';
                                 $html .= '<th>
-                                    <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-fullName="'. $row['fullName'] .'" data-user="'. $row['user'] .'" data-rol="'. $row['rol'] .'" data-password="'. $desencriptar( $row['password'] ) .'" data-idEvento="'. $row['idEvento'] .'" data-idPuntoVenta="'. $row['idPuntoVenta'] .'">
+                                    <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                         </svg>
                                     </button>
-                                    <button type="button" class="btn btn-danger eliminarUsuario" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-user="'. $row['user'] .'">
+                                    <button type="button" class="btn btn-danger eliminarUsuario" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-bs-user="'. $row['user'] .'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -75,11 +75,11 @@
 </section>
 
 <!-- Crear usuario -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="crearUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="crearUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo usuario</h5>
+                <h5 class="modal-title" id="crearUsuarioLabel">Crear nuevo usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -87,11 +87,11 @@
                     <div class="row">
                         <div class="col-6">
                             <label class="form-label">Nombre completo</label>
-                            <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Joan Alonso Rivero">
+                            <input type="text" name="crearUsuario-Nombre" id="crearUsuario-Nombre" class="form-control" placeholder="Joan Alonso Rivero">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Rol</label>
-                            <select name="rol" id="rol" class="form-select">
+                            <select name="crearUsuario-Rol" id="crearUsuario-Rol" class="form-select">
                                 <option selected>---</option>
                                 <?php
                                     $sql = "SELECT * FROM rol";
@@ -109,11 +109,11 @@
                     <div class="row mt-3">
                         <div class="col-6">
                             <label class="form-label">Usuario</label>
-                            <input type="text" name="user" id="user" class="form-control" placeholder="JoanAlonso">
+                            <input type="text" name="crearUsuario-Usuario" id="crearUsuario-Usuario" class="form-control" placeholder="JoanAlonso">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Contraseña</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                            <input type="password" name="crearUsuario-Contrasena" id="crearUsuario-Contrasena" class="form-control" placeholder="Contraseña">
                         </div>
                     </div>
                     <div class="row mt-3 asignarEvento hide">
@@ -138,7 +138,7 @@
                             </select>
                         </div>
                         <div class="col-6">
-                            <label class="form-label">Punto de venta</label>
+                            <label class="form-label">Zona</label>
                             <select name="crearUsuario-SelectPV" id="crearUsuario-SelectPV" class="form-select">
                                 <option selected>---</option>
                             </select>
@@ -175,11 +175,11 @@
                     <div class="row">
                         <div class="col-6">
                             <label class="form-label">Nombre completo</label>
-                            <input type="text" name="edit-fullName" id="edit-fullName" class="form-control">
+                            <input type="text" name="editarUsuario-Nombre" id="editarUsuario-Nombre" class="form-control">
                         </div>
                         <div class="col-6">
                             <label class="form-label">Rol</label>
-                            <select name="edit-rol" id="edit-rol" class="form-select">
+                            <select name="editarUsuario-Rol" id="editarUsuario-Rol" class="form-select">
                                 <option selected>---</option>
                                 <?php
                                     $sql = "SELECT * FROM rol";
@@ -197,11 +197,11 @@
                     <div class="row mt-3">
                         <div class="col-6">
                             <label class="form-label">Usuario</label>
-                            <input type="text" name="edit-user" id="edit-user" class="form-control" readonly>
+                            <input type="text" name="editarUsuario-Usuario" id="editarUsuario-Usuario" class="form-control" readonly>
                         </div>
                         <div class="col-6">
                             <label class="form-label">Contraseña</label>
-                            <input type="password" name="edit-password" id="edit-password" class="form-control">
+                            <input type="password" name="editarUsuario-Contrasena" id="editarUsuario-Contrasena" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-3 asignarEvento hide">
