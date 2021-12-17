@@ -120,15 +120,21 @@ $('#btn-editarProducto').click(function() {
 });
 
 // Eliminar producto
-$('.eliminarProducto').click(function() {
-    var id      = $(this).attr('data-id');
-    var nombre  = $(this).attr('data-nombre');
-    
-    $('#eliminarProducto .product').html(nombre);
-    $('#delete-id').val(id);
-});
+var eliminarProducto = document.getElementById('eliminarProducto')
+eliminarProducto.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var id     = button.getAttribute('data-bs-id')
+    var nombre = button.getAttribute('data-bs-nombre')
+
+    var inputID     = editarProducto.querySelector('#eliminarProducto-ID')
+    var inputNombre = editarProducto.querySelector('#eliminarProducto .product')
+
+    inputID.value           = id
+    inputNombre.textContent = nombre
+})
 $('#btn-eliminarProducto').click(function() {
-    var id = $('#delete-id').val();
+    var id = $('#eliminarProducto-ID').val();
 
     $.ajax({
         url: '/controller/crearProductos.php',

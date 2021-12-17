@@ -189,7 +189,7 @@
                     <div class="row mt-3 hide">
                         <div class="col-12">
                             <label class="form-label">Id producto</label>
-                            <input type="text" name="delete-id" id="delete-id" class="form-control" readonly>
+                            <input type="text" name="eliminarProducto-ID" id="eliminarProducto-ID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row">

@@ -15,6 +15,8 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 
 <!-- App -->
+<script type="text/javascript" src="/dist/js/script.js"></script>
+
 <?php if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { ?>
     <script type="text/javascript" src="/dist/js/usuarios.js"></script>
 <?php } ?>
@@ -22,5 +24,3 @@
 <?php if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { ?>
     <script type="text/javascript" src="/dist/js/productos.js"></script>
 <?php } ?>
-
-<script type="text/javascript" src="/dist/js/script.js"></script>
