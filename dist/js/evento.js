@@ -273,28 +273,36 @@ $('#btn-agregarPuntoVenta').click(function() {
         }
     });
 });
+
 // Editar punto de venta
-$('.editarPuntoV').click(function() {
-    var id        = $(this).attr('data-id');
-    var nombre    = $(this).attr('data-nombre');
-    var cantMesas = $(this).attr('data-cantMesas');
-    
-    $('#editarPuntoV-IDPuntoV').val(id);
-    $('#editarPuntoV-nombrePV').val(nombre);
-    $('#editarPuntoV-cantMesas').val(cantMesas);
-});
+var editarPuntoV = document.getElementById('editarPuntoV')
+editarPuntoV.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var id       = button.getAttribute('data-bs-id')
+    var nombre   = button.getAttribute('data-bs-nombre')
+    var cantidad = button.getAttribute('data-bs-cantidad')
+
+    var inputID       = editarPuntoV.querySelector('#editarPuntoV-ID')
+    var inputNombre   = editarPuntoV.querySelector('#editarPuntoV-Nombre')
+    var inputCantidad = editarPuntoV.querySelector('#editarPuntoV-cantMesas')
+
+    inputID.value = id
+    inputNombre.value = nombre
+    inputCantidad.value = cantidad
+})
 $('#btn-editarPuntoV').click(function() {
-    var idPuntoVenta  = $('#editarPuntoV-IDPuntoV').val();
-    var nombrePV      = $('#editarPuntoV-nombrePV').val();
-    var cantMesas     = $('#editarPuntoV-cantMesas').val();
+    var id        = $('#editarPuntoV-ID').val();
+    var nombre    = $('#editarPuntoV-Nombre').val();
+    var cantMesas = $('#editarPuntoV-cantMesas').val();
 
     $.ajax({
         url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'editarPuntoV',
-            idPuntoVenta : idPuntoVenta,
-            nombrePV     : nombrePV,
+            idPuntoVenta : id,
+            nombre       : nombre,
             cantMesas    : cantMesas
         },
         success: function(response) {
@@ -318,16 +326,23 @@ $('#btn-editarPuntoV').click(function() {
         }
     });
 });
+
 // Eliminar punto de venta
-$('.eliminarPuntoV').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
+var eliminarPuntoV = document.getElementById('eliminarPuntoV')
+eliminarPuntoV.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
     
-    $('#eliminarPuntoV-IDPuntoV').val(id);
-    $('#eliminarPuntoV .name').html(nombre);
-});
+    var id     = button.getAttribute('data-bs-id');
+    var nombre = button.getAttribute('data-bs-nombre');
+    
+    var inputID     = eliminarPuntoV.querySelector('#eliminarPuntoV-ID')
+    var inputNombre = eliminarPuntoV.querySelector('#eliminarPuntoV .name')
+    
+    inputNombre.textContent = nombre
+    inputID.value = id
+})
 $('#btn-eliminarPuntoV').click(function() {
-    var idPuntoVenta = $('#eliminarPuntoV-IDPuntoV').val();
+    var idPuntoVenta = $('#eliminarPuntoV-ID').val();
 
     $.ajax({
         url: '/controller/eventos.php',

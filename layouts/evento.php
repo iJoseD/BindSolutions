@@ -460,13 +460,13 @@
                     <div class="row hide">
                         <div class="col-12">
                             <label class="form-label">ID</label>
-                            <input type="text" name="editarPuntoV-IDPuntoV" id="editarPuntoV-IDPuntoV" class="form-control" readonly>
+                            <input type="text" name="editarPuntoV-ID" id="editarPuntoV-ID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
-                            <input type="text" name="editarPuntoV-nombrePV" id="editarPuntoV-nombrePV" class="form-control" placeholder="Barra 1">
+                            <input type="text" name="editarPuntoV-Nombre" id="editarPuntoV-Nombre" class="form-control" placeholder="Barra 1">
                         </div>
                         <div class="col-4">
                             <label class="form-label"># Mesas</label>
@@ -490,6 +490,7 @@
         </div>
     </div>
 </div>
+
 <!-- Eliminar punto de venta -->
 <div class="modal fade" id="eliminarPuntoV" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminarPuntoVLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -503,7 +504,7 @@
                     <div class="row mt-3 hide">
                         <div class="col-12">
                             <label class="form-label">ID Punto de venta</label>
-                            <input type="text" name="eliminarPuntoV-IDPuntoV" id="eliminarPuntoV-IDPuntoV" class="form-control" readonly>
+                            <input type="text" name="eliminarPuntoV-ID" id="eliminarPuntoV-ID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -528,6 +529,7 @@
         </div>
     </div>
 </div>
+
 <!-- Agregar Sub-inventario punto de venta -->
 <div class="modal fade" id="agregarSubInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarSubInventarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

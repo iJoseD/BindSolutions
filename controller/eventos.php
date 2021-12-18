@@ -49,11 +49,10 @@ $lote       = $_POST['lote'];
 $idProducto = $_POST['idProducto'];
 $cantidad   = $_POST['cantidad'];
 
-$idInventario = $_POST['idInventario'];
-
-
-$cantMesas    = $_POST['cantMesas'];
 $idPuntoVenta = $_POST['idPuntoVenta'];
+$cantMesas    = $_POST['cantMesas'];
+
+$idInventario = $_POST['idInventario'];
 
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$date')";
@@ -188,6 +187,39 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'editarPuntoV' ) {
+    $sql = "UPDATE puntoVenta SET nombre = '$nombre', cantMesas = '$cantMesas' WHERE id = $idPuntoVenta";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'editarPuntoV_UPDATE';
+    } else {
+        echo 'editarPuntoV_not_UPDATE';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'eliminarPuntoV' ) {
+    $sql = "DELETE FROM puntoVenta WHERE id = '$idPuntoVenta'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'eliminarInventario_DELETE';
+    } else {
+        echo 'eliminarInventario_not_DELETE';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'eliminarPuntoV2' ) {
+    $sql = "DELETE FROM inventarioPuntoVenta WHERE idPuntoVenta = '$idPuntoVenta'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'eliminarInventario_DELETE';
+    } else {
+        echo 'eliminarInventario_not_DELETE';
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'infoCantidades' ) {
     $sql = "SELECT * FROM inventario WHERE idProducto = '$idProducto' AND idEvento = '$idEvento'";
     $result = $conn->query($sql);
@@ -224,39 +256,6 @@ if ( $caso == 'crearEvento' ) {
         echo 'SubInventario_created';
     } else {
         echo 'SubInventario_not_created';
-    }
-
-    $conn->close();
-
-} elseif ( $caso == 'editarPuntoV' ) {
-    $sql = "UPDATE puntoVenta SET nombre = '$nombrePV', cantMesas = '$cantMesas' WHERE id = $idPuntoVenta";
-
-    if ($conn->query($sql) === TRUE) {
-        echo 'editarPuntoV_UPDATE';
-    } else {
-        echo 'editarPuntoV_not_UPDATE';
-    }
-
-    $conn->close();
-
-} elseif ( $caso == 'eliminarPuntoV' ) {
-    $sql = "DELETE FROM puntoVenta WHERE id = '$idPuntoVenta'";
-
-    if ($conn->query($sql) === TRUE) {
-        echo 'eliminarInventario_DELETE';
-    } else {
-        echo 'eliminarInventario_not_DELETE';
-    }
-
-    $conn->close();
-
-} elseif ( $caso == 'eliminarPuntoV2' ) {
-    $sql = "DELETE FROM inventarioPuntoVenta WHERE idPuntoVenta = '$idPuntoVenta'";
-
-    if ($conn->query($sql) === TRUE) {
-        echo 'eliminarInventario_DELETE';
-    } else {
-        echo 'eliminarInventario_not_DELETE';
     }
 
     $conn->close();
