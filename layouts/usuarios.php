@@ -21,35 +21,34 @@
     <div class="row mt-5">
         <div class="col-12 mb-5"><h3>Usuarios activos</h3></div>
         <div class="col-12">
-            <table class="DataTable display responsive nowrap">
+            <table id="usuarios-table1" class="display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Usuario</th>
                         <th>Rol</th>
+                        <th>Evento</th>
+                        <th>Zona</th>
                         <th>Último acceso</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT * FROM usuarios WHERE status = '1'";
+                        $sql = "SELECT u.fullName, r.rol, e.nombre, pv.nombre AS 'nombrePV', u.lastLogin
+                        FROM usuarios u
+                        JOIN rol r ON u.rol = r.id
+                        LEFT JOIN eventos e ON u.idEvento = e.id
+                        LEFT JOIN puntoVenta pv ON u.idPuntoVenta = pv.id
+                        WHERE u.status = '1'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                switch ( $row['rol'] ) {
-                                    case '1':
-                                        $rol = 'Administrador';
-                                    break;
-                                    case '2':
-                                        $rol = 'Vendedor';
-                                    break;
-                                }
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['fullName'] .'</th>';
-                                    $html .= '<th>'. $row['user'] .'</th>';
-                                    $html .= '<th>'. $rol .'</th>';
+                                    $html .= '<th>'. $row['rol'] .'</th>';
+                                    $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $row['nombrePV'] .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
                                         <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">
@@ -83,15 +82,21 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Usuario</th>
                         <th>Rol</th>
+                        <th>Evento</th>
+                        <th>Zona</th>
                         <th>Último acceso</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT * FROM usuarios WHERE status = '0'";
+                        $sql = "SELECT u.fullName, r.rol, e.nombre, pv.nombre AS 'nombrePV', u.lastLogin
+                        FROM usuarios u
+                        JOIN rol r ON u.rol = r.id
+                        LEFT JOIN eventos e ON u.idEvento = e.id
+                        LEFT JOIN puntoVenta pv ON u.idPuntoVenta = pv.id
+                        WHERE u.status = '0'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -106,8 +111,9 @@
                                 }
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['fullName'] .'</th>';
-                                    $html .= '<th>'. $row['user'] .'</th>';
-                                    $html .= '<th>'. $rol .'</th>';
+                                    $html .= '<th>'. $row['rol'] .'</th>';
+                                    $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $row['nombrePV'] .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
                                         <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">Activar</button>

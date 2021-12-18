@@ -40,7 +40,35 @@ $(document).ready(function () {
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true
     });
+    
+    // Evento
     $('#evento-table3').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true,
+        searchPanes: {
+            layout: 'columns-2',
+            cascadePanes: true,
+            viewTotal: false
+        },
+        dom: 'PBfrtip',
+        columnDefs: [
+            {
+                searchPanes: {
+                    show: true
+                },
+                targets: [0, 2]
+            },
+            {
+                searchPanes: {
+                    show: false
+                },
+                targets: [1, 3, 4]
+            }
+        ],
+    });
+
+    // Usuarios
+    $('#usuarios-table1').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         searchPanes: {
@@ -113,7 +141,7 @@ function separadorMiles(donde, caracter) {
 }
 
 // Solo números
-$('#crearProducto-Costo, #crearProducto-PrecioPublico').bind('keypress', function(event) {
+$('#crearProducto-Costo, #crearProducto-PrecioPublico, #editarProducto-Costo, #editarProducto-PrecioPublico, #agregarInventario-Cantidad, #agregarPuntoVenta-cantMesas, #editarInventario-Cantidad, #editarPuntoV-cantMesas, #agregarSubInventario-Cantidad, #editarSubInventario-Cantidad').bind('keypress', function(event) {
     var regex = new RegExp("^[0-9]+$");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regex.test(key)) {
