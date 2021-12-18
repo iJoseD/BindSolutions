@@ -124,6 +124,8 @@
                 <thead>
                     <tr>
                         <th>Factura</th>
+                        <th>Mesa</th>
+                        <th>Mesero</th>
                         <th>Productos vendidos</th>
                         <th>Total factura</th>
                         <th>Opciones</th>
@@ -131,10 +133,11 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT v.codeFac, SUM(v.cantidad) AS 'cantidad', tf.total
+                        $sql = "SELECT v.codeFac, v.mesa, u.fullName, SUM(v.cantidad) AS 'cantidad', tf.total
                         FROM ventas v
                         JOIN productos p ON v.idProducto = p.id
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                        JOIN usuarios u ON v.mesero = u.id
                         WHERE v.idEvento = '$idEvento' AND v.idPuntoVenta = '$idPuntoVenta'
                         GROUP BY v.codeFac";
 
@@ -144,6 +147,8 @@
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['codeFac'] .'</th>';
+                                    $html .= '<th>'. $row['mesa'] .'</th>';
+                                    $html .= '<th>'. $row['fullName'] .'</th>';
                                     $html .= '<th>'. $row['cantidad'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                     $html .= '<th>
@@ -283,7 +288,7 @@
                             <button type="button" id="addCart" class="btn btn-warning fw-bold text-uppercase">Agregar al carrito</button>
                         </div>
                     </div>
-                    <div class="row mt-3 mb-5 preOrden"></div>
+                    <div class="row mt-5 mb-3 preOrden"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">
