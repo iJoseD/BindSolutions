@@ -4,8 +4,6 @@
     $idEvento     = $_SESSION['idEvento'];
     $idPuntoVenta = $_SESSION['idPuntoVenta'];
 
-    $codeFac = 'E' . $idEvento. 'PV' . $idPuntoVenta . 'FAC' . rand(1000, 9999);
-
     // MySQLi
     $servername = "localhost";
     $username   = "app_bind";
@@ -30,6 +28,16 @@
     if ($result2->num_rows > 0) {
         while($row = $result2->fetch_assoc()) {
             $nombrePuntoVenta = $row['nombre'];
+        }
+    }
+
+    $sql3 = "SELECT MAX(id) AS id FROM productos";
+    $result3 = $conn->query($sql3);
+
+    if ($result3->num_rows > 0) {
+        while($row = $result3->fetch_assoc()) {
+            if ( !empty( $row['id'] ) ) { $maxID = $row['id']; } else { $maxID = '1'; }
+            $codeFac = 'FAC-' . date('d') . date('m') . $maxID;
         }
     }
 ?>
