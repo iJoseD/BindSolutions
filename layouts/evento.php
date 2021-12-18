@@ -39,10 +39,10 @@
     <div class="row mt-5">
         <div class="col-xl-4 col-md-6 col-12"></div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <button type="button" class="PacificDream gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
+            <button type="button" class="btn-dark gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
         </div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <button type="button" class="PacificDream verInforme btn btn-outline-info fw-bold text-uppercase text-white">Informes</button>
+            <button type="button" class="btn-dark verInforme btn btn-outline-info fw-bold text-uppercase text-white">Informes</button>
         </div>
         <div class="col-xl-4 col-md-6 col-12"></div>
     </div>
