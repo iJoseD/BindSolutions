@@ -72,7 +72,7 @@
                         FROM inventarioPuntoVenta ipv
                         JOIN productos p ON ipv.idProducto = p.id
                         WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
-                        
+
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -129,7 +129,7 @@
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
                         WHERE v.idEvento = '$idEvento' AND v.idPuntoVenta = '$idPuntoVenta'
                         GROUP BY v.codeFac";
-                        
+
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -201,7 +201,7 @@
                                     FROM inventarioPuntoVenta ipv
                                     JOIN productos p ON ipv.idProducto = p.id
                                     WHERE ipv.idEvento = '$idEvento' AND ipv.idPuntoVenta = '$idPuntoVenta'";
-                                    
+
                                     $result = $conn->query($sql);
 
                                     if ($result->num_rows > 0) {

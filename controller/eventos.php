@@ -99,7 +99,7 @@ if ( $caso == 'crearEvento' ) {
 
         if ($result->num_rows > 0) {
             $totalFactura = 0;
-            
+
             $html = '<div class="col-12">
                 <h4>Productos agregados</h4>
                 <ul class="list-group mt-3">';
@@ -159,7 +159,7 @@ if ( $caso == 'crearEvento' ) {
 
         if ($result->num_rows > 0) {
             $totalFactura = 0;
-            
+
             $html = '<div class="col-12">
                 <h4>Zonas agregadas</h4>
                 <ul class="list-group mt-3">';
@@ -227,7 +227,7 @@ if ( $caso == 'crearEvento' ) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $cantidadInventario = $row['cantidad'];
-            
+
             $sql2 = "SELECT SUM(cantidad) AS 'cantidad' FROM inventarioPuntoVenta WHERE idEvento = '$idEvento' AND idProducto = '$idProducto'";
             $result2 = $conn->query($sql2);
 
@@ -261,7 +261,7 @@ if ( $caso == 'crearEvento' ) {
 
         if ($result->num_rows > 0) {
             $totalFactura = 0;
-            
+
             $html = '<div class="col-12">
                 <h4>Productos agregados</h4>
                 <ul class="list-group mt-3">';

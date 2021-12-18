@@ -170,7 +170,7 @@
                         <div class="col-12 mb-3">
                             <h4>Asignar evento</h4>
                         </div>
-                        
+
                         <div class="col-6">
                             <label class="form-label">Evento</label>
                             <select name="crearUsuario-SelectEvento" id="crearUsuario-SelectEvento" class="form-select">
@@ -258,7 +258,7 @@
                         <div class="col-12 mb-3">
                             <h4>Asignar evento</h4>
                         </div>
-                        
+
                         <div class="col-6">
                             <label class="form-label">Evento</label>
                             <select name="editarUsuario-SelectEvento" id="editarUsuario-SelectEvento" class="form-select">
@@ -379,7 +379,7 @@
                         <div class="col-12 mb-3">
                             <h4>Asignar evento</h4>
                         </div>
-                        
+
                         <div class="col-6">
                             <label class="form-label">Evento</label>
                             <select name="activarUsuario-SelectEvento" id="activarUsuario-SelectEvento" class="form-select">

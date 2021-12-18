@@ -9,7 +9,7 @@
 
         <!-- Profile -->
         <?php require_once('../layouts/eventos.php'); ?>
-        
+
         <!-- Bootstrap Bundle with Popper -->
         <?php require_once('../dist/requireFooter.php'); ?>
     </body>

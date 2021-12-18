@@ -109,7 +109,7 @@ $('#btn-editarInventario').click(function() {
 
             if ( response == 'editarInventario_not_UPDATE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -130,13 +130,13 @@ $('#btn-editarInventario').click(function() {
 var eliminarInventario = document.getElementById('eliminarInventario')
 eliminarInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
-    
+
     var id     = button.getAttribute('data-bs-id');
     var nombre = button.getAttribute('data-bs-nombre');
-    
+
     var inputID     = eliminarInventario.querySelector('#eliminarInventario-idInventario')
     var inputNombre = eliminarInventario.querySelector('#eliminarInventario .product')
-    
+
     inputNombre.textContent = nombre
     inputID.value = id
 })
@@ -155,7 +155,7 @@ $('#btn-eliminarInventario').click(function() {
 
             if ( response == 'eliminarInventario_not_DELETE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -234,7 +234,7 @@ $('#btn-agregarPuntoVenta').click(function() {
 
             if ( response == 'puntoVenta_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -287,7 +287,7 @@ $('#btn-editarPuntoV').click(function() {
 
             if ( response == 'editarPuntoV_not_UPDATE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -308,13 +308,13 @@ $('#btn-editarPuntoV').click(function() {
 var eliminarPuntoV = document.getElementById('eliminarPuntoV')
 eliminarPuntoV.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
-    
+
     var id     = button.getAttribute('data-bs-id');
     var nombre = button.getAttribute('data-bs-nombre');
-    
+
     var inputID     = eliminarPuntoV.querySelector('#eliminarPuntoV-ID')
     var inputNombre = eliminarPuntoV.querySelector('#eliminarPuntoV .name')
-    
+
     inputNombre.textContent = nombre
     inputID.value = id
 })
@@ -333,7 +333,7 @@ $('#btn-eliminarPuntoV').click(function() {
 
             if ( response == 'eliminarPuntoV_not_UPDATE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $.ajax({
                     url: '/controller/eventos.php',
@@ -344,14 +344,14 @@ $('#btn-eliminarPuntoV').click(function() {
                     },
                     success: function(response) {
                         console.log( response );
-            
+
                         if ( response == 'eliminarPuntoV_not_UPDATE' ) {
                             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                        
+
                         } else {
                             $('.formulario').addClass('hide');
                             $('.successful-message').removeClass('hide');
-            
+
                             window.setTimeout(function() {
                                 location.reload();
                             }, 2000);
@@ -435,10 +435,10 @@ $('#addSubBodega').click(function() {
             },
             success: function(response) {
                 console.log( response );
-    
+
                 if ( response == 'SubInventario_not_created' ) {
                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                
+
                 } else {
                     $('.addSubBodega').html( response );
                     $('#agregarSubInventario-Cantidad').val('');
@@ -468,7 +468,7 @@ $('#btn-agregarSubInventario').click(function() {
 
             if ( response == 'agregarSubInventario_not_Update' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -527,7 +527,7 @@ $('#btn-editarSubInventario').click(function() {
 
     if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
         $('#editarSubInventario .alertaCantidad').addClass('hide');
-        
+
         $.ajax({
             url: '/controller/eventos.php',
             type: 'POST',
@@ -541,7 +541,7 @@ $('#btn-editarSubInventario').click(function() {
 
                 if ( response == 'editarSubInventario_not_UPDATE' ) {
                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                
+
                 } else {
                     $('.formulario').addClass('hide');
                     $('.successful-message').removeClass('hide');
@@ -565,15 +565,15 @@ $('#btn-editarSubInventario').click(function() {
 var eliminarSubInventario = document.getElementById('eliminarSubInventario')
 eliminarSubInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
-    
+
     var id       = button.getAttribute('data-bs-id');
     var nombre   = button.getAttribute('data-bs-nombre');
     var nombrePV = button.getAttribute('data-bs-nombrePV');
-    
+
     var inputID       = eliminarSubInventario.querySelector('#eliminarSubInventario-IDItem')
     var inputNombre   = eliminarSubInventario.querySelector('#eliminarSubInventario .product')
     var inputNombrePV = eliminarSubInventario.querySelector('#eliminarSubInventario .zona')
-    
+
     inputNombrePV.textContent = nombrePV
     inputNombre.textContent = nombre
     inputID.value = id
@@ -593,7 +593,7 @@ $('#btn-eliminarSubInventario').click(function() {
 
             if ( response == 'eliminarSubInventario_not_DELETE' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');

@@ -6,7 +6,7 @@ $('.nuevaVenta').click(function() {
     var idUser       = $(this).attr('data-idUser');
     var idEvento     = $(this).attr('data-idEvento');
     var idPuntoVenta = $(this).attr('data-idPuntoVenta');
-    
+
     $('#nuevaVenta-idUser').val(idUser);
     $('#nuevaVenta-idEvento').val(idEvento);
     $('#nuevaVenta-idPuntoVenta').val(idPuntoVenta);
@@ -22,7 +22,7 @@ $('#addCart').click(function() {
 
     if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
         $('.alertaCantidad').addClass('hide');
-        
+
         $.ajax({
             url: '/controller/ventas.php',
             type: 'POST',
@@ -38,10 +38,10 @@ $('#addCart').click(function() {
             },
             success: function(response) {
                 console.log( response );
-    
+
                 if ( response == 'nuevaVenta_not_created' ) {
                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                
+
                 } else {
                     $('.preOrden').html( response );
                     $('#nuevaVenta-cantidad').val('');
@@ -82,14 +82,14 @@ $('#btn-nuevaVenta').click(function() {
                 },
                 success: function(response) {
                     console.log( response );
-        
+
                     if ( response == 'totalFactura_not_Update' ) {
                         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                    
+
                     } else {
                         $('.formulario').addClass('hide');
                         $('.successful-message').removeClass('hide');
-        
+
                         window.setTimeout(function() {
                             location.reload();
                         }, 2000);
@@ -111,7 +111,7 @@ $('#btn-nuevaVenta').click(function() {
 // Ver la factura
 $('.verFactura').click(function() {
     var codeFac = $(this).attr('data-codeFac');
-    
+
     $('#verFactura .codeFac').html(codeFac);
 
     $.ajax({
@@ -126,7 +126,7 @@ $('.verFactura').click(function() {
 
             if ( response == 'verFactura_not_Select' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.detalleFactura').html( response );
             }

@@ -18,7 +18,7 @@ $('#btn-crearProducto').click(function() {
 
             if ( response == 'product_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 // Agregar imagen a los productos
 
@@ -102,7 +102,7 @@ $('#btn-editarProducto').click(function() {
 
             if ( response == 'product_not_edit' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -148,7 +148,7 @@ $('#btn-eliminarProducto').click(function() {
 
             if ( response == 'product_not_deleted' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');

@@ -74,7 +74,7 @@
 
                             $idProducto = $row['idProducto'];
                             $cantidadInventario = $row['cantidad'];
-                            
+
                             $ganancia = str_replace( '.', '', $row['precioPublico'] ) - str_replace( '.', '', $row['costo'] );
                             $ganancia = $ganancia * $row['cantidad'];
 
@@ -209,7 +209,7 @@
                             $cantidadTotal = $cantidadInventario - $cantidad;
 
                             if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
-                            
+
                             $html = '<tr class="'. $class .'">';
                                 $html .= '<th>'. $row['nombrePV'] .'</th>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';

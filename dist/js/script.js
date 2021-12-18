@@ -16,13 +16,13 @@ $('#btn-iniciarSesion').click(function() {
 
             if ( response == 'user_not_exist' ) {
                 alert( 'El usuario ' + user + ' no existe en la base de datos.' );
-            
+
             } else if ( response == 'password_incorrect' ) {
                 alert( 'Contraseña incorrecta, intente de nuevo.' );
-            
+
             } else if ( response == 'login_failed' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 window.location.href = '/';
             }

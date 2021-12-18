@@ -28,7 +28,7 @@
     background-size: cover;
     padding: 10em;
   }
-  
+
   .nombreEvento {
     font-weight: 900;
     font-size: 5em !important;
@@ -44,7 +44,7 @@
     background-size: cover;
     padding: 5em;
   }
-  
+
   .nombreEvento {
     font-weight: 900;
     font-size: 3em !important;
@@ -72,13 +72,13 @@ th {
 .Amin {
   background: #8E2DE2;
   background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
-  background: linear-gradient(to right, #4A00E0, #8E2DE2);  
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
 }
 
 .SinCityRed {
   background: #ED213A;
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);
-  background: linear-gradient(to right, #93291E, #ED213A);  
+  background: linear-gradient(to right, #93291E, #ED213A);
 }
 
 .LearningLeading {

@@ -33,7 +33,7 @@ if ( $caso == 'nuevaVenta' ) {
 
         if ($result->num_rows > 0) {
             $totalFactura = 0;
-            
+
             $html = '<div class="col-12">
                 <h4>Productos agregados</h4>
                 <ul class="list-group mt-3">';
@@ -46,7 +46,7 @@ if ( $caso == 'nuevaVenta' ) {
                         $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</span></li>';
                     }
                 $html .= '</ul>
-                
+
                 <ul class="list-group mt-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total a pagar<span class="badge bg-success rounded-pill">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
                 </ul>
@@ -91,7 +91,7 @@ if ( $caso == 'nuevaVenta' ) {
 
     if ($result->num_rows > 0) {
         $totalFactura = 0;
-        
+
         $html = '<div class="col-12">
             <table class="table table-striped">
                 <thead>
@@ -107,7 +107,7 @@ if ( $caso == 'nuevaVenta' ) {
                         $cantidad = $row["cantidad"];
                         $totalVenta = $precioPublico * $cantidad;
                         $totalFactura = $totalFactura + $totalVenta;
-    
+
                         $html .= '<tr>';
                             $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
                             $html .= '<td colspan="1" class="text-center">'. $row["cantidad"] .'</td>';
@@ -116,7 +116,7 @@ if ( $caso == 'nuevaVenta' ) {
                     }
                 $html .= '</tbody>
             </table>
-            
+
             <ul class="list-group mt-4">
                 <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total pagado<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
             </ul>

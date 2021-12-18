@@ -24,7 +24,7 @@ $('#btn-crearUsuario').click(function() {
 
             if ( response == 'user_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -144,7 +144,7 @@ $('#btn-editarUsuario').click(function() {
 
             if ( response == 'user_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -196,7 +196,7 @@ eliminarUsuario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     var user = button.getAttribute('data-bs-user');
     var inputUser = eliminarUsuario.querySelector('#eliminarUsuario .user')
-    
+
     inputUser.textContent = user
 })
 $('#btn-eliminarUsuario').click(function() {
@@ -214,7 +214,7 @@ $('#btn-eliminarUsuario').click(function() {
 
             if ( response == 'user_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');
@@ -305,7 +305,7 @@ $('#btn-activarUsuario').click(function() {
 
             if ( response == 'user_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
+
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');

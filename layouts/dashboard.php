@@ -25,7 +25,7 @@
                     <?php
                         $sql = "SELECT COUNT(id) AS 'total' FROM productos";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
                                 <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
@@ -44,7 +44,7 @@
                     <?php
                         $sql = "SELECT COUNT(id) AS 'total' FROM eventos";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
                                 <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
@@ -63,14 +63,14 @@
                     <?php
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
-                        
+
                         $sql = "SELECT * FROM eventos";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $fechaEvento = strtotime( $row['fecha'] );
-                                
+
                                 if ( $fechaActual > $fechaEvento ) { } else {
                                     $cont++;
                                 }
@@ -90,14 +90,14 @@
                     <?php
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
-                        
+
                         $sql = "SELECT * FROM eventos";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $fechaEvento = strtotime( $row['fecha'] );
-                                
+
                                 if ( $fechaActual > $fechaEvento ) { $cont++; }
                             }
                         }
@@ -139,7 +139,7 @@
                         ORDER BY cantidad DESC
                         LIMIT 5";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 echo "'". $row['nombre'] ."', ";
@@ -158,7 +158,7 @@
                             ORDER BY cantidad DESC
                             LIMIT 5";
                             $result = $conn->query($sql);
-                        
+
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
                                     echo $row['cantidad'] . ', ';
@@ -206,7 +206,7 @@
                         ORDER BY cantidad ASC
                         LIMIT 5";
                         $result = $conn->query($sql);
-                    
+
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 echo "'". $row['nombre'] ."', ";
@@ -225,7 +225,7 @@
                             ORDER BY cantidad ASC
                             LIMIT 5";
                             $result = $conn->query($sql);
-                        
+
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
                                     echo $row['cantidad'] . ', ';
