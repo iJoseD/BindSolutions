@@ -562,15 +562,15 @@ $('#btn-editarSubInventario').click(function() {
 });
 
 // Eliminar inventario
-var eliminarInventario = document.getElementById('eliminarInventario')
-eliminarInventario.addEventListener('show.bs.modal', function (event) {
+var eliminarSubInventario = document.getElementById('eliminarSubInventario')
+eliminarSubInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     
     var id     = button.getAttribute('data-bs-id');
     var nombre = button.getAttribute('data-bs-nombre');
     
-    var inputID     = eliminarInventario.querySelector('#eliminarSubInventario-IDItem')
-    var inputNombre = eliminarInventario.querySelector('#eliminarSubInventario .product')
+    var inputID     = eliminarSubInventario.querySelector('#eliminarSubInventario-IDItem')
+    var inputNombre = eliminarSubInventario.querySelector('#eliminarSubInventario .product')
     
     inputNombre.textContent = nombre
     inputID.value = id
