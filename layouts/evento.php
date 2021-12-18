@@ -264,7 +264,7 @@
                             <input type="text" name="agregarInventario-Lote" id="agregarInventario-Lote" class="form-control" value="<?php echo $lote; ?>" readonly>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
                             <select name="agregarInventario-Producto" id="agregarInventario-Producto" class="form-select">
@@ -324,7 +324,7 @@
                             <input type="text" name="editarInventario-idInventario" id="editarInventario-idInventario" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row mt-5 mb-5">
+                    <div class="row mb-5">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
                             <input type="text" name="editarInventario-Nombre" id="editarInventario-Nombre" class="form-control" readonly>
@@ -463,7 +463,7 @@
                             <input type="text" name="editarPuntoV-ID" id="editarPuntoV-ID" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row mt-5 mb-5">
+                    <div class="row mb-5">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
                             <input type="text" name="editarPuntoV-Nombre" id="editarPuntoV-Nombre" class="form-control" placeholder="Barra 1">
