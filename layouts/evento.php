@@ -194,10 +194,11 @@
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            $idProducto = $row['idProducto'];
+                            $idPuntoVenta       = $row['id'];
+                            $idProducto         = $row['idProducto'];
                             $cantidadInventario = $row['cantidad'];
 
-                            $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idProducto = '$idProducto' GROUP BY idProducto";
+                            $sql2 = "SELECT SUM(cantidad) AS cantidad FROM ventas WHERE idEvento = '$id' AND idPuntoVenta = '$idPuntoVenta' AND idProducto = '$idProducto' GROUP BY idProducto";
                             $result2 = $conn->query($sql2);
 
                             if ($result2->num_rows > 0) {
