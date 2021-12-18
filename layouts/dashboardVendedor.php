@@ -31,7 +31,7 @@
         }
     }
 
-    $sql3 = "SELECT MAX(id) AS id FROM ventas";
+    $sql3 = "SELECT MAX(id) AS id FROM totalFactura";
     $result3 = $conn->query($sql3);
 
     if ($result3->num_rows > 0) {
