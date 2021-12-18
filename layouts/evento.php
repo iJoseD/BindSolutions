@@ -56,7 +56,6 @@
                 <tr>
                     <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Precio Costo</th>
                     <th>Precio Público</th>
                     <th>Und. Asignadas</th>
                     <th>Und. Usadas</th>
@@ -93,7 +92,6 @@
                             $html = '<tr>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
-                                $html .= '<th>$ '. $row['costo'] .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
                                 $html .= '<th>'. $cantidadInventario .'</th>';
                                 $html .= '<th>'. $cantidad .'</th>';
@@ -294,7 +292,7 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <img src="/dist/img/tick.png" width="25%" alt="Tick">
-                            <h4 class="mt-4">Item agregado correctamente</h4>
+                            <h4 class="mt-4">Productos agregados correctamente</h4>
                         </div>
                     </div>
                 </div>
