@@ -566,12 +566,15 @@ var eliminarSubInventario = document.getElementById('eliminarSubInventario')
 eliminarSubInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
     
-    var id     = button.getAttribute('data-bs-id');
-    var nombre = button.getAttribute('data-bs-nombre');
+    var id       = button.getAttribute('data-bs-id');
+    var nombre   = button.getAttribute('data-bs-nombre');
+    var nombrePV = button.getAttribute('data-bs-nombrePV');
     
-    var inputID     = eliminarSubInventario.querySelector('#eliminarSubInventario-IDItem')
-    var inputNombre = eliminarSubInventario.querySelector('#eliminarSubInventario .product')
+    var inputID       = eliminarSubInventario.querySelector('#eliminarSubInventario-IDItem')
+    var inputNombre   = eliminarSubInventario.querySelector('#eliminarSubInventario .product')
+    var inputNombrePV = eliminarSubInventario.querySelector('#eliminarSubInventario .zona')
     
+    inputNombrePV.textContent = nombrePV
     inputNombre.textContent = nombre
     inputID.value = id
 })
