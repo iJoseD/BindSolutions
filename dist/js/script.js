@@ -68,11 +68,11 @@ $(document).ready(function () {
     });
 
     // Usuarios
-    $('#usuarios-table1').DataTable({
+    $('#usuarios-table1, #usuarios-table2').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         searchPanes: {
-            layout: 'columns-2',
+            layout: 'columns-3',
             cascadePanes: true,
             viewTotal: false
         },
@@ -82,13 +82,13 @@ $(document).ready(function () {
                 searchPanes: {
                     show: true
                 },
-                targets: [0, 2]
+                targets: [1, 2, 3]
             },
             {
                 searchPanes: {
                     show: false
                 },
-                targets: [1, 3, 4]
+                targets: [0, 4, 5]
             }
         ],
     });
