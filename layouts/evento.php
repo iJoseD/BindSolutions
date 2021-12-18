@@ -463,7 +463,7 @@
                             <input type="text" name="editarPuntoV-ID" id="editarPuntoV-ID" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-5 mb-5">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
                             <input type="text" name="editarPuntoV-Nombre" id="editarPuntoV-Nombre" class="form-control" placeholder="Barra 1">
@@ -501,13 +501,13 @@
             </div>
             <div class="modal-body">
                 <div class="formulario">
-                    <div class="row mt-3 hide">
+                    <div class="row hide">
                         <div class="col-12">
                             <label class="form-label">ID Punto de venta</label>
                             <input type="text" name="eliminarPuntoV-ID" id="eliminarPuntoV-ID" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-5 mb-5">
                         <div class="col-12 text-center">
                             <h4>¿Esta seguro que desea eliminar la zona de venta <span class="name badge bg-primary"></span> y todo el contenido asociado?</h4>
                         </div>
