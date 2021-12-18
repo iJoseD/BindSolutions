@@ -70,4 +70,15 @@ if ( $caso == 'crearUsuario' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'activarUsuario' ) {
+    $sql = "UPDATE usuarios SET fullName = '$fullName', password = '$password', rol = '$rol', idEvento = '$idEvento', idPuntoVenta = '$idPuntoVenta', status = '1' WHERE user = '$user'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'user_created';
+    } else {
+        echo 'user_not_created';
+    }
+
+    $conn->close();
+
 }

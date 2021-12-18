@@ -110,7 +110,7 @@
                                     $html .= '<th>'. $rol .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
-                                        <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-user="'. $row['user'] .'">Activar</button>
+                                        <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">Activar</button>
                                     </th>';
                                 $html .= '</tr>';
 
@@ -328,6 +328,94 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" id="btn-eliminarUsuario" class="btn btn-danger">Eliminar usuario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Activar usuario -->
+<div class="modal fade" id="activarUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="activarUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="activarUsuarioLabel">Activar usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Nombre completo</label>
+                            <input type="text" name="activarUsuario-Nombre" id="activarUsuario-Nombre" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Rol</label>
+                            <select name="activarUsuario-Rol" id="activarUsuario-Rol" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM rol";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['rol'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" name="activarUsuario-Usuario" id="activarUsuario-Usuario" class="form-control" readonly>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" name="activarUsuario-Contrasena" id="activarUsuario-Contrasena" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mt-3 asignarEvento hide">
+                        <div class="col-12 mb-3">
+                            <h4>Asignar evento</h4>
+                        </div>
+                        
+                        <div class="col-6">
+                            <label class="form-label">Evento</label>
+                            <select name="activarUsuario-SelectEvento" id="activarUsuario-SelectEvento" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM eventos ORDER BY nombre ASC";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['nombre'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Punto de venta</label>
+                            <select name="activarUsuario-SelectPV" id="activarUsuario-SelectPV" class="form-select">
+                                <option selected>---</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="successful-message hide">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="/dist/img/tick.png" width="25%" alt="Tick">
+                            <h4 class="mt-4">Usuario activado correctamente</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-activarUsuario" class="btn btn-warning">Editar usuario</button>
             </div>
         </div>
     </div>

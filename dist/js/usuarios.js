@@ -230,3 +230,123 @@ $('#btn-eliminarUsuario').click(function() {
         }
     });
 });
+
+// Activar usuario
+var activarUsuario = document.getElementById('activarUsuario')
+activarUsuario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var fullName     = button.getAttribute('data-bs-fullName');
+    var user         = button.getAttribute('data-bs-user');
+    var password     = button.getAttribute('data-bs-password');
+    var rol          = button.getAttribute('data-bs-rol');
+    var idEvento     = button.getAttribute('data-bs-idEvento');
+    var idPuntoVenta = button.getAttribute('data-bs-idPuntoVenta');
+
+    var inputFullName     = activarUsuario.querySelector('#activarUsuario-Nombre')
+    var inputUser         = activarUsuario.querySelector('#activarUsuario-Usuario')
+    var inputPassword     = activarUsuario.querySelector('#activarUsuario-Contrasena')
+    var inputRol          = activarUsuario.querySelector('#activarUsuario-Rol')
+    var inputIDEvento     = activarUsuario.querySelector('#activarUsuario-SelectEvento')
+    var inputIDPuntoVenta = activarUsuario.querySelector('#activarUsuario-SelectPV')
+
+    inputFullName.value     = fullName
+    inputUser.value         = user
+    inputPassword.value     = password
+    inputRol.value          = rol
+    inputIDEvento.value     = idEvento
+    inputIDPuntoVenta.value = idPuntoVenta
+
+    if ( rol == 2 || rol == 4 ) {
+        var evento = $('#activarUsuario-SelectEvento').val();
+
+        $.ajax({
+            url: '/controller/crearUsuario.php',
+            type: 'POST',
+            data: {
+                caso     : 'SelectPuntoVenta',
+                idEvento : evento
+            },
+            success: function(response) {
+                $('#activarUsuario-SelectPV').html( response );
+                $('#activarUsuario-SelectPV option[value="' + idPuntoVenta + '"]').attr("selected", "selected");
+                $('#activarUsuario .asignarEvento').removeClass('hide');
+            },
+            error: function() {
+                console.log( 'ajax_SelectPuntoVenta.change_error' );
+            }
+        });
+    } else {
+        $('#activarUsuario .asignarEvento').addClass('hide');
+    }
+})
+$('#btn-activarUsuario').click(function() {
+    var fullName     = $('#activarUsuario-Nombre').val();
+    var user         = $('#activarUsuario-Usuario').val();
+    var password     = $('#activarUsuario-Contrasena').val();
+    var rol          = $('#activarUsuario-Rol').val();
+    var idEvento     = $('#activarUsuario-SelectEvento').val();
+    var idPuntoVenta = $('#activarUsuario-SelectPV').val();
+
+    $.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso         : 'activarUsuario',
+            fullName     : fullName,
+            user         : user,
+            password     : password,
+            rol          : rol,
+            idEvento     : idEvento,
+            idPuntoVenta : idPuntoVenta
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'user_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearUsuario_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+// Mostrar eventos
+$('#activarUsuario-Rol').change(function() {
+	var rol = $(this).val();
+
+	if ( rol == 2 || rol == 4 ) {
+        $('#activarUsuario .asignarEvento').removeClass('hide');
+    } else {
+        $('#activarUsuario .asignarEvento').addClass('hide');
+    }
+});
+// Mostrar puntos de venta
+$('#activarUsuario-SelectEvento').change(function() {
+	var evento = $(this).val();
+
+	$.ajax({
+        url: '/controller/crearUsuario.php',
+        type: 'POST',
+        data: {
+            caso     : 'SelectPuntoVenta',
+            idEvento : evento
+        },
+        success: function(response) {
+            $('#activarUsuario-SelectPV').html( response );
+        },
+        error: function() {
+            console.log( 'ajax_SelectPuntoVenta.change_error' );
+        }
+    });
+});
