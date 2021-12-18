@@ -3,8 +3,8 @@ var agregarInventario = document.getElementById('agregarInventario')
 agregarInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
 
-    var id     = button.getAttribute('data-bs-fullName')
-    var nombre = button.getAttribute('data-bs-user')
+    var id     = button.getAttribute('data-bs-id')
+    var nombre = button.getAttribute('data-bs-nombre')
 
     var inputID     = agregarInventario.querySelector('#agregarInventario-idEvento')
     var inputNombre = agregarInventario.querySelector('#agregarInventario-nombreEvento')
