@@ -33,18 +33,13 @@ $('#addBodega').click(function() {
 
             if ( response == 'inventario_not_created' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
             } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
+                $('.productosAgregados').html( response );
+                $('#agregarInventario-Cantidad').val('');
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_addBodega_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });

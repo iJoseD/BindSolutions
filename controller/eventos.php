@@ -92,7 +92,26 @@ if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO inventario (idEvento, idProducto, lote, status, cantidad) VALUES ('$idEvento', '$idProducto', '$lote', 'Pending', '$cantidad')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'inventario_created';
+        $sql = "SELECT p.nombre, i.cantidad
+        FROM inventario i
+        JOIN productos p ON i.idProducto = p.id
+        WHERE lote = '$lote'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $totalFactura = 0;
+            
+            $html = '<div class="col-12">
+                <h4>Productos agregados</h4>
+                <ul class="list-group mt-3">';
+                    while($row = $result->fetch_assoc()) {
+                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">$ '. $row['cantidad'] .'</span></li>';
+                    }
+                $html .= '</ul>
+            </div>';
+
+            echo $html;
+        }
     } else {
         echo 'inventario_not_created';
     }
