@@ -116,7 +116,7 @@
                                     $html .= '<th>'. $puntoVenta .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
-                                        <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">Activar</button>
+                                        <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['idRol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">Activar</button>
                                     </th>';
                                 $html .= '</tr>';
 
