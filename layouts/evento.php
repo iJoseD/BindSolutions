@@ -189,12 +189,16 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT p.id AS 'idProducto', ipv.id, pv.nombre AS nombrePV, p.imagen, p.nombre, ipv.cantidad FROM inventarioPuntoVenta ipv JOIN productos p ON ipv.idProducto = p.id JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id WHERE ipv.idEvento = '$id'";
+                    $sql = "SELECT p.id AS 'idProducto', pv.id AS 'idPuntoVenta', ipv.id, pv.nombre AS nombrePV, p.imagen, p.nombre, ipv.cantidad
+                    FROM inventarioPuntoVenta ipv
+                    JOIN productos p ON ipv.idProducto = p.id
+                    JOIN puntoVenta pv ON ipv.idPuntoVenta = pv.id
+                    WHERE ipv.idEvento = '$id'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            $idPuntoVenta       = $row['id'];
+                            $idPuntoVenta       = $row['idPuntoVenta'];
                             $idProducto         = $row['idProducto'];
                             $cantidadInventario = $row['cantidad'];
 
