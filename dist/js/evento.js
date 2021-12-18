@@ -562,13 +562,19 @@ $('#btn-editarSubInventario').click(function() {
 });
 
 // Eliminar inventario
-$('.eliminarSubInventario').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
+var eliminarInventario = document.getElementById('eliminarInventario')
+eliminarInventario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
     
-    $('#eliminarSubInventario .product').html(nombre);
-    $('#eliminarSubInventario-IDItem').val(id);
-});
+    var id     = button.getAttribute('data-bs-id');
+    var nombre = button.getAttribute('data-bs-nombre');
+    
+    var inputID     = eliminarInventario.querySelector('#eliminarSubInventario-IDItem')
+    var inputNombre = eliminarInventario.querySelector('#eliminarSubInventario .product')
+    
+    inputNombre.textContent = nombre
+    inputID.value = id
+})
 $('#btn-eliminarSubInventario').click(function() {
     var idInventario = $('#eliminarSubInventario-IDItem').val();
 

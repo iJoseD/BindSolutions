@@ -635,7 +635,7 @@
                             <input type="text" name="editarSubInventario-Cantidad" id="editarSubInventario-Cantidad" class="form-control" placeholder="50">
                         </div>
                     </div>
-                    <div class="row mt-3 infoCantidades"></div>
+                    <div class="row mt-3 mb-5 infoCantidades"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">
@@ -664,13 +664,13 @@
             </div>
             <div class="modal-body">
                 <div class="formulario">
-                    <div class="row mt-3 hide">
+                    <div class="row hide">
                         <div class="col-12">
                             <label class="form-label">ID</label>
                             <input type="text" name="eliminarSubInventario-IDItem" id="eliminarSubInventario-IDItem" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-5 mb-5">
                         <div class="col-12 text-center">
                             <h4>¿Esta seguro que desea eliminar el item <span class="product badge bg-primary"></span>?</h4>
                         </div>
