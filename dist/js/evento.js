@@ -394,6 +394,10 @@ $('#agregarSubInventario-Producto').change(function() {
 });
 
 // Agregar inventario a punto de venta
+$('#agregarSubInventario-Producto').change(function() {
+	$('.alertaCantidad').addClass('hide');
+});
+
 var agregarSubInventario = document.getElementById('agregarSubInventario')
 agregarSubInventario.addEventListener('show.bs.modal', function (event) {
     var button = event.relatedTarget
@@ -410,61 +414,59 @@ agregarSubInventario.addEventListener('show.bs.modal', function (event) {
 $('#addSubBodega').click(function() {
     var idPuntoVenta  = $('#agregarSubInventario-IDpuntoVenta').val();
     var idEvento      = $('#agregarSubInventario-IDevento').val();
+    var lote          = $('#agregarSubInventario-Lote').val();
     var idProducto    = $('#agregarSubInventario-Producto').val();
     var cantidad      = $('#agregarSubInventario-Cantidad').val();
-    var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
+    var cantidadTotal = $('#agregarSubInventario .infoCantidades > div > p > span').html();
 
-    $.ajax({
-        url: '/controller/eventos.php',
-        type: 'POST',
-        data: {
-            caso         : 'agregarSubInventario',
-            idPuntoVenta : idPuntoVenta,
-            idEvento     : idEvento,
-            idProducto   : idProducto,
-            cantidad     : cantidad
-        },
-        success: function(response) {
-            console.log( response );
+    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+        $('.alertaCantidad').addClass('hide');
 
-            if ( response == 'SubInventario_not_created' ) {
+        $.ajax({
+            url: '/controller/eventos.php',
+            type: 'POST',
+            data: {
+                caso         : 'addSubBodega',
+                idPuntoVenta : idPuntoVenta,
+                idEvento     : idEvento,
+                lote         : lote,
+                idProducto   : idProducto,
+                cantidad     : cantidad
+            },
+            success: function(response) {
+                console.log( response );
+    
+                if ( response == 'SubInventario_not_created' ) {
+                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                
+                } else {
+                    $('.addSubBodega').html( response );
+                    $('#agregarSubInventario-Cantidad').val('');
+                }
+            },
+            error: function() {
+                console.log( 'ajax_crearProducto_error' );
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
             }
-        },
-        error: function() {
-            console.log( 'ajax_crearProducto_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-        }
-    });
+        });
+    } else {
+        $('.alertaCantidad').removeClass('hide');
+    }
 });
 $('#btn-agregarSubInventario').click(function() {
-    var idPuntoVenta = $('#pv-IDPV').val();
-    var idEvento = $('#pv-IDEvento-Sub').val();
-    var idProducto = $('#SubInventario-idProducto').val();
-    var cantidad = $('#SubInventario-Cantidad').val();
+    var lote = $('#agregarSubInventario-Lote').val();
 
     $.ajax({
         url: '/controller/eventos.php',
         type: 'POST',
         data: {
-            caso         : 'agregarSubInventario',
-            idPuntoVenta : idPuntoVenta,
-            idEvento     : idEvento,
-            idProducto   : idProducto,
-            cantidad     : cantidad
+            caso : 'agregarSubInventario',
+            lote : lote
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'SubInventario_not_created' ) {
+            if ( response == 'agregarSubInventario_not_Update' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
             } else {

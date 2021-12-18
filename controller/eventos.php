@@ -249,13 +249,43 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'agregarSubInventario' ) {
-    $sql = "INSERT INTO inventarioPuntoVenta (idPuntoVenta, idEvento, idProducto, cantidad) VALUES ('$idPuntoVenta', '$idEvento', '$idProducto', '$cantidad')";
+} elseif ( $caso == 'addSubBodega' ) {
+    $sql = "INSERT INTO inventarioPuntoVenta (idPuntoVenta, idEvento, idProducto, cantidad, lote, status) VALUES ('$idPuntoVenta', '$idEvento', '$idProducto', '$cantidad', '$lote', 'Pending')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'SubInventario_created';
+        $sql = "SELECT p.nombre, ipv.cantidad
+        FROM inventarioPuntoVenta ipv
+        JOIN productos p ON i.idProducto = p.id
+        WHERE lote = '$lote'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $totalFactura = 0;
+            
+            $html = '<div class="col-12">
+                <h4>Productos agregados</h4>
+                <ul class="list-group mt-3">';
+                    while($row = $result->fetch_assoc()) {
+                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">'. $row['cantidad'] .' Und.</span></li>';
+                    }
+                $html .= '</ul>
+            </div>';
+
+            echo $html;
+        }
     } else {
         echo 'SubInventario_not_created';
+    }
+
+    $conn->close();
+
+} elseif ( $caso == 'agregarSubInventario' ) {
+    $sql = "UPDATE inventarioPuntoVenta SET status = 'Approved' WHERE lote = '$lote'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'agregarSubInventario_Update';
+    } else {
+        echo 'agregarSubInventario_not_Update';
     }
 
     $conn->close();

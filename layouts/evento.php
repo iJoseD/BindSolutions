@@ -554,6 +554,10 @@
                             <label class="form-label">ID Evento</label>
                             <input type="text" name="agregarSubInventario-IDevento" id="agregarSubInventario-IDevento" class="form-control" readonly>
                         </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Lote</label>
+                            <input type="text" name="agregarSubInventario-Lote" id="agregarSubInventario-Lote" class="form-control" value="<?php echo $lote; ?>" readonly>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
@@ -581,7 +585,7 @@
                         </div>
                     </div>
                     <div class="row mt-3 infoCantidades"></div>
-                    <div class="row mt-3 addSubBodega"></div>
+                    <div class="row mt-5 addSubBodega"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">
