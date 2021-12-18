@@ -44,11 +44,15 @@
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
+
+                                if ( !empty( $row['nombre'] ) ) { $evento = $row['nombre']; } else { $evento = '---'; }
+                                if ( !empty( $row['nombrePV'] ) ) { $puntoVenta = $row['nombrePV']; } else { $puntoVenta = '---'; }
+
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['fullName'] .'</th>';
                                     $html .= '<th>'. $row['rol'] .'</th>';
-                                    $html .= '<th>'. $row['nombre'] .'</th>';
-                                    $html .= '<th>'. $row['nombrePV'] .'</th>';
+                                    $html .= '<th>'. $evento .'</th>';
+                                    $html .= '<th>'. $puntoVenta .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
                                         <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['idRol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">
@@ -101,19 +105,15 @@
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                switch ( $row['rol'] ) {
-                                    case '1':
-                                        $rol = 'Administrador';
-                                    break;
-                                    case '2':
-                                        $rol = 'Vendedor';
-                                    break;
-                                }
+
+                                if ( !empty( $row['nombre'] ) ) { $evento = $row['nombre']; } else { $evento = '---'; }
+                                if ( !empty( $row['nombrePV'] ) ) { $puntoVenta = $row['nombrePV']; } else { $puntoVenta = '---'; }
+
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['fullName'] .'</th>';
                                     $html .= '<th>'. $row['rol'] .'</th>';
-                                    $html .= '<th>'. $row['nombre'] .'</th>';
-                                    $html .= '<th>'. $row['nombrePV'] .'</th>';
+                                    $html .= '<th>'. $evento .'</th>';
+                                    $html .= '<th>'. $puntoVenta .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     $html .= '<th>
                                         <button type="button" class="btn btn-success activarUsuario" data-bs-toggle="modal" data-bs-target="#activarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['rol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">Activar</button>
