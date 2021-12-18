@@ -196,17 +196,23 @@ $('#SubInventario-idProducto').change(function() {
 });
 
 // Agregar Punto de Venta
-$('.agregarPuntoVenta').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
-    
-    $('#pv-nombreEvento').val(nombre);
-    $('#pv-idEvento').val(id);
-});
+var agregarPuntoVenta = document.getElementById('agregarPuntoVenta')
+agregarPuntoVenta.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var id     = button.getAttribute('data-bs-id')
+    var nombre = button.getAttribute('data-bs-nombre')
+
+    var inputID     = agregarPuntoVenta.querySelector('#agregarPuntoVenta-idEvento')
+    var inputNombre = agregarPuntoVenta.querySelector('#agregarPuntoVenta-nombreEvento')
+
+    inputID.value     = id
+    inputNombre.value = nombre
+})
 $('#btn-agregarPuntoVenta').click(function() {
-    var nombrePV  = $('#nombrePV').val();
+    var nombrePV  = $('#agregarPuntoVenta-Nombre').val();
     var cantMesas = $('#agregarPuntoVenta-cantMesas').val();
-    var idEvento  = $('#pv-idEvento').val();
+    var idEvento  = $('#agregarPuntoVenta-idEvento').val();
 
     $.ajax({
         url: '/controller/eventos.php',

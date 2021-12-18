@@ -129,6 +129,7 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Cant. Mesas</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -141,6 +142,7 @@
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $row['cantMesas'] .'</th>';
                                     $html .= '<th>
                                         <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-idEvento="'. $id .'" data-idPV="'. $row['id'] .'">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -401,17 +403,17 @@
                     <div class="row hide">
                         <div class="col-6">
                             <label class="form-label">ID</label>
-                            <input type="text" name="pv-idEvento" id="pv-idEvento" class="form-control" readonly>
+                            <input type="text" name="agregarPuntoVenta-idEvento" id="agregarPuntoVenta-idEvento" class="form-control" readonly>
                         </div>
                         <div class="col-6">
                             <label class="form-label">Evento</label>
-                            <input type="text" name="pv-nombreEvento" id="pv-nombreEvento" class="form-control" readonly>
+                            <input type="text" name="agregarPuntoVenta-nombreEvento" id="agregarPuntoVenta-nombreEvento" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
-                            <input type="text" name="nombrePV" id="nombrePV" class="form-control" placeholder="Barra 1">
+                            <input type="text" name="agregarPuntoVenta-Nombre" id="agregarPuntoVenta-Nombre" class="form-control" placeholder="Barra 1">
                         </div>
                         <div class="col-4">
                             <label class="form-label"># Mesas</label>
@@ -435,6 +437,7 @@
         </div>
     </div>
 </div>
+
 <!-- Editar punto de venta -->
 <div class="modal fade" id="editarPuntoV" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarPuntoVLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
