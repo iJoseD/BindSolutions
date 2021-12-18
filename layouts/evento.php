@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="container mb-5">
+<section class="s-gestionarEvento container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
@@ -254,6 +254,8 @@
         </table>
     </div>
 </section>
+
+<section class="s-verInforme container mb-5 hide"></section>
 
 <!-- Agregar inventario -->
 <div class="modal fade" id="agregarInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarInventarioLabel" aria-hidden="true">

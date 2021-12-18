@@ -1,3 +1,13 @@
+$('.gestionarEvento').click(function() {
+    $('.s-gestionarEvento').removeClass('hide');
+    $('.s-verInforme').addClass('hide');
+});
+
+$('.verInforme').click(function() {
+    $('.s-verInforme').removeClass('hide');
+    $('.s-gestionarEvento').addClass('hide');
+});
+
 // Agregar inventario
 var agregarInventario = document.getElementById('agregarInventario')
 agregarInventario.addEventListener('show.bs.modal', function (event) {
