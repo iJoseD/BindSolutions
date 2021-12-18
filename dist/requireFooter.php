@@ -35,4 +35,9 @@
     <script type="text/javascript" src="/dist/js/eventos.js"></script>
 <?php } ?>
 
-<?php echo $_SERVER['REQUEST_URI']; ?>
+<?php
+    $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
+    if ( $URL === false ) { } else { ?>
+        <script type="text/javascript" src="/dist/js/evento.js"></script>
+    <?php }
+?>
