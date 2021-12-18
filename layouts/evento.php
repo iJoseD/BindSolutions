@@ -36,6 +36,13 @@
             <p class="fw-bolder text-uppercase"><?php echo $fechaFormato; ?> • <?php echo $lugar; ?></p>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col-xl-5 col-md-6 col-12"></div>
+        <div class="col-xl-2 col-md-6 col-12 d-grid">
+            <button type="button" class="PacificDream verInforme btn btn-outline-light fw-bold text-uppercase text-white">Informes</button>
+        </div>
+        <div class="col-xl-5 col-md-6 col-12"></div>
+    </div>
 </section>
 
 <section class="container mb-5">
