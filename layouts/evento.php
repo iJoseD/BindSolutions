@@ -67,7 +67,7 @@
             </thead>
             <tbody>
                 <?php
-                    $sql = "SELECT i.id, p.id AS idProducto, p.imagen, p.nombre, p.costo, p.precioPublico, i.cantidad FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id'";
+                    $sql = "SELECT i.id, p.id AS idProducto, p.imagen, p.nombre, p.costo, p.precioPublico, i.cantidad FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id' AND i.status = 'Approved'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -288,7 +288,7 @@
                             <button type="button" id="addBodega" class="btn btn-warning fw-bold text-uppercase">Agregar y continuar</button>
                         </div>
                     </div>
-                    <div class="row mt-3 productosAgregados"></div>
+                    <div class="row mt-5 mb-3 productosAgregados"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">

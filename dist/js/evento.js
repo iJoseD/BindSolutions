@@ -45,25 +45,20 @@ $('#addBodega').click(function() {
     });
 });
 $('#btn-agregarInventario').click(function() {
-    var idEvento   = $('#agregarInventario-idEvento').val();
-    var idProducto = $('#agregarInventario-Producto').val();
-    var cantidad   = $('#agregarInventario-Cantidad').val();
+    var lote = $('#agregarInventario-Lote').val();
 
     $.ajax({
         url: '/controller/eventos.php',
         type: 'POST',
         data: {
-            caso       : 'agregarInventario',
-            idEvento   : idEvento,
-            idProducto : idProducto,
-            cantidad   : cantidad,
+            caso : 'agregarInventario',
+            lote : lote
         },
         success: function(response) {
             console.log( response );
 
-            if ( response == 'inventario_not_created' ) {
+            if ( response == 'agregarInventario_not_Update' ) {
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
             } else {
                 $('.formulario').addClass('hide');
                 $('.successful-message').removeClass('hide');

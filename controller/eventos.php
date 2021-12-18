@@ -105,7 +105,7 @@ if ( $caso == 'crearEvento' ) {
                 <h4>Productos agregados</h4>
                 <ul class="list-group mt-3">';
                     while($row = $result->fetch_assoc()) {
-                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">$ '. $row['cantidad'] .'</span></li>';
+                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">'. $row['cantidad'] .' Und.</span></li>';
                     }
                 $html .= '</ul>
             </div>';
@@ -119,12 +119,12 @@ if ( $caso == 'crearEvento' ) {
     $conn->close();
 
 } elseif ( $caso == 'agregarInventario' ) {
-    $sql = "INSERT INTO inventario (idEvento, idProducto, cantidad) VALUES ('$idEvento', '$idProducto', '$cantidad')";
+    $sql = "UPDATE inventario SET status = 'Approved' WHERE lote = '$lote'";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'inventario_created';
+        echo 'agregarInventario_Update';
     } else {
-        echo 'inventario_not_created';
+        echo 'agregarInventario_not_Update';
     }
 
     $conn->close();
