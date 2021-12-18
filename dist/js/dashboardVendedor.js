@@ -24,6 +24,8 @@ $('#addCart').click(function() {
     var idEvento      = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta  = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac       = $('#nuevaVenta-codeFac').val();
+    var mesa          = $('#nuevaVenta-Mesa').val();
+    var mesero        = $('#nuevaVenta-Mesero').val();
     var idProducto    = $('#nuevaVenta-idProducto').val();
     var cantidad      = $('#nuevaVenta-cantidad').val();
     var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
@@ -40,6 +42,8 @@ $('#addCart').click(function() {
                 idEvento     : idEvento,
                 idPuntoVenta : idPuntoVenta,
                 codeFac      : codeFac,
+                mesa         : mesa,
+                mesero       : mesero,
                 idProducto   : idProducto,
                 cantidad     : cantidad,
                 status       : 'pending'
