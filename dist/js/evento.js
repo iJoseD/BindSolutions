@@ -395,7 +395,7 @@ $('#agregarSubInventario-Producto').change(function() {
 
 // Agregar inventario a punto de venta
 $('#agregarSubInventario-Producto').change(function() {
-	$('.alertaCantidad').addClass('hide');
+	$('#agregarSubInventario .alertaCantidad').addClass('hide');
 });
 
 var agregarSubInventario = document.getElementById('agregarSubInventario')
@@ -420,7 +420,7 @@ $('#addSubBodega').click(function() {
     var cantidadTotal = $('#agregarSubInventario .infoCantidades > div > p > span').html();
 
     if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
-        $('.alertaCantidad').addClass('hide');
+        $('#agregarSubInventario .alertaCantidad').addClass('hide');
 
         $.ajax({
             url: '/controller/eventos.php',
@@ -450,7 +450,7 @@ $('#addSubBodega').click(function() {
             }
         });
     } else {
-        $('.alertaCantidad').removeClass('hide');
+        $('#agregarSubInventario .alertaCantidad').removeClass('hide');
     }
 });
 $('#btn-agregarSubInventario').click(function() {
@@ -484,49 +484,83 @@ $('#btn-agregarSubInventario').click(function() {
         }
     });
 });
-// Editar inventario
-$('.editarSubInventario').click(function() {
-    var id       = $(this).attr('data-id');
-    var nombre   = $(this).attr('data-nombre');
-    var cantidad = $(this).attr('data-cantidad');
-    
-    $('#editarSubInventario-IDItem').val(id);
-    $('#editarSubInventario-Nombre').val(nombre);
-    $('#editarSubInventario-Cantidad').val(cantidad);
-});
-$('#btn-editarSubInventario').click(function() {
-    var id = $('#editarSubInventario-IDItem').val();
-    var cantidad = $('#editarSubInventario-Cantidad').val();
 
-    $.ajax({
+// Editar inventario
+var editarSubInventario = document.getElementById('editarSubInventario')
+editarSubInventario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var idEvento   = button.getAttribute('data-bs-idEvento')
+    var idProducto = button.getAttribute('data-bs-idProducto')
+    var id         = button.getAttribute('data-bs-id')
+    var nombre     = button.getAttribute('data-bs-nombre')
+    var cantidad   = button.getAttribute('data-bs-cantidad')
+
+    var inputID       = editarSubInventario.querySelector('#editarSubInventario-IDItem')
+    var inputNombre   = editarSubInventario.querySelector('#editarSubInventario-Nombre')
+    var inputCantidad = editarSubInventario.querySelector('#editarSubInventario-Cantidad')
+
+    inputID.value       = id
+    inputNombre.value   = nombre
+    inputCantidad.value = cantidad
+
+	$.ajax({
         url: '/controller/eventos.php',
         type: 'POST',
         data: {
-            caso         : 'editarSubInventario',
-            idInventario : id,
-            cantidad     : cantidad
+            caso       : 'infoCantidades',
+            idProducto : idProducto,
+            idEvento   : idEvento
         },
         success: function(response) {
-            console.log( response );
-
-            if ( response == 'editarSubInventario_not_UPDATE' ) {
-                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
-            }
+            $('#editarSubInventario .infoCantidades').html( response );
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            console.log( 'ajax_SubInventario-idProducto.change_error' );
         }
     });
+})
+$('#btn-editarSubInventario').click(function() {
+    var id            = $('#editarSubInventario-IDItem').val();
+    var cantidad      = $('#editarSubInventario-Cantidad').val();
+    var cantidadTotal = $('#editarSubInventario .infoCantidades > div > p > span').html();
+
+    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+        $('#editarSubInventario .alertaCantidad').addClass('hide');
+        
+        $.ajax({
+            url: '/controller/eventos.php',
+            type: 'POST',
+            data: {
+                caso         : 'editarSubInventario',
+                idInventario : id,
+                cantidad     : cantidad
+            },
+            success: function(response) {
+                console.log( response );
+
+                if ( response == 'editarSubInventario_not_UPDATE' ) {
+                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                
+                } else {
+                    $('.formulario').addClass('hide');
+                    $('.successful-message').removeClass('hide');
+
+                    window.setTimeout(function() {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+            error: function() {
+                console.log( 'ajax_crearProducto_error' );
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            }
+        });
+    } else {
+        $('#editarSubInventario .alertaCantidad').removeClass('hide');
+    }
 });
+
 // Eliminar inventario
 $('.eliminarSubInventario').click(function() {
     var id     = $(this).attr('data-id');
