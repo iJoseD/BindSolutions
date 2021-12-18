@@ -81,6 +81,24 @@ th {
   background: linear-gradient(to right, #93291E, #ED213A);  
 }
 
+.LearningLeading {
+  background: #F7971E;
+  background: -webkit-linear-gradient(to right, #FFD200, #F7971E);
+  background: linear-gradient(to right, #FFD200, #F7971E);
+}
+
+.PacificDream {
+  background: #34e89e;
+  background: -webkit-linear-gradient(to right, #0f3443, #34e89e);
+  background: linear-gradient(to right, #0f3443, #34e89e);
+}
+
+.LoveLiberty {
+  background: #200122;
+  background: -webkit-linear-gradient(to right, #6f0000, #200122);
+  background: linear-gradient(to right, #6f0000, #200122);
+}
+
 header .row { align-items: center !important; }
 header a.d-flex {
   flex-direction: column !important;

@@ -93,8 +93,8 @@
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>$ '. $row['precioPublico'] .'</th>';
-                                $html .= '<th>'. $cantidadInventario .'</th>';
-                                $html .= '<th>'. $cantidad .'</th>';
+                                $html .= '<th class="PacificDream fw-bold">'. $cantidadInventario .'</th>';
+                                $html .= '<th class="LearningLeading fw-bold">'. $cantidad .'</th>';
                                 $html .= '<th>'. $cantidadTotal .'</th>';
                                 $html .= '<th>$ '. number_format( $ganancia, 0, ',', '.' ) .'</th>';
                                 $html .= '<th>
