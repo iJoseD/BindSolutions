@@ -228,7 +228,7 @@ if ( $caso == 'crearEvento' ) {
         while($row = $result->fetch_assoc()) {
             $cantidadInventario = $row['cantidad'];
             
-            $sql2 = "SELECT * FROM inventarioPuntoVenta WHERE idEvento = '$idEvento' AND idProducto = '$idProducto'";
+            $sql2 = "SELECT SUM(cantidad) AS 'cantidad' FROM inventarioPuntoVenta WHERE idEvento = '$idEvento' AND idProducto = '$idProducto'";
             $result2 = $conn->query($sql2);
 
             if ($result2->num_rows > 0) {
