@@ -35,6 +35,6 @@
     <script type="text/javascript" src="/dist/js/eventos.js"></script>
 <?php } ?>
 
-<?php if ( $_SERVER['REQUEST_URI'] == '/evento/' ) { ?>
+<?php if ( strpos( $_SERVER['REQUEST_URI'], '/evento/' ) { ?>
     <script type="text/javascript" src="/dist/js/evento.js"></script>
 <?php } ?>
