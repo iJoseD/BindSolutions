@@ -31,13 +31,13 @@
         }
     }
 
-    $sql3 = "SELECT MAX(id) AS id FROM productos";
+    $sql3 = "SELECT MAX(id) AS id FROM ventas";
     $result3 = $conn->query($sql3);
 
     if ($result3->num_rows > 0) {
         while($row = $result3->fetch_assoc()) {
             if ( !empty( $row['id'] ) ) { $maxID = $row['id']; } else { $maxID = '1'; }
-            $codeFac = 'FAC-' . date('d') . date('m') . $maxID;
+            $codeFac = 'FAC-' . date("d") . date("m") . $maxID;
         }
     }
 ?>
