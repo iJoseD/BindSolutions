@@ -255,7 +255,7 @@ if ( $caso == 'crearEvento' ) {
     if ($conn->query($sql) === TRUE) {
         $sql = "SELECT p.nombre, ipv.cantidad
         FROM inventarioPuntoVenta ipv
-        JOIN productos p ON i.idProducto = p.id
+        JOIN productos p ON ipv.idProducto = p.id
         WHERE lote = '$lote'";
         $result = $conn->query($sql);
 
