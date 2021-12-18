@@ -9,7 +9,7 @@ $('#nuevaVenta-idProducto').change(function() {
     var idProducto   = $(this).val();
 
 	$.ajax({
-        url: '/controller/eventos.php',
+        url: '/controller/ventas.php',
         type: 'POST',
         data: {
             caso         : 'infoCantidades',
