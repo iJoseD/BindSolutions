@@ -50,7 +50,7 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-idEvento="<?php echo $idEvento; ?>" data-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
+            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-bs-idEvento="<?php echo $idEvento; ?>" data-bs-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-bs-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
         </div>
     </div>
 
@@ -191,6 +191,45 @@
                             <input type="text" name="nuevaVenta-codeFac" id="nuevaVenta-codeFac" class="form-control" value="<?php echo $codeFac; ?>" readonly>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Mesa</label>
+                            <select name="nuevaVenta-Mesa" id="nuevaVenta-Mesa" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM puntoVenta WHERE status = 'Approved' AND id = '$idPuntoVenta'";
+
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            $totalMesas = $row['cantMesas'];
+                                            for ($i = 0; $i <= $totalMesas; $i++) {
+                                                echo '<option value="Mesa '. [$i] .'">Mesa '. [$i] .'</option>';
+                                            }
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Mesero</label>
+                            <select name="nuevaVenta-Mesero" id="nuevaVenta-Mesero" class="form-select">
+                                <option selected>---</option>
+                                <?php
+                                    $sql = "SELECT * FROM usuarios WHERE rol = '3' AND status = '1' AND idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta'";
+
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo '<option value="'. $row['id'] .'">'. $row['fullName'] .'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
@@ -236,7 +275,7 @@
                             <button type="button" id="addCart" class="btn btn-warning fw-bold text-uppercase">Agregar al carrito</button>
                         </div>
                     </div>
-                    <div class="row mt-3 preOrden"></div>
+                    <div class="row mt-3 mb-5 preOrden"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">
