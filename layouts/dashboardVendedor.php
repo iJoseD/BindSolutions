@@ -288,6 +288,7 @@
                             <button type="button" id="addCart" class="btn btn-warning fw-bold text-uppercase">Agregar al carrito</button>
                         </div>
                     </div>
+                    <div class="row mt-3 infoCantidades"></div>
                     <div class="row mt-5 mb-3 preOrden"></div>
                 </div>
                 <div class="successful-message hide">

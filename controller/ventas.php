@@ -131,4 +131,33 @@ if ( $caso == 'nuevaVenta' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'infoCantidades' ) {
+    $sql = "SELECT * FROM inventarioPuntoVenta WHERE idProducto = '$idProducto' AND idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $cantidadInventario = $row['cantidad'];
+
+            $sql2 = "SELECT SUM(cantidad) AS 'cantidad' FROM ventas WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idProducto = '$idProducto' GROUP BY idProducto";
+            $result2 = $conn->query($sql2);
+
+            if ($result2->num_rows > 0) {
+                while($row2 = $result2->fetch_assoc()) {
+                    $cantidad = $row2['cantidad'];
+                }
+            } else { $cantidad = 0; }
+
+            $cantidadTotal = $cantidadInventario - $cantidad;
+
+            $html = '<div class="col-12">
+                <p>Este producto cuenta con <span class="badge bg-primary text-wrap">'. $cantidadTotal .'</span> unidades disponibles.</p>
+            </div>';
+
+            echo $html;
+        }
+    }
+
+    $conn->close();
+
 }

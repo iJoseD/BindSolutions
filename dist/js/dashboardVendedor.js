@@ -2,6 +2,30 @@ $('#nuevaVenta-idProducto').change(function() {
 	$('.alertaCantidad').addClass('hide');
 });
 
+// Mostrar cantidades disponibles
+$('#nuevaVenta-idProducto').change(function() {
+	var idEvento     = $('#nuevaVenta-idEvento').val();
+    var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
+    var idProducto   = $(this).val();
+
+	$.ajax({
+        url: '/controller/eventos.php',
+        type: 'POST',
+        data: {
+            caso         : 'infoCantidades',
+            idProducto   : idProducto,
+            idPuntoVenta : idPuntoVenta,
+            idEvento     : idEvento
+        },
+        success: function(response) {
+            $('#nuevaVenta .infoCantidades').html( response );
+        },
+        error: function() {
+            console.log( 'ajax_SubInventario-idProducto.change_error' );
+        }
+    });
+});
+
 // Crear pre-orden
 var nuevaVenta = document.getElementById('nuevaVenta')
 nuevaVenta.addEventListener('show.bs.modal', function (event) {
@@ -68,7 +92,6 @@ $('#addCart').click(function() {
         $('.alertaCantidad').removeClass('hide');
     }
 });
-// Confirmar la venta
 $('#btn-nuevaVenta').click(function() {
     var codeFac = $('#nuevaVenta-codeFac').val();
 
