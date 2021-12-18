@@ -74,6 +74,7 @@ $('#btn-agregarInventario').click(function() {
         }
     });
 });
+
 // Editar inventario
 var editarInventario = document.getElementById('editarInventario')
 editarInventario.addEventListener('show.bs.modal', function (event) {
@@ -83,17 +84,17 @@ editarInventario.addEventListener('show.bs.modal', function (event) {
     var nombre = button.getAttribute('data-bs-nombre')
     var cantidad = button.getAttribute('data-bs-cantidad')
 
-    var inputID = editarInventario.querySelector('#idInventario')
-    var inputNombre = editarInventario.querySelector('#ei-nombre')
-    var inputCantidad = editarInventario.querySelector('#ei-cantidad')
+    var inputID = editarInventario.querySelector('#editarInventario-idInventario')
+    var inputNombre = editarInventario.querySelector('#editarInventario-Nombre')
+    var inputCantidad = editarInventario.querySelector('#editarInventario-Cantidad')
 
     inputID.value = id
     inputNombre.value = nombre
     inputCantidad.value = cantidad
 })
 $('#btn-editarInventario').click(function() {
-    var idInventario = $('#idInventario').val();
-    var cantidad     = $('#ei-cantidad').val();
+    var idInventario = $('#editarInventario-idInventario').val();
+    var cantidad     = $('#editarInventario-Cantidad').val();
 
     $.ajax({
         url: '/controller/eventos.php',

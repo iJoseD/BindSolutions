@@ -318,17 +318,17 @@
                     <div class="row hide">
                         <div class="col-12">
                             <label class="form-label">ID</label>
-                            <input type="text" name="idInventario" id="idInventario" class="form-control" readonly>
+                            <input type="text" name="editarInventario-idInventario" id="editarInventario-idInventario" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
-                            <input type="text" name="ei-nombre" id="ei-nombre" class="form-control" readonly>
+                            <input type="text" name="editarInventario-Nombre" id="editarInventario-Nombre" class="form-control" readonly>
                         </div>
                         <div class="col-4">
                             <label class="form-label">Cantidad</label>
-                            <input type="text" name="ei-cantidad" id="ei-cantidad" class="form-control" placeholder="50">
+                            <input type="text" name="editarInventario-Cantidad" id="editarInventario-Cantidad" class="form-control" placeholder="50">
                         </div>
                     </div>
                 </div>
