@@ -125,16 +125,23 @@ $('#btn-editarInventario').click(function() {
         }
     });
 });
+
 // Eliminar inventario
-$('.eliminarInventario').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
+var eliminarInventario = document.getElementById('eliminarInventario')
+eliminarInventario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
     
-    $('#eliminarInventario .product').html(nombre);
-    $('#delete-idInventario').val(id);
-});
+    var id     = button.getAttribute('data-bs-id');
+    var nombre = button.getAttribute('data-bs-nombre');
+    
+    var inputID     = eliminarInventario.querySelector('#eliminarInventario-idInventario')
+    var inputNombre = eliminarInventario.querySelector('#eliminarInventario .product')
+    
+    inputNombre.textContent = nombre
+    inputID.value = id
+})
 $('#btn-eliminarInventario').click(function() {
-    var idInventario = $('#delete-idInventario').val();
+    var idInventario = $('#eliminarInventario-idInventario').val();
 
     $.ajax({
         url: '/controller/eventos.php',
