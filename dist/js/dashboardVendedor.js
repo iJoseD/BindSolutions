@@ -1,16 +1,24 @@
 $('#nuevaVenta-idProducto').change(function() {
 	$('.alertaCantidad').addClass('hide');
 });
-// Crear pre-orden
-$('.nuevaVenta').click(function() {
-    var idUser       = $(this).attr('data-idUser');
-    var idEvento     = $(this).attr('data-idEvento');
-    var idPuntoVenta = $(this).attr('data-idPuntoVenta');
 
-    $('#nuevaVenta-idUser').val(idUser);
-    $('#nuevaVenta-idEvento').val(idEvento);
-    $('#nuevaVenta-idPuntoVenta').val(idPuntoVenta);
-});
+// Crear pre-orden
+var nuevaVenta = document.getElementById('nuevaVenta')
+nuevaVenta.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var idUser       = button.getAttribute('data-bs-idUser')
+    var idEvento     = button.getAttribute('data-bs-idEvento')
+    var idPuntoVenta = button.getAttribute('data-bs-idPuntoVenta')
+
+    var inputidUser       = nuevaVenta.querySelector('#nuevaVenta-idUser')
+    var inputidEvento     = nuevaVenta.querySelector('#nuevaVenta-idEvento')
+    var inputidPuntoVenta = nuevaVenta.querySelector('#nuevaVenta-idPuntoVenta')
+
+    inputidUser.value       = idUser
+    inputidEvento.value     = idEvento
+    inputidPuntoVenta.value = idPuntoVenta
+})
 $('#addCart').click(function() {
     var idUser        = $('#nuevaVenta-idUser').val();
     var idEvento      = $('#nuevaVenta-idEvento').val();
