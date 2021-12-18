@@ -410,7 +410,7 @@
                             <input type="text" name="agregarPuntoVenta-nombreEvento" id="agregarPuntoVenta-nombreEvento" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-5 mb-5">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
                             <input type="text" name="agregarPuntoVenta-Nombre" id="agregarPuntoVenta-Nombre" class="form-control" placeholder="Barra 1">
