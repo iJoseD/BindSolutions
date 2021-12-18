@@ -281,7 +281,7 @@ editarPuntoV.addEventListener('show.bs.modal', function (event) {
 
     var id       = button.getAttribute('data-bs-id')
     var nombre   = button.getAttribute('data-bs-nombre')
-    var cantidad = button.getAttribute('data-bs-cantidad')
+    var cantidad = button.getAttribute('data-bs-cantMesas')
 
     var inputID       = editarPuntoV.querySelector('#editarPuntoV-ID')
     var inputNombre   = editarPuntoV.querySelector('#editarPuntoV-Nombre')
