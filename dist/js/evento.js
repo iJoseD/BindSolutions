@@ -1,39 +1,24 @@
-// Mostrar precios
-$('#idProducto').change(function() {
-	var idProducto = $(this).val();
-
-	$.ajax({
-        url: '/controller/crearEvento.php',
-        type: 'POST',
-        data: {
-            caso       : 'mostrarPrecios',
-            idProducto : idProducto
-        },
-        success: function(response) {
-            $('.tablePrecios').html( response );
-            $('.tablePrecios').removeClass('hide');
-        },
-        error: function() {
-            console.log( 'ajax_idProducto.change_error' );
-        }
-    });
-});
-
 // Agregar inventario
-$('.agregarInventario').click(function() {
-    var id     = $(this).attr('data-id');
-    var nombre = $(this).attr('data-nombre');
-    
-    $('#nombreEvento').val(nombre);
-    $('#idEvento').val(id);
-});
+var agregarInventario = document.getElementById('agregarInventario')
+agregarInventario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var id     = button.getAttribute('data-bs-fullName')
+    var nombre = button.getAttribute('data-bs-user')
+
+    var inputID     = agregarInventario.querySelector('#agregarInventario-idEvento')
+    var inputNombre = agregarInventario.querySelector('#agregarInventario-nombreEvento')
+
+    inputID.value     = id
+    inputNombre.value = nombre
+})
 $('#btn-agregarInventario').click(function() {
-    var idEvento   = $('#idEvento').val();
-    var idProducto = $('#idProducto').val();
-    var cantidad   = $('#cantidad').val();
+    var idEvento   = $('#agregarInventario-idEvento').val();
+    var idProducto = $('#agregarInventario-Producto').val();
+    var cantidad   = $('#agregarInventario-Cantidad').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso       : 'agregarInventario',
@@ -84,7 +69,7 @@ $('#btn-editarInventario').click(function() {
     var cantidad     = $('#ei-cantidad').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'editarInventario',
@@ -124,7 +109,7 @@ $('#btn-eliminarInventario').click(function() {
     var idInventario = $('#delete-idInventario').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'eliminarInventario',
@@ -158,7 +143,7 @@ $('#SubInventario-idProducto').change(function() {
     var idProducto = $(this).val();
 
 	$.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso       : 'infoCantidades',
@@ -189,7 +174,7 @@ $('#btn-agregarPuntoVenta').click(function() {
     var idEvento  = $('#pv-idEvento').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso      : 'agregarPuntoVenta',
@@ -234,7 +219,7 @@ $('#btn-editarPuntoV').click(function() {
     var cantMesas     = $('#editarPuntoV-cantMesas').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'editarPuntoV',
@@ -275,7 +260,7 @@ $('#btn-eliminarPuntoV').click(function() {
     var idPuntoVenta = $('#eliminarPuntoV-IDPuntoV').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'eliminarPuntoV',
@@ -289,7 +274,7 @@ $('#btn-eliminarPuntoV').click(function() {
             
             } else {
                 $.ajax({
-                    url: '/controller/crearEvento.php',
+                    url: '/controller/eventos.php',
                     type: 'POST',
                     data: {
                         caso         : 'eliminarPuntoV2',
@@ -339,7 +324,7 @@ $('#btn-agregarSubInventario').click(function() {
     var cantidad = $('#SubInventario-Cantidad').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'agregarSubInventario',
@@ -384,7 +369,7 @@ $('#btn-editarSubInventario').click(function() {
     var cantidad = $('#editarSubInventario-Cantidad').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'editarSubInventario',
@@ -424,7 +409,7 @@ $('#btn-eliminarSubInventario').click(function() {
     var idInventario = $('#eliminarSubInventario-IDItem').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'eliminarSubInventario',

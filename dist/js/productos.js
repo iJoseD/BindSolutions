@@ -5,7 +5,7 @@ $('#btn-crearProducto').click(function() {
     var precioPublico = $('#crearProducto-PrecioPublico').val();
 
     $.ajax({
-        url: '/controller/crearProductos.php',
+        url: '/controller/productos.php',
         type: 'POST',
         data: {
             caso          : 'crearProductos',
@@ -88,7 +88,7 @@ $('#btn-editarProducto').click(function() {
     var precioPublico = $('#editarProducto-PrecioPublico').val();
 
     $.ajax({
-        url: '/controller/crearProductos.php',
+        url: '/controller/productos.php',
         type: 'POST',
         data: {
             caso          : 'editarProducto',
@@ -137,7 +137,7 @@ $('#btn-eliminarProducto').click(function() {
     var id = $('#eliminarProducto-ID').val();
 
     $.ajax({
-        url: '/controller/crearProductos.php',
+        url: '/controller/productos.php',
         type: 'POST',
         data: {
             caso : 'eliminarProducto',

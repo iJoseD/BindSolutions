@@ -6,7 +6,7 @@ $('#btn-crearEvento').click(function() {
     var codigoEvento = $('#crearEvento-CodigoEvento').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'crearEvento',
@@ -68,7 +68,7 @@ $('#btn-editarEvento').click(function() {
     var codigoEvento = $('#editarEvento-CodigoEvento').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso         : 'editarEvento',
@@ -118,7 +118,7 @@ $('#btn-eliminarEvento').click(function() {
     var id = $('#eliminarEvento-ID').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         type: 'POST',
         data: {
             caso : 'eliminarEvento',

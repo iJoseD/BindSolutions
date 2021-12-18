@@ -8,7 +8,7 @@ $('#btn-crearUsuario').click(function() {
     var idPuntoVenta = $('#crearUsuario-SelectPV').val();
 
     $.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso         : 'crearUsuario',
@@ -55,7 +55,7 @@ $('#crearUsuario-SelectEvento').change(function() {
 	var evento = $(this).val();
 
 	$.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso     : 'SelectPuntoVenta',
@@ -100,7 +100,7 @@ editarUsuario.addEventListener('show.bs.modal', function (event) {
         var evento = $('#editarUsuario-SelectEvento').val();
 
         $.ajax({
-            url: '/controller/crearUsuario.php',
+            url: '/controller/usuarios.php',
             type: 'POST',
             data: {
                 caso     : 'SelectPuntoVenta',
@@ -128,7 +128,7 @@ $('#btn-editarUsuario').click(function() {
     var idPuntoVenta = $('#editarUsuario-SelectPV').val();
 
     $.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso         : 'editarUsuario',
@@ -175,7 +175,7 @@ $('#editarUsuario-SelectEvento').change(function() {
 	var evento = $(this).val();
 
 	$.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso     : 'SelectPuntoVenta',
@@ -203,7 +203,7 @@ $('#btn-eliminarUsuario').click(function() {
     var user = $('#eliminarUsuario .user').html();
 
     $.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso : 'eliminarUsuario',
@@ -261,7 +261,7 @@ activarUsuario.addEventListener('show.bs.modal', function (event) {
         var evento = $('#activarUsuario-SelectEvento').val();
 
         $.ajax({
-            url: '/controller/crearUsuario.php',
+            url: '/controller/usuarios.php',
             type: 'POST',
             data: {
                 caso     : 'SelectPuntoVenta',
@@ -289,7 +289,7 @@ $('#btn-activarUsuario').click(function() {
     var idPuntoVenta = $('#activarUsuario-SelectPV').val();
 
     $.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso         : 'activarUsuario',
@@ -336,7 +336,7 @@ $('#activarUsuario-SelectEvento').change(function() {
 	var evento = $(this).val();
 
 	$.ajax({
-        url: '/controller/crearUsuario.php',
+        url: '/controller/usuarios.php',
         type: 'POST',
         data: {
             caso     : 'SelectPuntoVenta',

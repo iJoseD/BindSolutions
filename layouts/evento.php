@@ -39,10 +39,10 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
+            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
         </div>
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-id="<?php echo $id; ?>" data-nombre="<?php echo $nombre; ?>">Crear zona</button>
+            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Crear zona</button>
         </div>
     </div>
 
@@ -250,17 +250,17 @@
                     <div class="row hide">
                         <div class="col-2">
                             <label class="form-label">ID</label>
-                            <input type="text" name="idEvento" id="idEvento" class="form-control" readonly>
+                            <input type="text" name="agregarInventario-idEvento" id="agregarInventario-idEvento" class="form-control" readonly>
                         </div>
                         <div class="col-10">
                             <label class="form-label">Evento</label>
-                            <input type="text" name="nombreEvento" id="nombreEvento" class="form-control" readonly>
+                            <input type="text" name="agregarInventario-nombreEvento" id="agregarInventario-nombreEvento" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
-                            <select name="idProducto" id="idProducto" class="form-select">
+                            <select name="agregarInventario-Producto" id="agregarInventario-Producto" class="form-select">
                                 <option selected>---</option>
                                 <?php
                                     $sql = "SELECT * FROM productos WHERE status = '1' ORDER BY nombre ASC";
@@ -276,10 +276,13 @@
                         </div>
                         <div class="col-4">
                             <label class="form-label">Cantidad</label>
-                            <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="50">
+                            <input type="text" name="agregarInventario-Cantidad" id="agregarInventario-Cantidad" class="form-control" placeholder="50">
+                        </div>
+                        <div class="col-12 mt-3 d-grid">
+                            <button type="button" id="addBodega" class="btn btn-warning fw-bold text-uppercase">Agregar y continuar</button>
                         </div>
                     </div>
-                    <div class="row mt-3 tablePrecios"></div>
+                    <div class="row mt-3 productosAgregados"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">
@@ -292,11 +295,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Agregar al inventario</button>
+                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Confirmar Inventario</button>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Editar inventario -->
 <div class="modal fade" id="editarInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarInventarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
