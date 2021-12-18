@@ -144,7 +144,7 @@
                                     $html .= '<th>'. $row['nombre'] .'</th>';
                                     $html .= '<th>'. $row['cantMesas'] .'</th>';
                                     $html .= '<th>
-                                        <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-bs-idEvento="'. $id .'" data-bs-idPV="'. $row['id'] .'">
+                                        <button type="button" class="btn btn-success agregarSubInventario" data-bs-toggle="modal" data-bs-target="#agregarSubInventario" data-bs-idEvento="'. $id .'" data-bs-idPuntoVenta="'. $row['id'] .'">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
                                                 <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
                                                 <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
@@ -530,7 +530,7 @@
     </div>
 </div>
 
-<!-- Agregar Sub-inventario punto de venta -->
+<!-- Agregar inventario a punto de venta -->
 <div class="modal fade" id="agregarSubInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarSubInventarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -539,21 +539,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="mb-2 mt-2 row alertaCantidad hide">
+                    <div class="col-12 text-center">
+                        <p class="badge bg-danger text-uppercase text-white">¡No tienes tantas unidades disponibles!</p>
+                    </div>
+                </div>
                 <div class="formulario">
                     <div class="row hide">
                         <div class="col-6">
                             <label class="form-label">ID Punto Venta</label>
-                            <input type="text" name="pv-IDPV" id="pv-IDPV" class="form-control" readonly>
+                            <input type="text" name="agregarSubInventario-IDpuntoVenta" id="agregarSubInventario-IDpuntoVenta" class="form-control" readonly>
                         </div>
                         <div class="col-6">
                             <label class="form-label">ID Evento</label>
-                            <input type="text" name="pv-IDEvento-Sub" id="pv-IDEvento-Sub" class="form-control" readonly>
+                            <input type="text" name="agregarSubInventario-IDevento" id="agregarSubInventario-IDevento" class="form-control" readonly>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row">
                         <div class="col-8">
                             <label class="form-label">Producto</label>
-                            <select name="SubInventario-idProducto" id="SubInventario-idProducto" class="form-select">
+                            <select name="agregarSubInventario-Producto" id="agregarSubInventario-Producto" class="form-select">
                                 <option selected>---</option>
                                 <?php
                                     $sql = "SELECT p.id, p.nombre FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id' ORDER BY p.nombre ASC";
@@ -569,10 +574,14 @@
                         </div>
                         <div class="col-4">
                             <label class="form-label">Cantidad</label>
-                            <input type="number" name="SubInventario-Cantidad" id="SubInventario-Cantidad" class="form-control" placeholder="50">
+                            <input type="number" name="agregarSubInventario-Cantidad" id="agregarSubInventario-Cantidad" class="form-control" placeholder="50">
+                        </div>
+                        <div class="col-12 mt-3 d-grid">
+                            <button type="button" id="addSubBodega" class="btn btn-warning fw-bold text-uppercase">Agregar y continuar</button>
                         </div>
                     </div>
                     <div class="row mt-3 infoCantidades"></div>
+                    <div class="row mt-3 addSubBodega"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">

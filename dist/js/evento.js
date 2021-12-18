@@ -172,29 +172,6 @@ $('#btn-eliminarInventario').click(function() {
     });
 });
 
-// Mostrar cantidades disponibles
-$('#SubInventario-idProducto').change(function() {
-	var idEvento = $('#pv-IDEvento-Sub').val();
-    var idProducto = $(this).val();
-
-	$.ajax({
-        url: '/controller/eventos.php',
-        type: 'POST',
-        data: {
-            caso       : 'infoCantidades',
-            idProducto : idProducto,
-            idEvento   : idEvento
-        },
-        success: function(response) {
-            $('.infoCantidades').html( response );
-            $('.infoCantidades').removeClass('hide');
-        },
-        error: function() {
-            console.log( 'ajax_SubInventario-idProducto.change_error' );
-        }
-    });
-});
-
 // Agregar Punto de Venta
 var agregarPuntoVenta = document.getElementById('agregarPuntoVenta')
 agregarPuntoVenta.addEventListener('show.bs.modal', function (event) {
@@ -394,13 +371,79 @@ $('#btn-eliminarPuntoV').click(function() {
     });
 });
 
-// Agregar Sub-inventario punto de venta
-$('.agregarSubInventario').click(function() {
-    var idEvento = $(this).attr('data-idEvento');
-    var idPV     = $(this).attr('data-idPV');
-    
-    $('#pv-IDEvento-Sub').val(idEvento);
-    $('#pv-IDPV').val(idPV);
+// Mostrar cantidades disponibles
+$('#agregarSubInventario-Producto').change(function() {
+	var idEvento = $('#agregarSubInventario-IDevento').val();
+    var idProducto = $(this).val();
+
+	$.ajax({
+        url: '/controller/eventos.php',
+        type: 'POST',
+        data: {
+            caso       : 'infoCantidades',
+            idProducto : idProducto,
+            idEvento   : idEvento
+        },
+        success: function(response) {
+            $('.infoCantidades').html( response );
+        },
+        error: function() {
+            console.log( 'ajax_SubInventario-idProducto.change_error' );
+        }
+    });
+});
+
+// Agregar inventario a punto de venta
+var agregarSubInventario = document.getElementById('agregarSubInventario')
+agregarSubInventario.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget
+
+    var idEvento     = button.getAttribute('data-bs-idEvento')
+    var idPuntoVenta = button.getAttribute('data-bs-idPuntoVenta')
+
+    var inputIDEvento     = agregarSubInventario.querySelector('#agregarSubInventario-IDevento')
+    var inputIDPuntoVenta = agregarSubInventario.querySelector('#agregarSubInventario-IDpuntoVenta')
+
+    inputIDEvento.value     = idEvento
+    inputIDPuntoVenta.value = idPuntoVenta
+})
+$('#addSubBodega').click(function() {
+    var idPuntoVenta  = $('#agregarSubInventario-IDpuntoVenta').val();
+    var idEvento      = $('#agregarSubInventario-IDevento').val();
+    var idProducto    = $('#agregarSubInventario-Producto').val();
+    var cantidad      = $('#agregarSubInventario-Cantidad').val();
+    var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
+
+    $.ajax({
+        url: '/controller/eventos.php',
+        type: 'POST',
+        data: {
+            caso         : 'agregarSubInventario',
+            idPuntoVenta : idPuntoVenta,
+            idEvento     : idEvento,
+            idProducto   : idProducto,
+            cantidad     : cantidad
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'SubInventario_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
 });
 $('#btn-agregarSubInventario').click(function() {
     var idPuntoVenta = $('#pv-IDPV').val();
