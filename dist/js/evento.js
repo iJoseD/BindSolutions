@@ -209,19 +209,48 @@ agregarPuntoVenta.addEventListener('show.bs.modal', function (event) {
     inputID.value     = id
     inputNombre.value = nombre
 })
-$('#btn-agregarPuntoVenta').click(function() {
+$('#addPuntos').click(function() {
+    var idEvento  = $('#agregarPuntoVenta-idEvento').val();
+    var lote      = $('#agregarPuntoVenta-Lote').val();
     var nombrePV  = $('#agregarPuntoVenta-Nombre').val();
     var cantMesas = $('#agregarPuntoVenta-cantMesas').val();
-    var idEvento  = $('#agregarPuntoVenta-idEvento').val();
 
     $.ajax({
         url: '/controller/eventos.php',
         type: 'POST',
         data: {
-            caso      : 'agregarPuntoVenta',
-            nombrePV  : nombrePV,
-            cantMesas : cantMesas,
-            idEvento  : idEvento
+            caso      : 'addPuntos',
+            idEvento  : idEvento,
+            lote      : lote,
+            nombre    : nombrePV,
+            cantMesas : cantMesas
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'puntoVenta_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            } else {
+                $('.zonasVenta').html( response );
+                $('#agregarPuntoVenta-Nombre').val('');
+                $('#agregarPuntoVenta-cantMesas').val('');
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
+$('#btn-agregarPuntoVenta').click(function() {
+    var lote = $('#agregarPuntoVenta-Lote').val();
+
+    $.ajax({
+        url: '/controller/eventos.php',
+        type: 'POST',
+        data: {
+            caso : 'agregarPuntoVenta',
+            lote : lote
         },
         success: function(response) {
             console.log( response );

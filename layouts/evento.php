@@ -135,7 +135,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT * FROM puntoVenta WHERE idEvento = '$id'";
+                        $sql = "SELECT * FROM puntoVenta WHERE idEvento = '$id' AND status = 'Approved'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -409,8 +409,12 @@
                             <label class="form-label">Evento</label>
                             <input type="text" name="agregarPuntoVenta-nombreEvento" id="agregarPuntoVenta-nombreEvento" class="form-control" readonly>
                         </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Lote</label>
+                            <input type="text" name="agregarPuntoVenta-Lote" id="agregarPuntoVenta-Lote" class="form-control" value="<?php echo $lote; ?>" readonly>
+                        </div>
                     </div>
-                    <div class="row mt-5 mb-5">
+                    <div class="row">
                         <div class="col-8">
                             <label class="form-label">Nombre</label>
                             <input type="text" name="agregarPuntoVenta-Nombre" id="agregarPuntoVenta-Nombre" class="form-control" placeholder="Barra 1">
@@ -419,7 +423,11 @@
                             <label class="form-label"># Mesas</label>
                             <input type="text" name="agregarPuntoVenta-cantMesas" id="agregarPuntoVenta-cantMesas" class="form-control" placeholder="10">
                         </div>
+                        <div class="col-12 mt-3 d-grid">
+                            <button type="button" id="addPuntos" class="btn btn-warning fw-bold text-uppercase">Agregar y continuar</button>
+                        </div>
                     </div>
+                    <div class="row mt-5 mb-3 zonasVenta"></div>
                 </div>
                 <div class="successful-message hide">
                     <div class="row">

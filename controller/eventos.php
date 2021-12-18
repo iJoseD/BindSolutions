@@ -51,7 +51,7 @@ $cantidad   = $_POST['cantidad'];
 
 $idInventario = $_POST['idInventario'];
 
-$nombrePV     = $_POST['nombrePV'];
+
 $cantMesas    = $_POST['cantMesas'];
 $idPuntoVenta = $_POST['idPuntoVenta'];
 
@@ -151,16 +151,43 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'agregarPuntoVenta' ) {
-    $sql = "INSERT INTO puntoVenta (nombre, cantMesas, idEvento) VALUES ('$nombrePV', '$cantMesas', '$idEvento')";
+} elseif ( $caso == 'addPuntos' ) {
+    $sql = "INSERT INTO puntoVenta (nombre, cantMesas, lote, status, idEvento) VALUES ('$nombre', '$cantMesas', '$lote', 'Pending', '$idEvento')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'puntoVenta_created';
+        $sql = "SELECT * FROM puntoVenta WHERE lote = '$lote'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $totalFactura = 0;
+            
+            $html = '<div class="col-12">
+                <h4>Zonas agregadas</h4>
+                <ul class="list-group mt-3">';
+                    while($row = $result->fetch_assoc()) {
+                        $html .= '<li class="list-group-item d-flex justify-content-between align-items-center">'. $row["nombre"] .'<span class="badge bg-secondary rounded-pill">'. $row['cantMesas'] .' Mesas</span></li>';
+                    }
+                $html .= '</ul>
+            </div>';
+
+            echo $html;
+        }
     } else {
         echo 'puntoVenta_not_created';
     }
 
     $conn->close();
+} elseif ( $caso == 'agregarPuntoVenta' ) {
+    $sql = "UPDATE puntoVenta SET status = 'Approved' WHERE lote = '$lote'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'agregarPuntoVenta_Update';
+    } else {
+        echo 'agregarPuntoVenta_not_Update';
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'infoCantidades' ) {
     $sql = "SELECT * FROM inventario WHERE idProducto = '$idProducto' AND idEvento = '$idEvento'";
     $result = $conn->query($sql);
