@@ -9,17 +9,20 @@ $dbname     = "app_bind";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
-// Var
-$caso       = $_POST['caso'];
-$id         = $_POST['id'];
-$nombre     = $_POST['nombre'];
+// Variables globales
+$date = date('Y-m-d H:m:s');
+$caso = $_POST['caso'];
 
-$fecha        = $_POST['fecha'];
-$date         = date_create( $_POST['fecha'] );
-$diaTexto     = date_format($date, "l");
-$diaNumero    = date_format($date, "d");
-$mesTexto     = date_format($date, "M");
-$anio         = date_format($date, "Y");
+// Eventos
+$id     = $_POST['id'];
+$nombre = $_POST['nombre'];
+
+$fecha     = $_POST['fecha'];
+$date      = date_create( $_POST['fecha'] );
+$diaTexto  = date_format($date, "l");
+$diaNumero = date_format($date, "d");
+$mesTexto  = date_format($date, "M");
+$anio      = date_format($date, "Y");
 switch ( $diaTexto ) {
     case 'Monday'    : $diaTexto = "Lunes";     break;
     case 'Tuesday'   : $diaTexto = "Martes";    break;
@@ -39,13 +42,14 @@ $fechaFormato = $diaTexto . ', ' . $diaNumero . ' ' . $mesTexto . ' ' . $anio;
 
 $lugar        = $_POST['lugar'];
 $codigoEvento = $_POST['codigoEvento'];
-$date         = date('Y-m-d H:m:s');
 
-// Variables inventario
+// Evento
+$idEvento   = $_POST['idEvento'];
+$lote       = $_POST['lote'];
+$idProducto = $_POST['idProducto'];
+$cantidad   = $_POST['cantidad'];
+
 $idInventario = $_POST['idInventario'];
-$idEvento     = $_POST['idEvento'];
-$idProducto   = $_POST['idProducto'];
-$cantidad     = $_POST['cantidad'];
 
 $nombrePV     = $_POST['nombrePV'];
 $cantMesas    = $_POST['cantMesas'];
@@ -84,18 +88,13 @@ if ( $caso == 'crearEvento' ) {
 
     $conn->close();
 
-} elseif ( $caso == 'mostrarPrecios' ) {
-    $sql = "SELECT * FROM productos WHERE id = '$idProducto'";
-    $result = $conn->query($sql);
+} elseif ( $caso == 'addBodega' ) {
+    $sql = "INSERT INTO inventario (idEvento, idProducto, lote, status, cantidad) VALUES ('$idEvento', '$idProducto', '$lote', 'Pending', '$cantidad')";
 
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $html = '<div class="col-12">
-                <p>Precio costo: <span class="badge bg-primary text-wrap">$ '. $row['costo'] .'</span> Precio público: <span class="badge bg-primary text-wrap">$ '. $row['precioPublico'] .'</span></p>
-            </div>';
-
-            echo $html;
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo 'inventario_created';
+    } else {
+        echo 'inventario_not_created';
     }
 
     $conn->close();

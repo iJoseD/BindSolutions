@@ -12,6 +12,43 @@ agregarInventario.addEventListener('show.bs.modal', function (event) {
     inputID.value     = id
     inputNombre.value = nombre
 })
+$('#addBodega').click(function() {
+    var idEvento   = $('#agregarInventario-idEvento').val();
+    var lote       = $('#agregarInventario-Lote').val();
+    var idProducto = $('#agregarInventario-Producto').val();
+    var cantidad   = $('#agregarInventario-Cantidad').val();
+
+    $.ajax({
+        url: '/controller/eventos.php',
+        type: 'POST',
+        data: {
+            caso       : 'addBodega',
+            idEvento   : idEvento,
+            lote       : lote,
+            idProducto : idProducto,
+            cantidad   : cantidad,
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'inventario_not_created' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+            } else {
+                $('.formulario').addClass('hide');
+                $('.successful-message').removeClass('hide');
+
+                window.setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        },
+        error: function() {
+            console.log( 'ajax_crearProducto_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
 $('#btn-agregarInventario').click(function() {
     var idEvento   = $('#agregarInventario-idEvento').val();
     var idProducto = $('#agregarInventario-Producto').val();

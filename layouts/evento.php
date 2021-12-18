@@ -21,6 +21,8 @@
             $lugar        = $row['lugar'];
         }
     }
+
+    $lote = 'LOTE' . rand(1000, 9999);
 ?>
 
 <section class="container-fluid text-white text-center bgHeaderEvento">
@@ -255,6 +257,10 @@
                         <div class="col-10">
                             <label class="form-label">Evento</label>
                             <input type="text" name="agregarInventario-nombreEvento" id="agregarInventario-nombreEvento" class="form-control" readonly>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Lote</label>
+                            <input type="text" name="agregarInventario-Lote" id="agregarInventario-Lote" class="form-control" value="<?php echo $lote; ?>" readonly>
                         </div>
                     </div>
                     <div class="row mt-3">
