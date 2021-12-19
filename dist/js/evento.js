@@ -20,10 +20,6 @@ $('.verInforme').click(function() {
     $('.s-gestionarEvento').addClass('hide');
 });
 
-window.setTimeout(function() {
-    $('.s-verInforme').addClass('hide');
-}, 5000);
-
 // Agregar inventario
 var agregarInventario = document.getElementById('agregarInventario')
 agregarInventario.addEventListener('show.bs.modal', function (event) {
