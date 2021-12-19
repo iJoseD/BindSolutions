@@ -20,9 +20,9 @@ $('.verInforme').click(function() {
     $('.s-gestionarEvento').addClass('hide');
 });
 
-$(document).ready(function () {
-    $('.s-verInforme').addClass('hide');
-});
+// $(document).ready(function () {
+//     $('.s-verInforme').addClass('hide');
+// });
 
 // Agregar inventario
 var agregarInventario = document.getElementById('agregarInventario')
