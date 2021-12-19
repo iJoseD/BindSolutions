@@ -98,7 +98,7 @@ $(document).ready(function () {
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         searchPanes: {
-            layout: 'columns-3',
+            layout: 'columns-4',
             cascadePanes: true,
             viewTotal: false
         },
@@ -108,13 +108,13 @@ $(document).ready(function () {
                 searchPanes: {
                     show: true
                 },
-                targets: [1, 2, 3]
+                targets: [0, 1, 2, 3]
             },
             {
                 searchPanes: {
                     show: false
                 },
-                targets: [0, 4, 5]
+                targets: [4, 5]
             }
         ],
     });

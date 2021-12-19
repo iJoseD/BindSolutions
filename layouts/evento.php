@@ -409,6 +409,7 @@
                         <th>Mesa</th>
                         <th>Mesero</th>
                         <th>Total vendido</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
