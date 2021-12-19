@@ -37,14 +37,14 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-xl-4 col-md-6 col-12"></div>
+        <div class="col-xl-4 col-md-12 col-12"></div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
             <button type="button" class="btn-dark gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
         </div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
             <button type="button" class="btn-dark verInforme btn btn-outline-info fw-bold text-uppercase text-white">Informes</button>
         </div>
-        <div class="col-xl-4 col-md-6 col-12"></div>
+        <div class="col-xl-4 col-md-12 col-12"></div>
     </div>
 </section>
 
@@ -321,8 +321,8 @@
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['nombre']; ?></span>
-                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['cantidad']; ?> Unidades</span>
+                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['nombre']; ?></span>
+                                <span style="font-size: 1.5em;font-weight: bolder;"><?php echo $row['cantidad']; ?> Unidades</span>
                             <?php }
                         }
                     ?>
