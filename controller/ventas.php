@@ -95,7 +95,7 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_Update'; } else { echo 'totalFacturaPV_not_Update'; }
         }
     } else {
-        $sql = "INSERT INTO totalFacturaPV (idPuntoVenta, total) VALUES ('$idPuntoVenta', '$totalFactura')";
+        $sql = "INSERT INTO totalFacturaPV (idEvento, idPuntoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$totalFactura')";
         if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_created'; } else { echo 'totalFacturaPV_not_created'; }
     }
 

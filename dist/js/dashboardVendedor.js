@@ -94,6 +94,7 @@ $('#addCart').click(function() {
 });
 $('#btn-nuevaVenta').click(function() {
     var totalFactura = $('.totalFactura').attr('data-totalFactura');
+    var idEvento     = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac      = $('#nuevaVenta-codeFac').val();
 
@@ -127,6 +128,7 @@ $('#btn-nuevaVenta').click(function() {
                             type: 'POST',
                             data: {
                                 caso         : 'totalFacturaPV',
+                                idEvento     : idEvento,
                                 idPuntoVenta : idPuntoVenta,
                                 totalFactura : totalFactura
                             },
