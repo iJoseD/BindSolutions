@@ -160,9 +160,9 @@ $('#btn-nuevaVenta').click(function() {
                                                 $('.formulario').addClass('hide');
                                                 $('.successful-message').removeClass('hide');
                         
-                                                // window.setTimeout(function() {
-                                                //     location.reload();
-                                                // }, 2000);
+                                                window.setTimeout(function() {
+                                                    location.reload();
+                                                }, 2000);
                                             }
                                         },
                                         error: function() {
