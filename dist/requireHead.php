@@ -1,15 +1,13 @@
 <?php
-    if ( strpos( $_SERVER['REQUEST_URI'], '/payments/' ) !== false ) { } else {
-        session_start();
+    session_start();
 
-        if ( empty( $_SESSION['user'] ) ) {
-            if ( $_SERVER['REQUEST_URI'] != '/login/' ) {
-                header( 'location: ../login/' );
-            }
-        } else {
-            if ( $_SERVER['REQUEST_URI'] == '/login/' ) {
-                header( 'location: /' );
-            }
+    if ( empty( $_SESSION['user'] ) ) {
+        if ( $_SERVER['REQUEST_URI'] != '/login/' ) {
+            header( 'location: ../login/' );
+        }
+    } else {
+        if ( $_SERVER['REQUEST_URI'] == '/login/' ) {
+            header( 'location: /' );
         }
     }
 ?>
@@ -17,10 +15,10 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!-- <link rel="icon" href="https://thankyoutipper.com/wp-content/uploads/2021/08/cropped-favicon2-32x32.jpg" sizes="32x32">
-    <link rel="icon" href="https://thankyoutipper.com/wp-content/uploads/2021/08/cropped-favicon2-192x192.jpg" sizes="192x192">
-    <link rel="apple-touch-icon" href="https://thankyoutipper.com/wp-content/uploads/2021/08/cropped-favicon2-180x180.jpg">
-    <meta name="msapplication-TileImage" content="https://thankyoutipper.com/wp-content/uploads/2021/08/cropped-favicon2-270x270.jpg"> -->
+    <link rel="icon" href="/dist/img/favicon.png" sizes="32x32">
+    <link rel="icon" href="/dist/img/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/dist/img/favicon.png">
+    <meta name="msapplication-TileImage" content="/dist/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- Bootstrap CSS -->
