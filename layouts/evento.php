@@ -363,6 +363,37 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-4 col-md-6 col-12 d-grid">
+            <div class="card mb-3 text-center text-white LearningLeading">
+                <div class="card-body d-grid align-content-center">
+                    <?php
+                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
+                        $cont = 0;
+
+                        $sql = "SELECT pv.nombre, u.fullName, SUM(tf.total) AS 'total'
+                        FROM ventas v
+                        JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                        JOIN usuarios u ON v.mesero = u.id
+                        JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.mesero
+                        LIMIT 1";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['mesa']; ?></span>
+                                <span style="font-size: 1.5em;font-weight: bolder;">Zona: <?php echo $row['nombre']; ?></span>
+                                <span style="font-size: 1.5em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
+                            <?php }
+                        }
+                    ?>
+                </div>
+                <div class="card-footer">
+                    <div class="text-uppercase fw-bold">Mejor mesero</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
