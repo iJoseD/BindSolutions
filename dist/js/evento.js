@@ -1,11 +1,27 @@
 $('.gestionarEvento').click(function() {
+    $(this).removeClass('btn-dark');
+    $(this).addClass('btn-info');
+
+    $('.verInforme').removeClass('btn-info');
+    $('.verInforme').addClass('btn-dark');
+    
     $('.s-gestionarEvento').removeClass('hide');
     $('.s-verInforme').addClass('hide');
 });
 
 $('.verInforme').click(function() {
+    $(this).removeClass('btn-dark');
+    $(this).addClass('btn-info');
+
+    $('.gestionarEvento').removeClass('btn-info');
+    $('.gestionarEvento').addClass('btn-dark');
+
     $('.s-verInforme').removeClass('hide');
     $('.s-gestionarEvento').addClass('hide');
+});
+
+$(document).ready(function () {
+    $('.s-verInforme').addClass('hide');
 });
 
 // Agregar inventario

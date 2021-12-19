@@ -39,7 +39,7 @@
     <div class="row mt-5">
         <div class="col-xl-4 col-md-12 col-12"></div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <button type="button" class="btn-dark gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
+            <button type="button" class="btn-info gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
         </div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
             <button type="button" class="btn-dark verInforme btn btn-outline-info fw-bold text-uppercase text-white">Informes</button>
@@ -448,7 +448,7 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-xl-6 col-md-6 col-12">
+        <div class="col-xl-6 col-md-12 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Zona</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -480,7 +480,7 @@
             </table>
         </div>
 
-        <div class="col-xl-6 col-md-6 col-12">
+        <div class="col-xl-6 col-md-12 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Productos vendidos</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -515,7 +515,7 @@
     </div>
     
     <div class="row mt-5">
-        <div class="col-xl-6 col-md-6 col-12">
+        <div class="col-xl-6 col-md-12 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesa</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -549,7 +549,7 @@
             </table>
         </div>
 
-        <div class="col-xl-6 col-md-6 col-12">
+        <div class="col-xl-6 col-md-12 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesero</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
