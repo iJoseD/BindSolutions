@@ -255,7 +255,7 @@
     </div>
 </section>
 
-<section class="s-verInforme container mb-5 hide">
+<section class="s-verInforme container mb-5">
     <div class="row mt-5">
         <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
