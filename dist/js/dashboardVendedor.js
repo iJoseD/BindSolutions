@@ -93,7 +93,9 @@ $('#addCart').click(function() {
     }
 });
 $('#btn-nuevaVenta').click(function() {
-    var codeFac = $('#nuevaVenta-codeFac').val();
+    var totalFactura = $('.totalFactura').attr('data-totalFactura');
+    var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
+    var codeFac      = $('#nuevaVenta-codeFac').val();
 
     $.ajax({
         url: '/controller/ventas.php',
@@ -106,7 +108,6 @@ $('#btn-nuevaVenta').click(function() {
         success: function(response) {
             console.log( response );
 
-            var totalFactura = $('.totalFactura').attr('data-totalFactura');
             $.ajax({
                 url: '/controller/ventas.php',
                 type: 'POST',
@@ -118,16 +119,37 @@ $('#btn-nuevaVenta').click(function() {
                 success: function(response) {
                     console.log( response );
 
-                    if ( response == 'totalFactura_not_Update' ) {
+                    if ( response == 'totalFactura_not_created' ) {
                         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-
                     } else {
-                        $('.formulario').addClass('hide');
-                        $('.successful-message').removeClass('hide');
-
-                        window.setTimeout(function() {
-                            location.reload();
-                        }, 2000);
+                        $.ajax({
+                            url: '/controller/ventas.php',
+                            type: 'POST',
+                            data: {
+                                caso         : 'totalFacturaPV',
+                                idPuntoVenta : idPuntoVenta,
+                                totalFactura : totalFactura
+                            },
+                            success: function(response) {
+                                console.log( response );
+            
+                                if ( response == 'totalFacturaPV_not_created' ) {
+                                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            
+                                } else {
+                                    $('.formulario').addClass('hide');
+                                    $('.successful-message').removeClass('hide');
+            
+                                    window.setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                }
+                            },
+                            error: function() {
+                                console.log( 'ajax_crearProducto_error' );
+                                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                            }
+                        });
                     }
                 },
                 error: function() {

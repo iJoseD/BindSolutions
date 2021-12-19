@@ -84,6 +84,17 @@ if ( $caso == 'nuevaVenta' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'totalFacturaPV' ) {
+    $sql = "INSERT INTO totalFacturaPV (idPuntoVenta, total) VALUES ('$idPuntoVenta', '$totalFactura')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo 'totalFacturaPV_created';
+    } else {
+        echo 'totalFacturaPV_not_created';
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'verFactura' ) {
     $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
     FROM ventas v

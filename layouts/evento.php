@@ -343,14 +343,14 @@
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
 
-                        $sql = "SELECT pv.nombre, v.mesa, SUM(tf.total) AS 'total'
+                        $sql = "SELECT pv.nombre, v.mesa, tf.total
                         FROM ventas v
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
                         JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
                         WHERE v.idEvento = '$id'
-                        GROUP BY v.mesa
+                        GROUP BY v.codeFac
                         ORDER BY total DESC
-                        LIMIT 1";
+                        LIMIT 1;";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -907,3 +907,15 @@
         </div>
     </div>
 </div>
+
+|-------------|--------|
+| nombre      | total  |
+|-------------|--------|
+| Diamante    | 160000 |
+| Diamante    | 170000 |
+| Diamante    | 140000 |
+| Diamante    | 610000 |
+| Diamante    | 320000 |
+| Parqueadero | 320000 |
+| Parqueadero | 290000 |
+|-------------|--------|
