@@ -218,10 +218,13 @@ $('#btn-nuevaVenta').click(function() {
 });
 
 // Ver la factura
-$('.verFactura').click(function() {
-    var codeFac = $(this).attr('data-codeFac');
+var verFactura = document.getElementById('verFactura')
+verFactura.addEventListener('show.bs.modal', function (event) {
+    var button       = event.relatedTarget
+    var codeFac      = button.getAttribute('data-bs-codeFac')
+    var inputCodeFac = verFactura.querySelector('#verFactura .codeFac')
 
-    $('#verFactura .codeFac').html(codeFac);
+    inputCodeFac.textContent = codeFac
 
     $.ajax({
         url: '/controller/ventas.php',
@@ -245,4 +248,4 @@ $('.verFactura').click(function() {
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
-});
+})
