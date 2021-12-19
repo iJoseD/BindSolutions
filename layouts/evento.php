@@ -452,7 +452,7 @@
     <div class="row mt-5">
         <div class="col-xl-6 col-md-6 col-12">
             <h3 class="mb-3">Total ventas por Zona</h3>
-            <table id="informes-table1" class="display responsive nowrap">
+            <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Zona</th>
@@ -484,7 +484,7 @@
 
         <div class="col-xl-6 col-md-6 col-12">
             <h3 class="mb-3">Total ventas por Mesa</h3>
-            <table id="informes-table1" class="display responsive nowrap">
+            <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
                         <th>Zona</th>
