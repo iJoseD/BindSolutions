@@ -341,14 +341,12 @@
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
 
-                        $sql = "SELECT pv.nombre, v.mesa, tf.total
-                        FROM ventas v
-                        JOIN totalFactura tf ON v.codeFac = tf.codeFac
-                        JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
-                        WHERE v.idEvento = '$id'
-                        GROUP BY v.codeFac
-                        ORDER BY total DESC
-                        LIMIT 1;";
+                        $sql = "SELECT tfm.mesa, pv.nombre, tfm.total
+                        FROM totalFacturaMesa tfm
+                        JOIN puntoVenta pv ON tfm.idPuntoVenta = pv.id
+                        WHERE tfm.idEvento = '$id'
+                        ORDER BY tfm.total DESC
+                        LIMIT 1";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -378,7 +376,7 @@
                         JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
                         WHERE tfu.idEvento = '$id'
                         ORDER BY tfu.total DESC
-                        LIMIT 1;";
+                        LIMIT 1";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
