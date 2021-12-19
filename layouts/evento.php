@@ -397,7 +397,7 @@
 
     <div class="row mt-5">
         <div class="col-12">
-            <h3 class="mb-3">Ventas generales</h3>
+            <h3 class="mb-3 text-uppercase fw-bold text-decoration-underline">Ventas generales</h3>
             <table id="informes-table1" class="display responsive nowrap">
                 <thead>
                     <tr>
@@ -480,6 +480,41 @@
             </table>
         </div>
 
+        <div class="col-xl-6 col-md-6 col-12">
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Productos vendidos</h3>
+            <table class="DataTable display responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>Zona</th>
+                        <th>Total vendido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                        FROM ventas v
+                        JOIN productos p ON v.idProducto = p.id
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.idProducto";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $html = '<tr>';
+                                    $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $row['cantidad'] .'</th>';
+                                $html .= '</tr>';
+
+                                echo $html;
+                            }
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
         <div class="col-xl-6 col-md-6 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesa</h3>
             <table class="DataTable display responsive nowrap">
