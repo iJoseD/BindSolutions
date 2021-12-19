@@ -93,6 +93,32 @@ $(document).ready(function () {
         ],
     });
 
+    // Eventos - Informes
+    $('#informes-table1').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true,
+        searchPanes: {
+            layout: 'columns-3',
+            cascadePanes: true,
+            viewTotal: false
+        },
+        dom: 'PBfrtip',
+        columnDefs: [
+            {
+                searchPanes: {
+                    show: true
+                },
+                targets: [1, 2, 3]
+            },
+            {
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 4, 5]
+            }
+        ],
+    });
+
     $( ".datepicker" ).datepicker();
 });
 
