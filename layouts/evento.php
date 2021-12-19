@@ -287,12 +287,10 @@
             <div class="card mb-3 text-center text-white DarkOcean">
                 <div class="card-body d-grid align-content-center">
                     <?php
-                        $sql = "SELECT pv.nombre, SUM(tf.total) AS 'total'
-                        FROM totalFactura tf
-                        JOIN ventas v ON tf.codeFac = v.codeFac
-                        JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
-                        WHERE v.idEvento = '$id'
-                        GROUP BY v.idPuntoVenta
+                        $sql = "SELECT pv.nombre, tfpv.total
+                        FROM totalFacturaPV tfpv
+                        JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
+                        WHERE tfpv.idEvento = '$id'
                         ORDER BY total DESC
                         LIMIT 1";
                         $result = $conn->query($sql);
