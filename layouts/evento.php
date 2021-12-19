@@ -296,6 +296,7 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
                                 <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['nombre']; ?></span>
+                                <span style="font-size: 2em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
                             <?php }
                         }
                     ?>
@@ -309,26 +310,25 @@
             <div class="card mb-3 text-center text-white Amin">
                 <div class="card-body d-grid align-content-center">
                     <?php
-                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
-                        $cont = 0;
-
-                        $sql = "SELECT * FROM eventos";
+                        $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
+                        FROM ventas v
+                        JOIN productos p ON v.idProducto = p.id
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.idProducto
+                        ORDER BY cantidad DESC
+                        LIMIT 1";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( $row['fecha'] );
-
-                                if ( $fechaActual > $fechaEvento ) { } else {
-                                    $cont++;
-                                }
-                            }
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['nombre']; ?></span>
+                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['cantidad']; ?> Unidades</span>
+                            <?php }
                         }
                     ?>
-                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
-                    <div class="text-uppercase fw-bold">Próximos eventos</div>
+                    <div class="text-uppercase fw-bold">Producto más vendido</div>
                 </div>
             </div>
         </div>
