@@ -257,7 +257,7 @@
 
 <section class="s-verInforme container mb-5">
     <div class="row mt-5">
-        <div class="col-xl-4 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
                 <div class="card-body d-grid align-content-center">
                     <?php
@@ -279,7 +279,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white DarkOcean">
                 <div class="card-body d-grid align-content-center">
                     <?php
@@ -306,7 +306,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white Amin">
                 <div class="card-body d-grid align-content-center">
                     <?php
@@ -332,7 +332,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white SinCityRed">
                 <div class="card-body d-grid align-content-center">
                     <?php
