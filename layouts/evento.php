@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="s-gestionarEvento container mb-5">
+<section class="s-gestionarEvento container mb-5 hide">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
@@ -255,7 +255,103 @@
     </div>
 </section>
 
-<section class="s-verInforme container mb-5 hide"></section>
+<section class="s-verInforme container mb-5">
+    <div class="row mt-5">
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
+            <div class="card mb-3 text-center text-white MoonlitAsteroid">
+                <div class="card-body">
+                    <?php
+                        $sql = "SELECT SUM(tf.total) AS 'total'
+                        FROM totalFactura tf
+                        JOIN ventas v ON tf.codeFac = v.codeFac
+                        WHERE v.idEvento = '$id'";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: 3em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
+                            <?php }
+                        }
+                    ?>
+                </div>
+                <div class="card-footer">
+                    <div>Total vendido</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
+            <div class="card mb-3 text-center text-white DarkOcean">
+                <div class="card-body">
+                    <?php
+                        $sql = "SELECT COUNT(id) AS 'total' FROM eventos";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
+                            <?php }
+                        }
+                    ?>
+                </div>
+                <div class="card-footer">
+                    <div>Eventos registrados</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
+            <div class="card mb-3 text-center text-white Amin">
+                <div class="card-body">
+                    <?php
+                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
+                        $cont = 0;
+
+                        $sql = "SELECT * FROM eventos";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $fechaEvento = strtotime( $row['fecha'] );
+
+                                if ( $fechaActual > $fechaEvento ) { } else {
+                                    $cont++;
+                                }
+                            }
+                        }
+                    ?>
+                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
+                </div>
+                <div class="card-footer">
+                    <div>Próximos eventos</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6 d-grid">
+            <div class="card mb-3 text-center text-white SinCityRed">
+                <div class="card-body">
+                    <?php
+                        $fechaActual = strtotime( date( 'm/d/Y', time() ) );
+                        $cont = 0;
+
+                        $sql = "SELECT * FROM eventos";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $fechaEvento = strtotime( $row['fecha'] );
+
+                                if ( $fechaActual > $fechaEvento ) { $cont++; }
+                            }
+                        }
+                    ?>
+                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
+                </div>
+                <div class="card-footer">
+                    <div>Eventos finalizados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Agregar inventario -->
 <div class="modal fade" id="agregarInventario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarInventarioLabel" aria-hidden="true">
