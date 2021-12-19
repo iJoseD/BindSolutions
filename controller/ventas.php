@@ -85,12 +85,18 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'totalFacturaPV' ) {
-    $sql = "INSERT INTO totalFacturaPV (idPuntoVenta, total) VALUES ('$idPuntoVenta', '$totalFactura')";
+    $sql = "SELECT * FROM totalFacturaPV WHERE idPuntoVenta = '$idPuntoVenta'";
+    $result = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo 'totalFacturaPV_created';
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $totalFactura = $totalFactura + $row["total"];
+            $sql = "UPDATE totalFacturaPV SET total = '$totalFactura' WHERE idPuntoVenta = '$idPuntoVenta'";
+            if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_Update'; } else { echo 'totalFacturaPV_not_Update'; }
+        }
     } else {
-        echo 'totalFacturaPV_not_created';
+        $sql = "INSERT INTO totalFacturaPV (idPuntoVenta, total) VALUES ('$idPuntoVenta', '$totalFactura')";
+        if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_created'; } else { echo 'totalFacturaPV_not_created'; }
     }
 
     $conn->close();

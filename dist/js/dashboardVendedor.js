@@ -133,7 +133,7 @@ $('#btn-nuevaVenta').click(function() {
                             success: function(response) {
                                 console.log( response );
             
-                                if ( response == 'totalFacturaPV_not_created' ) {
+                                if ( response == 'totalFacturaPV_not_created' || response == 'totalFacturaPV_not_Update' ) {
                                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             
                                 } else {
