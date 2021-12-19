@@ -372,12 +372,13 @@
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
 
-                        $sql = "SELECT u.fullName, tfu.total
+                        $sql = "SELECT u.fullName, pv.nombre, tfu.total
                         FROM totalFacturaUsers tfu
                         JOIN usuarios u ON tfu.idUsuario = u.id
+                        JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
                         WHERE tfu.idEvento = '$id'
                         ORDER BY tfu.total DESC
-                        LIMIT 1";
+                        LIMIT 1;";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
