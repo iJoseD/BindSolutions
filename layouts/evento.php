@@ -382,7 +382,7 @@
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['mesa']; ?></span>
+                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['fullName']; ?></span>
                                 <span style="font-size: 1.5em;font-weight: bolder;">Zona: <?php echo $row['nombre']; ?></span>
                                 <span style="font-size: 1.5em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
                             <?php }
