@@ -448,8 +448,8 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-xl-6 col-md-12 col-12">
-            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Zona</h3>
+        <div class="col-xl-6 col-md-6 col-12">
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Ventas por Zona</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
@@ -480,7 +480,7 @@
             </table>
         </div>
 
-        <div class="col-xl-6 col-md-12 col-12">
+        <div class="col-xl-6 col-md-6 col-12">
             <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Productos vendidos</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -515,8 +515,8 @@
     </div>
     
     <div class="row mt-5">
-        <div class="col-xl-6 col-md-12 col-12">
-            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesa</h3>
+        <div class="col-xl-6 col-md-6 col-12">
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Ventas por Mesa</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
@@ -549,8 +549,8 @@
             </table>
         </div>
 
-        <div class="col-xl-6 col-md-12 col-12">
-            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesero</h3>
+        <div class="col-xl-6 col-md-6 col-12">
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Ventas por Mesero</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
