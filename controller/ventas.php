@@ -112,7 +112,7 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_Update'; } else { echo 'totalFacturaUsers_not_Update'; }
         }
     } else {
-        $sql = "INSERT INTO totalFacturaUsers (idEvento, idPuntoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$totalFactura')";
+        $sql = "INSERT INTO totalFacturaUsers (idEvento, idPuntoVenta, idUsuario, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesero', '$totalFactura')";
         if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_created'; } else { echo 'totalFacturaUsers_not_created'; }
     }
 
