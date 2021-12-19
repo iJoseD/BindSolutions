@@ -257,7 +257,7 @@
 
 <section class="s-verInforme container mb-5">
     <div class="row mt-5">
-        <div class="col-xl-3 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-6 d-grid">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
                 <div class="card-body">
                     <?php
@@ -275,30 +275,37 @@
                     ?>
                 </div>
                 <div class="card-footer">
-                    <div>Total vendido</div>
+                    <div class="text-uppercase fw-bold">Total vendido</div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-6 d-grid">
             <div class="card mb-3 text-center text-white DarkOcean">
                 <div class="card-body">
                     <?php
-                        $sql = "SELECT COUNT(id) AS 'total' FROM eventos";
+                        $sql = "SELECT pv.nombre, SUM(tf.total) AS 'total'
+                        FROM totalFactura tf
+                        JOIN ventas v ON tf.codeFac = v.codeFac
+                        JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.idPuntoVenta
+                        ORDER BY total DESC
+                        LIMIT 1";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['total']; ?></span>
+                                <span style="font-size: 3em;font-weight: bolder;"><?php echo $row['nombre']; ?></span>
                             <?php }
                         }
                     ?>
                 </div>
                 <div class="card-footer">
-                    <div>Eventos registrados</div>
+                    <div class="text-uppercase fw-bold">Zona con más ventas</div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6 col-6 d-grid">
+        <div class="col-xl-4 col-md-6 col-6 d-grid">
             <div class="card mb-3 text-center text-white Amin">
                 <div class="card-body">
                     <?php
@@ -321,7 +328,7 @@
                     <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
-                    <div>Próximos eventos</div>
+                    <div class="text-uppercase fw-bold">Próximos eventos</div>
                 </div>
             </div>
         </div>
