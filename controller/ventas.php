@@ -101,6 +101,23 @@ if ( $caso == 'nuevaVenta' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'totalFacturaUsers' ) {
+    $sql = "SELECT * FROM totalFacturaUsers WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $totalFactura = $totalFactura + $row["total"];
+            $sql = "UPDATE totalFacturaUsers SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero'";
+            if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_Update'; } else { echo 'totalFacturaUsers_not_Update'; }
+        }
+    } else {
+        $sql = "INSERT INTO totalFacturaUsers (idEvento, idPuntoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$totalFactura')";
+        if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_created'; } else { echo 'totalFacturaUsers_not_created'; }
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'verFactura' ) {
     $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
     FROM ventas v

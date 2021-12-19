@@ -97,7 +97,9 @@ $('#btn-nuevaVenta').click(function() {
     var idEvento     = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac      = $('#nuevaVenta-codeFac').val();
+    var mesero       = $('#nuevaVenta-Mesero').val();
 
+    // finalizarPedido
     $.ajax({
         url: '/controller/ventas.php',
         type: 'POST',
@@ -107,8 +109,8 @@ $('#btn-nuevaVenta').click(function() {
             status  : 'approved'
         },
         success: function(response) {
-            console.log( response );
-
+            
+            // totalFactura
             $.ajax({
                 url: '/controller/ventas.php',
                 type: 'POST',
@@ -118,11 +120,11 @@ $('#btn-nuevaVenta').click(function() {
                     totalFactura : totalFactura
                 },
                 success: function(response) {
-                    console.log( response );
-
                     if ( response == 'totalFactura_not_created' ) {
                         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                     } else {
+
+                        // totalFacturaPV
                         $.ajax({
                             url: '/controller/ventas.php',
                             type: 'POST',
@@ -133,18 +135,41 @@ $('#btn-nuevaVenta').click(function() {
                                 totalFactura : totalFactura
                             },
                             success: function(response) {
-                                console.log( response );
-            
                                 if ( response == 'totalFacturaPV_not_created' || response == 'totalFacturaPV_not_Update' ) {
                                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-            
                                 } else {
-                                    $('.formulario').addClass('hide');
-                                    $('.successful-message').removeClass('hide');
-            
-                                    window.setTimeout(function() {
-                                        location.reload();
-                                    }, 2000);
+
+                                    // totalFacturaUsers
+                                    $.ajax({
+                                        url: '/controller/ventas.php',
+                                        type: 'POST',
+                                        data: {
+                                            caso         : 'totalFacturaUsers',
+                                            idEvento     : idEvento,
+                                            idPuntoVenta : idPuntoVenta,
+                                            mesero       : mesero,
+                                            totalFactura : totalFactura
+                                        },
+                                        success: function(response) {
+                                            console.log( response );
+                        
+                                            if ( response == 'totalFacturaUsers_not_created' || response == 'totalFacturaUsers_not_Update' ) {
+                                                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                        
+                                            } else {
+                                                $('.formulario').addClass('hide');
+                                                $('.successful-message').removeClass('hide');
+                        
+                                                window.setTimeout(function() {
+                                                    location.reload();
+                                                }, 2000);
+                                            }
+                                        },
+                                        error: function() {
+                                            console.log( 'ajax_crearProducto_error' );
+                                            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                                        }
+                                    });
                                 }
                             },
                             error: function() {
