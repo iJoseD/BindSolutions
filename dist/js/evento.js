@@ -619,3 +619,36 @@ $('#btn-eliminarSubInventario').click(function() {
         }
     });
 });
+
+// Ver la factura
+var verFactura = document.getElementById('verFactura')
+verFactura.addEventListener('show.bs.modal', function (event) {
+    var button       = event.relatedTarget
+    var codeFac      = button.getAttribute('data-bs-codeFac')
+    var inputCodeFac = verFactura.querySelector('#verFactura .codeFac')
+
+    inputCodeFac.textContent = codeFac
+
+    $.ajax({
+        url: '/controller/ventas.php',
+        type: 'POST',
+        data: {
+            caso    : 'verFactura',
+            codeFac : codeFac
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'verFactura_not_Select' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+
+            } else {
+                $('.detalleFactura').html( response );
+            }
+        },
+        error: function() {
+            console.log( 'ajax_verFactura_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+})
