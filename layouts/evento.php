@@ -396,10 +396,8 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-12 mb-5">
-            <h3>Ventas generales</h3>
-        </div>
         <div class="col-12">
+            <h3 class="mb-3">Ventas generales</h3>
             <table id="informes-table1" class="display responsive nowrap">
                 <thead>
                     <tr>
@@ -451,7 +449,7 @@
 
     <div class="row mt-5">
         <div class="col-xl-6 col-md-6 col-12">
-            <h3 class="mb-3">Total ventas por Zona</h3>
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Zona</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
@@ -483,7 +481,7 @@
         </div>
 
         <div class="col-xl-6 col-md-6 col-12">
-            <h3 class="mb-3">Total ventas por Mesa</h3>
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesa</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
@@ -505,6 +503,41 @@
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
                                     $html .= '<th>'. $row['mesa'] .'</th>';
+                                    $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
+                                $html .= '</tr>';
+
+                                echo $html;
+                            }
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-xl-6 col-md-6 col-12">
+            <h3 class="mb-5 text-uppercase fw-bold text-decoration-underline">Total ventas por Mesero</h3>
+            <table class="DataTable display responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>Zona</th>
+                        <th>Mesero</th>
+                        <th>Total vendido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT pv.nombre, u.fullName, tfu.total
+                        FROM totalFacturaUsers tfu
+                        JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
+                        JOIN usuarios u ON tfu.idUsuario = u.id
+                        WHERE tfu.idEvento = '$id'";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $html = '<tr>';
+                                    $html .= '<th>'. $row['nombre'] .'</th>';
+                                    $html .= '<th>'. $row['fullName'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                 $html .= '</tr>';
 
