@@ -118,6 +118,23 @@ if ( $caso == 'nuevaVenta' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'totalFacturaMesa' ) {
+    $sql = "SELECT * FROM totalFacturaMesa WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $totalFactura = $totalFactura + $row["total"];
+            $sql = "UPDATE totalFacturaMesa SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa'";
+            if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_Update'; } else { echo 'totalFacturaMesa_not_Update'; }
+        }
+    } else {
+        $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$totalFactura')";
+        if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_created'; } else { echo 'totalFacturaMesa_not_created'; }
+    }
+
+    $conn->close();
+
 } elseif ( $caso == 'verFactura' ) {
     $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
     FROM ventas v

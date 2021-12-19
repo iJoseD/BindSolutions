@@ -97,6 +97,7 @@ $('#btn-nuevaVenta').click(function() {
     var idEvento     = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac      = $('#nuevaVenta-codeFac').val();
+    var mesa         = $('#nuevaVenta-Mesa').val();
     var mesero       = $('#nuevaVenta-Mesero').val();
 
     // finalizarPedido
@@ -155,14 +156,38 @@ $('#btn-nuevaVenta').click(function() {
                         
                                             if ( response == 'totalFacturaUsers_not_created' || response == 'totalFacturaUsers_not_Update' ) {
                                                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-                        
                                             } else {
-                                                $('.formulario').addClass('hide');
-                                                $('.successful-message').removeClass('hide');
-                        
-                                                window.setTimeout(function() {
-                                                    location.reload();
-                                                }, 2000);
+
+                                                // totalFacturaMesa
+                                                $.ajax({
+                                                    url: '/controller/ventas.php',
+                                                    type: 'POST',
+                                                    data: {
+                                                        caso         : 'totalFacturaMesa',
+                                                        idEvento     : idEvento,
+                                                        idPuntoVenta : idPuntoVenta,
+                                                        mesa         : mesa,
+                                                        totalFactura : totalFactura
+                                                    },
+                                                    success: function(response) {
+                                                        console.log( response );
+                                    
+                                                        if ( response == 'totalFacturaMesa_not_created' || response == 'totalFacturaMesa_not_Update' ) {
+                                                            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                                                        } else {
+                                                            $('.formulario').addClass('hide');
+                                                            $('.successful-message').removeClass('hide');
+                                    
+                                                            window.setTimeout(function() {
+                                                                location.reload();
+                                                            }, 2000);
+                                                        }
+                                                    },
+                                                    error: function() {
+                                                        console.log( 'ajax_crearProducto_error' );
+                                                        alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+                                                    }
+                                                });
                                             }
                                         },
                                         error: function() {

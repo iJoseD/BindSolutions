@@ -905,14 +905,27 @@
     </div>
 </div>
 
-|-------------|--------|
-| nombre      | total  |
-|-------------|--------|
-| Diamante    | 160000 |
-| Diamante    | 170000 |
-| Diamante    | 140000 |
-| Diamante    | 610000 |
-| Diamante    | 320000 |
-| Parqueadero | 320000 |
-| Parqueadero | 290000 |
-|-------------|--------|
+<!-- Ver venta -->
+<div class="modal fade" id="verFactura" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="verFacturaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="verFacturaLabel">Factura <span class="codeFac badge bg-primary"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-2 mt-2 row">
+                    <div class="col-12 text-center">
+                        <p class="badge bg-success text-uppercase text-white">Resumen de la venta</p>
+                    </div>
+                </div>
+                <div class="formulario">
+                    <div class="row mt-3 detalleFactura"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
