@@ -37,7 +37,7 @@
     if ($result3->num_rows > 0) {
         while($row = $result3->fetch_assoc()) {
             if ( !empty( $row['id'] ) ) { $maxID = $row['id'] + 1; } else { $maxID = '1'; }
-            $codeFac = 'FAC-' . date("d") . date("m") . $maxID;
+            $codeFac = 'FAC-' . $idEvento . $idPuntoVenta . date("d") . date("m") . $maxID;
         }
     }
 ?>
