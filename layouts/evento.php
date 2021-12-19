@@ -261,15 +261,19 @@
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
                 <div class="card-body d-grid align-content-center">
                     <?php
-                        $sql = "SELECT SUM(tf.total) AS 'total'
-                        FROM totalFactura tf
-                        JOIN ventas v ON tf.codeFac = v.codeFac
-                        WHERE v.idEvento = '$id'";
+                        $sql = "SELECT tf.codeFac, tf.total
+                        FROM ventas v
+                        JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.codeFac";
                         $result = $conn->query($sql);
 
+                        $totalVendido = 0;
+
                         if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) { ?>
-                                <span style="font-size: 3em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
+                            while($row = $result->fetch_assoc()) {
+                                $totalVendido = $totalVendido + $row['total']; ?>
+                                <span style="font-size: 3em;font-weight: bolder;">$ <?php echo number_format( $totalVendido, 0, ',', '.' ); ?></span>
                             <?php }
                         }
                     ?>
