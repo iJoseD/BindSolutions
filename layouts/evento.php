@@ -339,21 +339,27 @@
                         $fechaActual = strtotime( date( 'm/d/Y', time() ) );
                         $cont = 0;
 
-                        $sql = "SELECT * FROM eventos";
+                        $sql = "SELECT pv.nombre, v.mesa, SUM(tf.total) AS 'total'
+                        FROM ventas v
+                        JOIN totalFactura tf ON v.codeFac = tf.codeFac
+                        JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
+                        WHERE v.idEvento = '$id'
+                        GROUP BY v.mesa
+                        ORDER BY total DESC
+                        LIMIT 1";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                $fechaEvento = strtotime( $row['fecha'] );
-
-                                if ( $fechaActual > $fechaEvento ) { $cont++; }
-                            }
+                            while($row = $result->fetch_assoc()) { ?>
+                                <span style="font-size: 2em;font-weight: bolder;"><?php echo $row['mesa']; ?></span>
+                                <span style="font-size: 1.5em;font-weight: bolder;">Zona: <?php echo $row['nombre']; ?></span>
+                                <span style="font-size: 1.5em;font-weight: bolder;">$ <?php echo number_format( $row['total'], 0, ',', '.' ); ?></span>
+                            <?php }
                         }
                     ?>
-                    <span style="font-size: 3em;font-weight: bolder;"><?php echo $cont; ?></span>
                 </div>
                 <div class="card-footer">
-                    <div>Eventos finalizados</div>
+                    <div class="text-uppercase fw-bold">Mejor mesa</div>
                 </div>
             </div>
         </div>
