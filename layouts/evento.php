@@ -273,10 +273,10 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $totalVendido = $totalVendido + $row['total']; ?>
-                                <span style="font-size: 3em;font-weight: bolder;">$ <?php echo number_format( $totalVendido, 0, ',', '.' ); ?></span>
                             <?php }
                         }
                     ?>
+                    <span style="font-size: 3em;font-weight: bolder;">$ <?php echo number_format( $totalVendido, 0, ',', '.' ); ?></span>
                 </div>
                 <div class="card-footer">
                     <div class="text-uppercase fw-bold">Total vendido</div>
