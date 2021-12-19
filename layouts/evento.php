@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="s-gestionarEvento container mb-5 hide">
+<section class="s-gestionarEvento container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
             <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
@@ -255,7 +255,7 @@
     </div>
 </section>
 
-<section class="s-verInforme container mb-5">
+<section class="s-verInforme container mb-5 hide">
     <div class="row mt-5">
         <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
