@@ -39,16 +39,16 @@
     <div class="row mt-5">
         <div class="col-xl-4 col-md-12 col-12"></div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-dark gestionarEvento btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</button>
+            <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-info btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</a>
         </div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-info verInforme btn btn-outline-info fw-bold text-uppercase text-white">Informes</button>
+            <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-dark btn btn-outline-info fw-bold text-uppercase text-white">Informes</a>
         </div>
         <div class="col-xl-4 col-md-12 col-12"></div>
     </div>
 </section>
 
-<section class="s-verInforme container mb-5">
+<section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-4 col-md-6 col-12 d-grid">
             <div class="card mb-3 text-center text-white MoonlitAsteroid">
