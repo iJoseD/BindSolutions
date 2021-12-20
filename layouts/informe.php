@@ -1,4 +1,5 @@
-<?php
+<?php session_start(); $rol = $_SESSION['rol'];
+    
     $codigoEvento = $_GET['codigoEvento'];
 
     // MySQLi
@@ -36,16 +37,20 @@
             <p class="fw-bolder text-uppercase"><?php echo $fechaFormato; ?> • <?php echo $lugar; ?></p>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-xl-4 col-md-12 col-12"></div>
-        <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-dark btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</a>
-        </div>
-        <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-info btn btn-outline-info fw-bold text-uppercase text-white">Informes</a>
-        </div>
-        <div class="col-xl-4 col-md-12 col-12"></div>
-    </div>
+    <?php
+        if ( $rol != 4 ) { ?>
+            <div class="row mt-5">
+                <div class="col-xl-4 col-md-12 col-12"></div>
+                <div class="col-xl-2 col-md-6 col-6 d-grid">
+                    <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-dark btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</a>
+                </div>
+                <div class="col-xl-2 col-md-6 col-6 d-grid">
+                    <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-info btn btn-outline-info fw-bold text-uppercase text-white">Informes</a>
+                </div>
+                <div class="col-xl-4 col-md-12 col-12"></div>
+            </div>
+        <?php }
+    ?>
 </section>
 
 <section class="container mb-5">
