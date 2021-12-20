@@ -1,3 +1,5 @@
+<?php session_start(); $rol = $_SESSION['rol']; ?>
+
 <!doctype html>
 <html lang="en">
     <!-- Head -->
