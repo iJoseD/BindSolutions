@@ -21,7 +21,7 @@
         }
     }
 
-    if ( $rol = 4 ) {
+    if ( $rol == 4 ) {
         header( 'location: /informe/?codigoEvento='.$codigoEvento );
     } else { ?>
         <!doctype html>
