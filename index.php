@@ -1,5 +1,7 @@
-<?php
-    session_start();
+<?php session_start();
+    
+    $rol      = $_SESSION['rol'];
+    $idEvento = $_SESSION['idEvento'];
 
     // MySQLi
     $servername = "localhost";
@@ -10,22 +12,17 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
     
-    $sql = "SELECT * FROM eventos WHERE id = '$codigoEvento'";
+    $sql = "SELECT * FROM eventos WHERE id = '$idEvento'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $id           = $row['id'];
-            $nombre       = $row['nombre'];
-            $fechaFormato = $row['fechaFormato'];
-            $lugar        = $row['lugar'];
+            $codigoEvento = $row['codigoEvento'];
         }
     }
 
-    $rol = $_SESSION['rol'];
-
     if ( $rol = 4 ) {
-        header( 'location: /informe/?codigoEvento='. );
+        header( 'location: /informe/?codigoEvento='.$codigoEvento );
     } else { ?>
         <!doctype html>
         <html lang="en">
