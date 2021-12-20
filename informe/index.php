@@ -7,7 +7,13 @@
 
     <body>
         <!-- Navbar -->
-        <?php require_once('layouts/navbar.php'); ?>
+        <?php
+            if ( $rol == '4' ) {
+                require_once('../layouts/navbarVendedor.php');
+            } else {
+                require_once('../layouts/navbar.php');
+            }
+        ?>
 
         <!-- Profile -->
         <?php require_once('../layouts/informe.php'); ?>
