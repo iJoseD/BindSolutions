@@ -44,7 +44,7 @@ $('#btn-crearUsuario').click(function() {
 $('#crearUsuario-Rol').change(function() {
 	var rol = $(this).val();
 
-	if ( rol == 2 || rol == 3 ) {
+	if ( rol == 2 || rol == 3 || rol == 4 ) {
         $('.asignarEvento').removeClass('hide');
     } else {
         $('.asignarEvento').addClass('hide');
@@ -96,7 +96,7 @@ editarUsuario.addEventListener('show.bs.modal', function (event) {
     inputIDEvento.value     = idEvento
     inputIDPuntoVenta.value = idPuntoVenta
 
-    if ( rol == 2 || rol == 3 ) {
+    if ( rol == 2 || rol == 3 || rol == 4 ) {
         var evento = $('#editarUsuario-SelectEvento').val();
 
         $.ajax({
@@ -164,7 +164,7 @@ $('#btn-editarUsuario').click(function() {
 $('#editarUsuario-Rol').change(function() {
 	var rol = $(this).val();
 
-	if ( rol == 2 || rol == 3 ) {
+	if ( rol == 2 || rol == 3 || rol == 4 ) {
         $('#editarUsuario .asignarEvento').removeClass('hide');
     } else {
         $('#editarUsuario .asignarEvento').addClass('hide');
@@ -257,7 +257,7 @@ activarUsuario.addEventListener('show.bs.modal', function (event) {
     inputIDEvento.value     = idEvento
     inputIDPuntoVenta.value = idPuntoVenta
 
-    if ( rol == 2 || rol == 3 ) {
+    if ( rol == 2 || rol == 3 || rol == 4 ) {
         var evento = $('#activarUsuario-SelectEvento').val();
 
         $.ajax({
@@ -325,7 +325,7 @@ $('#btn-activarUsuario').click(function() {
 $('#activarUsuario-Rol').change(function() {
 	var rol = $(this).val();
 
-	if ( rol == 2 || rol == 3 ) {
+	if ( rol == 2 || rol == 3 || rol == 4 ) {
         $('#activarUsuario .asignarEvento').removeClass('hide');
     } else {
         $('#activarUsuario .asignarEvento').addClass('hide');
