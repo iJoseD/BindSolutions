@@ -1,14 +1,29 @@
 <header class="container-fluid bg-dark p-3">
     <div class="container">
         <div class="row">
-            <div class="col-xl-6 col-md-3 col-12">
-                <a href="/" class="text-decoration-none text-center d-xl-none d-md-none d-block"><img src="/dist/img/logoBind.png" width="35%" alt="Logotipo"></a>
+            <div class="col-xl-6 col-md-3 col-8">
+                <a href="/" class="text-decoration-none d-xl-none d-md-none d-block"><img src="/dist/img/logoBind.png" width="50%" alt="Logotipo"></a>
                 <a href="/" class="text-decoration-none d-xl-none d-md-block d-none"><img src="/dist/img/logoBind.png" width="80%" alt="Logotipo"></a>
                 <a href="/" class="text-decoration-none d-xl-block d-md-none d-none"><img src="/dist/img/logoBind.png" width="20%" alt="Logotipo"></a>
             </div>
 
             <!-- Mobile -->
-            <div class="col-12 mt-3 d-xl-none d-md-none d-block">
+            <div class="col-4 mt-3 d-xl-none d-md-none d-block">
+                <div class="btn-group">
+                    <button type="button" class="btn text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-menu-button" viewBox="0 0 16 16">
+                            <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h8A1.5 1.5 0 0 1 11 1.5v2A1.5 1.5 0 0 1 9.5 5h-8A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-8z"/>
+                            <path d="m7.823 2.823-.396-.396A.25.25 0 0 1 7.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
                 <ul class="col-lg-auto nav text-small justify-content-center">
                     <li>
                         <a href="/" class="nav-link text-white text-center d-flex">
