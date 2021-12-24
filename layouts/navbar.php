@@ -1,14 +1,14 @@
 <header class="container-fluid bg-dark p-3">
     <div class="container">
         <div class="row">
-            <div class="col-xl-6 col-md-3 col-8">
+            <div class="col-xl-6 col-md-3 col-9">
                 <a href="/" class="text-decoration-none d-xl-none d-md-none d-block"><img src="/dist/img/logoBind.png" width="50%" alt="Logotipo"></a>
                 <a href="/" class="text-decoration-none d-xl-none d-md-block d-none"><img src="/dist/img/logoBind.png" width="80%" alt="Logotipo"></a>
                 <a href="/" class="text-decoration-none d-xl-block d-md-none d-none"><img src="/dist/img/logoBind.png" width="20%" alt="Logotipo"></a>
             </div>
 
             <!-- Mobile -->
-            <div class="col-4 mt-3 d-xl-none d-md-none d-block">
+            <div class="col-3 mt-3 d-xl-none d-md-none d-block">
                 <div class="btn-group">
                     <button type="button" class="btn text-white" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-menu-button" viewBox="0 0 16 16">
