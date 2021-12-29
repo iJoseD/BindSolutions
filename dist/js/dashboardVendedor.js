@@ -37,7 +37,7 @@ $('.ventaCortesia').click(function() {
     }
 
     $('.cortesia').addClass('hide');
-    $('.formulario').removeClassaddClass('hide');
+    $('.formulario').removeClass('hide');
 });
 
 // Crear pre-orden
