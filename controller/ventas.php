@@ -75,7 +75,7 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'totalFactura' ) {
-    $sql = "INSERT INTO totalFactura (codeFac, total) VALUES ('$codeFac', '$totalFactura')";
+    $sql = "INSERT INTO totalFactura (codeFac, tipoVenta, total) VALUES ('$codeFac', '$tipoVenta', '$totalFactura')";
 
     if ($conn->query($sql) === TRUE) {
         echo 'totalFactura_created';
@@ -96,7 +96,7 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_Update'; } else { echo 'totalFacturaPV_not_Update'; }
         }
     } else {
-        $sql = "INSERT INTO totalFacturaPV (idEvento, idPuntoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$totalFactura')";
+        $sql = "INSERT INTO totalFacturaPV (idEvento, idPuntoVenta, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$tipoVenta', '$totalFactura')";
         if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_created'; } else { echo 'totalFacturaPV_not_created'; }
     }
 
@@ -113,7 +113,7 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_Update'; } else { echo 'totalFacturaUsers_not_Update'; }
         }
     } else {
-        $sql = "INSERT INTO totalFacturaUsers (idEvento, idPuntoVenta, idUsuario, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesero', '$totalFactura')";
+        $sql = "INSERT INTO totalFacturaUsers (idEvento, idPuntoVenta, idUsuario, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesero', '$tipoVenta', '$totalFactura')";
         if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_created'; } else { echo 'totalFacturaUsers_not_created'; }
     }
 
@@ -130,7 +130,7 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_Update'; } else { echo 'totalFacturaMesa_not_Update'; }
         }
     } else {
-        $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$totalFactura')";
+        $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$tipoVenta', '$totalFactura')";
         if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_created'; } else { echo 'totalFacturaMesa_not_created'; }
     }
 

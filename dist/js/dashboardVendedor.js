@@ -116,6 +116,7 @@ $('#btn-nuevaVenta').click(function() {
     var idEvento     = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac      = $('#nuevaVenta-codeFac').val();
+    var tipoVenta    = $('#nuevaVenta-ventaCortesia').val();
     var mesa         = $('#nuevaVenta-Mesa').val();
     var mesero       = $('#nuevaVenta-Mesero').val();
 
@@ -137,6 +138,7 @@ $('#btn-nuevaVenta').click(function() {
                 data: {
                     caso         : 'totalFactura',
                     codeFac      : codeFac,
+                    tipoVenta    : tipoVenta,
                     totalFactura : totalFactura
                 },
                 success: function(response) {
@@ -152,6 +154,7 @@ $('#btn-nuevaVenta').click(function() {
                                 caso         : 'totalFacturaPV',
                                 idEvento     : idEvento,
                                 idPuntoVenta : idPuntoVenta,
+                                tipoVenta    : tipoVenta,
                                 totalFactura : totalFactura
                             },
                             success: function(response) {
@@ -168,6 +171,7 @@ $('#btn-nuevaVenta').click(function() {
                                             idEvento     : idEvento,
                                             idPuntoVenta : idPuntoVenta,
                                             mesero       : mesero,
+                                            tipoVenta    : tipoVenta,
                                             totalFactura : totalFactura
                                         },
                                         success: function(response) {
@@ -186,6 +190,7 @@ $('#btn-nuevaVenta').click(function() {
                                                         idEvento     : idEvento,
                                                         idPuntoVenta : idPuntoVenta,
                                                         mesa         : mesa,
+                                                        tipoVenta    : tipoVenta,
                                                         totalFactura : totalFactura
                                                     },
                                                     success: function(response) {
