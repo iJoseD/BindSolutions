@@ -180,10 +180,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="cortesia">
+                <div class="cortesia mb-5 mt-5">
                     <div class="row">
                         <div class="col-12">
-                            <h4>¿Esta es una venta de cortesia?</h4>
+                            <h4 class="text-center">¿Esta es una venta de cortesia?</h4>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -317,7 +317,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-nuevaVenta" class="btn btn-primary">Finalizar pedido</button>
+                <button type="button" id="btn-nuevaVenta" class="btn btn-primary" disabled>Finalizar pedido</button>
             </div>
         </div>
     </div>
