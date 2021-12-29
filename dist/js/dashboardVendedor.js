@@ -36,8 +36,8 @@ $('.ventaCortesia').click(function() {
         $('#nuevaVenta-ventaCortesia').val('Legal');
     }
 
-    $('.cortesia').removeClass('hide');
-    $('.formulario').addClass('hide');
+    $('.cortesia').addClass('hide');
+    $('.formulario').removeClassaddClass('hide');
 });
 
 // Crear pre-orden
