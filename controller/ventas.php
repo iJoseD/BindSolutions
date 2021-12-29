@@ -20,11 +20,12 @@ $mesero       = $_POST['mesero'];
 $idProducto   = $_POST['idProducto'];
 $cantidad     = $_POST['cantidad'];
 $status       = $_POST['status'];
+$tipoVenta    = $_POST['tipoVenta'];
 $totalFactura = $_POST['totalFactura'];
 $date         = date('Y-m-d H:m:s');
 
 if ( $caso == 'nuevaVenta' ) {
-    $sql = "INSERT INTO ventas (idUser, idEvento, idPuntoVenta, codeFac, mesa, mesero, idProducto, cantidad, status, date) VALUES ('$idUser', '$idEvento', '$idPuntoVenta', '$codeFac', '$mesa', '$mesero', '$idProducto', '$cantidad', '$status', '$date')";
+    $sql = "INSERT INTO ventas (idUser, idEvento, idPuntoVenta, codeFac, mesa, mesero, idProducto, cantidad, status, tipoVenta, date) VALUES ('$idUser', '$idEvento', '$idPuntoVenta', '$codeFac', '$mesa', '$mesero', '$idProducto', '$cantidad', '$status', '$tipoVenta', '$date')";
 
     if ($conn->query($sql) === TRUE) {
         $sql = "SELECT p.nombre, p.precioPublico, v.cantidad

@@ -62,6 +62,7 @@ $('#addCart').click(function() {
     var idEvento      = $('#nuevaVenta-idEvento').val();
     var idPuntoVenta  = $('#nuevaVenta-idPuntoVenta').val();
     var codeFac       = $('#nuevaVenta-codeFac').val();
+    var tipoVenta     = $('#nuevaVenta-ventaCortesia').val();
     var mesa          = $('#nuevaVenta-Mesa').val();
     var mesero        = $('#nuevaVenta-Mesero').val();
     var idProducto    = $('#nuevaVenta-idProducto').val();
@@ -80,6 +81,7 @@ $('#addCart').click(function() {
                 idEvento     : idEvento,
                 idPuntoVenta : idPuntoVenta,
                 codeFac      : codeFac,
+                tipoVenta    : tipoVenta,
                 mesa         : mesa,
                 mesero       : mesero,
                 idProducto   : idProducto,
