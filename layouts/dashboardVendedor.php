@@ -188,10 +188,10 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-6 d-grid">
-                            <button type="button" class="btn btn-lg btn-secondary fw-bold text-uppercase ventaCortesia" data-bs-cortesia="Si">SI</button>
+                            <button type="button" class="btn btn-lg btn-secondary fw-bold text-uppercase ventaCortesia" data-cortesia="Si">SI</button>
                         </div>
                         <div class="col-6 d-grid">
-                            <button type="button" class="btn btn-lg btn-success fw-bold text-uppercase ventaCortesia" data-bs-cortesia="No">NO</button>
+                            <button type="button" class="btn btn-lg btn-success fw-bold text-uppercase ventaCortesia" data-cortesia="No">NO</button>
                         </div>
                     </div>
                 </div>
@@ -202,21 +202,25 @@
                 </div>
                 <div class="formulario hide">
                     <div class="row hide">
-                        <div class="col-3">
+                        <div class="col-6">
                             <label class="form-label">idUser</label>
                             <input type="text" name="nuevaVenta-idUser" id="nuevaVenta-idUser" class="form-control" readonly>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label class="form-label">idEvento</label>
                             <input type="text" name="nuevaVenta-idEvento" id="nuevaVenta-idEvento" class="form-control" readonly>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label class="form-label">idPuntoVenta</label>
                             <input type="text" name="nuevaVenta-idPuntoVenta" id="nuevaVenta-idPuntoVenta" class="form-control" readonly>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label class="form-label">codeFac</label>
                             <input type="text" name="nuevaVenta-codeFac" id="nuevaVenta-codeFac" class="form-control" value="<?php echo $codeFac; ?>" readonly>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">ventaCortesia</label>
+                            <input type="text" name="nuevaVenta-ventaCortesia" id="nuevaVenta-ventaCortesia" class="form-control"readonly>
                         </div>
                     </div>
                     <div class="row">

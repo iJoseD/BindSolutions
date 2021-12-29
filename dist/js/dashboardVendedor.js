@@ -26,6 +26,20 @@ $('#nuevaVenta-idProducto').change(function() {
     });
 });
 
+// Venta de cortesia
+$('.ventaCortesia').click(function() {
+    var ventaCortesia = $(this).attr('data-cortesia');
+
+    if ( ventaCortesia == 'Si' ) {
+        $('#nuevaVenta-ventaCortesia').val('Cortesia');
+    } else {
+        $('#nuevaVenta-ventaCortesia').val('Legal');
+    }
+
+    $('.cortesia').removeClass('hide');
+    $('.formulario').addClass('hide');
+});
+
 // Crear pre-orden
 var nuevaVenta = document.getElementById('nuevaVenta')
 nuevaVenta.addEventListener('show.bs.modal', function (event) {
