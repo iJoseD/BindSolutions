@@ -177,7 +177,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="nuevaVentaLabel">Nueva venta</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="cortesia mb-5 mt-5">
@@ -320,7 +319,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary cerrarModal" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" id="btn-nuevaVenta" class="btn btn-primary" disabled>Finalizar pedido</button>
             </div>
         </div>

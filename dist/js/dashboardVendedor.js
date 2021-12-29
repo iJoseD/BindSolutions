@@ -97,6 +97,7 @@ $('#addCart').click(function() {
                     $('#nuevaVenta-cantidad').val('');
 
                     $('#btn-nuevaVenta').removeAttr('disabled');
+                    $('#nuevaVenta .cerrarModal').addClass('hide');
                 }
             },
             error: function() {
