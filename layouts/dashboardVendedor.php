@@ -180,12 +180,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="cortesia">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>¿Esta es una venta de cortesia?</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6 d-grid">
+                            <button type="button" class="btn btn-lg btn-secondary fw-bold text-uppercase ventaCortesia" data-bs-cortesia="Si">SI</button>
+                        </div>
+                        <div class="col-6 d-grid">
+                            <button type="button" class="btn btn-lg btn-success fw-bold text-uppercase ventaCortesia" data-bs-cortesia="No">NO</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="mb-2 mt-2 row alertaCantidad hide">
                     <div class="col-12 text-center">
                         <p class="badge bg-danger text-uppercase text-white">¡No tienes tantas unidades disponibles!</p>
                     </div>
                 </div>
-                <div class="formulario">
+                <div class="formulario hide">
                     <div class="row hide">
                         <div class="col-3">
                             <label class="form-label">idUser</label>
