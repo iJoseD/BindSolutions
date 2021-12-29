@@ -202,15 +202,15 @@
                 </div>
                 <div class="formulario hide">
                     <div class="row hide">
-                        <div class="col-6">
+                        <div class="col-4">
                             <label class="form-label">idUser</label>
                             <input type="text" name="nuevaVenta-idUser" id="nuevaVenta-idUser" class="form-control" readonly>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <label class="form-label">idEvento</label>
                             <input type="text" name="nuevaVenta-idEvento" id="nuevaVenta-idEvento" class="form-control" readonly>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <label class="form-label">idPuntoVenta</label>
                             <input type="text" name="nuevaVenta-idPuntoVenta" id="nuevaVenta-idPuntoVenta" class="form-control" readonly>
                         </div>
@@ -218,7 +218,7 @@
                             <label class="form-label">codeFac</label>
                             <input type="text" name="nuevaVenta-codeFac" id="nuevaVenta-codeFac" class="form-control" value="<?php echo $codeFac; ?>" readonly>
                         </div>
-                        <div class="col-12">
+                        <div class="col-6">
                             <label class="form-label">ventaCortesia</label>
                             <input type="text" name="nuevaVenta-ventaCortesia" id="nuevaVenta-ventaCortesia" class="form-control"readonly>
                         </div>
