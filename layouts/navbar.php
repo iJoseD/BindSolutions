@@ -7,7 +7,6 @@
     if ( $_SERVER['REQUEST_URI'] == '/' ) { $classDashboard = 'menu-active'; } else { $classDashboard = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { $classProductos = 'menu-active'; } else { $classProductos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/eventos/' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
-    if ( $porciones[0] == 'evento' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
 
     echo $porciones[0];
