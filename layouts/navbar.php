@@ -1,3 +1,14 @@
+<?php
+
+    if ( $_SERVER['REQUEST_URI'] == '/' ) { $classDashboard = 'menu-active'; } else { $classDashboard = 'item-menu'; }
+    if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { $classProductos = 'menu-active'; } else { $classProductos = 'item-menu'; }
+    if ( $_SERVER['REQUEST_URI'] == '/eventos/' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
+    if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
+    
+    $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
+    if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
+?>
+
 <header class="container-fluid bg-dark p-3">
     <div class="container">
         <div class="row">
@@ -69,7 +80,7 @@
             <!-- Tablet -->
             <div class="col-md-9 d-xl-none d-md-block d-none">
                 <ul class="col-lg-auto nav text-small justify-content-end">
-                    <li>
+                    <li class="<?php echo $classDashboard; ?>">
                         <a href="/" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
@@ -78,7 +89,7 @@
                             <span class="mt-1" style="font-size: small;">Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classProductos; ?>">
                         <a href="/productos" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
                                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
@@ -86,7 +97,7 @@
                             <span class="mt-1" style="font-size: small;">Productos</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classEventos; ?>">
                         <a href="/eventos" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
                                 <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"></path>
@@ -95,7 +106,7 @@
                             <span class="mt-1" style="font-size: small;">Eventos</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classUsuarios; ?>">
                         <a href="/usuarios" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -119,7 +130,7 @@
             <!-- Desktop -->
             <div class="col-xl-6 d-xl-block d-md-none d-none">
                 <ul class="col-lg-auto nav text-small justify-content-end">
-                    <li>
+                    <li class="<?php echo $classDashboard; ?>">
                         <a href="/" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
@@ -128,7 +139,7 @@
                             <span class="mt-1">Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classProductos; ?>">
                         <a href="/productos" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
                                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
@@ -136,7 +147,7 @@
                             <span class="mt-1">Productos</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classEventos; ?>">
                         <a href="/eventos" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
                                 <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"></path>
@@ -145,7 +156,7 @@
                             <span class="mt-1">Eventos</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?php echo $classUsuarios; ?>">
                         <a href="/usuarios" class="nav-link text-white text-center d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

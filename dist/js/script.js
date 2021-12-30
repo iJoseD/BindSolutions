@@ -38,11 +38,7 @@ $('#btn-iniciarSesion').click(function() {
 $(document).ready(function () {
     $('.DataTable').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
-        responsive: true,
-        dom: 'PBfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        responsive: true
     });
 
     // Productos
@@ -51,7 +47,7 @@ $(document).ready(function () {
         responsive: true,
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'csv', 'excel', 'pdf', 'print'
         ]
     });
     

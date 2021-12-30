@@ -35,6 +35,11 @@
   object-fit: cover;
 }
 
+.menu-active {
+  background-color: #fe1000;
+  border-radius: 0.6em;
+}
+
 /* Desktop */
 @media only screen and (min-width: 768px) {
   .bgHeaderEvento {
