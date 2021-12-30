@@ -12,7 +12,7 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-12">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearProducto">Añadir nuevo producto</button>
+            <button type="button" class="btn bg-bind-1 fw-bold text-uppercase text-white" data-bs-toggle="modal" data-bs-target="#crearProducto">Añadir nuevo producto</button>
         </div>
     </div>
 

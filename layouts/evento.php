@@ -51,10 +51,10 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
+            <button type="button" class="btn bg-bind-1 fw-bold text-uppercase text-white agregarInventario" data-bs-toggle="modal" data-bs-target="#agregarInventario" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Asignar inventario</button>
         </div>
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Crear zona</button>
+            <button type="button" class="btn bg-bind-1 fw-bold text-uppercase text-white agregarPuntoVenta" data-bs-toggle="modal" data-bs-target="#agregarPuntoVenta" data-bs-id="<?php echo $id; ?>" data-bs-nombre="<?php echo $nombre; ?>">Crear zona</button>
         </div>
     </div>
 
@@ -261,7 +261,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="agregarInventarioLabel">Agregar inventario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="formulario">
@@ -316,8 +315,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarInventario" class="btn btn-primary">Confirmar Inventario</button>
+                <button type="button" class="btn btn-secondary cerrarModal" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-agregarInventario" class="btn btn-primary" disabled>Confirmar Inventario</button>
             </div>
         </div>
     </div>

@@ -36,6 +36,9 @@ $('#addBodega').click(function() {
             } else {
                 $('.productosAgregados').html( response );
                 $('#agregarInventario-Cantidad').val('');
+
+                $('#btn-agregarInventario').removeAttr('disabled');
+                $('#nuevaVenta .cerrarModal').addClass('hide');
             }
         },
         error: function() {
