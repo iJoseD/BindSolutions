@@ -1,12 +1,13 @@
 <?php
-    $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
+    // $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
+
+    $pizza = $_SERVER['REQUEST_URI'];
+    $porciones = explode("/", $pizza);
     
     if ( $_SERVER['REQUEST_URI'] == '/' ) { $classDashboard = 'menu-active'; } else { $classDashboard = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { $classProductos = 'menu-active'; } else { $classProductos = 'item-menu'; }
-    if ( $_SERVER['REQUEST_URI'] == '/eventos/' || $URL === true ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
+    if ( $_SERVER['REQUEST_URI'] == '/eventos/' || $porciones[0] == 'evento' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
-
-    echo $_SERVER['REQUEST_URI'];
     
     // $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
     // if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
