@@ -9,6 +9,8 @@
     if ( $_SERVER['REQUEST_URI'] == '/eventos/' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $porciones[0] == 'evento' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
+
+    echo $porciones[0];
     
     // $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
     // if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
