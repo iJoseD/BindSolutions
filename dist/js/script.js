@@ -39,6 +39,7 @@ $(document).ready(function () {
     $('.DataTable').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
+        dom: 'PBfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
