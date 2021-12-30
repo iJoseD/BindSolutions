@@ -1,5 +1,5 @@
 <?php session_start(); $rol = $_SESSION['rol'];
-    
+
     $codigoEvento = $_GET['codigoEvento'];
 
     // MySQLi
@@ -248,26 +248,31 @@
     </div>
 
     <div class="row mt-5">
+        <div class="col-12 mt-3 mb-5">
+            <h3 class="text-uppercase fw-bold text-decoration-underline">Ventas por Zona</h3>
+        </div>
+
         <div class="col-xl-6 col-md-6 col-12">
-            <h3 class="mt-3 mb-5 text-uppercase fw-bold text-decoration-underline">Ventas por Zona</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
+                        <th>Tipo de Venta</th>
                         <th>Zona</th>
                         <th>Total vendido</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT pv.nombre, tfpv.total
+                        $sql = "SELECT pv.nombre, tfpv.total, tfpv.tipoVenta
                         FROM totalFacturaPV tfpv
                         JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
-                        WHERE tfpv.idEvento = '$id'";
+                        WHERE tfpv.idEvento = '$id' AND tfu.tipoVenta = 'Legal'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
+                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                 $html .= '</tr>';
@@ -281,28 +286,28 @@
         </div>
 
         <div class="col-xl-6 col-md-6 col-12">
-            <h3 class="mt-3 mb-5 text-uppercase fw-bold text-decoration-underline">Productos vendidos</h3>
             <table class="DataTable display responsive nowrap">
                 <thead>
                     <tr>
+                        <th>Tipo de Venta</th>
                         <th>Zona</th>
                         <th>Total vendido</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
-                        FROM ventas v
-                        JOIN productos p ON v.idProducto = p.id
-                        WHERE v.idEvento = '$id'
-                        GROUP BY v.idProducto";
+                        $sql = "SELECT pv.nombre, tfpv.total, tfpv.tipoVenta
+                        FROM totalFacturaPV tfpv
+                        JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
+                        WHERE tfpv.idEvento = '$id' AND tfu.tipoVenta = 'Cortesia'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
+                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
-                                    $html .= '<th>'. $row['cantidad'] .'</th>';
+                                    $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                 $html .= '</tr>';
 
                                 echo $html;
@@ -313,7 +318,7 @@
             </table>
         </div>
     </div>
-    
+
     <div class="row mt-5">
         <div class="col-xl-6 col-md-6 col-12">
             <h3 class="mt-3 mb-5 text-uppercase fw-bold text-decoration-underline">Ventas por Mesa</h3>
