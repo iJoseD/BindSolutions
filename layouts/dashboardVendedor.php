@@ -58,7 +58,7 @@
 <section class="container mb-5">
     <div class="row mt-5">
         <div class="col-xl-3 col-md-6 col-6 d-grid">
-            <button type="button" class="btn btn-primary nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-bs-idEvento="<?php echo $idEvento; ?>" data-bs-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-bs-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
+            <button type="button" class="btn bg-bind-1 fw-bold text-uppercase text-white nuevaVenta" data-bs-toggle="modal" data-bs-target="#nuevaVenta" data-bs-idEvento="<?php echo $idEvento; ?>" data-bs-idPuntoVenta="<?php echo $idPuntoVenta; ?>" data-bs-idUser="<?php echo $idUser; ?>">Generar nueva venta</button>
         </div>
     </div>
 
