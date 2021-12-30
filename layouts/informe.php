@@ -62,7 +62,7 @@
                         $sql = "SELECT tf.codeFac, tf.total
                         FROM ventas v
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
-                        WHERE v.idEvento = '$id'
+                        WHERE v.idEvento = '$id' AND v.tipoVenta = 'Legal'
                         GROUP BY v.codeFac";
                         $result = $conn->query($sql);
 
@@ -88,7 +88,7 @@
                         $sql = "SELECT pv.nombre, tfpv.total
                         FROM totalFacturaPV tfpv
                         JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
-                        WHERE tfpv.idEvento = '$id'
+                        WHERE tfpv.idEvento = '$id' AND tfpv.tipoVenta = 'Legal'
                         ORDER BY total DESC
                         LIMIT 1";
                         $result = $conn->query($sql);
@@ -113,7 +113,7 @@
                         $sql = "SELECT p.nombre, SUM(v.cantidad) AS 'cantidad'
                         FROM ventas v
                         JOIN productos p ON v.idProducto = p.id
-                        WHERE v.idEvento = '$id'
+                        WHERE v.idEvento = '$id' AND v.tipoVenta = 'Legal'
                         GROUP BY v.idProducto
                         ORDER BY cantidad DESC
                         LIMIT 1";
@@ -142,7 +142,7 @@
                         $sql = "SELECT tfm.mesa, pv.nombre, tfm.total
                         FROM totalFacturaMesa tfm
                         JOIN puntoVenta pv ON tfm.idPuntoVenta = pv.id
-                        WHERE tfm.idEvento = '$id'
+                        WHERE tfm.idEvento = '$id' AND tfm.tipoVenta = 'Legal'
                         ORDER BY tfm.total DESC
                         LIMIT 1";
                         $result = $conn->query($sql);
@@ -172,7 +172,7 @@
                         FROM totalFacturaUsers tfu
                         JOIN usuarios u ON tfu.idUsuario = u.id
                         JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
-                        WHERE tfu.idEvento = '$id'
+                        WHERE tfu.idEvento = '$id' AND tfu.tipoVenta = 'Legal'
                         ORDER BY tfu.total DESC
                         LIMIT 1";
                         $result = $conn->query($sql);
