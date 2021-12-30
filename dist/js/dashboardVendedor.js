@@ -69,7 +69,7 @@ $('#addCart').click(function() {
     var cantidad      = $('#nuevaVenta-cantidad').val();
     var cantidadTotal = $('#nuevaVenta-idProducto option:selected').attr('data-cantidad');
 
-    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+    if ( parseInt( cantidadTotal ) >= parseInt( cantidad ) ) {
         $('.alertaCantidad').addClass('hide');
 
         $.ajax({

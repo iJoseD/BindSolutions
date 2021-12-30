@@ -425,7 +425,7 @@ $('#addSubBodega').click(function() {
     var cantidad      = $('#agregarSubInventario-Cantidad').val();
     var cantidadTotal = $('#agregarSubInventario .infoCantidades > div > p > span').html();
 
-    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+    if ( parseInt( cantidadTotal ) >= parseInt( cantidad ) ) {
         $('#agregarSubInventario .alertaCantidad').addClass('hide');
 
         $.ajax({
@@ -534,7 +534,7 @@ $('#btn-editarSubInventario').click(function() {
     var cantidad      = $('#editarSubInventario-Cantidad').val();
     var cantidadTotal = $('#editarSubInventario .infoCantidades > div > p > span').html();
 
-    if ( parseInt( cantidadTotal ) > parseInt( cantidad ) ) {
+    if ( parseInt( cantidadTotal ) >= parseInt( cantidad ) ) {
         $('#editarSubInventario .alertaCantidad').addClass('hide');
 
         $.ajax({
