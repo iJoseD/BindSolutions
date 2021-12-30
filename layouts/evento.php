@@ -88,7 +88,7 @@
                             $ganancia = str_replace( '.', '', $row['precioPublico'] ) - str_replace( '.', '', $row['costo'] );
                             $ganancia = $ganancia * $row['cantidad'];
 
-                            $sql2 = "SELECT SUM(cantidad) AS 'cantidad' FROM inventarioPuntoVenta WHERE idEvento = '$id' AND idProducto = '$idProducto'";
+                            $sql2 = "SELECT IFNULL(SUM(cantidad), '0') AS 'cantidad' FROM inventarioPuntoVenta WHERE idEvento = '$id' AND idProducto = '$idProducto'";
                             $result2 = $conn->query($sql2);
 
                             if ($result2->num_rows > 0) {
