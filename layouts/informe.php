@@ -272,7 +272,7 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
-                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
+                                    $html .= '<th class="text-uppercase fw-bold">'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                 $html .= '</tr>';
@@ -305,7 +305,7 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
-                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
+                                    $html .= '<th class="text-uppercase fw-bold">'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['nombre'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
                                 $html .= '</tr>';
