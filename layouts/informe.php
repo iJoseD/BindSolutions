@@ -199,9 +199,9 @@
             <table id="informes-table1" class="display responsive nowrap">
                 <thead>
                     <tr>
+                        <th>Tipo de Venta</th>
                         <th>Zona</th>
                         <th>Factura</th>
-                        <th>Tipo de Venta</th>
                         <th>Mesa</th>
                         <th>Mesero</th>
                         <th>Total vendido</th>
@@ -222,9 +222,9 @@
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $html = '<tr>';
+                                    $html .= '<th class="text-uppercase fw-bold">'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['puntoVenta'] .'</th>';
                                     $html .= '<th>'. $row['codeFac'] .'</th>';
-                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['mesa'] .'</th>';
                                     $html .= '<th>'. $row['mesero'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
@@ -394,12 +394,12 @@
             </table>
         </div>
     </div>
-    
+
     <div class="row mt-5">
         <div class="col-12 mt-3 mb-5">
             <h3 class="text-uppercase fw-bold text-decoration-underline fc-bind-1">Ventas por Mesero</h3>
         </div>
-        
+
         <div class="col-xl-6 col-md-6 col-12">
             <table class="DataTable display responsive nowrap">
                 <thead>
@@ -412,11 +412,11 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT pv.nombre, u.fullName, tfu.total, tfm.tipoVenta
+                        $sql = "SELECT pv.nombre, u.fullName, tfu.total, tfu.tipoVenta
                         FROM totalFacturaUsers tfu
                         JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
                         JOIN usuarios u ON tfu.idUsuario = u.id
-                        WHERE tfu.idEvento = '$id' AND tfm.tipoVenta = 'Legal'";
+                        WHERE tfu.idEvento = '$id' AND tfu.tipoVenta = 'Legal'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -448,11 +448,11 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT pv.nombre, u.fullName, tfu.total, tfm.tipoVenta
+                        $sql = "SELECT pv.nombre, u.fullName, tfu.total, tfu.tipoVenta
                         FROM totalFacturaUsers tfu
                         JOIN puntoVenta pv ON tfu.idPuntoVenta = pv.id
                         JOIN usuarios u ON tfu.idUsuario = u.id
-                        WHERE tfu.idEvento = '$id' AND tfm.tipoVenta = 'Cortesia'";
+                        WHERE tfu.idEvento = '$id' AND tfu.tipoVenta = 'Cortesia'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
