@@ -226,7 +226,7 @@
                             if ( $cantidadTotal == 0 ) { $class = 'bg-danger text-white'; } else { $class = ''; }
 
                             $html = '<tr class="'. $class .'">';
-                                $html .= '<th>'. $row['nombrePV'] .'</th>';
+                                $html .= '<th> class="text-uppercase fw-bold"'. $row['nombrePV'] .'</th>';
                                 $html .= '<th><img src="'. $row['imagen'] .'" alt="'. $row['nombre'] .'" class="imgProducto"></th>';
                                 $html .= '<th>'. $row['nombre'] .'</th>';
                                 $html .= '<th>'. $cantidadTotal .'</th>';
