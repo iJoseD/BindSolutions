@@ -38,7 +38,10 @@ $('#btn-iniciarSesion').click(function() {
 $(document).ready(function () {
     $('.DataTable').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
-        responsive: true
+        responsive: true,
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
     
     // Evento
@@ -65,6 +68,9 @@ $(document).ready(function () {
                 targets: [1, 3, 4]
             }
         ],
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
 
     // Usuarios
@@ -91,6 +97,9 @@ $(document).ready(function () {
                 targets: [0, 4, 5]
             }
         ],
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
 
     // Eventos - Informes
@@ -117,6 +126,9 @@ $(document).ready(function () {
                 targets: [5, 6]
             }
         ],
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
 
     $( ".datepicker" ).datepicker();
