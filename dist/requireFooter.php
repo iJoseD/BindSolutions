@@ -1,5 +1,13 @@
 <?php session_start(); $rol = $_SESSION['rol']; ?>
 
+<footer>
+    <div class="row">
+        <div class="col-12">
+            © <?php echo date('Y'); ?> Bind Solutions. Todos los derechos reservados. Desarrollado por <a href="https://caribecreativo.co/" target="_blank" rel="noopener noreferrer">caribecreativo.co</a>
+        </div>
+    </div>
+</footer>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
