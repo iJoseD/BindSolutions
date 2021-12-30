@@ -1,7 +1,7 @@
 .hide { display: none !important; }
 
 #login {
-  background-image: url(/dist/img/bgLogin.jpg);
+  background-image: url(/dist/img/fondoLogin.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
