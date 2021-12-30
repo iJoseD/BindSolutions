@@ -266,7 +266,7 @@
                         $sql = "SELECT pv.nombre, tfpv.total, tfpv.tipoVenta
                         FROM totalFacturaPV tfpv
                         JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
-                        WHERE tfpv.idEvento = '$id' AND tfu.tipoVenta = 'Legal'";
+                        WHERE tfpv.idEvento = '$id' AND tfpv.tipoVenta = 'Legal'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -299,7 +299,7 @@
                         $sql = "SELECT pv.nombre, tfpv.total, tfpv.tipoVenta
                         FROM totalFacturaPV tfpv
                         JOIN puntoVenta pv ON tfpv.idPuntoVenta = pv.id
-                        WHERE tfpv.idEvento = '$id' AND tfu.tipoVenta = 'Cortesia'";
+                        WHERE tfpv.idEvento = '$id' AND tfpv.tipoVenta = 'Cortesia'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
