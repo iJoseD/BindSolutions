@@ -86,13 +86,13 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'totalFacturaPV' ) {
-    $sql = "SELECT * FROM totalFacturaPV WHERE idPuntoVenta = '$idPuntoVenta'";
+    $sql = "SELECT * FROM totalFacturaPV WHERE idPuntoVenta = '$idPuntoVenta' AND tipoVenta = '$tipoVenta'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $totalFactura = $totalFactura + $row["total"];
-            $sql = "UPDATE totalFacturaPV SET total = '$totalFactura' WHERE idPuntoVenta = '$idPuntoVenta'";
+            $sql = "UPDATE totalFacturaPV SET total = '$totalFactura' WHERE idPuntoVenta = '$idPuntoVenta' AND tipoVenta = '$tipoVenta'";
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaPV_Update'; } else { echo 'totalFacturaPV_not_Update'; }
         }
     } else {
@@ -103,13 +103,13 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'totalFacturaUsers' ) {
-    $sql = "SELECT * FROM totalFacturaUsers WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero'";
+    $sql = "SELECT * FROM totalFacturaUsers WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero' AND tipoVenta = '$tipoVenta'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $totalFactura = $totalFactura + $row["total"];
-            $sql = "UPDATE totalFacturaUsers SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero'";
+            $sql = "UPDATE totalFacturaUsers SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND idUsuario = '$mesero' AND tipoVenta = '$tipoVenta'";
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaUsers_Update'; } else { echo 'totalFacturaUsers_not_Update'; }
         }
     } else {
@@ -120,13 +120,13 @@ if ( $caso == 'nuevaVenta' ) {
     $conn->close();
 
 } elseif ( $caso == 'totalFacturaMesa' ) {
-    $sql = "SELECT * FROM totalFacturaMesa WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa'";
+    $sql = "SELECT * FROM totalFacturaMesa WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa' AND tipoVenta = '$tipoVenta'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $totalFactura = $totalFactura + $row["total"];
-            $sql = "UPDATE totalFacturaMesa SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa'";
+            $sql = "UPDATE totalFacturaMesa SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa' AND tipoVenta = '$tipoVenta'";
             if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_Update'; } else { echo 'totalFacturaMesa_not_Update'; }
         }
     } else {
