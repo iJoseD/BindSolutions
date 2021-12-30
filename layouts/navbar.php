@@ -5,8 +5,8 @@
     if ( $_SERVER['REQUEST_URI'] == '/eventos/' ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
     
-    $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
-    if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
+    // $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
+    // if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
 ?>
 
 <header class="container-fluid bg-dark p-3">
