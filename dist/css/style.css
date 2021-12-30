@@ -13,6 +13,10 @@
   border-radius: 2em;
 }
 
+.bg-bind-1 {
+  background-color: #fe1000;
+}
+
 .imgProducto {
   width: 100px;
   height: 100px;

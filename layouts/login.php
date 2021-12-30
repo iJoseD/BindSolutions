@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="d-grid mt-5">
-                <button type="button" id="btn-iniciarSesion" class="btn btn-primary">Iniciar Sesión</button>
+                <button type="button" id="btn-iniciarSesion" class="btn text-white text-uppercase fw-bold bg-bind-1">Iniciar Sesión</button>
             </div>
         </div>
         <div class="col-xl-3 col-md-2 col-1"></div>
