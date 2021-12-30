@@ -5,6 +5,8 @@
     if ( $_SERVER['REQUEST_URI'] == '/productos/' ) { $classProductos = 'menu-active'; } else { $classProductos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/eventos/' || $URL === true ) { $classEventos = 'menu-active'; } else { $classEventos = 'item-menu'; }
     if ( $_SERVER['REQUEST_URI'] == '/usuarios/' ) { $classUsuarios = 'menu-active'; } else { $classUsuarios = 'item-menu'; }
+
+    echo $_SERVER['REQUEST_URI'];
     
     // $URL = strpos( $_SERVER['REQUEST_URI'], 'codigoEvento' );
     // if ( $URL === false ) { $classEventos = 'item-menu'; } else { $classEventos = 'menu-active'; }
