@@ -61,7 +61,7 @@
     <!-- Inventario disponible -->
     <div class="row mt-5">
         <h3 class="mb-5">Productos asignados</h3>
-        <table class="DataTable display responsive nowrap">
+        <table id="evento-table1" class="display responsive nowrap">
             <thead>
                 <tr>
                     <th>Imagen</th>

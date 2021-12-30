@@ -42,7 +42,7 @@ $(document).ready(function () {
     });
 
     // Productos
-    $('#productos-table').DataTable({
+    $('#productos-table, #evento-table1').DataTable({
         language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
         responsive: true,
         dom: 'Bfrtip',
@@ -76,7 +76,7 @@ $(document).ready(function () {
             }
         ],
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'csv', 'excel', 'pdf', 'print'
         ]
     });
 
@@ -103,9 +103,6 @@ $(document).ready(function () {
                 },
                 targets: [0, 4, 5]
             }
-        ],
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
 
@@ -134,7 +131,7 @@ $(document).ready(function () {
             }
         ],
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'csv', 'excel', 'pdf', 'print'
         ]
     });
 
