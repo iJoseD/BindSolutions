@@ -44,6 +44,16 @@ $(document).ready(function () {
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
+
+    // Productos
+    $('#productos-table').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true,
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
     
     // Evento
     $('#evento-table3').DataTable({
