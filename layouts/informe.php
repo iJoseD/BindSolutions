@@ -201,6 +201,7 @@
                     <tr>
                         <th>Zona</th>
                         <th>Factura</th>
+                        <th>Tipo de Venta</th>
                         <th>Mesa</th>
                         <th>Mesero</th>
                         <th>Total vendido</th>
@@ -223,6 +224,7 @@
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['puntoVenta'] .'</th>';
                                     $html .= '<th>'. $row['codeFac'] .'</th>';
+                                    $html .= '<th>'. $row['tipoVenta'] .'</th>';
                                     $html .= '<th>'. $row['mesa'] .'</th>';
                                     $html .= '<th>'. $row['mesero'] .'</th>';
                                     $html .= '<th>$ '. number_format( $row['total'], 0, ',', '.' ) .'</th>';
