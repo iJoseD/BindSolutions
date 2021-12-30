@@ -411,7 +411,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="agregarPuntoVentaLabel">Crear zona de venta</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="formulario">
@@ -454,8 +453,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarPuntoVenta" class="btn btn-primary">Crear zona de venta</button>
+                <button type="button" class="btn btn-secondary cerrarModal" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-agregarPuntoVenta" class="btn btn-primary" disabled>Crear zona de venta</button>
             </div>
         </div>
     </div>
@@ -550,7 +549,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="agregarSubInventarioLabel">Asignar item al PV</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-2 mt-2 row alertaCantidad hide">
@@ -611,8 +609,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="btn-agregarSubInventario" class="btn btn-primary">Asignar item al PV</button>
+                <button type="button" class="btn btn-secondary cerrarModal" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" id="btn-agregarSubInventario" class="btn btn-primary" disabled>Asignar item al PV</button>
             </div>
         </div>
     </div>

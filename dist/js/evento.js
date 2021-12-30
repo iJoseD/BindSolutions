@@ -214,6 +214,9 @@ $('#addPuntos').click(function() {
                 $('.zonasVenta').html( response );
                 $('#agregarPuntoVenta-Nombre').val('');
                 $('#agregarPuntoVenta-cantMesas').val('');
+
+                $('#btn-agregarPuntoVenta').removeAttr('disabled');
+                $('#agregarPuntoVenta .cerrarModal').addClass('hide');
             }
         },
         error: function() {
@@ -445,6 +448,9 @@ $('#addSubBodega').click(function() {
                 } else {
                     $('.addSubBodega').html( response );
                     $('#agregarSubInventario-Cantidad').val('');
+
+                    $('#btn-agregarSubInventario').removeAttr('disabled');
+                    $('#agregarSubInventario .cerrarModal').addClass('hide');
                 }
             },
             error: function() {
