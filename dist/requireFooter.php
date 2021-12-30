@@ -1,6 +1,6 @@
 <?php session_start(); $rol = $_SESSION['rol']; ?>
 
-<footer>
+<footer class="bg-dark pb-3 pt-3 text-center text-white" style="bottom: 0px; position: absolute; width: 100%;">
     <div class="row">
         <div class="col-12">
             © <?php echo date('Y'); ?> Bind Solutions. Todos los derechos reservados. Desarrollado por <a href="https://caribecreativo.co/" target="_blank" rel="noopener noreferrer">caribecreativo.co</a>
