@@ -182,7 +182,7 @@
                 <div class="cortesia mb-5 mt-5">
                     <div class="row">
                         <div class="col-12">
-                            <h4 class="text-center">¿Esta es una venta de cortesia?</h4>
+                            <h4 class="text-center">¿Esta es una venta de cortesía?</h4>
                         </div>
                     </div>
                     <div class="row mt-3">
