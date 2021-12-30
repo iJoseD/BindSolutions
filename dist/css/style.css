@@ -17,6 +17,14 @@
   background-color: #fe1000;
 }
 
+.outline-bind-1 {
+  border-color: #fe1000;
+}
+
+.outline-bind-1:hover {
+  background-color: #fe1000;
+}
+
 .imgProducto {
   width: 100px;
   height: 100px;

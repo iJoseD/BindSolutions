@@ -39,10 +39,10 @@
     <div class="row mt-5">
         <div class="col-xl-4 col-md-12 col-12"></div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-info btn btn-outline-info fw-bold text-uppercase text-white">Gestionar</a>
+            <a href="/evento/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn bg-bind-1 fw-bold text-uppercase text-white">Gestionar</a>
         </div>
         <div class="col-xl-2 col-md-6 col-6 d-grid">
-            <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn-dark btn btn-outline-info fw-bold text-uppercase text-white">Informes</a>
+            <a href="/informe/?codigoEvento=<?php echo $codigoEvento; ?>" class="btn btn-dark outline-bind-1 fw-bold text-uppercase text-white">Informes</a>
         </div>
         <div class="col-xl-4 col-md-12 col-12"></div>
     </div>
