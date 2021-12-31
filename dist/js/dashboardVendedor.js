@@ -303,7 +303,10 @@ $('#validarPin').click(function() {
                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
 
                 } else {
-                    $('.detalleFactura').html( response );
+                    $('#editarFactura .data').html( response );
+
+                    $('.pin').addClass('hide');
+                    $('.detalleFactura').removeClass('hide');
                 }
             },
             error: function() {

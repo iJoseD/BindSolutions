@@ -382,13 +382,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="formulario hide">
+                <div class="detalleFactura hide">
                     <div class="mb-2 mt-2 row">
                         <div class="col-12 text-center">
                             <p class="badge bg-success text-uppercase text-white">Resumen de la venta</p>
                         </div>
                     </div>
-                    <div class="row mt-3 detalleFactura"></div>
+                    <div class="row mt-3 data"></div>
                 </div>
             </div>
             <div class="modal-footer">
