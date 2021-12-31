@@ -212,4 +212,66 @@ if ( $caso == 'nuevaVenta' ) {
 
     $conn->close();
 
+} elseif ( $caso == 'editarFactura' ) {
+    $sql = "SELECT v.id, p.nombre, p.precioPublico, v.cantidad
+    FROM ventas v
+    JOIN productos p ON v.idProducto = p.id
+    WHERE codeFac = '$codeFac'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $totalFactura = 0;
+
+        $html = '<div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2" class="fw-bold">Item</th>
+                        <th scope="col" colspan="1" class="fw-bold">Cant.</th>
+                        <th scope="col" colspan="1" class="fw-bold">V. Total</th>
+                        <th scope="col" colspan="1" class="fw-bold">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    while($row = $result->fetch_assoc()) {
+                        $precioPublico = str_replace( '.', '', $row['precioPublico'] );
+                        $cantidad = $row["cantidad"];
+                        $totalVenta = $precioPublico * $cantidad;
+                        $totalFactura = $totalFactura + $totalVenta;
+
+                        $html .= '<tr>';
+                            $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
+                            $html .= '<td colspan="1" class="text-center">'. $row["cantidad"] .'</td>';
+                            $html .= '<td colspan="1" class="text-center">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
+                            $html .= '<th>
+                                <button type="button" class="btn btn-warning editarFactura" data-bs-toggle="modal" data-bs-target="#editarFactura" data-bs-id="'. $row['id'] .'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-danger verFactura" data-bs-toggle="modal" data-bs-target="#verFactura" data-bs-id="'. $row['id'] .'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                            </th>';
+                        $html .= '</tr>';
+                    }
+                $html .= '</tbody>
+            </table>
+
+            <ul class="list-group mt-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalFactura="'. $totalFactura .'">Total pagado<span class="badge bg-success rounded-pill fs-6">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</span></li>
+            </ul>
+        </div>';
+
+        echo $html;
+    } else {
+        echo 'verFactura_not_Select';
+    }
+
+    $conn->close();
+
 }

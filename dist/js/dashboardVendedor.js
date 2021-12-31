@@ -283,3 +283,35 @@ editarFactura.addEventListener('show.bs.modal', function (event) {
 
     inputCodeFac.textContent = codeFac
 })
+$('#validarPin').click(function() {
+    var pin = $('#editarFactura-Pin').val();
+    var codeFac = $('#editarFactura .codeFac').html();
+
+    if ( pin == '5673' ) {
+        $.ajax({
+            url: '/controller/ventas.php',
+            type: 'POST',
+            data: {
+                caso    : 'editarFactura',
+                pin     : pin,
+                codeFac : codeFac
+            },
+            success: function(response) {
+                console.log( response );
+
+                if ( response == 'editarFactura_not_Select' ) {
+                    alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+
+                } else {
+                    $('.detalleFactura').html( response );
+                }
+            },
+            error: function() {
+                console.log( 'ajax_editarFactura_error' );
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            }
+        });
+    } else {
+        alert( 'Pin incorrecto. Intente de nuevo.' );
+    }
+});
