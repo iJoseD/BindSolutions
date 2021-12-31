@@ -359,7 +359,7 @@
 
 <!-- Editar venta -->
 <div class="modal fade" id="editarFactura" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarFacturaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editarFacturaLabel">Factura <span class="codeFac badge bg-primary"></span></h5>
