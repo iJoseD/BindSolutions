@@ -307,6 +307,17 @@ $('#validarPin').click(function() {
 
                     $('.pin').addClass('hide');
                     $('.detalleFactura').removeClass('hide');
+
+                    // eliminar Item Factura
+                    $('.eliminarItemFactura').click(function () {
+                        var id     = $(this).attr('data-id');
+                        var nombre = $(this).attr('data-nombre');
+
+                        $('#editarFactura .producto').html( nombre );
+                        $('.eliminarItem-Continuar').attr('data-id', id);
+
+                        $('.eliminarItem').removeClass('hide');
+                    });
                 }
             },
             error: function() {

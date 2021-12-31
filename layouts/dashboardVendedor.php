@@ -357,7 +357,7 @@
     </div>
 </div>
 
-<!-- Ver venta -->
+<!-- Editar venta -->
 <div class="modal fade" id="editarFactura" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarFacturaLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -382,6 +382,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="detalleFactura hide">
                     <div class="mb-2 mt-2 row">
                         <div class="col-12 text-center">
@@ -389,6 +390,35 @@
                         </div>
                     </div>
                     <div class="row mt-3 data"></div>
+                </div>
+                
+                <div class="eliminarItem hide mt-5 mb-5">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h4>¿Esta seguro que desea eliminar el producto <span class="producto badge bg-primary"></span>?</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-3 d-grid">
+                            <button type="button" class="btn btn-light eliminarItem-Cancelar">No, cancelar</button>
+                        </div>
+                        <div class="col-3 d-grid">
+                            <button type="button" class="btn btn-success eliminarItem-Continuar">Si, continuar</button>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                </div>
+
+                <div class="alerta hide">
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+                        </svg>
+                        <div class="ms-2">
+                            An example success alert with an icon
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
