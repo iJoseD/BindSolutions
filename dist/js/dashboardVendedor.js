@@ -329,3 +329,29 @@ $('#validarPin').click(function() {
         alert( 'Pin incorrecto. Intente de nuevo.' );
     }
 });
+$('.eliminarItem-Continuar').click(function() {
+    var id = $(this).attr('data-id');
+
+    $.ajax({
+        url: '/controller/ventas.php',
+        type: 'POST',
+        data: {
+            caso        : 'eliminarItem',
+            idItemVenta : id
+        },
+        success: function(response) {
+            console.log( response );
+
+            if ( response == 'eliminarItem_not_Delete' ) {
+                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+
+            } else {
+                $('.alerta').removeClass('hide');
+            }
+        },
+        error: function() {
+            console.log( 'ajax_eliminarItem_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        }
+    });
+});
