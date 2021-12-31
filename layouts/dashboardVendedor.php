@@ -370,7 +370,7 @@
                     <div class="row">
                         <label class="col-3 col-form-label fw-bold text-uppercase">PIN DE SEGURIDAD</label>
                         <div class="col-7">
-                            <input type="password" name="editarFactura-Pin" id="editarFactura-Pin" class="form-control form-control-lg">
+                            <input type="password" name="editarFactura-Pin" id="editarFactura-Pin" class="form-control form-control-lg" oninput="checkNumberFieldLength(this);">
                         </div>
                         <div class="col-2 d-grid">
                             <button type="button" class="btn btn-lg bg-bind-1 fw-bold text-uppercase text-white">
