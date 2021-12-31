@@ -183,7 +183,7 @@ function separadorMiles(donde, caracter) {
 }
 
 // Solo números
-$('#crearProducto-Costo, #crearProducto-PrecioPublico, #editarProducto-Costo, #editarProducto-PrecioPublico, #agregarInventario-Cantidad, #agregarPuntoVenta-cantMesas, #editarInventario-Cantidad, #editarPuntoV-cantMesas, #agregarSubInventario-Cantidad, #editarSubInventario-Cantidad').bind('keypress', function(event) {
+$('#editarFactura-Pin, #crearProducto-Costo, #crearProducto-PrecioPublico, #editarProducto-Costo, #editarProducto-PrecioPublico, #agregarInventario-Cantidad, #agregarPuntoVenta-cantMesas, #editarInventario-Cantidad, #editarPuntoV-cantMesas, #agregarSubInventario-Cantidad, #editarSubInventario-Cantidad').bind('keypress', function(event) {
     var regex = new RegExp("^[0-9]+$");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regex.test(key)) {
