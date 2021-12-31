@@ -273,3 +273,13 @@ verFactura.addEventListener('show.bs.modal', function (event) {
         }
     });
 })
+
+// Ver la factura
+var editarFactura = document.getElementById('editarFactura')
+editarFactura.addEventListener('show.bs.modal', function (event) {
+    var button       = event.relatedTarget
+    var codeFac      = button.getAttribute('data-bs-codeFac')
+    var inputCodeFac = editarFactura.querySelector('#editarFactura .codeFac')
+
+    inputCodeFac.textContent = codeFac
+})
