@@ -72,7 +72,7 @@ $('#btn-agregarInventario').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_agregarInventario_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -123,7 +123,7 @@ $('#btn-editarInventario').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_editarInventario_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -220,7 +220,7 @@ $('#addPuntos').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_addPuntos_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -251,7 +251,7 @@ $('#btn-agregarPuntoVenta').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_agregarPuntoVenta_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -304,7 +304,7 @@ $('#btn-editarPuntoV').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_editarPuntoV_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -364,14 +364,14 @@ $('#btn-eliminarPuntoV').click(function() {
                         }
                     },
                     error: function() {
-                        console.log( 'ajax_crearProducto_error' );
+                        console.log( 'ajax_eliminarPuntoV2_error' );
                         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                     }
                 });
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_eliminarPuntoV_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -454,7 +454,7 @@ $('#addSubBodega').click(function() {
                 }
             },
             error: function() {
-                console.log( 'ajax_crearProducto_error' );
+                console.log( 'ajax_addSubBodega_error' );
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             }
         });
@@ -488,7 +488,7 @@ $('#btn-agregarSubInventario').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_agregarSubInventario_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -561,7 +561,7 @@ $('#btn-editarSubInventario').click(function() {
                 }
             },
             error: function() {
-                console.log( 'ajax_crearProducto_error' );
+                console.log( 'ajax_editarSubInventario_error' );
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             }
         });

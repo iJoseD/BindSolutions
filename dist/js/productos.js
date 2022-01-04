@@ -52,7 +52,7 @@ $('#btn-crearProducto').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_crearProductos_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
@@ -113,7 +113,7 @@ $('#btn-editarProducto').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_editarProducto_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });

@@ -94,7 +94,7 @@ $('#btn-editarEvento').click(function() {
             }
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_editarEvento_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });

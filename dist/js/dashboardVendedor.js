@@ -103,7 +103,7 @@ $('#addCart').click(function() {
                 }
             },
             error: function() {
-                console.log( 'ajax_crearProducto_error' );
+                console.log( 'ajax_nuevaVenta_error' );
                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
             }
         });
@@ -208,34 +208,34 @@ $('#btn-nuevaVenta').click(function() {
                                                         }
                                                     },
                                                     error: function() {
-                                                        console.log( 'ajax_crearProducto_error' );
+                                                        console.log( 'ajax_totalFacturaMesa_error' );
                                                         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                                                     }
                                                 });
                                             }
                                         },
                                         error: function() {
-                                            console.log( 'ajax_crearProducto_error' );
+                                            console.log( 'ajax_totalFacturaUsers_error' );
                                             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                                         }
                                     });
                                 }
                             },
                             error: function() {
-                                console.log( 'ajax_crearProducto_error' );
+                                console.log( 'ajax_totalFacturaPV_error' );
                                 alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                             }
                         });
                     }
                 },
                 error: function() {
-                    console.log( 'ajax_crearProducto_error' );
+                    console.log( 'ajax_totalFactura_error' );
                     alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
                 }
             });
         },
         error: function() {
-            console.log( 'ajax_crearProducto_error' );
+            console.log( 'ajax_finalizarPedido_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
