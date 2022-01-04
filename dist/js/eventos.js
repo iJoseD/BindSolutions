@@ -7,7 +7,7 @@ $('#btn-crearEvento').click(function() {
 
     $.ajax({
         type: 'POST',
-        url: '/controller/crearEvento.php',
+        url: '/controller/eventos.php',
         data: {
             caso         : 'crearEvento',
             nombre       : nombre,
