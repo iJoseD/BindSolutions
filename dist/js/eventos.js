@@ -1,3 +1,10 @@
+$(document).ready(function () {
+    $('.DataTable').DataTable({
+        language: { url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json" },
+        responsive: true
+    });
+});
+
 // Crear eventos
 $('#btn-crearEvento').click(function() {
     var nombre       = $('#crearEvento-Nombre').val();
