@@ -48,13 +48,15 @@
                                 if ( !empty( $row['nombre'] ) ) { $evento = $row['nombre']; } else { $evento = '---'; }
                                 if ( !empty( $row['nombrePV'] ) ) { $puntoVenta = $row['nombrePV']; } else { $puntoVenta = '---'; }
 
+                                $user = $row['user']:
+
                                 $html = '<tr>';
                                     $html .= '<th>'. $row['fullName'] .'</th>';
                                     $html .= '<th>'. $row['rol'] .'</th>';
                                     $html .= '<th>'. $evento .'</th>';
                                     $html .= '<th>'. $puntoVenta .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
-                                    if ( $row['user'] != 'root' ) {
+                                    if ( $user != 'root' ) {
                                         $html .= '<th>
                                             <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['idRol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
