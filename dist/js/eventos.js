@@ -1,12 +1,12 @@
 // Crear eventos
-$('#btn--crearEvento').click(function() {
+$('#btn-crearEvento').click(function() {
     var nombre       = $('#crearEvento-Nombre').val();
     var fecha        = $('#crearEvento-Fecha').val();
     var lugar        = $('#crearEvento-Lugar').val();
     var codigoEvento = $('#crearEvento-CodigoEvento').val();
 
     $.ajax({
-        url: '/controller/eventos.php',
+        url: '/controller/crearEvento.php',
         type: 'POST',
         data: {
             caso         : 'crearEvento',
@@ -30,10 +30,9 @@ $('#btn--crearEvento').click(function() {
                 }, 2000);
             }
         },
-        error: function( jqXHR, textStatus, errorThrown ) {
-            console.log('jqXHR ' + jqXHR);
-            console.log('textStatus ' + textStatus);
-            console.log('errorThrown ' + errorThrown);
+        error: function( jqXHR, exception ) {
+            console.log( 'ajax_crearEvento_error' );
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
 });
