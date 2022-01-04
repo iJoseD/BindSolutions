@@ -35,35 +35,32 @@ $('#btn-crearEvento').click(function() {
     //         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
     //     }
     // });
+
     $.ajax({
         type: 'POST',
         url: '/controller/crearEvento.php',
         data: {
-            caso         : 'crearEvento',
-            nombre       : nombre,
-            fecha        : fecha,
-            lugar        : lugar,
-            codigoEvento : codigoEvento
-        },
-        success: function(response) {
-            console.log( response );
-
-            if ( response == 'event_not_created' ) {
-                alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
-
-            } else {
-                $('.formulario').addClass('hide');
-                $('.successful-message').removeClass('hide');
-
-                window.setTimeout(function() {
-                    location.reload();
-                }, 2000);
-            }
-        },
-        error: function() {
-            console.log( 'ajax_crearEvento_error' );
-            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+            caso: 'crearEvento',
+            nombre: nombre,
+            fecha: fecha,
+            lugar: lugar,
+            codigoEvento: codigoEvento
         }
+    }).done(function( msg ) {
+        console.log( msg );
+    
+        if ( msg == 'event_not_created' ) {
+            alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+        } else {
+            $('.formulario').addClass('hide');
+            $('.successful-message').removeClass('hide');
+    
+            window.setTimeout(function() {
+                location.reload();
+            }, 2000);
+        }
+    }).fail(function (jqXHR, textStatus, errorThrown){
+        alert( "The following error occured: "+ textStatus +" "+ errorThrown );
     });
 });
 
