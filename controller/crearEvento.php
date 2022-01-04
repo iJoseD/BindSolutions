@@ -44,12 +44,8 @@ $codigoEvento = $_POST['codigoEvento'];
 
 if ( $caso == 'crearEvento' ) {
     $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$date')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo 'event_created';
-    } else {
-        echo 'event_not_created';
-    }
-
+    if ($conn->query($sql) === TRUE) { echo 'event_created'; } else { echo 'event_not_created'; }
     $conn->close();
 }
+
+?>

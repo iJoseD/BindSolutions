@@ -6,8 +6,8 @@ $('#btn-crearEvento').click(function() {
     var codigoEvento = $('#crearEvento-CodigoEvento').val();
 
     $.ajax({
-        url: '/controller/crearEvento.php',
         type: 'POST',
+        url: '/controller/crearEvento.php',
         data: {
             caso         : 'crearEvento',
             nombre       : nombre,
@@ -30,7 +30,7 @@ $('#btn-crearEvento').click(function() {
                 }, 2000);
             }
         },
-        error: function( jqXHR, exception ) {
+        error: function() {
             console.log( 'ajax_crearEvento_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
