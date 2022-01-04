@@ -5,6 +5,36 @@ $('#btn-crearEvento').click(function() {
     var lugar        = $('#crearEvento-Lugar').val();
     var codigoEvento = $('#crearEvento-CodigoEvento').val();
 
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '/controller/crearEvento.php',
+    //     data: {
+    //         caso         : 'crearEvento',
+    //         nombre       : nombre,
+    //         fecha        : fecha,
+    //         lugar        : lugar,
+    //         codigoEvento : codigoEvento
+    //     },
+    //     success: function(response) {
+    //         console.log( response );
+
+    //         if ( response == 'event_not_created' ) {
+    //             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+
+    //         } else {
+    //             $('.formulario').addClass('hide');
+    //             $('.successful-message').removeClass('hide');
+
+    //             window.setTimeout(function() {
+    //                 location.reload();
+    //             }, 2000);
+    //         }
+    //     },
+    //     error: function() {
+    //         console.log( 'ajax_crearEvento_error' );
+    //         alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+    //     }
+    // });
     $.ajax({
         type: 'POST',
         url: '/controller/crearEvento.php',
