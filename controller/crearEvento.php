@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
 // Variables globales
-$date = date('Y-m-d H:m:s');
+$dateNow = date('Y-m-d H:m:s');
 $caso = $_POST['caso'];
 
 // Eventos
@@ -43,9 +43,7 @@ $lugar        = $_POST['lugar'];
 $codigoEvento = $_POST['codigoEvento'];
 
 if ( $caso == 'crearEvento' ) {
-    $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', 'fecha', 'fechaFormato', 'lugar', 'codigoEvento', '1', '$date')";
+    $sql = "INSERT INTO eventos (nombre, fecha, fechaFormato, lugar, codigoEvento, status, creationDate) VALUES ('$nombre', '$fecha', '$fechaFormato', '$lugar', '$codigoEvento', '1', '$dateNow')";
     if ($conn->query($sql) === TRUE) { echo 'event_created'; } else { echo 'event_not_created'; }
     $conn->close();
 }
-
-?>
