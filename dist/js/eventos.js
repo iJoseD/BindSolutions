@@ -30,10 +30,18 @@ $('#btn--crearEvento').click(function() {
                 }, 2000);
             }
         },
-        error: function() {
+        error: function( jqXHR, exception ) {
             console.log( 'ajax_crearEvento_error' );
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
+
+            console.log('status: ' + jqXHR.status);
+            console.log('exception: ' + exception);
         }
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log('jqXHR ' + jqXHR);
+        console.log('textStatus ' + textStatus);
+        console.log('errorThrown ' + errorThrown);
     });
 });
 
