@@ -1,5 +1,5 @@
 // Crear eventos
-$('#btn-crearEvento').click(function() {
+$('#btn--crearEvento').click(function() {
     var nombre       = $('#crearEvento-Nombre').val();
     var fecha        = $('#crearEvento-Fecha').val();
     var lugar        = $('#crearEvento-Lugar').val();
