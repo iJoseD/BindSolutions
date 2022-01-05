@@ -57,7 +57,7 @@
                                     $html .= '<th>'. $puntoVenta .'</th>';
                                     $html .= '<th>'. $row['lastLogin'] .'</th>';
                                     if ( $usuario == 'root' ) {
-                                        $html .= '---';
+                                        $html .= '<th>---</th>';
                                     } else {
                                         $html .= '<th>
                                             <button type="button" class="btn btn-warning editarUsuario" data-bs-toggle="modal" data-bs-target="#editarUsuario" data-bs-fullName="'. $row['fullName'] .'" data-bs-user="'. $row['user'] .'" data-bs-rol="'. $row['idRol'] .'" data-bs-password="'. $desencriptar( $row['password'] ) .'" data-bs-idEvento="'. $row['idEvento'] .'" data-bs-idPuntoVenta="'. $row['idPuntoVenta'] .'">
