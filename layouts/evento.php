@@ -577,7 +577,7 @@
                             <select name="agregarSubInventario-Producto" id="agregarSubInventario-Producto" class="form-select">
                                 <option selected>---</option>
                                 <?php
-                                    $sql = "SELECT p.id, p.nombre FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id' ORDER BY p.nombre ASC";
+                                    $sql = "SELECT p.id, p.nombre FROM inventario i JOIN productos p ON i.idProducto = p.id WHERE i.idEvento = '$id' AND i.status = 'Approved' ORDER BY p.nombre ASC";
                                     $result = $conn->query($sql);
 
                                     if ($result->num_rows > 0) {
