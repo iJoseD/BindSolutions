@@ -427,9 +427,17 @@
 </div>
 
 <div class="hide">
-    <div id='DivIdToPrint'>
+    <div id="DivIdToPrint">
         <p>This is a sample text for printing purpose.</p>
     </div>
     <p>Do not print.</p>
     <input type='button' id='btn' value='Print' onclick='printDiv();'>
 </div>
+
+<style>
+    @media print {
+        #DivIdToPrint {
+            width: 200px;
+        }
+    }
+</style>
