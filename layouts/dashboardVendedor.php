@@ -437,6 +437,23 @@
                 <p>Factura de venta No. </p>
                 <p>Vendedor: </p>
                 <p><?php echo date('d/m/Y H:m:s'); ?></p>
+                <p class="fw-bold text-uppercase">**  COPIA  **</p>
+            </div>
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2" class="fw-bold">Item</th>
+                            <th scope="col" colspan="1" class="fw-bold">Cant.</th>
+                            <th scope="col" colspan="1" class="fw-bold">V. Total</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr><td colspan="2">CERVEZA ANDINA</td><td colspan="1" class="text-center">1</td><td colspan="1" class="text-center">$ 8.000</td></tr></tbody>
+                </table>
+
+                <ul class="list-group mt-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalfactura="8000">Total pagado<span class="badge bg-success rounded-pill fs-6">$ 8.000</span></li>
+                </ul>
             </div>
         </div>
     </div>
