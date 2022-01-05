@@ -449,15 +449,26 @@
                             <th scope="col" colspan="1" class="fw-bold">V. Total</th>
                         </tr>
                     </thead>
-                    <tbody><tr><td colspan="2">CERVEZA ANDINA</td><td colspan="1" class="text-center">1</td><td colspan="1" class="text-center">$ 8.000</td></tr></tbody>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">CERVEZA ANDINA</td>
+                            <td colspan="1" class="text-center">1</td>
+                            <td colspan="1" class="text-center">$ 8.000</td>
+                        </tr>
+                    </tbody>
                 </table>
 
-                <ul class="list-group mt-4">
-                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalfactura="8000">Total pagado<span class="fs-6">$ 8.000</span></li>
-                </ul>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td colspan="3">Total factura</td>
+                            <td colspan="1" class="text-center">$ 8.000</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-12 mb-5">
-                <p class="fs-6 fw-bold text-uppercase">GRACIAS POR CONFIAR EN NOSTROS</p>
+            <div class="col-12 mt-5 text-center">
+                <p class="fw-bold text-uppercase">GRACIAS POR CONFIAR EN NOSTROS</p>
             </div>
         </div>
     </div>
