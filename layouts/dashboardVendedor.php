@@ -428,11 +428,15 @@
 
 <div class="hide">
     <div id="DivIdToPrint">
-        <div class="row">
+        <div class="row text-center">
             <div class="col-12">
-                <h2>BUENAVIDA BEACH FESTIVAL 2022</h2>
+                <p class="fs-6 fw-bold text-uppercase">BUENAVIDA BEACH FESTIVAL 2022</p>
                 <p>LA FÊTE AMÉRICA SAS</p>
                 <p>NIT: 900.815.494-8</p>
+                <hr class="dropdown-divider">
+                <p>Factura de venta No. </p>
+                <p>Vendedor: </p>
+                <p><?php echo date('d/m/Y H:m:s'); ?></p>
             </div>
         </div>
     </div>
