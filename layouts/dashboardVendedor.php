@@ -428,9 +428,15 @@
 
 <div class="hide">
     <div id="DivIdToPrint">
-        <p>This is a sample text for printing purpose.</p>
+        <div class="row">
+            <div class="col-12">
+                <h2>BUENAVIDA BEACH FESTIVAL 2022</h2>
+                <p>LA FÊTE AMÉRICA SAS</p>
+                <p>NIT: 900.815.494-8</p>
+            </div>
+        </div>
     </div>
-    <p>Do not print.</p>
+    
     <input type='button' id='btn' value='Print' onclick='printDiv();'>
 </div>
 
