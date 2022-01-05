@@ -137,7 +137,7 @@
                         FROM ventas v
                         JOIN productos p ON v.idProducto = p.id
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
-                        JOIN usuarios u ON v.mesero = u.id
+                        LEFT JOIN usuarios u ON v.mesero = u.id
                         WHERE v.idEvento = '$idEvento' AND v.idPuntoVenta = '$idPuntoVenta'
                         GROUP BY v.codeFac";
 
