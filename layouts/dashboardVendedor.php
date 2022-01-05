@@ -456,9 +456,8 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalfactura="8000">Total pagado<span class="fs-6">$ 8.000</span></li>
                 </ul>
             </div>
-            <div class="col-12">
-                <p>Mesa: </p>
-                <p>Mesero: </p>
+            <div class="col-12 mb-5">
+                <p class="fs-6 fw-bold text-uppercase">GRACIAS POR CONFIAR EN NOSTROS</p>
             </div>
         </div>
     </div>
