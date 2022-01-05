@@ -428,8 +428,8 @@
 
 <div class="hide">
     <div id="DivIdToPrint">
-        <div class="row text-center">
-            <div class="col-12">
+        <div class="row">
+            <div class="col-12 text-center">
                 <p class="fs-6 fw-bold text-uppercase">BUENAVIDA BEACH FESTIVAL 2022</p>
                 <p>LA FÊTE AMÉRICA SAS</p>
                 <p>NIT: 900.815.494-8</p>
@@ -438,6 +438,7 @@
                 <p>Vendedor: </p>
                 <p><?php echo date('d/m/Y H:m:s'); ?></p>
                 <p class="fw-bold text-uppercase">**  COPIA  **</p>
+                <hr class="dropdown-divider">
             </div>
             <div class="col-12">
                 <table class="table table-striped">
@@ -452,8 +453,12 @@
                 </table>
 
                 <ul class="list-group mt-4">
-                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalfactura="8000">Total pagado<span class="badge bg-success rounded-pill fs-6">$ 8.000</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-uppercase totalFactura" data-totalfactura="8000">Total pagado<span class="fs-6">$ 8.000</span></li>
                 </ul>
+            </div>
+            <div class="col-12">
+                <p>Mesa: </p>
+                <p>Mesero: </p>
             </div>
         </div>
     </div>
