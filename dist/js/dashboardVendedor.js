@@ -207,7 +207,6 @@ $('#btn-nuevaVenta').click(function() {
                                                             $('#DivIdToPrint').html( response );
                                     
                                                             window.setTimeout(function() {
-                                                                // location.reload();
                                                                 var contents = $("#DivIdToPrint").html();
                                                                 var frame1 = $('<iframe />');
                                                                 frame1[0].name = "frame1";
@@ -230,6 +229,9 @@ $('#btn-nuevaVenta').click(function() {
                                                                     frame1.remove();
                                                                 }, 500);
                                                             }, 1000);
+
+                                                            $(this).hide();
+                                                            $('.reloadPage').removeClass('hide');
                                                         }
                                                     },
                                                     error: function() {
@@ -264,6 +266,9 @@ $('#btn-nuevaVenta').click(function() {
             alert( 'Ocurrio un error inesperado, por favor intente de nuevo.' );
         }
     });
+});
+$('.reloadPage').click(function() {
+    location.reload();
 });
 
 // Ver la factura

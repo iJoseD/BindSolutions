@@ -325,6 +325,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary reloadPage hide" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-secondary cerrarModal" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" id="btn-nuevaVenta" class="btn btn-primary" disabled>Finalizar pedido</button>
             </div>
