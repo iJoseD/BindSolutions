@@ -230,7 +230,7 @@ $('#btn-nuevaVenta').click(function() {
                                                                 }, 500);
                                                             }, 1000);
 
-                                                            $(this).hide();
+                                                            $('#btn-nuevaVenta').addClass('hide');
                                                             $('.reloadPage').removeClass('hide');
                                                         }
                                                     },
