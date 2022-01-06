@@ -213,7 +213,7 @@
                         $sql = "SELECT pv.nombre AS 'puntoVenta', v.codeFac, v.tipoVenta, v.mesa, u.fullName AS 'mesero', tf.total
                         FROM ventas v
                         JOIN puntoVenta pv ON v.idPuntoVenta = pv.id
-                        JOIN usuarios u ON v.mesero = u.id
+                        LEFT JOIN usuarios u ON v.mesero = u.id
                         JOIN totalFactura tf ON v.codeFac = tf.codeFac
                         WHERE v.idEvento = '$id' AND v.status = 'approved'
                         GROUP BY v.codeFac";
