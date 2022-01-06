@@ -132,6 +132,11 @@ if ( $caso == 'nuevaVenta' ) {
             if ($conn->query($sql) === TRUE) {
                 $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$tipoVenta', '$totalFactura')";
                 if ($conn->query($sql) === TRUE) {
+                    
+                    /**|------------------------|
+                    ***|    IMPRIMIR FACTURA    |
+                    ***|------------------------|**/
+
                     $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
                     FROM ventas v
                     JOIN productos p ON v.idProducto = p.id
@@ -148,7 +153,6 @@ if ( $caso == 'nuevaVenta' ) {
                                 <p>NIT: 900.815.494-8</p>
                                 <hr class="dropdown-divider">
                                 <p>Factura de venta No. '. $codeFac .'</p>
-                                <p>Vendedor: </p>
                                 <p>'. date("d/m/Y H:m:s") .'</p>
                                 <p class="fw-bold text-uppercase">**  COPIA  **</p>
                                 <hr class="dropdown-divider">
@@ -204,6 +208,11 @@ if ( $caso == 'nuevaVenta' ) {
     } else {
         $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$tipoVenta', '$totalFactura')";
         if ($conn->query($sql) === TRUE) {
+
+            /**|------------------------|
+            ***|    IMPRIMIR FACTURA    |
+            ***|------------------------|**/
+            
             $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
             FROM ventas v
             JOIN productos p ON v.idProducto = p.id
@@ -220,7 +229,6 @@ if ( $caso == 'nuevaVenta' ) {
                         <p>NIT: 900.815.494-8</p>
                         <hr class="dropdown-divider">
                         <p>Factura de venta No. '. $codeFac .'</p>
-                        <p>Vendedor: </p>
                         <p>'. date("d/m/Y H:m:s") .'</p>
                         <p class="fw-bold text-uppercase">**  COPIA  **</p>
                         <hr class="dropdown-divider">

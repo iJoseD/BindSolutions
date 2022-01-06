@@ -192,7 +192,8 @@ $('#btn-nuevaVenta').click(function() {
                                                         mesa         : mesa,
                                                         tipoVenta    : tipoVenta,
                                                         totalFactura : totalFactura,
-                                                        codeFac      : codeFac
+                                                        codeFac      : codeFac,
+                                                        mesero       : mesero
                                                     },
                                                     success: function(response) {
                                                         console.log( response );
