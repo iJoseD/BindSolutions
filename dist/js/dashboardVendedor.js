@@ -191,7 +191,8 @@ $('#btn-nuevaVenta').click(function() {
                                                         idPuntoVenta : idPuntoVenta,
                                                         mesa         : mesa,
                                                         tipoVenta    : tipoVenta,
-                                                        totalFactura : totalFactura
+                                                        totalFactura : totalFactura,
+                                                        codeFac      : codeFac
                                                     },
                                                     success: function(response) {
                                                         console.log( response );
@@ -201,10 +202,33 @@ $('#btn-nuevaVenta').click(function() {
                                                         } else {
                                                             $('.formulario').addClass('hide');
                                                             $('.successful-message').removeClass('hide');
+
+                                                            $('#DivIdToPrint').html( response );
                                     
                                                             window.setTimeout(function() {
-                                                                location.reload();
-                                                            }, 2000);
+                                                                // location.reload();
+                                                                var contents = $("#DivIdToPrint").html();
+                                                                var frame1 = $('<iframe />');
+                                                                frame1[0].name = "frame1";
+                                                                frame1.css({
+                                                                    "position": "absolute",
+                                                                    "top": "-1000000px"
+                                                                });
+                                                                $("body").append(frame1);
+                                                                var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+                                                                frameDoc.document.open();
+                                                                frameDoc.document.write('<html><head><title>DIV Contents</title>');
+                                                                frameDoc.document.write('</head><body>');
+                                                                frameDoc.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">');
+                                                                frameDoc.document.write(contents);
+                                                                frameDoc.document.write('</body></html>');
+                                                                frameDoc.document.close();
+                                                                setTimeout(function() {
+                                                                    window.frames["frame1"].focus();
+                                                                    window.frames["frame1"].print();
+                                                                    frame1.remove();
+                                                                }, 500);
+                                                            }, 1000);
                                                         }
                                                     },
                                                     error: function() {

@@ -129,11 +129,148 @@ if ( $caso == 'nuevaVenta' ) {
         while($row = $result->fetch_assoc()) {
             $totalFactura = $totalFactura + $row["total"];
             $sql = "UPDATE totalFacturaMesa SET total = '$totalFactura' WHERE idEvento = '$idEvento' AND idPuntoVenta = '$idPuntoVenta' AND mesa = '$mesa' AND tipoVenta = '$tipoVenta'";
-            if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_Update'; } else { echo 'totalFacturaMesa_not_Update'; }
+            if ($conn->query($sql) === TRUE) {
+                $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$tipoVenta', '$totalFactura')";
+                if ($conn->query($sql) === TRUE) {
+                    $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
+                    FROM ventas v
+                    JOIN productos p ON v.idProducto = p.id
+                    WHERE codeFac = '$codeFac'";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        $totalFactura = 0;
+                        
+                        $html = '<div class="row">
+                            <div class="col-12 text-center">
+                                <p class="fs-6 fw-bold text-uppercase">BUENAVIDA BEACH FESTIVAL 2022</p>
+                                <p>LA FÊTE AMÉRICA SAS</p>
+                                <p>NIT: 900.815.494-8</p>
+                                <hr class="dropdown-divider">
+                                <p>Factura de venta No. '. $codeFac .'</p>
+                                <p>Vendedor: </p>
+                                <p>'. date("d/m/Y H:m:s") .'</p>
+                                <p class="fw-bold text-uppercase">**  COPIA  **</p>
+                                <hr class="dropdown-divider">
+                            </div>
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="2" class="fw-bold">Item</th>
+                                            <th scope="col" colspan="1" class="fw-bold">Cant.</th>
+                                            <th scope="col" colspan="1" class="fw-bold">V. Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+                                        while($row = $result->fetch_assoc()) {
+                                            $precioPublico = str_replace( '.', '', $row['precioPublico'] );
+                                            $cantidad = $row["cantidad"];
+                                            $totalVenta = $precioPublico * $cantidad;
+                                            $totalFactura = $totalFactura + $totalVenta;
+            
+                                            $html .= '<tr>';
+                                                $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
+                                                $html .= '<td colspan="1" class="text-center">'. $row["cantidad"] .'</td>';
+                                                $html .= '<td colspan="1" class="text-center">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
+                                            $html .= '</tr>';
+                                        }
+                                    $html .= '</tbody>
+                                </table>
+
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3">Total factura</td>
+                                            <td colspan="1" class="text-center">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-12 mt-5 text-center">
+                                <p class="fw-bold text-uppercase">GRACIAS POR CONFIAR EN NOSTROS</p>
+                            </div>
+                        </div>';
+
+                        echo $html;
+                    } else {
+                        echo 'verFactura_not_Select';
+                    }
+
+                    $conn->close();
+                } else { echo 'totalFacturaMesa_not_created'; }
+            } else { echo 'totalFacturaMesa_not_Update'; }
         }
     } else {
         $sql = "INSERT INTO totalFacturaMesa (idEvento, idPuntoVenta, mesa, tipoVenta, total) VALUES ('$idEvento', '$idPuntoVenta', '$mesa', '$tipoVenta', '$totalFactura')";
-        if ($conn->query($sql) === TRUE) { echo 'totalFacturaMesa_created'; } else { echo 'totalFacturaMesa_not_created'; }
+        if ($conn->query($sql) === TRUE) {
+            $sql = "SELECT p.nombre, p.precioPublico, v.cantidad
+            FROM ventas v
+            JOIN productos p ON v.idProducto = p.id
+            WHERE codeFac = '$codeFac'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                $totalFactura = 0;
+                
+                $html = '<div class="row">
+                    <div class="col-12 text-center">
+                        <p class="fs-6 fw-bold text-uppercase">BUENAVIDA BEACH FESTIVAL 2022</p>
+                        <p>LA FÊTE AMÉRICA SAS</p>
+                        <p>NIT: 900.815.494-8</p>
+                        <hr class="dropdown-divider">
+                        <p>Factura de venta No. '. $codeFac .'</p>
+                        <p>Vendedor: </p>
+                        <p>'. date("d/m/Y H:m:s") .'</p>
+                        <p class="fw-bold text-uppercase">**  COPIA  **</p>
+                        <hr class="dropdown-divider">
+                    </div>
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="2" class="fw-bold">Item</th>
+                                    <th scope="col" colspan="1" class="fw-bold">Cant.</th>
+                                    <th scope="col" colspan="1" class="fw-bold">V. Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                                while($row = $result->fetch_assoc()) {
+                                    $precioPublico = str_replace( '.', '', $row['precioPublico'] );
+                                    $cantidad = $row["cantidad"];
+                                    $totalVenta = $precioPublico * $cantidad;
+                                    $totalFactura = $totalFactura + $totalVenta;
+    
+                                    $html .= '<tr>';
+                                        $html .= '<td colspan="2">'. $row["nombre"] .'</td>';
+                                        $html .= '<td colspan="1" class="text-center">'. $row["cantidad"] .'</td>';
+                                        $html .= '<td colspan="1" class="text-center">$ '. number_format( $totalVenta, 0, ',', '.' ) .'</td>';
+                                    $html .= '</tr>';
+                                }
+                            $html .= '</tbody>
+                        </table>
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">Total factura</td>
+                                    <td colspan="1" class="text-center">$ '. number_format( $totalFactura, 0, ',', '.' ) .'</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 mt-5 text-center">
+                        <p class="fw-bold text-uppercase">GRACIAS POR CONFIAR EN NOSTROS</p>
+                    </div>
+                </div>';
+
+                echo $html;
+            } else {
+                echo 'verFactura_not_Select';
+            }
+
+            $conn->close();
+        } else { echo 'totalFacturaMesa_not_created'; }
     }
 
     $conn->close();
